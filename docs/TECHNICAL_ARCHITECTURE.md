@@ -6,7 +6,8 @@ I have the real harness source. The doc can now reference the actual structure f
 
 ## 1. Design principle: adapt the §6 hiring harness into a clinical harness
 
-FairMedAgent's evaluation engine is a direct descendant of the working §6 `audit_harness.js` (`ResearchPaper7/experiments/section6_audit/audit_harness.js`). That harness already implements the exact loop FairMedAgent needs, in a hiring framing:
+FairMedAgent's evaluation engine is a direct descendant of an earlier audit harness written
+for a hiring-decision study. That harness already implements the exact loop FairMedAgent needs, in a hiring framing:
 
 1. **Build a task grid** `CONFIGS × PROFILES × CONDITIONS` (the §6 harness pushes one task per cell).
 2. **Call `agent()` per task** with a *structured JSON schema* (`{advance: boolean, score: int 0–100}`) at a pinned model and `temperature: 0`.
@@ -97,7 +98,3 @@ The **dev split + harness** ship on HF + GitHub; the **test split stays off-plat
 ## 7. Reproducibility and cost controls
 
 Every run pins **seeds, `temperature: 0`, model IDs + release dates**, and harness **semver**; the dataset is HF-versioned with checksums, and a Zenodo DOI snapshots harness + protocol. The first-author runs a **Haiku-first pilot kept under \$50**: ~35 vignettes × ~16 conditions × 3 scaffolds on Haiku 4.5 with response caching and aggregated replicates fits the budget; Sonnet/Opus/Fable runs are gated behind a cost estimate printed by `cli.py` before execution.
-
----
-
-The doc above is ready to save (for example to `Researchpaper8-AgentFairBench/docs/technical_architecture.md` or the FairMedAgent repo root). It is grounded in the real `audit_harness.js` at `C:\Users\rohit\Documents\Research Papers\ResearchPaper7\experiments\section6_audit\audit_harness.js` and the v2 spec at `C:\Users\rohit\Documents\Research Papers\ResearchPaper7\experiments\section6_audit_v2\audit_spec.json`, and runs ~995 words.

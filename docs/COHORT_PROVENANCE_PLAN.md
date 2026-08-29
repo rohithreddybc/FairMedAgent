@@ -1,8 +1,6 @@
 # Cohort provenance: resolving the MedAgentBench blocker
 
 **Decision date:** 2026-08-22
-**Supersedes:** the provenance permission in `ResearchPaper17-DatasetDescriptor/KEYSTONE-CONSTRAINT.md`
-**Authority:** `STOP-BLOCKER-2026-07-18.md` (identical copies in papers 15, 16 and 17)
 
 ---
 

@@ -1,8 +1,8 @@
-The Statistical Analysis Plan is complete and saved.
+# Statistical analysis plan
 
-**File:** `C:\Users\rohit\Documents\Research Papers\FairMedAgent_Statistical_Analysis_Plan.md`
-
-The document (~1,000 words in the body, 12 sections) delivers everything requested, grounded entirely in the verified stats guidance with no fabricated numbers:
+Twelve sections, summarised below. No quantity is invented: the pilot `p_discordant`, the
+CFR and MASD values, and the final vignette and replicate counts are placeholders until a
+real run fills them.
 
 - **Formal definitions**: CFR as a metamorphic-relation violation rate `(1/n)Σ1[Y(c)≠Y(c0)]`, MASD `(1/n)Σ|S(c)−S(c0)|`, and signed/directional action-level disparity `Δ_g(Y)=P̂(Y=1|g)−P̂(Y=1|ref)` with the ordinal net-up-shift analogue `Δ⁺`.
 - **Estimators**: plug-in/empirical, on aggregated cells, with the explicit estimand decision (population-average descriptive gap is the leaderboard number, not the GLMM conditional coefficient).
@@ -15,4 +15,4 @@ The document (~1,000 words in the body, 12 sections) delivers everything request
 - **Intersectional small-N rules**: minimum cell size, mandatory N+CI, strength-borrowing, Bayesian beta-binomial credible intervals, FDR + sealed-split confirmation.
 - **Ceiling-effect handling**: 5%/95% flagging, latent-scale (cumulative-link) analysis, and the load-bearing distinction between "consistent (no flip)" and "unmeasurable due to ceiling."
 
-A test-choice-by-action-type table and a pre-registration freeze statement close it out. Note: per the precedent guidance the document deliberately holds to the no-fabricated-numbers honesty bar: the pilot `p_discordant`, actual CFR/MASD values, and final vignette/replicate counts are left as placeholders to be filled from a real `audit_harness.js` run, not invented.
+A test-choice-by-action-type table and a pre-registration freeze statement close the plan.

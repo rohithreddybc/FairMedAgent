@@ -1,7 +1,7 @@
 """The FairMedAgent multi-step clinical agent runner (decision D1).
 
 Executes a *sequential, tool-using* clinical trajectory so demographic disparity can
-propagate and compound across steps — the property that distinguishes FairMedAgent from
+propagate and compound across steps, the property that distinguishes FairMedAgent from
 single-turn audits (e.g., Omar/Nadkarni 2025).
 
 The runner is model-agnostic: it takes a ``model_fn(prompt, json_schema) -> dict`` callable.
@@ -10,7 +10,7 @@ real pilot, or (c) an external model adapter for leaderboard submissions. The sa
 per-step JSON schemas are passed to the adapter so structured outputs are enforced.
 
 Critically, the ``results`` step injects the vignette's deterministic, condition-independent
-tool-result fixture — identical across demographic conditions — so any trajectory
+tool-result fixture (identical across demographic conditions) so any trajectory
 divergence is attributable to the descriptor alone.
 """
 from __future__ import annotations

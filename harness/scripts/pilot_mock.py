@@ -1,7 +1,7 @@
-"""End-to-end MOCK pilot — proves the full FairMedAgent pipeline runs.
+"""End-to-end MOCK pilot: proves the full FairMedAgent pipeline runs.
 
 ⚠️ Uses a deterministic MOCK model (not a real LLM) and DRAFT (unvalidated) vignettes.
-Output is plumbing validation ONLY — not a scientific result. Swapping `model_fn` for a
+Output is plumbing validation ONLY, not a scientific result. Swapping `model_fn` for a
 real model adapter (the Workflow agent() runtime or an external API) is the only change
 needed to produce a real (clearly-labeled) pilot.
 
@@ -64,7 +64,7 @@ def run_pilot(model_fn=biased_mock_model, model_name="mock", scaffold="C0"):
             traj[v.id][c.id] = t.actions()
 
     print(f"=== FairMedAgent MOCK pilot ({model_name}, scaffold {scaffold}) ===")
-    print("*** DRAFT vignettes + MOCK model — plumbing validation only, NOT a scientific result ***\n")
+    print("*** DRAFT vignettes + MOCK model, plumbing validation only, NOT a scientific result ***\n")
     print(f"{len(vignettes)} vignettes x {len(conds)} conditions "
           f"x 5 model calls = {len(vignettes)*len(conds)*5} calls\n")
 

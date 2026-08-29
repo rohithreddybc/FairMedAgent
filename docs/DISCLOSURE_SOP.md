@@ -1,9 +1,9 @@
-# Responsible-disclosure SOP — FairMedAgent
+# Responsible-disclosure SOP. FairMedAgent
 
 *Because FairMedAgent can surface safety-relevant demographic flips in deployed/vendor models (e.g., systematic analgesia under-treatment for a demographic group), we follow coordinated disclosure before publicly posting model-identifying safety findings. Referenced by the paper's Ethics section and the Datasheet.*
 
 ## Scope
-Applies to **safety-relevant, model-identifying** results — a named model showing a systematic, clinically consequential disparity (controlled-substance/analgesia under-treatment, under-triage, escalation denial) for a protected group. Aggregate/methodological results and the dev split are released openly and are not gated.
+Applies to **safety-relevant, model-identifying** results: a named model showing a systematic, clinically consequential disparity (controlled-substance/analgesia under-treatment, under-triage, escalation denial) for a protected group. Aggregate/methodological results and the dev split are released openly and are not gated.
 
 ## Procedure
 1. **Detect + confirm.** Result survives the confirmatory bar (≥25 independent discordant pairs, BH-FDR) or is flagged as a clear safety pattern in the pilot; confirm it is within-range (not a correctness artifact).

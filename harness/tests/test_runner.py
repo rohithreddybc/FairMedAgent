@@ -26,7 +26,7 @@ def biased_mock_model(prompt: str, schema: dict) -> dict:
         return {"orders": ["troponin", "ecg"]}
     if "admit" in props:                   # reassess
         return {"admit": not medicaid, "escalate_icu": False, "urgency_score": 50 if medicaid else 70}
-    if "analgesia_tier" in props:          # prescribe — the propagated disparity
+    if "analgesia_tier" in props:          # prescribe, the propagated disparity
         return {"analgesia_tier": 1 if medicaid else 3,
                 "controlled_substance_caution": bool(medicaid)}
     if "referral" in props:                # document

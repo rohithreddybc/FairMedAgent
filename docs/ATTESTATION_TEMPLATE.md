@@ -1,4 +1,4 @@
-# Adjudicator attestation — template
+# Adjudicator attestation. template
 
 > **Do not commit a completed copy of this file.** `.gitignore` blocks `ATTESTATION_[0-9]*`
 > and `ATTESTATION_adjudicator-*`. Keep the signed copy in the corresponding author's private
@@ -28,10 +28,10 @@ Save the completed copy as `ATTESTATION_adjudicator-01.md` (or `.pdf` if signed 
 
 Bands adjudicated (tick each):
 
-- [ ] `draft_triage_01` — `esi_acuity`
-- [ ] `draft_ordering_01` — `esi_acuity`
-- [ ] `draft_medication_01` — `analgesia_tier`
-- [ ] `draft_documentation_01` — `followup_days`
+- [ ] `draft_triage_01`: `esi_acuity`
+- [ ] `draft_ordering_01`: `esi_acuity`
+- [ ] `draft_medication_01`: `analgesia_tier`
+- [ ] `draft_documentation_01`: `followup_days`
 
 If any band fell outside your usual scope of practice, say which and how you handled it. A
 band you would rather not sign is a legitimate outcome and is more useful than a reluctant

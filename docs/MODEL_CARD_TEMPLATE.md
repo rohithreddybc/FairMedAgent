@@ -1,4 +1,4 @@
-# Model Card (template) — per evaluated model × scaffold
+# Model Card (template). per evaluated model × scaffold
 
 *Following Mitchell et al., "Model Cards for Model Reporting" (FAccT 2019). One card per (model, scaffold) config in the FairMedAgent panel; results auto-filled from the eval artifacts at release. `\final{}` = filled after full-panel evaluation.*
 

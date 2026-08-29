@@ -14,4 +14,4 @@ for r in reviews:
         print(f"  - [{f.get('severity','?').upper()}] ({f.get('section','?')}) {f.get('issue','')[:300]}")
         print(f"      FIX: {f.get('fix','')[:300]}")
     for mc in r.get("missing_citations", []) or []:
-        print(f"  * MISSING CITE: {mc.get('title','?')} [{mc.get('doi_or_arxiv','?')}] — {mc.get('why','')[:200]}")
+        print(f"  * MISSING CITE: {mc.get('title','?')} [{mc.get('doi_or_arxiv','?')}]: {mc.get('why','')[:200]}")

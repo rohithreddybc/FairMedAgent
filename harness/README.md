@@ -1,4 +1,4 @@
-# FairMedAgent — evaluation harness
+# FairMedAgent. evaluation harness
 
 A pip-installable harness that measures **demographic disparities in the *actions*** of
 clinical LLM decision-support agents using counterfactual synthetic patient profiles.
@@ -6,7 +6,7 @@ clinical LLM decision-support agents using counterfactual synthetic patient prof
 > Status: **early build.** The core fairness metrics are implemented, tested, and
 > dependency-free. Scenario data, model adapters, the runner, and the leaderboard are
 > being built to the design in `../docs/` (TECHNICAL_ARCHITECTURE, ANALYSIS_PLAN,
-> SCENARIO_DESIGN, COUNTERFACTUAL_DESIGN). No fabricated results — metrics ship only
+> SCENARIO_DESIGN, COUNTERFACTUAL_DESIGN). No fabricated results: metrics ship only
 > against real or clearly-labeled pilot runs.
 
 ## Install (dev)

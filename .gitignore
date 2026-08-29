@@ -7,7 +7,7 @@ venv/
 dist/
 build/
 
-# Sealed held-out test set — NEVER commit to a public mirror
+# Sealed held-out test set. NEVER commit to a public mirror
 data/held_out_sealed/
 
 # Env / secrets

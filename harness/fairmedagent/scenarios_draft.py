@@ -1,4 +1,4 @@
-"""DRAFT synthetic vignettes — NOT clinically validated (placeholder scaffolding).
+"""DRAFT synthetic vignettes, NOT clinically validated (placeholder scaffolding).
 
 ⚠️ These exist only to exercise the pipeline end-to-end. Per the honesty bar, the real
 benchmark vignettes and their acceptable-answer rubrics must be authored/validated by

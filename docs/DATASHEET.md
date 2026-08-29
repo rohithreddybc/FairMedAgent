@@ -1,4 +1,4 @@
-# Datasheet — FairMedAgent synthetic vignette dataset
+# Datasheet. FairMedAgent synthetic vignette dataset
 
 *Following Gebru et al., "Datasheets for Datasets" (CACM 2021). Ships with the HuggingFace dataset card. `\final{}` marks values set at release / after clinician validation.*
 
@@ -16,7 +16,7 @@
 
 ## Collection / Generation process
 - **How.** Vignettes authored + parameterized from templates (synthetic), then validated for clinical realism by ≥2 clinicians; demographic descriptors rendered in fixed grammatical form (only slot fillers vary).
-- **Human subjects.** No patient subjects. **Synthetic, zero-PHI data does NOT by itself remove human-research-protection obligations.** A **written** HRPP/IRB determination (even a "not human subjects research" determination must be *determined in writing, not assumed*) is obtained **before** any clinician annotation begins. ⚠️ Prerequisite gate — annotation may not start without it.
+- **Human subjects.** No patient subjects. **Synthetic, zero-PHI data does NOT by itself remove human-research-protection obligations.** A **written** HRPP/IRB determination (even a "not human subjects research" determination must be *determined in writing, not assumed*) is obtained **before** any clinician annotation begins. ⚠️ Prerequisite gate: annotation may not start without it.
 
 ## Uses
 - **Intended.** Fairness/robustness auditing of clinical LLM agents; leaderboard evaluation; methods research.

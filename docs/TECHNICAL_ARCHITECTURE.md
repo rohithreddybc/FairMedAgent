@@ -2,7 +2,7 @@ I have the real harness source. The doc can now reference the actual structure f
 
 ---
 
-# FairMedAgent — Technical Architecture
+# FairMedAgent. Technical Architecture
 
 ## 1. Design principle: adapt the §6 hiring harness into a clinical harness
 
@@ -92,7 +92,7 @@ The Anthropic adapter wraps the same `agent(prompt, {label, model, schema})` run
 
 ## 6. Leaderboard, sealed split, submission protocol
 
-The **dev split + harness** ship on HF + GitHub; the **test split stays off-platform**. Submitters send predictions (or an adapter) + attestation; `score_server.py` runs scoring server-side against sealed labels — submitters never see test gold. Each entry appends to a public submission log (name, affiliation, country, model IDs, date) with mandatory open-source disclosure within a fixed window and a stated multi-year support commitment. Canary strings and parameterized templates guard against contamination.
+The **dev split + harness** ship on HF + GitHub; the **test split stays off-platform**. Submitters send predictions (or an adapter) + attestation; `score_server.py` runs scoring server-side against sealed labels, so submitters never see test gold. Each entry appends to a public submission log (name, affiliation, country, model IDs, date) with mandatory open-source disclosure within a fixed window and a stated multi-year support commitment. Canary strings and parameterized templates guard against contamination.
 
 ## 7. Reproducibility and cost controls
 

@@ -3,21 +3,21 @@
 Stdlib-only (``math``, ``random``) so the metrics run anywhere with no install. These
 implement the estimators defined in the Statistical Analysis Plan:
 
-* **CFR** — counterfactual flip rate: fraction of counterfactual pairs whose discrete
+* **CFR**, counterfactual flip rate: fraction of counterfactual pairs whose discrete
   action changes when only the patient's demographic descriptor is swapped.
-* **WCFR** — within-range flip rate: the headline estimand. CFR restricted to pairs in
+* **WCFR**, within-range flip rate: the headline estimand. CFR restricted to pairs in
   which *both* variants fall inside the clinician-defined acceptable-action band A(v),
   so a flip is demographic sensitivity rather than clinical error. Undefined (``None``,
   reported as NA rather than 0) when no pair has both variants in band.
-* **disparity propagation** — downstream flip rate conditional on an upstream flip,
+* **disparity propagation**: downstream flip rate conditional on an upstream flip,
   contrasted against the non-flipped stratum (and optionally a single-call baseline).
-* **MASD** — mean absolute score difference: mean |Δ| of a continuous/ordinal output
+* **MASD**, mean absolute score difference: mean |Δ| of a continuous/ordinal output
   (e.g., 0-100 urgency) across the pair.
-* **action-level disparity** — *signed* group-wise positive-action rate gap (direction
+* **action-level disparity**: *signed* group-wise positive-action rate gap (direction
   matters; "any difference" hides who is harmed).
-* **cluster bootstrap CI** — resamples *vignettes* (the cluster unit) with replacement.
-* **McNemar exact** — paired-binary discordance test for flips.
-* **Benjamini-Hochberg** — FDR control across the attribute × task comparison grid.
+* **cluster bootstrap CI**: resamples *vignettes* (the cluster unit) with replacement.
+* **McNemar exact**: paired-binary discordance test for flips.
+* **Benjamini-Hochberg**: FDR control across the attribute × task comparison grid.
 
 A "pair" is one base vignette evaluated under a reference condition (e.g., the
 privileged demographic descriptor) and a counterfactual condition (the comparison

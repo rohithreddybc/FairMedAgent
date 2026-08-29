@@ -46,8 +46,8 @@ real patient lineage. Using it means:
 
 - The zero-PHI claim becomes true by construction rather than by inheritance, and stays true.
 - No redistribution permission is needed from anyone, so the dataset deposit unblocks.
-- MedAgentBench is cited for what it legitimately provides — task templates, action schema,
-  the FHIR interaction pattern — which is a normal and uncontroversial citation.
+- MedAgentBench is cited for what it legitimately provides: task templates, action schema,
+  the FHIR interaction pattern, which is a normal and uncontroversial citation.
 - The frictionless pilot ask survives: sites can be told truthfully that no BAA or data-use
   agreement is required.
 

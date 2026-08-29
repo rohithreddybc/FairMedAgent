@@ -32,9 +32,9 @@ def main(path):
             (verified if (conf in ("full-text", "abstract") and has_id) else unverified).append((lab, e))
 
     # references.bib
-    bib = ["% FairMedAgent references — VERIFIED entries only (DOI/arXiv resolved via Consensus/Scholar/web).",
+    bib = ["% FairMedAgent references: VERIFIED entries only (DOI/arXiv resolved via Consensus/Scholar/web).",
            "% Auto-assembled by harness/scripts/assemble_refs.py. Ledger: docs/CITATION_LEDGER.md.",
-           f"% {len(verified)} verified entries; {len(unverified)} unverified (excluded — see ledger).", ""]
+           f"% {len(verified)} verified entries; {len(unverified)} unverified (excluded, see ledger).", ""]
     for lab, e in verified:
         bib.append(f"% [{lab}] confidence={e.get('confidence')}")
         bib.append((e.get("bibtex") or "").strip())
@@ -42,7 +42,7 @@ def main(path):
     open(os.path.join(REPO, "paper", "references.bib"), "w", encoding="utf-8").write("\n".join(bib))
 
     # CITATION_LEDGER.md
-    led = ["# FairMedAgent — Citation Ledger",
+    led = ["# FairMedAgent Citation Ledger",
            "",
            "*Auto-generated from the citation-verification workflow. Rule: only DOI/arXiv-resolved, "
            "full-text/abstract-confidence entries enter `paper/references.bib`. Number-claims must be full-text. "
@@ -58,10 +58,10 @@ def main(path):
             find = find[:237] + "..."
         led.append(f"| `{e.get('bibkey')}` | {e.get('confidence')} | {e.get('doi_or_arxiv')} | {find} |")
     if unverified:
-        led += ["", "## UNVERIFIED — excluded from references.bib (do NOT cite until resolved)", ""]
+        led += ["", "## UNVERIFIED, excluded from references.bib (do NOT cite until resolved)", ""]
         for lab, e in unverified:
             note = (e.get("supporting_finding") or e.get("title") or "").replace("|", "\\|").replace("\n", " ")[:200]
-            led.append(f"- [{lab}] `{e.get('bibkey')}` — {e.get('title','?')} — {note}")
+            led.append(f"- [{lab}] `{e.get('bibkey')}` ({e.get('title','?')}) {note}")
     open(os.path.join(REPO, "docs", "CITATION_LEDGER.md"), "w", encoding="utf-8").write("\n".join(led) + "\n")
 
     print(f"Verified: {len(verified)}  |  Unverified/excluded: {len(unverified)}")

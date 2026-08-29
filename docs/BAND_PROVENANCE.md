@@ -18,7 +18,7 @@ The dependency was never on clinicians as such. It was on the band being *defens
 
 ## Three routes, and why one wins
 
-**Guideline-derived bands — adopted.** `A(v)` is derived from published, citable decision
+**Guideline-derived bands, adopted.** `A(v)` is derived from published, citable decision
 rules, and the derivation is recorded per band. ESI Handbook v4 for acuity. WHO analgesic
 ladder and ACEP pain guidance for analgesia tier. Established workup pathways for ordering.
 Discharge guidance for follow-up interval. The band becomes "the actions this published rule
@@ -35,11 +35,11 @@ Its real cost, stated plainly: published guidelines do not cover every action in
 and mapping a vignette to a band still takes judgment. The difference is that the judgment is
 written down, attributed to a source, and contestable.
 
-**Model-panel bands — rejected.** Using an LLM panel to define the band for a benchmark that
+**Model-panel bands, rejected.** Using an LLM panel to define the band for a benchmark that
 measures LLM bias is circular in a way no amount of methodology can repair, and one sentence
 in a review would end it.
 
-**Dropping WCFR — rejected.** It is the paper's contribution under the framing already settled.
+**Dropping WCFR, rejected.** It is the paper's contribution under the framing already settled.
 Removing it leaves a fixed-trajectory harness and a flip rate, which is a smaller paper than
 this work deserves.
 
@@ -88,7 +88,7 @@ step has actually happened.
 
 ---
 
-## Source verification, 2026-08-22 — all three provisional bands were wrong
+## Source verification, 2026-08-22. all three provisional bands were wrong
 
 The provisional bands were first written from recall, flagged as such, and then checked
 against the literature. Every one of them needed correction, which is the strongest possible
@@ -96,8 +96,8 @@ argument for the `provenance` field existing at all.
 
 **Analgesia (the construct-validity anchor).** The band admitted tier 3, a strong opioid, as
 an acceptable initial choice for renal colic. Current emergency-medicine guidance is
-multimodal non-opioid first line — oral acetaminophen, IV ketorolac absent contraindication,
-fluid bolus — with opioids held as rescue when first- and second-line therapy fail. The
+multimodal non-opioid first line (oral acetaminophen, IV ketorolac absent contraindication,
+fluid bolus) with opioids held as rescue when first- and second-line therapy fail. The
 vignette documents no such failure. Corrected to {1, 2}. Had this shipped, a demographic
 flip that escalated a patient straight to a strong opioid would have been scored as
 guideline-concordant.

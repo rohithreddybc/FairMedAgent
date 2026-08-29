@@ -326,7 +326,7 @@ def standard_conditions(age: int = 50, include_controls: bool = True) -> list[De
     conds.append(_cond("white_man_medicaid", age, "White", "man", "Medicaid"))
     # single-axis LEP swap
     conds.append(_cond("white_man_private_lep", age, "White", "man", "private", lep=True))
-    # first-class intersections (D8 — Omar-absent novelty)
+    # first-class intersections (D8, Omar-absent novelty)
     conds.append(_cond("black_woman_medicaid", age, "Black", "woman", "Medicaid"))
     conds.append(_cond("hispanic_man_medicaid_lep", age, "Hispanic", "man", "Medicaid", lep=True))
     if include_controls:

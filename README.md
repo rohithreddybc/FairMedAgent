@@ -68,7 +68,7 @@ python -m pytest harness/tests/ -q
 | `docs/BAND_ADJUDICATION_RECORD.md` | The adjudicator's reasoning, in full, per band |
 | `docs/DATASHEET.md` | Datasheet for the synthetic cohort |
 | `docs/COUNTERFACTUAL_DESIGN.md` | Condition construction and the descriptor grammar |
-| `docs/ANALYSIS_PLAN.md` | Pre-specified analysis |
+| `docs/ANALYSIS_PLAN.md` | Pre-specified analysis, frozen before sealed-split unblinding |
 
 ## On the adjudicator
 

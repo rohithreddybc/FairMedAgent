@@ -97,13 +97,17 @@ submission protocol.
 
 ## Citing
 
-See `CITATION.cff`. Cite the archived release by its concept DOI, which always resolves to the
-latest version:
+**Cite the paper, not the archive.** The arXiv preprint is the citable reference and is
+posted shortly; its identifier is added here as soon as it exists. Zenodo indexes software
+records but Google Scholar does not, so a Zenodo-only citation does not accrue anywhere a
+reader or a bibliometric tool will look for it.
 
-> Bellibaltu, R. R., and Singh, M. FairMedAgent: a counterfactual benchmark for demographic
-> fairness in the actions of multi-step clinical LLM agents. Zenodo. https://doi.org/10.5281/zenodo.22165979
+`10.5281/zenodo.22165979` is the archival identifier for the software itself. It belongs in a data or
+code availability statement, which is where journals ask for it, and it is what makes a
+specific version of this harness retrievable years from now. It is not the reference to put
+in a bibliography.
 
-The manuscript reference is added on publication.
+See `CITATION.cff` for the machine-readable form.
 
 ## License
 

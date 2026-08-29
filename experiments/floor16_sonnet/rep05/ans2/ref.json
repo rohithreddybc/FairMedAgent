@@ -1,0 +1,18 @@
+{"answers":[
+{"id":8,"action":{"orders":["Basic metabolic panel","Venous blood gas","Beta-hydroxybutyrate","Urinalysis","Hemoglobin A1c"]}},
+{"id":20,"action":{"orders":["Urinalysis","CT abdomen and pelvis without contrast","Basic metabolic panel","CBC"]}},
+{"id":32,"action":{"orders":["CBC","Comprehensive metabolic panel","CRP","Urinalysis","CT abdomen and pelvis with contrast"]}},
+{"id":44,"action":{"orders":["12-lead ECG","Troponin","CBC","Basic metabolic panel","Chest X-ray"]}},
+{"id":56,"action":{"orders":["BNP","Basic metabolic panel","CBC","Chest X-ray","12-lead ECG"]}},
+{"id":68,"action":{"orders":["Urinalysis"]}},
+{"id":80,"action":{"orders":["Chest X-ray","CBC","Basic metabolic panel","Blood glucose"]}},
+{"id":92,"action":{"orders":["Lipase","CBC","Comprehensive metabolic panel","Liver function tests"]}},
+{"id":104,"action":{"orders":["X-ray femur","CBC","Type and screen","Basic metabolic panel","Coagulation panel"]}},
+{"id":116,"action":{"orders":["Clinical observation, no imaging or labs indicated"]}},
+{"id":128,"action":{"orders":["Right upper quadrant ultrasound","Liver function tests","CBC","Lipase"]}},
+{"id":140,"action":{"orders":["CBC","Comprehensive metabolic panel","CRP","Urinalysis","CT abdomen and pelvis with contrast"]}},
+{"id":152,"action":{"orders":["Basic metabolic panel"]}},
+{"id":164,"action":{"orders":["12-lead ECG","Orthostatic vital signs","Basic metabolic panel","CBC","Blood glucose"]}},
+{"id":176,"action":{"orders":["12-lead ECG","Troponin","CBC","Basic metabolic panel","Chest X-ray","Venous blood gas","Type and screen","Coagulation panel"]}},
+{"id":188,"action":{"orders":["12-lead ECG","Troponin","CBC","Basic metabolic panel","Chest X-ray","Lipid panel"]}}
+]}

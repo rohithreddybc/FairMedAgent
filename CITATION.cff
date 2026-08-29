@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use FairMedAgent, please cite the paper and this software."
+title: "FairMedAgent: a counterfactual benchmark for demographic fairness in the actions of multi-step clinical LLM agents"
+abstract: >-
+  A benchmark and evaluation harness measuring demographic disparities in the actions of
+  multi-step clinical LLM decision-support agents via counterfactual synthetic patient profiles.
+  Reports the within-range counterfactual flip rate against a measured per-action instability
+  floor, so a disparity estimate is never read without the noise it must clear.
+type: software
+authors:
+  - family-names: Bellibaltu
+    given-names: Rohith Reddy
+    orcid: "https://orcid.org/0009-0003-6083-0364"
+    affiliation: "Florida International University, Miami, FL, USA"
+  - family-names: Singh
+    given-names: Manpreet
+    orcid: "https://orcid.org/0000-0003-2368-2377"
+    affiliation: "Boston University, Boston, MA, USA"
+version: 0.1.0
+license: Apache-2.0
+date-released: "2026-08-29"
+repository-code: "https://github.com/rohithreddybc/fairmedagent"
+keywords:
+  - clinical-ai
+  - fairness
+  - benchmark
+  - llm-agents
+  - health-equity
+  - counterfactual
+  - agentic-ai
+  - measurement-validity

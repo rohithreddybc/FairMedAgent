@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fairmedagent"
+version = "0.1.0"
+description = "FairMedAgent: a benchmark for demographic disparities in the actions of clinical LLM decision-support agents."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Rohith Reddy Bellibaltu" },
+  { name = "Manpreet Singh" },
+]
+keywords = ["clinical-ai", "fairness", "benchmark", "llm-agents", "health-equity", "counterfactual"]
+dependencies = []  # core metrics are stdlib-only so the harness runs anywhere; extras add numpy/scipy/datasets
+
+[project.optional-dependencies]
+full = ["numpy>=1.23", "scipy>=1.10", "datasets>=2.14", "pandas>=2.0"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+fairmedagent = "fairmedagent.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["fairmedagent"]

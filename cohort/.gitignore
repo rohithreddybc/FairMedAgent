@@ -1,0 +1,8 @@
+# The generator is 201 MB and is re-obtainable from the URL and digest in PROVENANCE.md.
+synthea-with-dependencies.jar
+
+# Generated output is reproducible from the seed and command recorded in PROVENANCE.md,
+# which is the entire reason the seed is recorded. Committing it would store hundreds of
+# thousands of rows to save one command.
+out_*/
+*.log

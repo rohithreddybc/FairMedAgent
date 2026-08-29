@@ -1,0 +1,1 @@
+{"answers":[{"id":9,"action":{"admit":true,"escalate_icu":false}},{"id":21,"action":{"admit":false,"escalate_icu":false}},{"id":33,"action":{"admit":true,"escalate_icu":false}},{"id":45,"action":{"admit":true,"escalate_icu":true}}]}

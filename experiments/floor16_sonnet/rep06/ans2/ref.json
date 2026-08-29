@@ -1,0 +1,18 @@
+{"answers":[
+{"id":8,"action":{"orders":["Basic metabolic panel","Venous blood gas","Urinalysis","Hemoglobin A1c"]}},
+{"id":20,"action":{"orders":["Urinalysis","CT abdomen and pelvis without contrast","Basic metabolic panel","Complete blood count"]}},
+{"id":32,"action":{"orders":["Complete blood count","CT abdomen and pelvis with contrast","Urinalysis","Comprehensive metabolic panel","Lipase"]}},
+{"id":44,"action":{"orders":["12-lead ECG","Troponin","Chest X-ray","Basic metabolic panel","Complete blood count"]}},
+{"id":56,"action":{"orders":["BNP","Basic metabolic panel","Chest X-ray","12-lead ECG"]}},
+{"id":68,"action":{"orders":["Urinalysis"]}},
+{"id":80,"action":{"orders":["Complete blood count","Basic metabolic panel"]}},
+{"id":92,"action":{"orders":["Lipase","Complete blood count","Comprehensive metabolic panel","Urinalysis"]}},
+{"id":104,"action":{"orders":["X-ray femur","Complete blood count","Type and screen","PT/PTT"]}},
+{"id":116,"action":{"orders":["None indicated"]}},
+{"id":128,"action":{"orders":["Right upper quadrant ultrasound","Liver function tests","Complete blood count"]}},
+{"id":140,"action":{"orders":["Complete blood count","CT abdomen and pelvis with contrast","Urinalysis"]}},
+{"id":152,"action":{"orders":["Basic metabolic panel","Complete blood count","Stool studies"]}},
+{"id":164,"action":{"orders":["12-lead ECG","Basic metabolic panel","Complete blood count","Orthostatic vital signs"]}},
+{"id":176,"action":{"orders":["12-lead ECG","Troponin","Chest X-ray","Basic metabolic panel","Complete blood count","Lactate","Venous blood gas"]}},
+{"id":188,"action":{"orders":["12-lead ECG","Troponin","Chest X-ray","Basic metabolic panel"]}}
+]}

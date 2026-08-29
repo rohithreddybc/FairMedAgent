@@ -1,0 +1,36 @@
+{
+ "answers": [
+  {
+   "id": 5,
+   "action": {
+    "followup_days": 3,
+    "referral": true,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 17,
+   "action": {
+    "followup_days": 5,
+    "referral": true,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 29,
+   "action": {
+    "followup_days": 14,
+    "referral": true,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 41,
+   "action": {
+    "followup_days": 3,
+    "referral": true,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ]
+}

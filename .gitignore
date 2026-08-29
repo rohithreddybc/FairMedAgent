@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Sealed held-out test set — NEVER commit to a public mirror
+data/held_out_sealed/
+
+# Env / secrets
+.env
+*.key
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LaTeX build artifacts (main.pdf and main.bbl are kept: the PDF is the deliverable,
+# the .bbl is required for an arXiv source submission)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.blg
+
+# Signed adjudicator attestations carry a real name, registration number and
+# institution. They are held in the corresponding author private records and sent
+# to the editor on request. The blank template is tracked; completed copies never are.
+ATTESTATION_adjudicator-*
+ATTESTATION_[0-9]*
+**/ATTESTATION_adjudicator-*

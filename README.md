@@ -1,5 +1,8 @@
 # FairMedAgent
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22165979.svg)](https://doi.org/10.5281/zenodo.22165979)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 An evaluation harness for demographic disparity in the **actions** of multi-step clinical
 LLM agents, together with the instability-floor protocol that says how large a disparity
 estimate has to be before it means anything.
@@ -94,7 +97,13 @@ submission protocol.
 
 ## Citing
 
-See `CITATION.cff`. The manuscript reference is added on publication.
+See `CITATION.cff`. Cite the archived release by its concept DOI, which always resolves to the
+latest version:
+
+> Bellibaltu, R. R., and Singh, M. FairMedAgent: a counterfactual benchmark for demographic
+> fairness in the actions of multi-step clinical LLM agents. Zenodo. https://doi.org/10.5281/zenodo.22165979
+
+The manuscript reference is added on publication.
 
 ## License
 

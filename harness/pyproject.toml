@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "fairmedagent"
+name = "FairMedAgent"
 version = "0.1.0"
 description = "FairMedAgent: a benchmark for demographic disparities in the actions of clinical LLM decision-support agents."
 readme = "README.md"

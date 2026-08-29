@@ -24,7 +24,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(ROOT, "harness"))
 
-PAPER = os.path.join(ROOT, "paper", "main.tex")
+PAPER = os.environ.get("FAIRMEDAGENT_PAPER") or os.path.join(ROOT, "paper", "main.tex")
+
+# The manuscript source is not part of the public artifact release, so a fresh clone has
+# the trajectories but no main.tex. Recomputation still works there; only the step that
+# asserts each figure appears in the text is skipped. Point at a manuscript with
+# FAIRMEDAGENT_PAPER=/path/to/main.tex or as the first argument to get the full check.
 INST = os.path.join(ROOT, "experiments", "floor16")
 
 REFERENCE = "ref_white_man_private"
@@ -56,14 +61,16 @@ def _reps():
 
 
 def main() -> int:
-    tex = io.open(PAPER, encoding="utf-8").read()
+    paper = sys.argv[1] if len(sys.argv) > 1 else PAPER
+    have_paper = os.path.exists(paper)
+    tex = io.open(paper, encoding="utf-8").read() if have_paper else ""
     checks, failures = [], 0
 
     def claim(label, value, needle):
         nonlocal failures
-        ok = needle in tex
+        ok = (needle in tex) if have_paper else None
         checks.append((label, value, needle, ok))
-        if not ok:
+        if ok is False:
             failures += 1
 
     reps = _reps()
@@ -200,7 +207,7 @@ def main() -> int:
         ("N{=}200", "vignette count derived from the four-vignette floor"),
     ]
     stale = []
-    for needle, why in RETIRED:
+    for needle, why in (RETIRED if have_paper else []):
         # Allow a figure to appear where the text is explicitly narrating its retraction.
         for m in re.finditer(re.escape(needle), tex):
             window = tex[max(0, m.start() - 260):m.end() + 260]
@@ -218,8 +225,15 @@ def main() -> int:
     # --- report -----------------------------------------------------------------------
     print("%-28s %-10s %-14s %s" % ("claim", "computed", "as written", "in paper"))
     for label, value, needle, ok in checks:
-        print("%-28s %-10s %-14s %s" % (label, value, needle[:14], "yes" if ok else "NO"))
+        mark = "n/a" if ok is None else ("yes" if ok else "NO")
+        print("%-28s %-10s %-14s %s" % (label, value, needle[:14], mark))
     print()
+    if not have_paper:
+        print("Recomputed %d quantities from the released trajectories." % len(checks))
+        print("The manuscript source is not in this release, so the step that asserts each")
+        print("figure appears in the text was skipped. To run it, pass the path to main.tex:")
+        print("    python %s /path/to/main.tex" % os.path.basename(__file__))
+        return 0
     if failures:
         print("%d claim(s) not found in the manuscript as computed." % failures)
         return 1

@@ -35,9 +35,18 @@ Every quantity in the manuscript is recomputed from the raw trajectory files in
 python harness/scripts/verify_paper_numbers.py
 ```
 
-The script names each claim, recomputes it from its source artifact, and asserts that the
-recomputed value appears in the manuscript. It does not parse LaTeX for numbers and diff
-them, which would be brittle. At the current commit it reports 21 of 21 claims matching.
+The script names each claim and recomputes it from its source artifact. It does not parse
+LaTeX for numbers and diff them, which would be brittle.
+
+The manuscript source is not part of this release, so in a fresh clone the script recomputes
+all 21 quantities and skips only the step that asserts each figure appears in the text. To run
+that step as well, pass the path to the manuscript:
+
+```bash
+python harness/scripts/verify_paper_numbers.py /path/to/main.tex
+```
+
+Against the submitted manuscript it reports 21 of 21 claims matching.
 
 ```bash
 python -m pytest harness/tests/ -q

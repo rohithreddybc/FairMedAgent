@@ -84,12 +84,19 @@ def main(argv: list[str]) -> int:
         if "%s" in spec.get("dispatch_instruction", "") else spec.get("dispatch_instruction", "")
     prompts = spec["prompts"]
 
-    answers, failed = [], []
+    # FMA_TEMPERATURE pins the sampling temperature for every call, retries included, so a
+    # decoding-configuration run is not mixed with the default-sampling retry path. Unset, the
+    # original behaviour holds: provider default first, one retry at 0.2 on a parse failure.
+    pinned = os.environ.get("FMA_TEMPERATURE")
+    first_t = float(pinned) if pinned is not None else None
+    retry_t = float(pinned) if pinned is not None else 0.2
+    answers, failed, retried = [], [], []
     t0 = time.time()
     for i, p in enumerate(prompts, 1):
-        action = _call(model, system, p["prompt"], schema, None)
+        action = _call(model, system, p["prompt"], schema, first_t)
         if action is None:
-            action = _call(model, system, p["prompt"], schema, 0.2)
+            retried.append(p["id"])
+            action = _call(model, system, p["prompt"], schema, retry_t)
         if action is None:
             failed.append(p["id"])
             continue
@@ -97,7 +104,10 @@ def main(argv: list[str]) -> int:
         if i % 4 == 0 or i == len(prompts):
             print("    %d/%d  (%.0fs)" % (i, len(prompts), time.time() - t0), flush=True)
 
-    json.dump({"answers": answers}, open(out_path, "w", encoding="utf-8"), indent=1)
+    json.dump({"answers": answers, "provenance": {
+        "model": model, "temperature_first": first_t, "temperature_retry": retry_t,
+        "retried_ids": retried, "failed_ids": failed}},
+        open(out_path, "w", encoding="utf-8"), indent=1)
     print("  step %s: %d answered, %d unanswered %s"
           % (step, len(answers), len(failed), failed if failed else ""))
     return 0 if not failed else 1

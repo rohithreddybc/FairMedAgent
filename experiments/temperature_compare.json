@@ -1,0 +1,114 @@
+{
+ "B": 5000,
+ "seed": 42,
+ "models": {
+  "C": {
+   "model": "llama3.1:8b",
+   "observed": {
+    "default_R10": 0.21481481481481482,
+    "default_first5": 0.21041666666666667,
+    "temp0_R5": 0.0
+   },
+   "ci_B5000": {
+    "default_R10": [
+     0.18171296296296297,
+     0.24837962962962962
+    ],
+    "temp0_R5": [
+     0.0,
+     0.0
+    ],
+    "reduction": [
+     1.0,
+     1.0
+    ]
+   },
+   "reduction_observed": 1.0,
+   "t0_calls": 400,
+   "t0_retried": 0,
+   "t0_failed": 0,
+   "n_vignettes": 16
+  },
+  "D": {
+   "model": "mistral:7b",
+   "observed": {
+    "default_R10": 0.09513888888888888,
+    "default_first5": 0.08958333333333333,
+    "temp0_R5": 0.0
+   },
+   "ci_B5000": {
+    "default_R10": [
+     0.06805555555555555,
+     0.12662037037037038
+    ],
+    "temp0_R5": [
+     0.0,
+     0.0
+    ],
+    "reduction": [
+     1.0,
+     1.0
+    ]
+   },
+   "reduction_observed": 1.0,
+   "t0_calls": 400,
+   "t0_retried": 0,
+   "t0_failed": 0,
+   "n_vignettes": 16
+  },
+  "E": {
+   "model": "qwen3:4b",
+   "observed": {
+    "default_R10": 0.025231481481481483,
+    "default_first5": 0.027083333333333334,
+    "temp0_R5": 0.0
+   },
+   "ci_B5000": {
+    "default_R10": [
+     0.004166666666666667,
+     0.05486111111111111
+    ],
+    "temp0_R5": [
+     0.0,
+     0.0
+    ],
+    "reduction": [
+     1.0,
+     1.0
+    ]
+   },
+   "reduction_observed": 1.0,
+   "t0_calls": 400,
+   "t0_retried": 0,
+   "t0_failed": 0,
+   "n_vignettes": 16
+  },
+  "F": {
+   "model": "phi3:mini",
+   "observed": {
+    "default_R10": 0.23809523809523808,
+    "default_first5": 0.23318385650224216,
+    "temp0_R5": 0.02666666666666667
+   },
+   "ci_B5000": {
+    "default_R10": [
+     0.1925925925925926,
+     0.2878000494926998
+    ],
+    "temp0_R5": [
+     0.0,
+     0.057777777777777775
+    ],
+    "reduction": [
+     0.7452482269503546,
+     1.0
+    ]
+   },
+   "reduction_observed": 0.888,
+   "t0_calls": 320,
+   "t0_retried": 4,
+   "t0_failed": 4,
+   "n_vignettes": 15
+  }
+ }
+}

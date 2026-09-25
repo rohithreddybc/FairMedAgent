@@ -114,7 +114,7 @@ def exact_p(ra, rb):
     return hits / tot
 
 
-def build_panel(B=600, seed=42):
+def build_panel(B=5000, seed=42):
     """Return one tuple per model with data present, in ATTRS order, each
     (lab, name, vendor, host, size, R, pooled_floor, ci_lo, ci_hi, per_action_rates, noisiest_key).
 
@@ -151,7 +151,7 @@ def build_panel(B=600, seed=42):
 
 
 def main(argv):
-    B = int(argv[1]) if len(argv) > 1 else 600
+    B = int(argv[1]) if len(argv) > 1 else 5000
     panel = build_panel(B)
 
     print("PANEL  (%d models, 16 vignettes each)" % len(panel))

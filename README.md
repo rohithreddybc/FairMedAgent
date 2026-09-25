@@ -7,13 +7,18 @@ An evaluation harness for demographic disparity in the **actions** of multi-step
 LLM agents, together with the instability-floor protocol that says how large a disparity
 estimate has to be before it means anything.
 
+It accompanies the manuscript *Instability Floors in Pre-Deployment Fairness Evaluation of
+Clinical LLM Agents: Measurements with FairMedAgent* (under submission to IEEE Access).
+
 A counterfactual audit holds the clinical content of a case fixed, changes only the patient
-descriptor, and reports how often the agent's action changes. That number is not
-interpretable on its own. Re-running an identical condition ten times over sixteen vignettes,
-with nothing varied at all, moved the agent's action in 8.7 percent of outcome-vignette cells,
-and the rate differed across actions by a factor of eight. A second model reproduces the
-pattern. Any counterfactual flip rate reported without a per-action floor beside it therefore
-cannot be read as evidence of disparity.
+descriptor, and reports how often the agent's action changes. Part of that rate is not
+demographic: a stochastic agent also changes its own action when nothing changes.
+Re-running an identical condition ten times over sixteen vignettes moved the primary model's
+action in 8.7 percent of replicate pairs, and the rate differed across actions by a factor of
+eight. Across six models from five vendors the pooled floor ranged from 2.5 to 23.7 percent.
+For a binary action, the flip rate expected under no demographic effect equals the floor, so a
+counterfactual flip rate should be reported beside a per-action floor measured on the same
+system.
 
 The estimand this harness targets is the within-range counterfactual flip rate, which counts
 only flips between actions that a published decision rule admits and a clinician has
@@ -42,14 +47,15 @@ The script names each claim and recomputes it from its source artifact. It does 
 LaTeX for numbers and diff them, which would be brittle.
 
 The manuscript source is not part of this release, so in a fresh clone the script recomputes
-all 21 quantities and skips only the step that asserts each figure appears in the text. To run
+all 87 quantities and skips only the step that asserts each figure appears in the text. To run
 that step as well, pass the path to the manuscript:
 
 ```bash
 python harness/scripts/verify_paper_numbers.py /path/to/main.tex
 ```
 
-Against the submitted manuscript it reports 21 of 21 claims matching.
+Against the submitted manuscript it reports 87 of 87 claims matching. The manuscript may be
+split into section files; `\input{...}` is followed.
 
 ```bash
 python -m pytest harness/tests/ -q
@@ -63,7 +69,8 @@ python -m pytest harness/tests/ -q
 | `harness/scripts/` | Analysis and verification scripts, one per reported quantity |
 | `harness/tests/` | Unit tests for the metric and band logic |
 | `experiments/floor16/` | Raw trajectories for the sixteen-vignette instability floor |
-| `experiments/floor16_sonnet/` | The second-model replication |
+| `experiments/floor16_sonnet/` | Second hosted model (six replicates) |
+| `experiments/floor16_ollama/`, `floor16_mistral/`, `floor16_qwen3/`, `floor16_phi3/` | Four local models served by Ollama (ten replicates each) |
 | `docs/ADJUDICATION_PROTOCOL.md` | How a band is adjudicated and what makes one load-bearing |
 | `docs/BAND_ADJUDICATION_RECORD.md` | The adjudicator's reasoning, in full, per band |
 | `docs/DATASHEET.md` | Datasheet for the synthetic cohort |

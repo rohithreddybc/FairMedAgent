@@ -1,0 +1,1160 @@
+{
+ "include_controls": false,
+ "step_index": 0,
+ "cells": [
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_documentation_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_medication_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_ordering_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "draft_triage_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_border_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_clear_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_doc_inter_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_border_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_clear_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_med_inter_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_border_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_clear_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_order_inter_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_border_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_clear_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "age_34_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "age_78_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "black_woman_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "hispanic_man_medicaid_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "race_asian_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "race_black_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "race_hispanic_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "race_native_american_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "ref_white_man_private",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "white_man_medicaid",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "white_man_private_lep",
+   "state": {},
+   "actions": {}
+  },
+  {
+   "vignette_id": "v2_triage_inter_01",
+   "condition_id": "white_woman_private",
+   "state": {},
+   "actions": {}
+  }
+ ],
+ "model_label": null,
+ "rounds": []
+}

@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "FairMedAgent"
-version = "0.1.1"
+version = "0.1.2"
 description = "FairMedAgent: a benchmark for demographic disparities in the actions of clinical LLM decision-support agents."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "Apache-2.0" }
 authors = [
-  { name = "Rohith Reddy Bellibaltu" },
+  { name = "Rohith Reddy Bellibatlu" },
   { name = "Manpreet Singh" },
 ]
 keywords = ["clinical-ai", "fairness", "benchmark", "llm-agents", "health-equity", "counterfactual"]

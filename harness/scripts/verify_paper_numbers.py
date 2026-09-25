@@ -64,12 +64,52 @@ def main() -> int:
     paper = sys.argv[1] if len(sys.argv) > 1 else PAPER
     have_paper = os.path.exists(paper)
     tex = io.open(paper, encoding="utf-8").read() if have_paper else ""
+    # Expand \input{name} so a manuscript split into section files is checked in full.
+    if have_paper:
+        base = os.path.dirname(os.path.abspath(paper))
+
+        def _expand(m):
+            name = m.group(1)
+            path = os.path.join(base, name if name.endswith(".tex") else name + ".tex")
+            return io.open(path, encoding="utf-8").read() if os.path.exists(path) else m.group(0)
+
+        tex = re.sub(r"\\input\{([^}]+)\}", _expand, tex)
+
+    # Numbers relocated out of the main manuscript (full tables, derivations, and protocol
+    # detail moved to keep the main text within its page target) still need to stay
+    # machine-checked, so a sibling supplementary.tex is folded into the same haystack every
+    # claim below is checked against. Point at a different file with
+    # FAIRMEDAGENT_SUPPLEMENT=/path/to/supplementary.tex; its absence is not an error, since
+    # the public artifact release and older manuscripts do not have one.
+    paper_dir_for_supp = os.path.dirname(os.path.abspath(paper)) if have_paper else None
+    supp_path = os.environ.get("FAIRMEDAGENT_SUPPLEMENT") or (
+        os.path.join(paper_dir_for_supp, "supplementary.tex")
+        if paper_dir_for_supp else None)
+    if supp_path and os.path.exists(supp_path):
+        tex += "\n" + io.open(supp_path, encoding="utf-8").read()
+
+    # Some reported numbers live only inside a standalone pgfplots figure (compiled separately
+    # and \includegraphics'd in), not in the manuscript body text. Those figures are still
+    # reported to the reader, so their source is checked too: fig_tex is the manuscript plus
+    # every fig_*.tex found beside it, and a claim may check against either haystack.
+    paper_dir = os.path.dirname(os.path.abspath(paper)) if have_paper else None
+    fig_tex = tex
+    if paper_dir and os.path.isdir(paper_dir):
+        for name in sorted(os.listdir(paper_dir)):
+            if name.startswith("fig_") and name.endswith(".tex"):
+                fig_tex += "\n" + io.open(os.path.join(paper_dir, name), encoding="utf-8").read()
+
     checks, failures = [], 0
 
-    def claim(label, value, needle):
+    def claim(label, value, needle, haystack=None):
+        # needle may be a single string, or a tuple/list of alternative surface forms of the
+        # same number (e.g. "$0.142$" in running prose vs plain "0.142" in a pgfplots data
+        # table); the claim passes if any alternative is found.
         nonlocal failures
-        ok = (needle in tex) if have_paper else None
-        checks.append((label, value, needle, ok))
+        hay = tex if haystack is None else haystack
+        needles = (needle,) if isinstance(needle, str) else tuple(needle)
+        ok = (any(n in hay for n in needles)) if have_paper else None
+        checks.append((label, value, "|".join(needles), ok))
         if ok is False:
             failures += 1
 
@@ -101,7 +141,11 @@ def main() -> int:
     claim("pooled comparisons", total, "$%d/%d$" % (flips, total))
     for k in ("escalate_icu", "referral", "any_opioid", "cs_caution", "admit", "high_acuity"):
         f, t = per[k]
-        claim("floor %s" % k, round(f / t, 3), "$%.3f$" % (f / t))
+        r = f / t
+        # Checked against tex-or-figures, in either the "$0.142$" form running prose and the
+        # summary table use, or the plain "0.142" form a pgfplots data row uses (fig_tex is
+        # tex plus every fig_*.tex found beside it).
+        claim("floor %s" % k, round(r, 3), ("$%.3f$" % r, "%.3f" % r), haystack=fig_tex)
 
     # --- aggregation curve ------------------------------------------------------------
     def vote(vals):
@@ -147,50 +191,54 @@ def main() -> int:
     p3cs = comb(4, 3) * cs ** 3 * (1 - cs) + cs ** 4
     claim("P(>=3 of 4 | cs_caution)", round(p3cs, 3), "$%.3f$" % p3cs)
 
-    # --- second model arm --------------------------------------------------------------
-    # The sonnet arm is a separate directory with its own replicate count. Recomputing it here
-    # keeps the cross-model claims under the same mechanical check as everything else.
-    global INST
-    saved = INST
-    INST = os.path.join(ROOT, "experiments", "floor16_sonnet")
-    reps_b = _reps()
-    INST = saved
-    if reps_b:
-        nb = len(reps_b)
-        vb = sorted(set.intersection(*[set(r) for r in reps_b]))
-        per_b = {k: [0, 0] for k in OUTCOMES}
-        fb = tb = 0
-        for a, b in itertools.combinations(range(nb), 2):
-            for v in vb:
-                for k, proj in OUTCOMES.items():
-                    x, y = proj(reps_b[a][v]), proj(reps_b[b][v])
-                    if x is None or y is None:
-                        continue
-                    tb += 1
-                    per_b[k][1] += 1
-                    if x != y:
-                        fb += 1
-                        per_b[k][0] += 1
-        pooled_b = fb / tb
-        claim("second-model pooled floor", round(pooled_b, 3), "$%.3f$" % pooled_b)
-        for k in ("escalate_icu", "cs_caution"):
-            r = per_b[k][0] / per_b[k][1]
-            claim("second-model %s" % k, round(r, 3), "$%.3f$" % r)
+    # --- full six-model panel -----------------------------------------------------------
+    # The manuscript now reports the whole panel (six models; a seventh, glm-4.7-flash, never
+    # produced usable runs and its directory was removed) rather than narrating models one at a
+    # time. panel_summary.py is the single source of truth for the pooled floor, its bootstrap
+    # interval, and the full pairwise Spearman matrix; this block imports that module directly
+    # and asserts against the identical computation (same RNG, same seed, same draw order) so
+    # the two scripts cannot silently disagree.
+    sys.path.insert(0, HERE)
+    import panel_summary as ps
 
-        # Spearman across the six actions, recomputed rather than quoted.
-        def ranks(vals):
-            order = sorted(range(len(vals)), key=lambda i: vals[i])
-            out = [0] * len(vals)
-            for pos, i in enumerate(order):
-                out[i] = pos + 1
-            return out
-        keys = sorted(OUTCOMES)
-        xa = [per[k][0] / per[k][1] for k in keys]
-        xb = [per_b[k][0] / per_b[k][1] for k in keys]
-        ra, rb = ranks(xa), ranks(xb)
-        d2 = sum((u - v) ** 2 for u, v in zip(ra, rb))
-        rho = 1 - (6.0 * d2) / (len(keys) * (len(keys) ** 2 - 1))
-        claim("cross-model Spearman", round(rho, 2), "$%.2f$" % rho)
+    panel = ps.build_panel(B=600, seed=42)
+    labels = [row[0] for row in panel]
+    floors = {row[0]: row[6] for row in panel}
+
+    for lab, name, vendor, host, size, R, pooled_m, lo, hi, rates, worst in panel:
+        claim("panel floor %s" % lab, round(pooled_m, 3), "$%.3f$" % pooled_m)
+        claim("panel CI %s" % lab, "[%.3f, %.3f]" % (lo, hi), "[%.3f, %.3f]" % (lo, hi))
+        # Per-action rates for B-F appear only in the fig_per_action.pgfplots data table (a
+        # 6x6 heatmap in the manuscript, not restated as running text or a second table), so
+        # those claims are checked against the figure source too, in plain "0.150" form,
+        # which is how a pgfplots data row prints a value, rather than the "$0.150$" form
+        # prose and the summary table use.
+        for k, r in zip(ps.KEYS, rates):
+            claim("panel %s %s" % (lab, k), round(r, 3),
+                  ("$%.3f$" % r, "%.3f" % r), haystack=fig_tex)
+
+    fmin, fmax = min(floors.values()), max(floors.values())
+    ratio = fmax / fmin if fmin else float("inf")
+    claim("floor range low", round(fmin, 3), "$%.3f$" % fmin)
+    claim("floor range high", round(fmax, 3), "$%.3f$" % fmax)
+    claim("floor range factor", round(ratio, 1), "%.1f" % ratio)
+
+    # Full pairwise Spearman matrix over the panel, midranks with the Pearson form, exact
+    # permutation p over all orderings of one side. Every pair the manuscript's correlation
+    # table or prose cites is asserted here against this same computation.
+    matrix = {}
+    for i, j in itertools.combinations(range(len(panel)), 2):
+        ri, rj = ps.midranks(panel[i][9]), ps.midranks(panel[j][9])
+        rho = ps.pearson(ri, rj)
+        p = ps.exact_p(ri, rj)
+        pair = "%s-%s" % (panel[i][0], panel[j][0])
+        matrix[pair] = (rho, p)
+        claim("rho %s" % pair, round(rho, 2), "%.2f" % rho)
+
+    # The specific pairs the two-cluster narrative rests on carry their exact p-value too.
+    for pair in ("A-B", "A-E", "B-E", "C-F"):
+        rho, p = matrix[pair]
+        claim("p %s" % pair, round(p, 3), "%.3f" % p)
 
     # --- superseded figures must be ABSENT ----------------------------------------------
     # The checks above confirm that current values appear. They cannot catch a stale value
@@ -205,6 +253,20 @@ def main() -> int:
         ("$180$ comparisons", "four-vignette comparison count, superseded by 720"),
         ("N{=}120", "vignette count derived from the single-draw floor"),
         ("N{=}200", "vignette count derived from the four-vignette floor"),
+        # R=6-panel figures for C, D, E, F, superseded when those four models were re-run at
+        # R=10 (B stayed at R=6; A was already at R=10). The two-cluster structure computed
+        # from the R=6 panel is also retired here, not because the old correlation values are
+        # wrong to mention (the withdrawal narrative in Sec. IV-A cites them deliberately,
+        # which the narration check below allows), but so a stale, unnarrated restatement of
+        # the old pooled floors or the old 8.4x / 2.7% / 22.7% range figures cannot creep back
+        # into a section nobody re-read.
+        ("$0.206$", "llama3.1:8b R=6 pooled floor, superseded by 0.215 at R=10"),
+        ("$0.227$", "phi3:mini R=6 pooled floor, superseded by 0.237 at R=10"),
+        ("$0.091$", "mistral:7b R=6 pooled floor, superseded by 0.095 at R=10"),
+        ("$0.027$", "qwen3:4b R=6 pooled floor, superseded by 0.025 at R=10"),
+        ("$8.4$", "R=6 panel floor-range factor, superseded by 9.4 at R=10"),
+        ("$2.7\\%$", "R=6 panel floor-range low end, superseded by 2.5% at R=10"),
+        ("$22.7\\%$", "R=6 panel floor-range high end, superseded by 23.7% at R=10"),
     ]
     stale = []
     for needle, why in (RETIRED if have_paper else []):

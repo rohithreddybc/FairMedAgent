@@ -365,6 +365,18 @@ def main() -> int:
                   "%d/%d" % (row["t0_retried"], row["t0_calls"]),
                   "$%d/%d$" % (row["t0_retried"], row["t0_calls"]))
 
+    # --- hosted temperature-0 check (temperature_compare.py, key "hosted") ---------------
+    _tc = os.path.join(ROOT, "experiments", "temperature_compare.json")
+    if os.path.exists(_tc):
+        _h = json.load(open(_tc, encoding="utf-8")).get("hosted") or {}
+        if _h:
+            claim("hosted temp0 floor", round(_h["floor"], 3), "$%.3f$" % _h["floor"])
+            claim("hosted temp0 disagreeing", _h["disagreeing"], "$%d$ of $%d$" % (_h["disagreeing"], _h["comparisons"]))
+            claim("hosted temp0 CI", "%.3f-%.3f" % tuple(_h["ci_B5000"]),
+                  "$%.3f$--$%.3f$" % tuple(_h["ci_B5000"]))
+            claim("hosted fingerprints", _h["distinct_system_fingerprints"], "$%d$ distinct system fingerprints" % _h["distinct_system_fingerprints"])
+            claim("hosted calls", _h["calls"], "$%d$ calls" % _h["calls"])
+
     # --- superseded figures must be ABSENT ----------------------------------------------
     # The checks above confirm that current values appear. They cannot catch a stale value
     # left behind in a section nobody re-read, which is exactly how the four-vignette floor

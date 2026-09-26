@@ -7,8 +7,7 @@ An evaluation harness for demographic disparity in the **actions** of multi-step
 LLM agents, together with the instability-floor protocol that says how large a disparity
 estimate has to be before it means anything.
 
-It accompanies the manuscript *Instability Floors in Pre-Deployment Fairness Evaluation of
-Clinical LLM Agents: Measurements with FairMedAgent* (under submission to IEEE Access).
+It accompanies the manuscript *Instability Floors: Separating Bias from Noise in Fairness Audits of Clinical LLM Agents with FairMedAgent* (under submission to IEEE Access).
 
 A counterfactual audit holds the clinical content of a case fixed, changes only the patient
 descriptor, and reports how often the agent's action changes. Part of that rate is not
@@ -20,7 +19,8 @@ For a binary action, the flip rate expected under no demographic effect equals t
 counterfactual flip rate should be reported beside a per-action floor measured on the same
 system. The floor depends on decoding: on the four locally served models, temperature-0
 decoding left no disagreement across five replicates for three and reduced phi3:mini's floor
-by 89 percent.
+by 89 percent. A hosted model (openai/gpt-oss-20b on Groq) at temperature 0 still
+disagreed with itself in 22 of 960 comparisons.
 
 The estimand this harness targets is the within-range counterfactual flip rate, which counts
 only flips between actions that a published decision rule admits and a clinician has
@@ -75,6 +75,7 @@ python -m pytest harness/tests/ -q
 | `experiments/floor16_sonnet/` | Second hosted model (six replicates) |
 | `experiments/floor16_ollama/`, `floor16_mistral/`, `floor16_qwen3/`, `floor16_phi3/` | Four local models served by Ollama (ten replicates each, default sampling) |
 | `experiments/floor16_*_t0/` | The same four models at temperature 0 (five replicates each; `FMA_TEMPERATURE=0`) |
+| `experiments/floor16_groq_t0/` | Hosted check: openai/gpt-oss-20b on Groq at temperature 0 (five replicates; `groq_answerer.py`) |
 | `experiments/robustness.json`, `temperature_compare.json` | Paired-bootstrap, leave-one-out, signed-test simulation and temperature-0 results |
 | `docs/ADJUDICATION_PROTOCOL.md` | How a band is adjudicated and what makes one load-bearing |
 | `docs/BAND_ADJUDICATION_RECORD.md` | The adjudicator's reasoning, in full, per band |
@@ -136,6 +137,6 @@ Apache 2.0. See `LICENSE`.
 | Per-action figure | `gen_fig_per_action.py` | `python harness/scripts/gen_fig_per_action.py` |
 | Rank correlations | `rank_tests.py` | `python harness/scripts/rank_tests.py` |
 | Majority-vote curve and null simulation | `aggregation_curve.py`, `plateau_null.py` | `python harness/scripts/aggregation_curve.py` |
-| Local-model runs | `run_ollama_floor.py`, `ollama_answerer.py` | `python harness/scripts/run_ollama_floor.py <dir> <model> 1 10` (set `FMA_TEMPERATURE=0` for greedy) |
+| Local and hosted runs | `run_ollama_floor.py` with `ollama_answerer.py` or `groq_answerer.py` (`FMA_ANSWERER`) | `python harness/scripts/run_ollama_floor.py <dir> <model> 1 10` (set `FMA_TEMPERATURE=0` for greedy) |
 
 The supplementary material is attached to each GitHub release.

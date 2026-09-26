@@ -55,7 +55,10 @@ def main(argv: list[str]) -> int:
 
             ans = os.path.join(SCRATCH, "r%02d_s%d_ans.json" % (rep, step))
             print("rep%02d step%d" % (rep, step), flush=True)
-            _run([os.path.join(HERE, "ollama_answerer.py"), split, ans, model])
+            # FMA_ANSWERER selects the backend (default: the local Ollama answerer); the
+            # hosted-endpoint check uses groq_answerer.py with the same loop.
+            answerer = os.environ.get("FMA_ANSWERER", "ollama_answerer.py")
+            _run([os.path.join(HERE, answerer), split, ans, model])
 
             if _run([os.path.join(HERE, "pilot_driver.py"), "ingest", state, ans]) != 0:
                 print("ingest failed at rep%02d step%d" % (rep, step))

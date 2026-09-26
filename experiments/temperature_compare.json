@@ -110,5 +110,24 @@
    "t0_failed": 4,
    "n_vignettes": 15
   }
+ },
+ "hosted": {
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "reasoning_effort": "low",
+  "temperature": 0.0,
+  "replicates": 5,
+  "n_vignettes": 16,
+  "disagreeing": 22,
+  "comparisons": 960,
+  "floor": 0.022916666666666665,
+  "ci_B5000": [
+   0.0,
+   0.052083333333333336
+  ],
+  "calls": 400,
+  "retried": 0,
+  "failed": 0,
+  "distinct_system_fingerprints": 48
  }
 }

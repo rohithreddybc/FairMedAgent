@@ -376,6 +376,14 @@ def main() -> int:
                   "$%.3f$--$%.3f$" % tuple(_h["ci_B5000"]))
             claim("hosted fingerprints", _h["distinct_system_fingerprints"], "$%d$ distinct system fingerprints" % _h["distinct_system_fingerprints"])
             claim("hosted calls", _h["calls"], "$%d$ calls" % _h["calls"])
+            _p = _h.get("paired") or {}
+            if _p:
+                claim("hosted temp1 floor", round(_p["observed"]["temp1_R5"], 3), "$%.3f$" % _p["observed"]["temp1_R5"])
+                claim("hosted temp1 CI", "%.3f-%.3f" % tuple(_p["ci_B5000"]["temp1_R5"]), "$%.3f$--$%.3f$" % tuple(_p["ci_B5000"]["temp1_R5"]))
+                claim("hosted paired temp0", round(_p["observed"]["temp0_R5"], 3), "$%.3f$" % _p["observed"]["temp0_R5"])
+                claim("hosted reduction", round(100 * _p["reduction_observed"]), "$%d\\%%$ reduction" % round(100 * _p["reduction_observed"]))
+                claim("hosted reduction CI", "%d-%d" % (round(100 * _p["ci_B5000"]["reduction"][0]), round(100 * _p["ci_B5000"]["reduction"][1])),
+                      "$%d$--$%d\\%%$" % (round(100 * _p["ci_B5000"]["reduction"][0]), round(100 * _p["ci_B5000"]["reduction"][1])))
 
     # --- superseded figures must be ABSENT ----------------------------------------------
     # The checks above confirm that current values appear. They cannot catch a stale value

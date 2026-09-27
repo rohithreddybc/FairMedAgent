@@ -92,7 +92,8 @@ for mid, name, d in MODELS:
              res[mid]["reduction_observed"], *ci["reduction"], retried, calls, failed))
 # Hosted endpoint (Groq, openai/gpt-oss-20b) at temperature 0, five replicates. The planned
 # temperature-1.0 arm stalled on the provider's free-tier daily limit after one replicate and
-# is not reported; the temperature-0 arm alone tests whether pinning removes the floor there.
+# was completed overnight once the limit reset; the paired block below compares the two arms on
+# the vignettes complete in every replicate of both.
 hosted = {}
 if len(glob.glob(os.path.join(EXP, "floor16_groq_t0", "rep*", "trajectories.json"))) == 5:
     t0 = per_vignette(load("floor16_groq_t0"))
@@ -120,7 +121,7 @@ if len(glob.glob(os.path.join(EXP, "floor16_groq_t0", "rep*", "trajectories.json
               "distinct_system_fingerprints": len(fps)}
     print("HOSTED groq gpt-oss-20b temp0: %d/%d = %.3f [%.3f, %.3f]; calls %d retried %d failed %d; fingerprints %d"
           % (f_, n_, f_ / n_, hosted["ci_B5000"][0], hosted["ci_B5000"][1], calls, retried, failed, len(fps)))
-if False and all(len(glob.glob(os.path.join(EXP, "floor16_groq_%s" % t, "rep*", "trajectories.json"))) == 5 for t in ("t1", "t0")):
+if hosted and all(len(glob.glob(os.path.join(EXP, "floor16_groq_%s" % t, "rep*", "trajectories.json"))) == 5 for t in ("t1", "t0")):
     t1, t0 = per_vignette(load("floor16_groq_t1")), per_vignette(load("floor16_groq_t0"))
     vs = sorted(set(t1) & set(t0))
     obs = {"temp1_R5": rate(t1, vs), "temp0_R5": rate(t0, vs)}
@@ -145,12 +146,11 @@ if False and all(len(glob.glob(os.path.join(EXP, "floor16_groq_%s" % t, "rep*", 
             prov[key]["fingerprints"].update(pr.get("system_fingerprints", []))
     for key in prov:
         prov[key]["fingerprints"] = sorted(prov[key]["fingerprints"])
-    hosted = {"provider": "groq", "model": "openai/gpt-oss-20b", "reasoning_effort": "low",
-              "observed": obs, "ci_B5000": ci,
+    hosted["paired"] = {"observed": obs, "ci_B5000": ci,
               "reduction_observed": (1 - obs["temp0_R5"] / obs["temp1_R5"]) if obs["temp1_R5"] else None,
               "provenance": prov, "n_vignettes": len(vs)}
     print("HOSTED groq gpt-oss-20b  temp1 %.3f [%.3f,%.3f]  temp0 %.3f [%.3f,%.3f]  reduction %s  n_vign %d  fps %s/%s"
           % (obs["temp1_R5"], *ci["temp1_R5"], obs["temp0_R5"], *ci["temp0_R5"],
-             hosted["reduction_observed"], len(vs), len(prov["temp1"]["fingerprints"]), len(prov["temp0"]["fingerprints"])))
+             hosted["paired"]["reduction_observed"], len(vs), len(prov["temp1"]["fingerprints"]), len(prov["temp0"]["fingerprints"])))
 json.dump({"B": B, "seed": 42, "models": res, "hosted": hosted},
           open(os.path.join(EXP, "temperature_compare.json"), "w"), indent=1)

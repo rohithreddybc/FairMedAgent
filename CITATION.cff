@@ -16,13 +16,13 @@ authors:
     given-names: Manpreet
     orcid: "https://orcid.org/0000-0003-2368-2377"
     affiliation: "Boston University, Boston, MA, USA"
-version: 0.1.5
+version: 0.1.6
 identifiers:
   - type: doi
     value: "10.5281/zenodo.22165979"
     description: Concept DOI, always resolving to the latest release
 license: Apache-2.0
-date-released: "2026-09-27"
+date-released: "2026-09-29"
 repository-code: "https://github.com/rohithreddybc/FairMedAgent"
 keywords:
   - clinical-ai
@@ -34,7 +34,7 @@ keywords:
   - agentic-ai
   - measurement-validity
 preferred-citation:
-  type: unpublished
+  type: article
   title: "Instability Floors: Separating Bias from Noise in Fairness Audits of Clinical LLM Agents with FairMedAgent"
   authors:
     - family-names: Bellibatlu
@@ -46,4 +46,6 @@ preferred-citation:
     - family-names: Joshi
       given-names: Rahul
   year: 2026
-  notes: "Manuscript under submission to IEEE Access."
+  journal: "arXiv preprint arXiv:2609.03221"
+  doi: "10.48550/arXiv.2609.03221"
+  url: "https://arxiv.org/abs/2609.03221"

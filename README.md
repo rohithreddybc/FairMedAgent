@@ -1,13 +1,14 @@
 # FairMedAgent
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22165979.svg)](https://doi.org/10.5281/zenodo.22165979)
+[![arXiv](https://img.shields.io/badge/arXiv-2609.03221-b31b1b.svg)](https://arxiv.org/abs/2609.03221)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 An evaluation harness for demographic disparity in the **actions** of multi-step clinical
 LLM agents, together with the instability-floor protocol that says how large a disparity
 estimate has to be before it means anything.
 
-It accompanies the manuscript *Instability Floors: Separating Bias from Noise in Fairness Audits of Clinical LLM Agents with FairMedAgent* (under submission to IEEE Access).
+It accompanies the manuscript *Instability Floors: Separating Bias from Noise in Fairness Audits of Clinical LLM Agents with FairMedAgent* ([arXiv:2609.03221](https://arxiv.org/abs/2609.03221), DOI [10.48550/arXiv.2609.03221](https://doi.org/10.48550/arXiv.2609.03221)).
 
 A counterfactual audit holds the clinical content of a case fixed, changes only the patient
 descriptor, and reports how often the agent's action changes. Part of that rate is not
@@ -111,9 +112,21 @@ submission protocol.
 
 ## Citing
 
-**Cite the paper, not the archive.** The arXiv preprint is the citable reference and is
-posted shortly; its identifier is added here as soon as it exists. Zenodo indexes software
-records but Google Scholar does not, so a Zenodo-only citation does not accrue anywhere a
+**Cite the paper, not the archive.** The citable reference is the preprint
+[arXiv:2609.03221](https://arxiv.org/abs/2609.03221) (DOI [10.48550/arXiv.2609.03221](https://doi.org/10.48550/arXiv.2609.03221)):
+
+```bibtex
+@article{bellibatlu2026instability,
+  title   = {Instability Floors: Separating Bias from Noise in Fairness Audits of Clinical {LLM} Agents with {FairMedAgent}},
+  author  = {Bellibatlu, Rohith Reddy and Singh, Manpreet and Parashar, Deepak and Joshi, Rahul},
+  journal = {arXiv preprint arXiv:2609.03221},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2609.03221},
+  url     = {https://arxiv.org/abs/2609.03221}
+}
+```
+
+Zenodo indexes software records but Google Scholar does not, so a Zenodo-only citation does not accrue anywhere a
 reader or a bibliometric tool will look for it.
 
 `10.5281/zenodo.22165979` is the archival identifier for the software itself. It belongs in a data or

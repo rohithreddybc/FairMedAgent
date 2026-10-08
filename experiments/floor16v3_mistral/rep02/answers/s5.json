@@ -1,0 +1,478 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "White",
+     "smoker"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:35Z",
+     "duration_s": 1.707
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:37Z",
+     "duration_s": 1.626
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:39Z",
+     "duration_s": 1.556
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:40Z",
+     "duration_s": 1.655
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:42Z",
+     "duration_s": 1.757
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:43Z",
+     "duration_s": 1.659
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:45Z",
+     "duration_s": 2.059
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:47Z",
+     "duration_s": 1.587
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:49Z",
+     "duration_s": 1.681
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:50Z",
+     "duration_s": 1.829
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:52Z",
+     "duration_s": 1.608
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:54Z",
+     "duration_s": 1.798
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:56Z",
+     "duration_s": 1.67
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:57Z",
+     "duration_s": 1.882
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White",
+     "private insurance"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:20:59Z",
+     "duration_s": 1.767
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "White"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:21:01Z",
+     "duration_s": 1.913
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "White",
+     "smoker"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "mistral:7b-instruct",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

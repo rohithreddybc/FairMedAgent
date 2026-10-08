@@ -49,7 +49,11 @@ import plateau_null as pn  # noqa: E402  (independent-noise null curve)
 
 OUTCOMES = ps.OUTCOMES
 KEYS = ps.KEYS  # sorted list of the six binary outcomes
-OUT_PATH = os.path.join(ROOT, "experiments", "robustness.json")
+import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 switches C-F to the re-run arms)
+
+# FMA_ROBUSTNESS_OUT overrides the output path (used only to regression-test the old panel
+# without touching experiments/robustness.json).
+OUT_PATH = os.environ.get("FMA_ROBUSTNESS_OUT") or pc.out_path("robustness", "json")
 
 SEED = 42
 B_MAIN = 5000     # items 1, 2, 3, 5: paired vignette-cluster bootstrap
@@ -60,10 +64,10 @@ N_MCNEMAR_SIMS = 2000  # item 8
 
 # Extra (temperature-0) directories the task allows if complete; skipped otherwise.
 EXTRA_DIRS = {
-    "floor16_ollama_t0": "C_t0",
-    "floor16_mistral_t0": "D_t0",
-    "floor16_qwen3_t0": "E_t0",
-    "floor16_phi3_t0": "F_t0",
+    pc.local_dir("C", t0=True): "C_t0",
+    pc.local_dir("D", t0=True): "D_t0",
+    pc.local_dir("E", t0=True): "E_t0",
+    pc.local_dir("F", t0=True): "F_t0",
 }
 
 
@@ -486,6 +490,96 @@ def item8(pool_rates, rng, n_sims=N_MCNEMAR_SIMS, v_values=(16, 50, 100, 300)):
 
 
 # ---------------------------------------------------------------------------------------
+# Item 9 (v3 only): the five-action analysis. cs_caution (controlled-substance caution) is the
+# one outcome with no operational criteria, so every quantity below is also reported without
+# it. No new random draws: everything reuses the item-1 resamples in `cache`, so the intervals
+# are paired with the six-action ones and the shared seed-42 stream is untouched.
+# ---------------------------------------------------------------------------------------
+
+def _range_factor(vals_by_lab_boot, obs_by_lab):
+    """Observed max/min of the pooled floors across models, and its paired bootstrap CI."""
+    obs_vals = list(obs_by_lab.values())
+    obs_ratio = max(obs_vals) / min(obs_vals) if min(obs_vals) else None
+    labs = list(vals_by_lab_boot)
+    n = len(vals_by_lab_boot[labs[0]])
+    ratios, undefined = [], 0
+    for i in range(n):
+        row = [vals_by_lab_boot[l][i] for l in labs]
+        if min(row) > 0:
+            ratios.append(max(row) / min(row))
+        else:
+            undefined += 1
+    return {"observed": obs_ratio, "ci_B5000": pct_ci(ratios) if ratios else None,
+            "n_undefined_resamples": undefined}
+
+
+def item9(models, obs_counts, cache):
+    five = [k for k in KEYS if k != "cs_caution"]
+    labs = sorted(models)
+    obs5, boot5, obs6, boot6 = {}, {}, {}, {}
+    out = {"excluded": "cs_caution", "actions": five, "models": {}}
+    for lab in labs:
+        obs5[lab] = pooled_from_counts(obs_counts[lab], five)
+        boot5[lab] = [pooled_from_counts(c, five) for c in cache[lab]]
+        obs6[lab] = pooled_from_counts(obs_counts[lab], KEYS)
+        boot6[lab] = [pooled_from_counts(c, KEYS) for c in cache[lab]]
+        num = sum(obs_counts[lab][k][0] for k in five)
+        den = sum(obs_counts[lab][k][1] for k in five)
+        out["models"][lab] = {"num": num, "den": den, "floor_5action": obs5[lab],
+                              "ci_5action_B5000": pct_ci(boot5[lab]),
+                              "floor_6action": obs6[lab],
+                              "ci_6action_B5000": pct_ci(boot6[lab])}
+    out["ordering_5action_ascending"] = sorted(labs, key=lambda l: obs5[l])
+    out["ordering_6action_ascending"] = sorted(labs, key=lambda l: obs6[l])
+
+    pairs = []
+    for li, lj in itertools.combinations(labs, 2):
+        diffs = [a - b for a, b in zip(boot5[li], boot5[lj])]
+        lo, hi = pct_ci(diffs)
+        pairs.append({"pair": "%s-%s" % (li, lj), "observed_diff": obs5[li] - obs5[lj],
+                      "ci_B5000": (lo, hi), "separated": not (lo <= 0 <= hi)})
+    out["paired_differences_5action"] = pairs
+    out["n_separated_5action"] = sum(1 for p in pairs if p["separated"])
+    out["n_pairs"] = len(pairs)
+
+    out["range_factor_5action"] = _range_factor(boot5, obs5)
+    out["range_factor_5action"]["min_model"] = min(obs5, key=obs5.get)
+    out["range_factor_5action"]["max_model"] = max(obs5, key=obs5.get)
+    out["range_factor_6action"] = _range_factor(boot6, obs6)
+    out["range_factor_6action"]["min_model"] = min(obs6, key=obs6.get)
+    out["range_factor_6action"]["max_model"] = max(obs6, key=obs6.get)
+
+    # Primary model (A): per-action range over the five actions.
+    per = obs_counts["A"]
+    a_floors = {k: per[k][0] / per[k][1] for k in five}
+    a_ci = {}
+    for k in five:
+        vals = [c[k][0] / c[k][1] for c in cache["A"] if c[k][1]]
+        a_ci[k] = pct_ci(vals)
+    lo_k, hi_k = min(a_floors, key=a_floors.get), max(a_floors, key=a_floors.get)
+    ratios, undefined = [], 0
+    for c in cache["A"]:
+        fl = [c[k][0] / c[k][1] for k in five if c[k][1]]
+        if fl and min(fl) > 0:
+            ratios.append(max(fl) / min(fl))
+        else:
+            undefined += 1
+    six_floors = {k: per[k][0] / per[k][1] for k in KEYS}
+    out["modelA_per_action_5action"] = {
+        "floors": a_floors, "ci_B5000": a_ci,
+        "min_action": lo_k, "min": a_floors[lo_k],
+        "max_action": hi_k, "max": a_floors[hi_k],
+        "ratio_max_over_min": a_floors[hi_k] / a_floors[lo_k] if a_floors[lo_k] else None,
+        "ratio_ci_B5000_finite_only": pct_ci(ratios) if ratios else None,
+        "n_resamples_ratio_undefined": undefined,
+        "six_action_min": min(six_floors.values()), "six_action_max": max(six_floors.values()),
+        "six_action_ratio": (max(six_floors.values()) / min(six_floors.values())
+                              if min(six_floors.values()) else None),
+    }
+    return out
+
+
+# ---------------------------------------------------------------------------------------
 
 def main():
     t_start = time.time()
@@ -545,6 +639,8 @@ def main():
     r8 = item8(pool_rates, rng)
     t_item8 = time.time() - t0
 
+    r9 = item9(models, obs_counts, cache) if pc.V3 else None
+
     n_splits = {}
     for k in (3, 5):
         n = math.comb(10, k) * math.comb(10 - k, k) // 2
@@ -583,6 +679,9 @@ def main():
         "item7_null_simulation_sensitivity": r7,
         "item8_mcnemar_simulation": r8,
     }
+    if r9 is not None:
+        report["meta"]["panel"] = pc.PANEL
+        report["item9_five_action_analysis"] = r9
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
@@ -638,6 +737,25 @@ def main():
             print("    V=%-4d flip=%.3f floor_exp=%.3f delta2=%.3f reject=%.3f"
                   % (v, e["mean_raw_flip_rate"], e["mean_floor_expectation"],
                      e["mean_delta2_excess"], e["mcnemar_rejection_rate"]))
+
+    if r9 is not None:
+        print("\nItem 9 -- five-action analysis (cs_caution excluded):")
+        for lab in sorted(r9["models"]):
+            e = r9["models"][lab]
+            print("  %s  5-action floor=%.3f [%.3f, %.3f]   6-action floor=%.3f [%.3f, %.3f]"
+                  % (lab, e["floor_5action"], *e["ci_5action_B5000"],
+                     e["floor_6action"], *e["ci_6action_B5000"]))
+        print("  ordering (5-action, ascending): %s" % " < ".join(r9["ordering_5action_ascending"]))
+        print("  ordering (6-action, ascending): %s" % " < ".join(r9["ordering_6action_ascending"]))
+        print("  paired differences separated (5-action): %d of %d"
+              % (r9["n_separated_5action"], r9["n_pairs"]))
+        rf5, rf6 = r9["range_factor_5action"], r9["range_factor_6action"]
+        print("  range factor 5-action: %.2f (%s/%s) CI %s; 6-action: %.2f (%s/%s) CI %s"
+              % (rf5["observed"], rf5["max_model"], rf5["min_model"], rf5["ci_B5000"],
+                 rf6["observed"], rf6["max_model"], rf6["min_model"], rf6["ci_B5000"]))
+        pa = r9["modelA_per_action_5action"]
+        print("  A five-action per-action range: min %s %.3f, max %s %.3f, ratio %.2f"
+              % (pa["min_action"], pa["min"], pa["max_action"], pa["max"], pa["ratio_max_over_min"]))
 
     print("\ntotal runtime: %.1f s" % total_time)
     return 0

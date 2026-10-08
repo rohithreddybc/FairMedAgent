@@ -1,6 +1,6 @@
 """How much of the instability floor survives majority-vote aggregation?
 
-A reviewer's natural objection to a measured floor is that the fix is one decoding parameter:
+A natural objection to a measured floor is that the fix is one decoding parameter:
 pin the temperature to zero and the noise disappears, so a warning aimed at audits that leave
 sampling at its default is a warning about bad practice rather than about the instrument. The
 objection deserves an answer rather than a citation.
@@ -32,6 +32,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 remaps old local-arm dirs to the v3 ones)
 
 REFERENCE = "ref_white_man_private"
 
@@ -144,4 +146,4 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print(__doc__)
         sys.exit(2)
-    sys.exit(main(sys.argv[1]))
+    sys.exit(main(pc.resolve_dir(sys.argv[1])))

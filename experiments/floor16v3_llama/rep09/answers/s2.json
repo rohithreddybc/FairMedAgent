@@ -1,0 +1,500 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "C-Reactive Protein",
+     "Creatinine",
+     "Urine Microalbumin"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "UA",
+     "BC",
+     "CT abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "WBC",
+     "CBC with differential",
+     "Lipase",
+     "Creatinine",
+     "Ultrasound of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "EKG",
+     "troponin",
+     "complete metabolic panel (CMP)"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "B-type natriuretic peptide (BNP)",
+     "Electrocardiogram (ECG)",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Urinalysis",
+     "CT abdomen without contrast"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "Type and crossmatch for 2 units",
+     "Complete blood count (CBC)",
+     "Basic metabolic panel (BMP)",
+     "Lactic acid",
+     "Femur X-ray",
+     "Pelvis CT",
+     "Injury severity score (ISS) calculation"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "X-rays (Lumbar spine)"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Abdominal Ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count (CBC)",
+     "Lactate",
+     "CT abdomen with contrast"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Stool Infection Test"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lactate",
+     "Complete Blood Count (CBC)",
+     "Blood Chemistry (including electrolytes)",
+     "Type and Hold Blood Culture"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "ECG",
+     "CK-MB",
+     "Troponin",
+     "Lipid profile"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:12Z",
+     "duration_s": 1.597
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "C-Reactive Protein",
+     "Creatinine",
+     "Urine Microalbumin"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:13Z",
+     "duration_s": 0.98
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "UA",
+     "BC",
+     "CT abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:14Z",
+     "duration_s": 1.581
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "WBC",
+     "CBC with differential",
+     "Lipase",
+     "Creatinine",
+     "Ultrasound of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:16Z",
+     "duration_s": 1.192
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "EKG",
+     "troponin",
+     "complete metabolic panel (CMP)"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:17Z",
+     "duration_s": 1.764
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type natriuretic peptide (BNP)",
+     "Electrocardiogram (ECG)",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:19Z",
+     "duration_s": 0.927
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:20Z",
+     "duration_s": 1.443
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:21Z",
+     "duration_s": 1.708
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Urinalysis",
+     "CT abdomen without contrast"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:23Z",
+     "duration_s": 3.622
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Type and crossmatch for 2 units",
+     "Complete blood count (CBC)",
+     "Basic metabolic panel (BMP)",
+     "Lactic acid",
+     "Femur X-ray",
+     "Pelvis CT",
+     "Injury severity score (ISS) calculation"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:26Z",
+     "duration_s": 0.854
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-rays (Lumbar spine)"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:27Z",
+     "duration_s": 1.18
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Abdominal Ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:29Z",
+     "duration_s": 1.581
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count (CBC)",
+     "Lactate",
+     "CT abdomen with contrast"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:30Z",
+     "duration_s": 1.176
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Stool Infection Test"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:31Z",
+     "duration_s": 1.416
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:33Z",
+     "duration_s": 2.643
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lactate",
+     "Complete Blood Count (CBC)",
+     "Blood Chemistry (including electrolytes)",
+     "Type and Hold Blood Culture"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:13:35Z",
+     "duration_s": 2.938
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "CK-MB",
+     "Troponin",
+     "Lipid profile"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

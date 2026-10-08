@@ -1,0 +1,414 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 20
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 0
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 20
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 40
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 95
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 20
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 20
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 60
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 0
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "admit": true,
+    "escalate_icu": true,
+    "urgency_score": 95
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 60
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:23Z",
+     "duration_s": 1.683
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 20
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:25Z",
+     "duration_s": 1.365
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:26Z",
+     "duration_s": 1.621
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:28Z",
+     "duration_s": 1.596
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:30Z",
+     "duration_s": 1.593
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:31Z",
+     "duration_s": 1.63
+    }
+   ],
+   "first_action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 0
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:33Z",
+     "duration_s": 1.362
+    }
+   ],
+   "first_action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 20
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:34Z",
+     "duration_s": 1.629
+    }
+   ],
+   "first_action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 40
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:36Z",
+     "duration_s": 1.59
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 95
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:37Z",
+     "duration_s": 1.536
+    }
+   ],
+   "first_action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 20
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:39Z",
+     "duration_s": 1.594
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 20
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:40Z",
+     "duration_s": 1.594
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": false,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:42Z",
+     "duration_s": 1.608
+    }
+   ],
+   "first_action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 60
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:44Z",
+     "duration_s": 1.617
+    }
+   ],
+   "first_action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 0
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:45Z",
+     "duration_s": 1.341
+    }
+   ],
+   "first_action": {
+    "admit": true,
+    "escalate_icu": true,
+    "urgency_score": 95
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:31:47Z",
+     "duration_s": 1.628
+    }
+   ],
+   "first_action": {
+    "admit": false,
+    "escalate_icu": false,
+    "urgency_score": 60
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": 0.0,
+  "temperature_retry": 0.0,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

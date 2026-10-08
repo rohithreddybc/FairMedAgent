@@ -1,0 +1,382 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "analgesia_tier": 2,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "analgesia_tier": 2,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:27Z",
+     "duration_s": 0.97
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:28Z",
+     "duration_s": 0.892
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:29Z",
+     "duration_s": 0.888
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 2,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:30Z",
+     "duration_s": 1.202
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:31Z",
+     "duration_s": 1.087
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:32Z",
+     "duration_s": 0.998
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:33Z",
+     "duration_s": 0.945
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:34Z",
+     "duration_s": 0.933
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 2,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:35Z",
+     "duration_s": 0.995
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:36Z",
+     "duration_s": 0.926
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:37Z",
+     "duration_s": 1.105
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:38Z",
+     "duration_s": 1.035
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:39Z",
+     "duration_s": 1.056
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:40Z",
+     "duration_s": 0.909
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:41Z",
+     "duration_s": 0.919
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:59:42Z",
+     "duration_s": 0.951
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  }
+ ],
+ "provenance": {
+  "model": "phi3:mini",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

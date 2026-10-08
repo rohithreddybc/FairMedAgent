@@ -1,0 +1,480 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "hemoglobin A1c",
+     "fasting glucose",
+     "electrolytes",
+     "renal function tests",
+     "thyroid function tests"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "urinalysis",
+     "CBC",
+     "serum creatinine",
+     "basic metabolic panel",
+     "CT abdomen and pelvis with contrast"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "lipid panel",
+     "electrolytes",
+     "renal function",
+     "urinalysis",
+     "abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "troponin I",
+     "ECG"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "basic metabolic panel",
+     "cardiac biomarkers",
+     "complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "LFTs",
+     "BG",
+     "Amylase",
+     "Lipase"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "X-ray femur",
+     "CT femur",
+     "CBC",
+     "CMP",
+     "PT/INR",
+     "PFTs"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "liver function tests",
+     "complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "lipid panel",
+     "electrolytes",
+     "renal function",
+     "urinalysis",
+     "abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "CBC",
+     "electrolytes",
+     "creatinine",
+     "lactate",
+     "C-reactive protein"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "troponin I",
+     "ECG",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "troponin I",
+     "ECG"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:19Z",
+     "duration_s": 1.607
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "hemoglobin A1c",
+     "fasting glucose",
+     "electrolytes",
+     "renal function tests",
+     "thyroid function tests"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:21Z",
+     "duration_s": 1.53
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "urinalysis",
+     "CBC",
+     "serum creatinine",
+     "basic metabolic panel",
+     "CT abdomen and pelvis with contrast"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:22Z",
+     "duration_s": 1.75
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "lipid panel",
+     "electrolytes",
+     "renal function",
+     "urinalysis",
+     "abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:24Z",
+     "duration_s": 0.751
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "troponin I",
+     "ECG"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:25Z",
+     "duration_s": 0.995
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "basic metabolic panel",
+     "cardiac biomarkers",
+     "complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:26Z",
+     "duration_s": 0.391
+    }
+   ],
+   "first_action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:26Z",
+     "duration_s": 0.412
+    }
+   ],
+   "first_action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:27Z",
+     "duration_s": 1.37
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "LFTs",
+     "BG",
+     "Amylase",
+     "Lipase"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:28Z",
+     "duration_s": 1.563
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray femur",
+     "CT femur",
+     "CBC",
+     "CMP",
+     "PT/INR",
+     "PFTs"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:30Z",
+     "duration_s": 0.39
+    }
+   ],
+   "first_action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:30Z",
+     "duration_s": 0.801
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "liver function tests",
+     "complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:31Z",
+     "duration_s": 1.768
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "lipid panel",
+     "electrolytes",
+     "renal function",
+     "urinalysis",
+     "abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:33Z",
+     "duration_s": 1.393
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "electrolytes",
+     "creatinine",
+     "lactate",
+     "C-reactive protein"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:34Z",
+     "duration_s": 0.416
+    }
+   ],
+   "first_action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:34Z",
+     "duration_s": 1.018
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "troponin I",
+     "ECG",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": 0.0,
+     "parsed": true,
+     "t_start": "2026-10-07T01:54:35Z",
+     "duration_s": 0.752
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "troponin I",
+     "ECG"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "qwen3:4b-instruct-2507-q8_0",
+  "temperature_first": 0.0,
+  "temperature_retry": 0.0,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

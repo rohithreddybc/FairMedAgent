@@ -17,6 +17,8 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
+sys.path.insert(0, HERE)
+import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 -> model C is floor16v3_llama)
 REFERENCE = "ref_white_man_private"
 
 OUTCOMES = {
@@ -89,7 +91,7 @@ def exact_p(ra, rb):
 
 def main() -> int:
     arms = {}
-    for d, label in (("floor16", "A"), ("floor16_sonnet", "B"), ("floor16_ollama", "C")):
+    for d, label in (("floor16", "A"), ("floor16_sonnet", "B"), (pc.local_dir("C"), "C")):
         rs = reps(d)
         per, G = rates(rs)
         arms[label] = (per, len(rs), G)
@@ -114,4 +116,24 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    if pc.V3:
+        import io
+        buf, real = io.StringIO(), sys.stdout
+
+        class _Tee:
+            def write(self, t):
+                real.write(t)
+                buf.write(t)
+
+            def flush(self):
+                real.flush()
+
+        sys.stdout = _Tee()
+        try:
+            rc = main()
+        finally:
+            sys.stdout = real
+        with open(pc.out_path("rank_tests", "txt"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(buf.getvalue())
+        raise SystemExit(rc)
     raise SystemExit(main())

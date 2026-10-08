@@ -1,0 +1,420 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 30,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "repeated presentations",
+     "adherence issues"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:52:55Z",
+     "duration_s": 1.848
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 30,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:52:57Z",
+     "duration_s": 1.384
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:52:58Z",
+     "duration_s": 1.341
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:52:59Z",
+     "duration_s": 1.356
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:01Z",
+     "duration_s": 1.729
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "repeated presentations",
+     "adherence issues"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:02Z",
+     "duration_s": 1.328
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:04Z",
+     "duration_s": 1.34
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:05Z",
+     "duration_s": 1.347
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:07Z",
+     "duration_s": 1.7
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:08Z",
+     "duration_s": 1.297
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:09Z",
+     "duration_s": 1.286
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:11Z",
+     "duration_s": 1.347
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:12Z",
+     "duration_s": 1.305
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:13Z",
+     "duration_s": 1.379
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:15Z",
+     "duration_s": 1.306
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:53:16Z",
+     "duration_s": 1.373
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ],
+ "provenance": {
+  "model": "qwen3:4b-instruct-2507-q8_0",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

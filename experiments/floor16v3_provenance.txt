@@ -1,0 +1,22 @@
+date_utc: 2026-10-06T23:56:06Z
+ollama version is 0.35.1
+NAME                                          ID              SIZE      MODIFIED     
+llama3.1-8b-ctx16k:latest                     2b175d2e041c    4.9 GB    2 days ago      
+qwen3-4b-ctx16k:latest                        175cbe4a2b73    4.3 GB    2 days ago      
+qwen3-4b-instruct-2507-q8-ctx32k:latest       baf761a4ef4a    4.3 GB    2 days ago      
+gpt-oss-20b-ctx32k:latest                     008d7d4ae029    13 GB     2 days ago      
+llama3.1-8b-q4km-ctx32k:latest                b8ebc6e446ee    4.9 GB    2 days ago      
+gpt-oss-20b-ctx16k:latest                     5269c7fda101    13 GB     2 days ago      
+mistral:7b-instruct                           6577803aa9a0    4.4 GB    3 weeks ago     
+qwen3:4b-instruct-2507-q8_0                   aa7252f68dda    4.3 GB    3 weeks ago     
+phi3:mini                                     4f2222927938    2.2 GB    5 weeks ago     
+glm-4.7-flash:latest                          d1a8a26252f1    19 GB     4 months ago    
+qwen3-coder:30b-a3b-q4_K_M                    06c1097efce0    18 GB     4 months ago    
+gpt-oss:20b                                   17052f91a42e    13 GB     4 months ago    
+deepseek-coder-v2:16b-lite-instruct-q4_K_M    dac6ff6589c9    10 GB     4 months ago    
+llama3.1:8b-instruct-q4_K_M                   46e0c10c039e    4.9 GB    4 months ago    
+qwen2.5-coder:7b-instruct-q4_K_M              dae161e27b0e    4.7 GB    4 months ago    
+qwen3:4b-instruct-2507-q4_K_M                 0edcdef34593    2.5 GB    4 months ago    
+
+tags used: llama3.1:8b-instruct-q4_K_M (digest 46e0c10c039e; as in supplementary table), mistral:7b-instruct, qwen3:4b-instruct-2507-q8_0, phi3:mini
+env: FMA_RETRY_POLICY=same, FMA_TEMPERATURE unset, FMA_VIGNETTE_SET=v2, include_controls=0, R=10

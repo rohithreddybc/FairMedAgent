@@ -1,0 +1,512 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "C-Peptide",
+     "Creatinine",
+     "Potassium",
+     "Lipid profile"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "UA",
+     "KUB CT"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "CT abdomen without contrast",
+     "Complete Blood Count (CBC)",
+     "Electrolyte panel",
+     "Lipase",
+     "Urine analysis"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "EKG",
+     "CK-MB",
+     "Troponin",
+     "Lipid panel",
+     "Fasting glucose"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "B-Type Natriuretic Peptide",
+     "Creatinine",
+     "Electrolytes",
+     "Urea",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Creatinine",
+     "Urine Analysis"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "C-Reactive Protein",
+     "Erythrocyte Sedimentation Rate",
+     "Blood Glucose",
+     "White Blood Cell Count"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "X-ray (lower extremity)",
+     "CT scan (lower extremity)",
+     "Complete Blood Count (CBC)",
+     "Type and cross-match"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "Basic metabolic panel (BMP)",
+     "Complete blood count (CBC)",
+     "Lateral cervical spine X-ray"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "ALT",
+     "AST",
+     "bilirubin",
+     "INR",
+     "complete metabolic panel",
+     "abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CBC",
+     "BUN",
+     "Creatinine",
+     "Lipase",
+     "Urinalysis",
+     "CT Abdomen with IV contrast"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Liver Function Tests (LFTs)",
+     "Stool Test for Infection",
+     "Abdominal X-ray"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "ECG",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "troponin"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid Profile",
+     "Chest X-ray"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:00Z",
+     "duration_s": 1.845
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "C-Peptide",
+     "Creatinine",
+     "Potassium",
+     "Lipid profile"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:02Z",
+     "duration_s": 0.78
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "UA",
+     "KUB CT"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:03Z",
+     "duration_s": 1.989
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT abdomen without contrast",
+     "Complete Blood Count (CBC)",
+     "Electrolyte panel",
+     "Lipase",
+     "Urine analysis"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:05Z",
+     "duration_s": 1.696
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "EKG",
+     "CK-MB",
+     "Troponin",
+     "Lipid panel",
+     "Fasting glucose"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:06Z",
+     "duration_s": 2.055
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-Type Natriuretic Peptide",
+     "Creatinine",
+     "Electrolytes",
+     "Urea",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:08Z",
+     "duration_s": 1.223
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Creatinine",
+     "Urine Analysis"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:10Z",
+     "duration_s": 2.034
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "C-Reactive Protein",
+     "Erythrocyte Sedimentation Rate",
+     "Blood Glucose",
+     "White Blood Cell Count"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:12Z",
+     "duration_s": 1.303
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:13Z",
+     "duration_s": 2.099
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray (lower extremity)",
+     "CT scan (lower extremity)",
+     "Complete Blood Count (CBC)",
+     "Type and cross-match"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:15Z",
+     "duration_s": 1.763
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Basic metabolic panel (BMP)",
+     "Complete blood count (CBC)",
+     "Lateral cervical spine X-ray"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:17Z",
+     "duration_s": 2.0
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ALT",
+     "AST",
+     "bilirubin",
+     "INR",
+     "complete metabolic panel",
+     "abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:19Z",
+     "duration_s": 1.908
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "BUN",
+     "Creatinine",
+     "Lipase",
+     "Urinalysis",
+     "CT Abdomen with IV contrast"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:21Z",
+     "duration_s": 2.529
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Liver Function Tests (LFTs)",
+     "Stool Test for Infection",
+     "Abdominal X-ray"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:23Z",
+     "duration_s": 0.923
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:24Z",
+     "duration_s": 0.865
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "troponin"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:05:25Z",
+     "duration_s": 1.631
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid Profile",
+     "Chest X-ray"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

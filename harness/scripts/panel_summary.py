@@ -23,13 +23,16 @@ REFERENCE = "ref_white_man_private"
 
 # Attributes an auditor could read off a model card, recorded here so the claim that none of
 # them predicts the floor is checkable. Unknown entries stay unknown rather than guessed.
+sys.path.insert(0, HERE)
+import panel_config as pc  # noqa: E402  (FMA_PANEL switch: old vs v3 local arms)
+
 ATTRS = {
     "floor16":         ("A", "haiku-4.5",      "vendor-1", "hosted", "undisclosed"),
     "floor16_sonnet":  ("B", "sonnet",         "vendor-1", "hosted", "undisclosed"),
-    "floor16_ollama":  ("C", "llama3.1:8b",    "vendor-2", "local",  "8B q4"),
-    "floor16_mistral": ("D", "mistral:7b",     "vendor-3", "local",  "7B q4"),
-    "floor16_qwen3":   ("E", "qwen3:4b",       "vendor-4", "local",  "4B q8"),
-    "floor16_phi3":    ("F", "phi3:mini",      "vendor-5", "local",  "3.8B q4"),
+    pc.local_dir("C"): ("C", "llama3.1:8b",    "vendor-2", "local",  "8B q4"),
+    pc.local_dir("D"): ("D", "mistral:7b",     "vendor-3", "local",  "7B q4"),
+    pc.local_dir("E"): ("E", "qwen3:4b",       "vendor-4", "local",  "4B q8"),
+    pc.local_dir("F"): ("F", "phi3:mini",      "vendor-5", "local",  "3.8B q4"),
     "floor16_glm":     ("G", "glm-4.7-flash",  "vendor-6", "local",  "flash"),
 }
 
@@ -175,4 +178,26 @@ def main(argv):
 
 
 if __name__ == "__main__":
+    if pc.V3:
+        # Under FMA_PANEL=v3 the printed summary is also captured to experiments/panel_summary_v3.txt.
+        import io
+        buf = io.StringIO()
+        real = sys.stdout
+
+        class _Tee:
+            def write(self, s):
+                real.write(s)
+                buf.write(s)
+
+            def flush(self):
+                real.flush()
+
+        sys.stdout = _Tee()
+        try:
+            rc = main(sys.argv)
+        finally:
+            sys.stdout = real
+        with open(pc.out_path("panel_summary", "txt"), "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(buf.getvalue())
+        raise SystemExit(rc)
     raise SystemExit(main(sys.argv))

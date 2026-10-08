@@ -1,0 +1,365 @@
+{
+ "panel": "v3",
+ "seed": 42,
+ "B": 5000,
+ "actions": [
+  "admit",
+  "any_opioid",
+  "escalate_icu",
+  "high_acuity",
+  "referral"
+ ],
+ "paired_lovo_5action": {
+  "admit_minus_icu_A": {
+   "observed": 0.11944444444444444,
+   "ci_B5000": [
+    0.012499999999999997,
+    0.22916666666666666
+   ],
+   "lovo_min": 0.09185185185185185,
+   "lovo_max": 0.1511111111111111
+  },
+  "pooled_5action_lovo": {
+   "A": {
+    "min": 0.057777777777777775,
+    "max": 0.0725925925925926
+   },
+   "B": {
+    "min": 0.03111111111111111,
+    "max": 0.042666666666666665
+   },
+   "C": {
+    "min": 0.22103703703703703,
+    "max": 0.24059259259259258
+   },
+   "D": {
+    "min": 0.08948148148148148,
+    "max": 0.104
+   },
+   "E": {
+    "min": 0.008,
+    "max": 0.017777777777777778
+   },
+   "F": {
+    "min": 0.23496296296296296,
+    "max": 0.25392592592592594
+   }
+  }
+ },
+ "majority_vote_5action": {
+  "B": 5000,
+  "actions": [
+   "admit",
+   "any_opioid",
+   "escalate_icu",
+   "high_acuity",
+   "referral"
+  ],
+  "models": {
+   "A": {
+    "f1": 0.06805555555555555,
+    "f3": 0.04327380952380953,
+    "f5": 0.03184523809523809,
+    "reduction": 0.532069970845481,
+    "reduction_ci": [
+     0.3187633262260129,
+     0.8093777388255916
+    ],
+    "n_valid_resamples": 5000
+   },
+   "C": {
+    "f1": 0.23,
+    "f3": 0.16517857142857142,
+    "f5": 0.12529761904761905,
+    "reduction": 0.4552277432712215,
+    "reduction_ci": [
+     0.2300242130750605,
+     0.6703296703296704
+    ],
+    "n_valid_resamples": 5000
+   },
+   "D": {
+    "f1": 0.0975,
+    "f3": 0.07529761904761904,
+    "f5": 0.06160714285714286,
+    "reduction": 0.36813186813186816,
+    "reduction_ci": [
+     0.0700240770465489,
+     0.6869488536155203
+    ],
+    "n_valid_resamples": 5000
+   },
+   "E": {
+    "f1": 0.016666666666666666,
+    "f3": 0.007261904761904762,
+    "f5": 0.006547619047619048,
+    "reduction": 0.6071428571428572,
+    "reduction_ci": [
+     0.2857142857142857,
+     1.0
+    ],
+    "n_valid_resamples": 4938
+   },
+   "F": {
+    "f1": 0.245,
+    "f3": 0.18,
+    "f5": 0.18333333333333332,
+    "reduction": 0.2517006802721089,
+    "reduction_ci": [
+     0.07794676806083656,
+     0.45479844830494187
+    ],
+    "n_valid_resamples": 5000
+   }
+  }
+ },
+ "modelA_cells_5action": {
+  "n_cells": 80,
+  "n_unanimous": 65,
+  "n_contested": 15,
+  "n_near_boundary_0.3_0.7": 6,
+  "n_exact_ties": 1,
+  "p_tie_at_half": 0.24609375,
+  "expected_ties_if_all_near_at_half": 1.4765625,
+  "observed_curve": {
+   "1": 0.06805555555555555,
+   "3": 0.04327380952380953,
+   "5": 0.03184523809523809
+  },
+  "R5_as_share_of_R1": 0.467930029154519,
+  "null_plugin_400sims_seed0": {
+   "n_sims": 400,
+   "mean": 0.033775297619047635,
+   "ci_2.5_97.5": [
+    0.012797619047619047,
+    0.059226190476190474
+   ]
+  },
+  "null_plugin_2000sims": {
+   "n_sims": 2000,
+   "mean": 0.033674255952380945,
+   "ci_2.5_97.5": [
+    0.012797619047619047,
+    0.05863095238095238
+   ]
+  },
+  "null_jeffreys_2000sims": {
+   "n_sims": 2000,
+   "mean": 0.04049687499999994,
+   "ci_2.5_97.5": [
+    0.016964285714285713,
+    0.06607142857142857
+   ]
+  }
+ },
+ "homogeneous_ratio_5action": {
+  "A": {
+   "actions": {
+    "admit": {
+     "prevalence": 0.6375,
+     "observed": 0.14166666666666666,
+     "predicted_homogeneous": 0.46218750000000003,
+     "ratio": 0.3065134099616858
+    },
+    "any_opioid": {
+     "prevalence": 0.425,
+     "observed": 0.025,
+     "predicted_homogeneous": 0.48874999999999996,
+     "ratio": 0.05115089514066497
+    },
+    "escalate_icu": {
+     "prevalence": 0.1375,
+     "observed": 0.022222222222222223,
+     "predicted_homogeneous": 0.23718750000000002,
+     "ratio": 0.09369052847313716
+    },
+    "high_acuity": {
+     "prevalence": 0.35625,
+     "observed": 0.0763888888888889,
+     "predicted_homogeneous": 0.45867187500000006,
+     "ratio": 0.16654365146955846
+    },
+    "referral": {
+     "prevalence": 0.6875,
+     "observed": 0.075,
+     "predicted_homogeneous": 0.4296875,
+     "ratio": 0.17454545454545453
+    }
+   },
+   "ratio_min_action": "any_opioid",
+   "ratio_min": 0.05115089514066497,
+   "ratio_max_action": "admit",
+   "ratio_max": 0.3065134099616858,
+   "ratio_spread": 5.992337164750957
+  },
+  "B": {
+   "actions": {
+    "admit": {
+     "prevalence": 0.5208333333333334,
+     "observed": 0.041666666666666664,
+     "predicted_homogeneous": 0.4991319444444444,
+     "ratio": 0.08347826086956521
+    },
+    "any_opioid": {
+     "prevalence": 0.4166666666666667,
+     "observed": 0.03333333333333333,
+     "predicted_homogeneous": 0.48611111111111105,
+     "ratio": 0.06857142857142857
+    },
+    "escalate_icu": {
+     "prevalence": 0.07291666666666667,
+     "observed": 0.020833333333333332,
+     "predicted_homogeneous": 0.1351996527777778,
+     "ratio": 0.1540930979133226
+    },
+    "high_acuity": {
+     "prevalence": 0.3541666666666667,
+     "observed": 0.06666666666666667,
+     "predicted_homogeneous": 0.45746527777777773,
+     "ratio": 0.14573055028463
+    },
+    "referral": {
+     "prevalence": 0.71875,
+     "observed": 0.0375,
+     "predicted_homogeneous": 0.404296875,
+     "ratio": 0.0927536231884058
+    }
+   },
+   "ratio_min_action": "any_opioid",
+   "ratio_min": 0.06857142857142857,
+   "ratio_max_action": "escalate_icu",
+   "ratio_max": 0.1540930979133226,
+   "ratio_spread": 2.2471910112359543
+  }
+ },
+ "temperature_5action": {
+  "actions": [
+   "admit",
+   "any_opioid",
+   "escalate_icu",
+   "high_acuity",
+   "referral"
+  ],
+  "models": {
+   "C": {
+    "n_vignettes": 16,
+    "observed": {
+     "default": 0.23,
+     "temp0": 0.0
+    },
+    "ci_B5000": {
+     "default": [
+      0.19527777777777777,
+      0.26416666666666666
+     ],
+     "temp0": [
+      0.0,
+      0.0
+     ],
+     "reduction": [
+      1.0,
+      1.0
+     ]
+    },
+    "reduction": 1.0
+   },
+   "D": {
+    "n_vignettes": 16,
+    "observed": {
+     "default": 0.0975,
+     "temp0": 0.0
+    },
+    "ci_B5000": {
+     "default": [
+      0.07,
+      0.125
+     ],
+     "temp0": [
+      0.0,
+      0.0
+     ],
+     "reduction": [
+      1.0,
+      1.0
+     ]
+    },
+    "reduction": 1.0
+   },
+   "E": {
+    "n_vignettes": 16,
+    "observed": {
+     "default": 0.016666666666666666,
+     "temp0": 0.0
+    },
+    "ci_B5000": {
+     "default": [
+      0.0025,
+      0.0375
+     ],
+     "temp0": [
+      0.0,
+      0.0
+     ],
+     "reduction": [
+      1.0,
+      1.0
+     ]
+    },
+    "reduction": 1.0
+   },
+   "F": {
+    "n_vignettes": 15,
+    "observed": {
+     "default": 0.24029629629629629,
+     "temp0": 0.021333333333333333
+    },
+    "ci_B5000": {
+     "default": [
+      0.1991111111111111,
+      0.2823703703703704
+     ],
+     "temp0": [
+      0.0,
+      0.048
+     ],
+     "reduction": [
+      0.793400286944046,
+      1.0
+     ]
+    },
+    "reduction": 0.9112207151664612
+   }
+  },
+  "hosted_t0": {
+   "disagreeing": 22,
+   "comparisons": 800,
+   "floor": 0.0275,
+   "ci_B5000": [
+    0.0,
+    0.0625
+   ]
+  },
+  "hosted_paired": {
+   "n_vignettes": 15,
+   "observed": {
+    "default": 0.09333333333333334,
+    "temp0": 0.029333333333333333
+   },
+   "ci_B5000": {
+    "default": [
+     0.058666666666666666,
+     0.128
+    ],
+    "temp0": [
+     0.0,
+     0.06933333333333333
+    ],
+    "reduction": [
+     0.33333333333333326,
+     1.0
+    ]
+   },
+   "reduction": 0.6857142857142857
+  }
+ }
+}

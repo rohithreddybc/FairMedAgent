@@ -87,16 +87,34 @@ def main(argv: list[str]) -> int:
     # FMA_TEMPERATURE pins the sampling temperature for every call, retries included, so a
     # decoding-configuration run is not mixed with the default-sampling retry path. Unset, the
     # original behaviour holds: provider default first, one retry at 0.2 on a parse failure.
+    # FMA_RETRY_POLICY overrides the retry: legacy (above, the default), same (retry uses
+    # exactly the first call's options), none (no retry). Every attempt is logged.
     pinned = os.environ.get("FMA_TEMPERATURE")
+    policy = os.environ.get("FMA_RETRY_POLICY", "legacy")
+    if policy not in ("legacy", "same", "none"):
+        print("unknown FMA_RETRY_POLICY %r" % policy, file=sys.stderr)
+        return 2
     first_t = float(pinned) if pinned is not None else None
-    retry_t = float(pinned) if pinned is not None else 0.2
-    answers, failed, retried = [], [], []
+    retry_t = first_t if policy == "same" else (float(pinned) if pinned is not None else 0.2)
+    answers, failed, retried, log = [], [], [], []
     t0 = time.time()
+
+    def _attempt(n: int, p: dict, t: float | None, rec: dict) -> dict | None:
+        start = time.time()
+        iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(start))
+        got = _call(model, system, p["prompt"], schema, t)
+        rec["attempts"].append({"n": n, "temperature": t, "parsed": got is not None,
+                                "t_start": iso, "duration_s": round(time.time() - start, 3)})
+        return got
+
     for i, p in enumerate(prompts, 1):
-        action = _call(model, system, p["prompt"], schema, first_t)
-        if action is None:
+        rec = {"id": p["id"], "attempts": [], "first_action": None}
+        action = _attempt(1, p, first_t, rec)
+        rec["first_action"] = action
+        if action is None and policy != "none":
             retried.append(p["id"])
-            action = _call(model, system, p["prompt"], schema, retry_t)
+            action = _attempt(2, p, retry_t, rec)
+        log.append(rec)
         if action is None:
             failed.append(p["id"])
             continue
@@ -104,9 +122,9 @@ def main(argv: list[str]) -> int:
         if i % 4 == 0 or i == len(prompts):
             print("    %d/%d  (%.0fs)" % (i, len(prompts), time.time() - t0), flush=True)
 
-    json.dump({"answers": answers, "provenance": {
+    json.dump({"answers": answers, "attempts": log, "provenance": {
         "model": model, "temperature_first": first_t, "temperature_retry": retry_t,
-        "retried_ids": retried, "failed_ids": failed}},
+        "retry_policy": policy, "retried_ids": retried, "failed_ids": failed}},
         open(out_path, "w", encoding="utf-8"), indent=1)
     print("  step %s: %d answered, %d unanswered %s"
           % (step, len(answers), len(failed), failed if failed else ""))

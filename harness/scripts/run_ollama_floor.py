@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -59,6 +60,9 @@ def main(argv: list[str]) -> int:
             # hosted-endpoint check uses groq_answerer.py with the same loop.
             answerer = os.environ.get("FMA_ANSWERER", "ollama_answerer.py")
             _run([os.path.join(HERE, answerer), split, ans, model])
+            if os.path.exists(ans):
+                os.makedirs(os.path.join(rep_dir, "answers"), exist_ok=True)
+                shutil.copyfile(ans, os.path.join(rep_dir, "answers", "s%d.json" % step))
 
             if _run([os.path.join(HERE, "pilot_driver.py"), "ingest", state, ans]) != 0:
                 print("ingest failed at rep%02d step%d" % (rep, step))

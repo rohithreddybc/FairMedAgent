@@ -1,0 +1,522 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "C-peptide",
+     "HbA1c",
+     "Lipid panel",
+     "Urinalysis",
+     "Blood electrolytes",
+     "Serum creatinine",
+     "Fasting C-reactive protein"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "CT-Kidney",
+     "Urine-Cultures",
+     "Creatinine",
+     "CBC",
+     "ECG"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "LFT",
+     "PT",
+     "Urinalysis",
+     "C-reactive protein",
+     "Ultrasound abdomen"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin I"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "BNP",
+     "Troponin I",
+     "CBC",
+     "Chemistry panel",
+     "Urinalysis",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "Complete blood count",
+     "Urinalysis",
+     "Urine culture"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "CBC",
+     "Blood glucose",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Liver Function Tests"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "FBC",
+     "Coagulation panel",
+     "X-ray of the injured femur",
+     "CT scan of the pelvis"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "CBC",
+     "ESR",
+     "X-ray Lumbar Spine"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Ultrasound Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "Urinalysis",
+     "CT Abdomen/Pelvis"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Urinalysis",
+     "Liver Function Tests",
+     "Stool Occult Blood Test",
+     "C-reactive Protein"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "Coagulation panel",
+     "ECG",
+     "Troponin I"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "CBC",
+     "D-dimer"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "Troponin I",
+     "ECG",
+     "CBC",
+     "D-dimer"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:25Z",
+     "duration_s": 2.705
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "C-peptide",
+     "HbA1c",
+     "Lipid panel",
+     "Urinalysis",
+     "Blood electrolytes",
+     "Serum creatinine",
+     "Fasting C-reactive protein"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:28Z",
+     "duration_s": 1.645
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT-Kidney",
+     "Urine-Cultures",
+     "Creatinine",
+     "CBC",
+     "ECG"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:29Z",
+     "duration_s": 1.989
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "LFT",
+     "PT",
+     "Urinalysis",
+     "C-reactive protein",
+     "Ultrasound abdomen"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:31Z",
+     "duration_s": 0.852
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin I"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:32Z",
+     "duration_s": 1.843
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "BNP",
+     "Troponin I",
+     "CBC",
+     "Chemistry panel",
+     "Urinalysis",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:34Z",
+     "duration_s": 1.109
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete blood count",
+     "Urinalysis",
+     "Urine culture"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:35Z",
+     "duration_s": 1.15
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Blood glucose",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:36Z",
+     "duration_s": 1.683
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Liver Function Tests"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:38Z",
+     "duration_s": 1.623
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "FBC",
+     "Coagulation panel",
+     "X-ray of the injured femur",
+     "CT scan of the pelvis"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:40Z",
+     "duration_s": 1.137
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "ESR",
+     "X-ray Lumbar Spine"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:41Z",
+     "duration_s": 1.254
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Ultrasound Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:42Z",
+     "duration_s": 1.422
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "Urinalysis",
+     "CT Abdomen/Pelvis"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:43Z",
+     "duration_s": 1.8
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Urinalysis",
+     "Liver Function Tests",
+     "Stool Occult Blood Test",
+     "C-reactive Protein"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:45Z",
+     "duration_s": 1.473
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "Coagulation panel",
+     "ECG",
+     "Troponin I"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:47Z",
+     "duration_s": 1.281
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "CBC",
+     "D-dimer"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:19:48Z",
+     "duration_s": 1.283
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Troponin I",
+     "ECG",
+     "CBC",
+     "D-dimer"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "mistral:7b-instruct",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

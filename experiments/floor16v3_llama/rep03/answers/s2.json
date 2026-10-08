@@ -1,0 +1,496 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Lipid profile",
+     "Thyroid function tests",
+     "Kidney function tests",
+     "Complete blood count",
+     "Blood cultures"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "CT urogram",
+     "renal function panel",
+     "urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Urine HCG",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Complete Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Electrocardiogram (ECG)",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "complete blood count",
+     "urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Lipid Profile",
+     "HbA1c"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CT abdomen"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "CT angiography of the abdomen and pelvis",
+     "CBC",
+     "PT/INR",
+     "Platelet count",
+     "Electrolyte panel",
+     "Lactate level"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "X-ray lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Ultrasound of the Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "Ct Abdomen",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Liver Function Tests",
+     "Ammonia Levels"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "CT abdomen"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Metabolic Panel",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "Cardiac Enzymes",
+     "Complete Blood Count",
+     "Troponin",
+     "Lipid Panel",
+     "Type and Screen",
+     "Chest X-ray",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Complete Blood Count"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:02Z",
+     "duration_s": 2.271
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipid profile",
+     "Thyroid function tests",
+     "Kidney function tests",
+     "Complete blood count",
+     "Blood cultures"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:04Z",
+     "duration_s": 1.178
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT urogram",
+     "renal function panel",
+     "urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:05Z",
+     "duration_s": 1.449
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Urine HCG",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:07Z",
+     "duration_s": 1.185
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Complete Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:08Z",
+     "duration_s": 1.964
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Electrocardiogram (ECG)",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:10Z",
+     "duration_s": 0.913
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "complete blood count",
+     "urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:11Z",
+     "duration_s": 1.166
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipid Profile",
+     "HbA1c"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:12Z",
+     "duration_s": 1.303
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CT abdomen"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:13Z",
+     "duration_s": 2.568
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT angiography of the abdomen and pelvis",
+     "CBC",
+     "PT/INR",
+     "Platelet count",
+     "Electrolyte panel",
+     "Lactate level"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:16Z",
+     "duration_s": 0.771
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:16Z",
+     "duration_s": 1.333
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Ultrasound of the Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:18Z",
+     "duration_s": 1.914
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Ct Abdomen",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Liver Function Tests",
+     "Ammonia Levels"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:20Z",
+     "duration_s": 1.014
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "CT abdomen"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:21Z",
+     "duration_s": 1.189
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Metabolic Panel",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:22Z",
+     "duration_s": 2.843
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Cardiac Enzymes",
+     "Complete Blood Count",
+     "Troponin",
+     "Lipid Panel",
+     "Type and Screen",
+     "Chest X-ray",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:01:25Z",
+     "duration_s": 1.172
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Complete Blood Count"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

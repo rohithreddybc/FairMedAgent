@@ -12,7 +12,12 @@ from __future__ import annotations
 
 from math import comb
 
-POOLED_LO, POOLED_PT, POOLED_HI = 0.056, 0.087, 0.116
+import os
+
+POOLED_LO, POOLED_PT, POOLED_HI = 0.056, 0.087, 0.116   # six-action pooled floor, model A
+if os.environ.get("FMA_PANEL", "").strip().lower() == "v3":
+    # Five defined actions (robustness_v3.json item 9, model A): 0.068 [0.036, 0.101].
+    POOLED_LO, POOLED_PT, POOLED_HI = 0.036, 0.068, 0.101
 CS_LO, CS_PT, CS_HI = 0.06, 0.179, 0.29
 
 

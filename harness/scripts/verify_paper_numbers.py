@@ -30,6 +30,8 @@ from math import comb
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(ROOT, "harness"))
+sys.path.insert(0, HERE)
+import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 -> robustness_v3.json etc., v3 local arms)
 
 PAPER = os.environ.get("FAIRMEDAGENT_PAPER") or os.path.join(ROOT, "paper", "main.tex")
 
@@ -102,8 +104,15 @@ def main() -> int:
     paper_dir = os.path.dirname(os.path.abspath(paper)) if have_paper else None
     fig_tex = tex
     if paper_dir and os.path.isdir(paper_dir):
-        for name in sorted(os.listdir(paper_dir)):
+        names = sorted(os.listdir(paper_dir))
+        for name in names:
             if name.startswith("fig_") and name.endswith(".tex"):
+                # FMA_PANEL=v3: a figure source that has a _v3 sibling (fig_per_action.tex ->
+                # fig_per_action_v3.tex) holds superseded numbers and must not satisfy a claim.
+                stem = name[:-4]
+                if pc.V3 and not "_v3" in stem and any(
+                        n.startswith(stem + "_v3") and n.endswith(".tex") for n in names):
+                    continue
                 fig_tex += "\n" + io.open(os.path.join(paper_dir, name), encoding="utf-8").read()
 
     checks, failures = [], 0
@@ -145,7 +154,7 @@ def main() -> int:
     claim("model calls", n * 80, "$800$ model calls")
     claim("pooled floor", round(pooled, 3), "$%.3f$" % pooled)
     claim("comparisons per action", per["admit"][1], "$720$ comparisons")
-    claim("pooled comparisons", total, "$%d/%d$" % (flips, total))
+    claim("pooled comparisons", total, ("$%d/%d$" % (flips, total), "%d/%d" % (flips, total)))
     for k in ("escalate_icu", "referral", "any_opioid", "cs_caution", "admit", "high_acuity"):
         f, t = per[k]
         r = f / t
@@ -192,7 +201,16 @@ def main() -> int:
     claim("N from floor", round(n_needed), "gives $%d$" % round(n_needed))
 
     p3 = comb(4, 3) * pooled ** 3 * (1 - pooled) + pooled ** 4
-    claim("P(>=3 of 4 | pooled)", round(p3, 3), "$%.3f$" % p3)
+    if pc.V3:
+        # v3 manuscript: the pilot arithmetic uses the five-action pooled floor (245/3600).
+        per5 = [OUTCOMES_5 for OUTCOMES_5 in per if OUTCOMES_5 != "cs_caution"]
+        pooled5 = sum(per[k][0] for k in per5) / sum(per[k][1] for k in per5)
+        p3 = comb(4, 3) * pooled5 ** 3 * (1 - pooled5) + pooled5 ** 4
+        claim("P(>=3 of 4 | five-action pooled)", round(p3, 3), "$%.3f$" % p3)
+        claim("N from five-action floor", round(25 / pooled5), "gives $%d$" % round(25 / pooled5))
+        claim("N from six-action floor", round(n_needed), ("gives $%d$" % round(n_needed), "$%d$ vignettes" % round(n_needed)))
+    else:
+        claim("P(>=3 of 4 | pooled)", round(p3, 3), "$%.3f$" % p3)
 
     cs = per["cs_caution"][0] / per["cs_caution"][1]
     p3cs = comb(4, 3) * cs ** 3 * (1 - cs) + cs ** 4
@@ -252,7 +270,7 @@ def main() -> int:
     # each a source in its own right rather than a recomputation from the raw trajectories, so
     # the values below are read from the JSON directly and asserted against the manuscript,
     # the same claim() mechanism as everywhere else in this script.
-    rob_path = os.path.join(ROOT, "experiments", "robustness.json")
+    rob_path = pc.out_path("robustness", "json")
     if os.path.exists(rob_path):
         rob = json.load(open(rob_path, encoding="utf-8"))
 
@@ -337,7 +355,7 @@ def main() -> int:
         claim("Jeffreys null CI", "[%.3f, %.3f]" % (jlo, jhi),
               ("[%.3f, %.3f]" % (jlo, jhi), "[$%.3f$, $%.3f$]" % (jlo, jhi)))
 
-    temp_path = os.path.join(ROOT, "experiments", "temperature_compare.json")
+    temp_path = pc.out_path("temperature_compare", "json")
     if os.path.exists(temp_path):
         temp = json.load(open(temp_path, encoding="utf-8"))["models"]
 
@@ -366,7 +384,7 @@ def main() -> int:
                   "$%d/%d$" % (row["t0_retried"], row["t0_calls"]))
 
     # --- hosted temperature-0 check (temperature_compare.py, key "hosted") ---------------
-    _tc = os.path.join(ROOT, "experiments", "temperature_compare.json")
+    _tc = pc.out_path("temperature_compare", "json")
     if os.path.exists(_tc):
         _h = json.load(open(_tc, encoding="utf-8")).get("hosted") or {}
         if _h:
@@ -384,6 +402,219 @@ def main() -> int:
                 claim("hosted reduction", round(100 * _p["reduction_observed"]), "$%d\\%%$ reduction" % round(100 * _p["reduction_observed"]))
                 claim("hosted reduction CI", "%d-%d" % (round(100 * _p["ci_B5000"]["reduction"][0]), round(100 * _p["ci_B5000"]["reduction"][1])),
                       "$%d$--$%d\\%%$" % (round(100 * _p["ci_B5000"]["reduction"][0]), round(100 * _p["ci_B5000"]["reduction"][1])))
+
+    # --- FMA_PANEL=v3: five-action headline, attempt logs, temperature 0, provenance ---------
+    # The Scientific Reports manuscript reports the five defined actions as the headline (the
+    # controlled-substance caution flag has no operational criteria and is exploratory), models
+    # C-F from the logged v3 reruns, and the attempt-level counts. Everything below is read
+    # from the v3 JSON outputs and asserted against the manuscript the same way as above.
+    if pc.V3:
+        def pctstr(x, nd=0):
+            return ("%." + str(nd) + "f") % (100 * x)
+
+        fx_path = pc.out_path("five_action_extras", "json")
+        rob3 = json.load(open(pc.out_path("robustness", "json"), encoding="utf-8"))
+        i9 = rob3["item9_five_action_analysis"]
+        if not os.path.exists(fx_path):
+            failures += 1
+            checks.append(("MISSING five_action_extras_v3.json", "-", "run five_action_extras.py", False))
+            fx = None
+        else:
+            fx = json.load(open(fx_path, encoding="utf-8"))
+
+        # Headline numbers, in the surface forms the abstract and contribution list use.
+        a5 = i9["models"]["A"]
+        pa5 = i9["modelA_per_action_5action"]
+        facts = {"A": a5["floor_5action"], "min": pa5["min"], "max": pa5["max"],
+                 "lo": min(m["floor_5action"] for m in i9["models"].values()),
+                 "hi": max(m["floor_5action"] for m in i9["models"].values())}
+        claim("headline A five-action pooled", pctstr(facts["A"], 1), "%s percent" % pctstr(facts["A"], 1))
+        claim("headline A min action (abstract)", pctstr(facts["min"], 1),
+              "%s percent for intensive-care escalation" % pctstr(facts["min"], 1))
+        claim("headline A max action (abstract)", pctstr(facts["max"], 1),
+              "to %s percent for admission" % pctstr(facts["max"], 1))
+        claim("headline panel range (abstract)", "%s-%s" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)),
+              "from %s to %s percent" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)))
+        claim("headline A in contributions", pctstr(facts["A"], 1), "$%s\\%%$" % pctstr(facts["A"], 1))
+        claim("A five-action num/den", "%d/%d" % (a5["num"], a5["den"]), "$%d/%d$" % (a5["num"], a5["den"]))
+        claim("A per-action ratio", round(pa5["ratio_max_over_min"], 1), "$%.1f$" % pa5["ratio_max_over_min"])
+        claim("A undefined-ratio resamples", pa5["n_resamples_ratio_undefined"], "$%d$ of $5000$" % pa5["n_resamples_ratio_undefined"])
+        fin = pa5["ratio_ci_B5000_finite_only"]
+        claim("A ratio finite CI", "%.3f-%.3f" % tuple(fin), "$[%.3f, %.3f]$" % tuple(fin))
+
+        # Five-action pooled floors, intervals, and counts for every model; the six-action
+        # sensitivity value of each model sits beside it.
+        for lab, e in i9["models"].items():
+            claim("five-action floor %s" % lab, round(e["floor_5action"], 3), "$%.3f$" % e["floor_5action"])
+            lo, hi = e["ci_5action_B5000"]
+            claim("five-action CI %s" % lab, "[%.3f, %.3f]" % (lo, hi), "[%.3f, %.3f]" % (lo, hi))
+            claim("five-action num/den %s" % lab, "%d/%d" % (e["num"], e["den"]),
+                  ("%d/%d" % (e["num"], e["den"]),))
+            claim("six-action floor %s (sensitivity)" % lab, round(e["floor_6action"], 3), "$%.3f$" % e["floor_6action"])
+        # Noisiest of the five defined actions for each model (Table 2, Fig. 3 legend).
+        it1 = rob3["item1_per_model_action_floors"]["models"]
+        names5 = {"admit": "admission", "high_acuity": "high acuity", "referral": "referral",
+                  "any_opioid": "any opioid", "escalate_icu": "ICU escalation"}
+        for lab in it1:
+            fl5 = {k: v["floor"] for k, v in it1[lab]["actions"].items() if k != "cs_caution"}
+            top = max(fl5, key=fl5.get)
+            claim("noisiest of five, %s" % lab, top, names5[top])
+        fmin5, fmax5 = i9["range_factor_5action"]["observed"], None
+        claim("five-action range factor", fmin5, "$%.1f$" % fmin5)
+        rci = i9["range_factor_5action"]["ci_B5000"]
+        claim("five-action range factor CI", "%.1f-%.1f" % tuple(rci), "$%.1f$--$%.1f$" % tuple(rci))
+        r6 = i9["range_factor_6action"]["observed"]
+        claim("six-action range factor (sensitivity)", round(r6, 1), "$%.1f$" % r6)
+        claim("separated pairs, five actions", "%d of %d" % (i9["n_separated_5action"], i9["n_pairs"]),
+              "$%d$ of the $%d$" % (i9["n_separated_5action"], i9["n_pairs"]))
+        unsep = [p["pair"] for p in i9["paired_differences_5action"] if not p["separated"]]
+        claim("unseparated pairs, five actions", ",".join(unsep), "A--D") if "A-D" in unsep else None
+        for p in i9["paired_differences_5action"]:
+            claim("five-action diff %s" % p["pair"], round(p["observed_diff"], 3),
+                  "$%.3f$" % p["observed_diff"])
+            claim("five-action diff CI %s" % p["pair"], "[%.3f, %.3f]" % tuple(p["ci_B5000"]),
+                  "[$%.3f$, $%.3f$]" % tuple(p["ci_B5000"]))
+        claim("ordering five-action", "<".join(i9["ordering_5action_ascending"]),
+              ", ".join(i9["ordering_5action_ascending"]))
+
+        if fx is not None:
+            # Admission minus ICU escalation on the primary model, with its leave-one-out range.
+            ad = fx["paired_lovo_5action"]["admit_minus_icu_A"]
+            claim("A admit-icu difference", round(ad["observed"], 3), "$%.3f$" % ad["observed"])
+            claim("A admit-icu CI", "[%.3f, %.3f]" % tuple(ad["ci_B5000"]),
+                  ("$[%.3f, %.3f]$" % tuple(ad["ci_B5000"]), "[$%.3f$, $%.3f$]" % tuple(ad["ci_B5000"])))
+            claim("A admit-icu LOVO min", round(ad["lovo_min"], 3), "$%.3f$" % ad["lovo_min"])
+            claim("A admit-icu LOVO max", round(ad["lovo_max"], 3), "$%.3f$" % ad["lovo_max"])
+            lv = fx["paired_lovo_5action"]["pooled_5action_lovo"]
+            for lab in lv:
+                claim("five-action LOVO min %s" % lab, round(lv[lab]["min"], 3), "$%.3f$" % lv[lab]["min"])
+                claim("five-action LOVO max %s" % lab, round(lv[lab]["max"], 3), "$%.3f$" % lv[lab]["max"])
+
+            # Majority vote over the five actions.
+            mv = fx["majority_vote_5action"]["models"]
+            for lab, e in mv.items():
+                claim("five-action vote f1 %s" % lab, round(e["f1"], 3), "$%.3f$" % e["f1"])
+                claim("five-action vote f5 %s" % lab, round(e["f5"], 3), "$%.3f$" % e["f5"])
+                claim("five-action vote reduction %s" % lab, round(e["reduction"], 3), "$%.3f$" % e["reduction"])
+                claim("five-action vote CI %s" % lab, "[%.3f, %.3f]" % tuple(e["reduction_ci"]),
+                      "[$%.3f$, $%.3f$]" % tuple(e["reduction_ci"]))
+            A5 = mv["A"]
+            claim("abstract vote reduction", pctstr(A5["reduction"]), "removed %s percent of it" % pctstr(A5["reduction"]))
+            claim("main vote reduction pct", pctstr(A5["reduction"]), "$%s\\%%$" % pctstr(A5["reduction"]))
+            claim("main vote reduction CI", "%s-%s" % (pctstr(A5["reduction_ci"][0]), pctstr(A5["reduction_ci"][1])),
+                  "$%s$--$%s\\%%$" % (pctstr(A5["reduction_ci"][0]), pctstr(A5["reduction_ci"][1])))
+            claim("five-action vote f3 A", round(A5["f3"], 3), "$%.3f$" % A5["f3"])
+            loc = [mv[l]["reduction"] for l in "CDEF"]
+            claim("five-action local vote range low", pctstr(min(loc)), "$%s\\%%$" % pctstr(min(loc)))
+            claim("five-action local vote range high", pctstr(max(loc)), "$%s\\%%$" % pctstr(max(loc)))
+
+            # Model A cell diagnostics and the independent-noise null, five actions.
+            cd = fx["modelA_cells_5action"]
+            claim("A cells unanimous (of 80)", "%d/%d" % (cd["n_unanimous"], cd["n_cells"]),
+                  ("sixty-five of the eighty", "Sixty-five of the eighty")) if (cd["n_unanimous"], cd["n_cells"]) == (65, 80) else claim(
+                  "A cells unanimous (of 80)", "%d/%d" % (cd["n_unanimous"], cd["n_cells"]), "NO MATCH FOR CHANGED COUNT")
+            claim("A cells contested", cd["n_contested"], "remaining fifteen") if cd["n_contested"] == 15 else claim(
+                  "A cells contested", cd["n_contested"], "CHANGED COUNT")
+            claim("A cells near boundary", cd["n_near_boundary_0.3_0.7"], "of which six have") if cd["n_near_boundary_0.3_0.7"] == 6 else claim(
+                  "A cells near boundary", cd["n_near_boundary_0.3_0.7"], "CHANGED COUNT")
+            claim("A exact ties", cd["n_exact_ties"], "One cell splits exactly") if cd["n_exact_ties"] == 1 else claim(
+                  "A exact ties", cd["n_exact_ties"], "CHANGED COUNT")
+            claim("A expected ties", round(cd["expected_ties_if_all_near_at_half"], 1),
+                  "$%.1f$ expected" % cd["expected_ties_if_all_near_at_half"])
+            claim("A R5 share of R1", round(cd["R5_as_share_of_R1"], 2), "$%s\\%%$" % pctstr(cd["R5_as_share_of_R1"]))
+            claim("A observed R=5 five-action", round(cd["observed_curve"]["5"], 3), "$%.3f$" % cd["observed_curve"]["5"])
+            pl = cd["null_plugin_400sims_seed0"]
+            jf = cd["null_jeffreys_2000sims"]
+            claim("null plug-in mean (400)", round(pl["mean"], 3), "$%.3f$" % pl["mean"])
+            claim("null plug-in CI (400)", "[%.3f, %.3f]" % tuple(pl["ci_2.5_97.5"]),
+                  "$[%.3f, %.3f]$" % tuple(pl["ci_2.5_97.5"]))
+            claim("null Jeffreys mean (5-action)", round(jf["mean"], 3), "$%.3f$" % jf["mean"])
+            claim("null Jeffreys CI (5-action)", "[%.3f, %.3f]" % tuple(jf["ci_2.5_97.5"]),
+                  ("$[%.3f, %.3f]$" % tuple(jf["ci_2.5_97.5"]), "[$%.3f$, $%.3f$]" % tuple(jf["ci_2.5_97.5"])))
+            claim("null plug-in (2000) mean", round(fx["modelA_cells_5action"]["null_plugin_2000sims"]["mean"], 3),
+                  "$%.3f$" % fx["modelA_cells_5action"]["null_plugin_2000sims"]["mean"])
+
+            # Prevalence normalization.
+            hr = fx["homogeneous_ratio_5action"]
+            claim("A ratio min action", hr["A"]["ratio_min_action"], "any opioid") if hr["A"]["ratio_min_action"] == "any_opioid" else None
+            claim("A ratio min", round(hr["A"]["ratio_min"], 2), "$%.2f$" % hr["A"]["ratio_min"])
+            claim("A ratio max", round(hr["A"]["ratio_max"], 2), "$%.2f$" % hr["A"]["ratio_max"])
+            for lab in ("A", "B"):
+                for k, v in hr[lab]["actions"].items():
+                    claim("ratio %s %s" % (lab, k), round(v["ratio"], 2), "$%.2f$" % v["ratio"])
+            claim("B ratio spread", round(hr["B"]["ratio_spread"], 1), "$%.1f$" % hr["B"]["ratio_spread"])
+
+            # Temperature 0, five actions (main text), and the hosted check.
+            t5 = fx["temperature_5action"]
+            F5 = t5["models"]["F"]
+            claim("phi3 five-action default", round(F5["observed"]["default"], 3), "$%.3f$" % F5["observed"]["default"])
+            claim("phi3 five-action temp0", round(F5["observed"]["temp0"], 3), "$%.3f$" % F5["observed"]["temp0"])
+            claim("phi3 five-action temp0 CI", "%.3f-%.3f" % tuple(F5["ci_B5000"]["temp0"]),
+                  "$%.3f$--$%.3f$" % tuple(F5["ci_B5000"]["temp0"]))
+            claim("phi3 five-action reduction", pctstr(F5["reduction"]), "$%s\\%%$ reduction" % pctstr(F5["reduction"]))
+            for lab in ("C", "D", "E"):
+                claim("%s five-action temp0 floor is zero" % lab, t5["models"][lab]["observed"]["temp0"],
+                      "fell to zero for llama3.1:8b, mistral:7b, and qwen3:4b") if t5["models"][lab]["observed"]["temp0"] == 0.0 else claim(
+                      "%s five-action temp0 floor is zero" % lab, t5["models"][lab]["observed"]["temp0"], "NONZERO: REWRITE")
+            h5 = t5["hosted_t0"]
+            claim("hosted five-action temp0", "%d/%d" % (h5["disagreeing"], h5["comparisons"]),
+                  "$%d$ of $%d$" % (h5["disagreeing"], h5["comparisons"]))
+            claim("hosted five-action floor", round(h5["floor"], 3), "$%.3f$" % h5["floor"])
+            claim("hosted five-action CI", "%.3f-%.3f" % tuple(h5["ci_B5000"]), "$%.3f$--$%.3f$" % tuple(h5["ci_B5000"]))
+            hp5 = t5["hosted_paired"]
+            claim("hosted five-action temp1", round(hp5["observed"]["default"], 3), "$%.3f$" % hp5["observed"]["default"])
+            claim("hosted five-action temp1 CI", "%.3f-%.3f" % tuple(hp5["ci_B5000"]["default"]),
+                  "$%.3f$--$%.3f$" % tuple(hp5["ci_B5000"]["default"]))
+            claim("hosted five-action paired temp0", round(hp5["observed"]["temp0"], 3), "$%.3f$" % hp5["observed"]["temp0"])
+            claim("hosted five-action reduction", pctstr(hp5["reduction"]), "$%s\\%%$ reduction" % pctstr(hp5["reduction"]))
+            claim("hosted five-action reduction CI", "%s-%s" % (pctstr(hp5["ci_B5000"]["reduction"][0]), pctstr(hp5["ci_B5000"]["reduction"][1])),
+                  "$%s$--$%s\\%%$" % (pctstr(hp5["ci_B5000"]["reduction"][0]), pctstr(hp5["ci_B5000"]["reduction"][1])))
+
+        # Attempt-level counts for every rerun arm (Supplementary Table S-attempts), the
+        # retry statements in Methods, and the first-attempt-only sensitivity.
+        dirs = {"C": "floor16v3_llama", "D": "floor16v3_mistral", "E": "floor16v3_qwen3", "F": "floor16v3_phi3"}
+        att = {}
+        for lab, d in dirs.items():
+            for tag, R in (("", 10), ("_t0", 5)):
+                s = json.load(open(os.path.join(ROOT, "experiments", d + tag, "attempt_summary.json"), encoding="utf-8"))
+                att[(lab, tag)] = s
+                claim("attempts %s%s" % (lab, tag or " default"),
+                      "%d/%d/%d/%d" % (s["prompts"], s["first_attempt_failures"], s["retries"], s["final_failures"]),
+                      "$%d$ & $%d$ & $%d$ & $%d$ & $%d$" % (R, s["prompts"], s["first_attempt_failures"], s["retries"], s["final_failures"]))
+        no_retry = all(att[(l, "")]["retries"] == 0 for l in "CDE")
+        claim("no default-arm retries for C, D, E", no_retry,
+              "no retries for llama3.1:8b, mistral:7b, or qwen3:4b" if no_retry else "RETRIES EXIST: REWRITE METHODS")
+        claim("one default-arm retry for phi3:mini", att[("F", "")]["retries"],
+              "one for phi3:mini" if att[("F", "")]["retries"] == 1 else "RETRY COUNT CHANGED: REWRITE METHODS")
+        claim("phi3 temp0 final failures", att[("F", "_t0")]["final_failures"],
+              "five final failures" if att[("F", "_t0")]["final_failures"] == 5 else "FAILURE COUNT CHANGED: REWRITE")
+        claim("C, D, E temp0 final failures", sum(att[(l, "_t0")]["final_failures"] for l in "CDE"),
+              "$0$ & $0$ & $0$") if sum(att[(l, "_t0")]["final_failures"] for l in "CDE") == 0 else None
+
+        fa3 = json.load(open(os.path.join(ROOT, "experiments", "first_attempt_v3.json"), encoding="utf-8"))["arms"]
+        for key, a in fa3.items():
+            same = a["full"]["floor"] == a["first_attempt_only"]["floor"] and a["comparisons_lost"] == 0
+            claim("first-attempt floor equals full, %s" % key, same,
+                  "$%.3f$ & $%.3f$ & $%d$" % (a["full"]["floor"], a["first_attempt_only"]["floor"], a["comparisons_lost"])
+                  if same else "FIRST-ATTEMPT FLOOR DIFFERS: REWRITE METHODS")
+        # Provenance: Ollama version and the model digests.
+        prov = io.open(os.path.join(ROOT, "experiments", "floor16v3_provenance.txt"), encoding="utf-8").read()
+        mver = re.search(r"ollama version is ([0-9.]+)", prov)
+        claim("Ollama version", mver.group(1) if mver else None,
+              "$%s$" % mver.group(1) if mver else "NO VERSION IN PROVENANCE")
+        for tag in ("llama3.1:8b-instruct-q4_K_M", "mistral:7b-instruct", "qwen3:4b-instruct-2507-q8_0", "phi3:mini"):
+            mm = re.search(re.escape(tag) + r"\s+([0-9a-f]{12})", prov)
+            claim("digest %s" % tag, mm.group(1) if mm else None,
+                  mm.group(1) if mm else "NO DIGEST IN PROVENANCE")
+        # Abstract length (Scientific Reports: at most 200 words).
+        mab = re.search(r"\\begin\{abstract\}(.*?)\\end\{abstract\}", tex, re.S)
+        if mab:
+            nwords = len(re.findall(r"[A-Za-z0-9][A-Za-z0-9'.,%/-]*",
+                                    re.sub(r"\\[A-Za-z]+", "", re.sub(r"(?m)%.*$", "", mab.group(1)))))
+            ok_len = nwords <= 200
+            checks.append(("abstract words (<=200)", nwords, "<=200", ok_len))
+            if not ok_len:
+                failures += 1
 
     # --- superseded figures must be ABSENT ----------------------------------------------
     # The checks above confirm that current values appear. They cannot catch a stale value
@@ -438,6 +669,54 @@ def main() -> int:
             if not narrating:
                 stale.append((needle, why))
                 break
+    # FMA_PANEL=v3: figures from the old six-action headline and the superseded local runs.
+    # Each is retired as a headline. The allowlist is per entry and deliberately narrow: a value
+    # may still appear where the surrounding text frames it as the six-action sensitivity (the
+    # caution flag included in the pool), and nowhere else. Entries with an empty allowlist
+    # (the old cross-model range, the eightfold spread, the superseded local floors) must be
+    # absent outright.
+    if pc.V3 and have_paper:
+        SIX = ("six-action", "six actions", "six outputs", "all six", "over six",
+               "sensitivity", "caution flag", "CS caution", "exploratory",
+               "controlled-substance caution")
+        V3_RETIRED = [
+            ("0.087", "old six-action headline for model A; the five-action 0.068 is the headline", SIX),
+            ("8.7\\%", "old six-action headline percentage", SIX),
+            ("8.7 percent", "old six-action headline percentage", SIX),
+            ("$39\\%$", "six-action vote reduction; the five-action 53% is the headline", SIX),
+            ("39 percent", "six-action vote reduction", SIX),
+            ("17.9", "caution flag as the largest action, in percent", ()),
+            ("$0.179$", "caution flag floor: a current value only as the exploratory flag", SIX),
+            ("9.4", "old six-action cross-model range factor (now 14.7 five-action, 6.7 six-action)", ()),
+            ("eightfold", "old six-action per-action spread (now 6.4 on five actions)", ()),
+            ("factor of eight", "old per-action spread", ()),
+            ("2.5 to 23.7", "old six-action panel range", ()),
+            ("2.5--23.7", "old six-action panel range", ()),
+            ("$2.5\\%$", "old six-action panel minimum", ()),
+            ("$23.7\\%$", "old six-action panel maximum", ()),
+            ("$0.237$", "old phi3:mini pooled floor", ()),
+            ("$0.215$", "old llama3.1:8b pooled floor", ()),
+            ("$0.095$", "old mistral:7b pooled floor", ()),
+            ("$8\\%$ to $47\\%$", "old local vote-reduction range", ()),
+            ("$8\\%$--$47\\%$", "old local vote-reduction range", ()),
+            ("noisiest action for three of six", "old caution-flag-noisiest statement", ()),
+            ("$0.027$", "old phi3:mini temperature-0 floor", ()),
+            ("$0.089$", "old phi3:mini temperature-0 reduction", ()),
+            ("89\\%", "old phi3:mini temperature-0 reduction", ()),
+            ("not logged", "unlogged-retry statements stay only in the note on superseded runs",
+             ("superseded", "earlier set of local runs")),
+            ("frequency is unknown", "unlogged-retry statement", ()),
+            ("frequency of retries is unknown", "unlogged-retry statement", ()),
+            ("four more replicates", "withdrawn two-cluster narrative", ()),
+            ("we withdraw", "withdrawn two-cluster narrative", ()),
+        ]
+        for needle, why, allow in V3_RETIRED:
+            for m in re.finditer(re.escape(needle), tex_stale):
+                window = tex_stale[max(0, m.start() - 260):m.end() + 260]
+                if not any(w in window for w in allow):
+                    stale.append((needle, why))
+                    break
+
     for needle, why in stale:
         failures += 1
         checks.append(("STALE %s" % needle, "-", "should be absent", False))

@@ -1,0 +1,14 @@
+{
+ "run_dir": "experiments/floor16v3_phi3_t0",
+ "answer_files": 25,
+ "prompts": 400,
+ "first_attempt_failures": 5,
+ "retries": 5,
+ "final_failures": 5,
+ "temperatures_seen": [
+  0.0
+ ],
+ "retry_policies": [
+  "same"
+ ]
+}

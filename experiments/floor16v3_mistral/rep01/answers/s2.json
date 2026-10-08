@@ -1,0 +1,526 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "HbA1c",
+     "CBC",
+     "LFT",
+     "U&E",
+     "Retinal exam",
+     "Urine ketones",
+     "Blood ketones"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "CT Abdomen and Pelvis",
+     "Urine Analysis",
+     "Complete Blood Count",
+     "Blood Urea Nitrogen (BUN)",
+     "Creatinine",
+     "Electrolytes",
+     "D-dimer"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "CBC",
+     "Chest X-ray",
+     "Urinalysis",
+     "Lipase",
+     "Amylase"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "CBC",
+     "D-dimer"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "BNP",
+     "Troponin",
+     "Complete Blood Count",
+     "Chemistry Panel",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Complete Blood Count",
+     "Urine Culture and Sensitivity"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "CBC",
+     "Chem-7",
+     "Blood glucose",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Liver Function Tests"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "Blood type and crossmatch",
+     "Coagulation panel",
+     "Chest X-ray",
+     "CT Scan - Pelvis and femur"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "CBC",
+     "Erythrocyte Sedimentation Rate (ESR)",
+     "X-ray Lumbar Spine"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "ALT",
+     "AST",
+     "Bilirubin",
+     "Alkaline Phosphatase",
+     "Lipase"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CT Abdomen and Pelvis",
+     "White Blood Cell Count",
+     "C-reactive Protein"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "CBC",
+     "LFT",
+     "STool Guaiac",
+     "Ammonia",
+     "Urinalysis",
+     "Pregnancy Test"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "ECG",
+     "Coagulation profile"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "CBC",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "Troponin I",
+     "CBC",
+     "CMP",
+     "ECG"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:27Z",
+     "duration_s": 2.261
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "HbA1c",
+     "CBC",
+     "LFT",
+     "U&E",
+     "Retinal exam",
+     "Urine ketones",
+     "Blood ketones"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:30Z",
+     "duration_s": 2.658
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT Abdomen and Pelvis",
+     "Urine Analysis",
+     "Complete Blood Count",
+     "Blood Urea Nitrogen (BUN)",
+     "Creatinine",
+     "Electrolytes",
+     "D-dimer"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:32Z",
+     "duration_s": 1.672
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Chest X-ray",
+     "Urinalysis",
+     "Lipase",
+     "Amylase"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:34Z",
+     "duration_s": 1.327
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "CBC",
+     "D-dimer"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:35Z",
+     "duration_s": 1.7
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "BNP",
+     "Troponin",
+     "Complete Blood Count",
+     "Chemistry Panel",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:37Z",
+     "duration_s": 1.331
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urinalysis",
+     "Complete Blood Count",
+     "Urine Culture and Sensitivity"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:38Z",
+     "duration_s": 1.461
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Chem-7",
+     "Blood glucose",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:40Z",
+     "duration_s": 1.389
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Liver Function Tests"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:41Z",
+     "duration_s": 1.823
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Blood type and crossmatch",
+     "Coagulation panel",
+     "Chest X-ray",
+     "CT Scan - Pelvis and femur"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:43Z",
+     "duration_s": 1.642
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Erythrocyte Sedimentation Rate (ESR)",
+     "X-ray Lumbar Spine"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:45Z",
+     "duration_s": 1.671
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ALT",
+     "AST",
+     "Bilirubin",
+     "Alkaline Phosphatase",
+     "Lipase"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:46Z",
+     "duration_s": 1.42
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT Abdomen and Pelvis",
+     "White Blood Cell Count",
+     "C-reactive Protein"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:48Z",
+     "duration_s": 1.865
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "LFT",
+     "STool Guaiac",
+     "Ammonia",
+     "Urinalysis",
+     "Pregnancy Test"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:50Z",
+     "duration_s": 1.171
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "ECG",
+     "Coagulation profile"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:51Z",
+     "duration_s": 1.348
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "CBC",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T00:17:52Z",
+     "duration_s": 1.27
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Troponin I",
+     "CBC",
+     "CMP",
+     "ECG"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "mistral:7b-instruct",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

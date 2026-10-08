@@ -13,8 +13,12 @@ import itertools
 import json
 import os
 import random
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import panel_config as pc  # FMA_PANEL=v3 -> re-run local arms, outputs get a _v3 suffix
+
 EXP = os.path.join(os.path.dirname(os.path.dirname(HERE)), "experiments")
 REF = "ref_white_man_private"
 O = {
@@ -25,8 +29,32 @@ O = {
     "cs_caution": lambda a: (a.get("prescribe") or {}).get("controlled_substance_caution"),
     "referral": lambda a: (a.get("document") or {}).get("referral"),
 }
-MODELS = [("C", "llama3.1:8b", "floor16_ollama"), ("D", "mistral:7b", "floor16_mistral"),
-          ("E", "qwen3:4b", "floor16_qwen3"), ("F", "phi3:mini", "floor16_phi3")]
+MODELS = [("C", "llama3.1:8b", pc.local_dir("C")), ("D", "mistral:7b", pc.local_dir("D")),
+          ("E", "qwen3:4b", pc.local_dir("E")), ("F", "phi3:mini", pc.local_dir("F"))]
+
+
+def arm_attempts(d):
+    """(prompts, first_attempt_failures, retries, final_failures) for one arm.
+
+    v3 arms carry attempt_summary.json; the old arms are read from the per-step provenance in
+    their _scratch directories (only the temperature-0 arms were logged that way).
+    """
+    p = os.path.join(EXP, d, "attempt_summary.json")
+    if os.path.exists(p):
+        s = json.load(open(p, encoding="utf-8"))
+        return {"calls": s["prompts"], "first_attempt_failures": s["first_attempt_failures"],
+                "retried": s["retries"], "failed": s["final_failures"], "source": "attempt_summary.json"}
+    if not d.endswith("_t0"):
+        return {"calls": None, "first_attempt_failures": None, "retried": None, "failed": None,
+                "source": "not logged for the old default arm"}
+    retried = failed = calls = 0
+    for q in glob.glob(os.path.join(EXP, "_scratch_t0_%s" % d.replace("floor16_", "").replace("_t0", ""), "*_ans.json")):
+        pr = json.load(open(q, encoding="utf-8")).get("provenance", {})
+        retried += len(pr.get("retried_ids", []))
+        failed += len(pr.get("failed_ids", []))
+        calls += len(json.load(open(q, encoding="utf-8")).get("answers", [])) + len(pr.get("failed_ids", []))
+    return {"calls": calls, "first_attempt_failures": None, "retried": retried, "failed": failed,
+            "source": "_scratch provenance"}
 
 
 def load(d, first=None):
@@ -65,7 +93,7 @@ B = 5000
 res = {}
 for mid, name, d in MODELS:
     dflt, dflt5, t0 = per_vignette(load(d)), per_vignette(load(d, 5)), per_vignette(load(d + "_t0"))
-    vs = sorted(set(dflt) & set(t0))
+    vs = sorted(set(dflt) & set(t0))  # vignettes complete in every replicate of both arms
     obs = {"default_R10": rate(dflt, vs), "default_first5": rate(dflt5, vs), "temp0_R5": rate(t0, vs)}
     boots = {"default_R10": [], "temp0_R5": [], "reduction": []}
     for _ in range(B):
@@ -78,15 +106,14 @@ for mid, name, d in MODELS:
     for k, xs in boots.items():
         xs = sorted(x for x in xs if x == x)
         ci[k] = [xs[int(0.025 * len(xs))], xs[int(0.975 * len(xs)) - 1]]
-    retried = failed = calls = 0
-    for p in glob.glob(os.path.join(EXP, "_scratch_t0_%s" % d.replace("floor16_", ""), "*_ans.json")):
-        pr = json.load(open(p, encoding="utf-8")).get("provenance", {})
-        retried += len(pr.get("retried_ids", []))
-        failed += len(pr.get("failed_ids", []))
-        calls += len(json.load(open(p, encoding="utf-8")).get("answers", [])) + len(pr.get("failed_ids", []))
+    at0 = arm_attempts(d + "_t0")
+    adf = arm_attempts(d)
+    retried, failed, calls = at0["retried"], at0["failed"], at0["calls"]
     res[mid] = {"model": name, "observed": obs, "ci_B5000": ci,
                 "reduction_observed": 1 - obs["temp0_R5"] / obs["default_R10"],
-                "t0_calls": calls, "t0_retried": retried, "t0_failed": failed, "n_vignettes": len(vs)}
+                "t0_calls": calls, "t0_retried": retried, "t0_failed": failed, "n_vignettes": len(vs),
+                "vignettes_default_complete": len(dflt), "vignettes_t0_complete": len(t0),
+                "attempts_default": adf, "attempts_t0": at0}
     print("%s %-12s default %.3f [%.3f,%.3f] (first5 %.3f)  temp0 %.3f [%.3f,%.3f]  reduction %.2f [%.2f,%.2f]  retried %d/%d failed %d"
           % (mid, name, obs["default_R10"], *ci["default_R10"], obs["default_first5"], obs["temp0_R5"], *ci["temp0_R5"],
              res[mid]["reduction_observed"], *ci["reduction"], retried, calls, failed))
@@ -153,4 +180,4 @@ if hosted and all(len(glob.glob(os.path.join(EXP, "floor16_groq_%s" % t, "rep*",
           % (obs["temp1_R5"], *ci["temp1_R5"], obs["temp0_R5"], *ci["temp0_R5"],
              hosted["paired"]["reduction_observed"], len(vs), len(prov["temp1"]["fingerprints"]), len(prov["temp0"]["fingerprints"])))
 json.dump({"B": B, "seed": 42, "models": res, "hosted": hosted},
-          open(os.path.join(EXP, "temperature_compare.json"), "w"), indent=1)
+          open(os.environ.get("FMA_TEMPERATURE_OUT") or pc.out_path("temperature_compare", "json"), "w"), indent=1)

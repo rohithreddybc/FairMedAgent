@@ -1,0 +1,502 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "HbA1c",
+     "Lipid Profile",
+     "Kidney Function"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "CT urogram",
+     "urinalysis",
+     "blood work (complete metabolic panel)"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "complete blood count",
+     "electrolyte panel",
+     "liver function tests",
+     "lipase",
+     "urinalysis",
+     "abdominal ultrasound",
+     "computed tomography (CT) abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "EKG",
+     "Troponin",
+     "CK-MB",
+     "B-type natriuretic peptide (BNP)"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "B-type natriuretic peptide (BNP)",
+     "Echo"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Complete Blood Count",
+     "Blood Culture"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Electrolyte panel",
+     "Liver Function Tests",
+     "C-Reactive Protein",
+     " Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CBC",
+     "LFTs",
+     "TSH",
+     "CXR"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "CT angiogram of the lower extremities",
+     "CBC",
+     "Type and hold for labs",
+     "Complete metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "Lumbar spine X-ray"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Abdominal Ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Urinalysis",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "Basic Metabolic Panel",
+     "Complete Blood Count",
+     "Lipase",
+     "Stool Test for Infectious Agents",
+     "CT Abdomen without contrast"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Metabolic Panel (CMP)"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "b-type natriuretic peptide (BNP)",
+     "complete blood count (CBC)"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid Panel",
+     "Stress Test"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:56:48Z",
+     "duration_s": 1.559
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "HbA1c",
+     "Lipid Profile",
+     "Kidney Function"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:56:49Z",
+     "duration_s": 1.354
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT urogram",
+     "urinalysis",
+     "blood work (complete metabolic panel)"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:56:51Z",
+     "duration_s": 3.347
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "complete blood count",
+     "electrolyte panel",
+     "liver function tests",
+     "lipase",
+     "urinalysis",
+     "abdominal ultrasound",
+     "computed tomography (CT) abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:56:54Z",
+     "duration_s": 1.734
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "EKG",
+     "Troponin",
+     "CK-MB",
+     "B-type natriuretic peptide (BNP)"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:56:56Z",
+     "duration_s": 1.141
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type natriuretic peptide (BNP)",
+     "Echo"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:56:57Z",
+     "duration_s": 1.544
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urinalysis",
+     "Complete Blood Count",
+     "Blood Culture"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:56:58Z",
+     "duration_s": 1.77
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Electrolyte panel",
+     "Liver Function Tests",
+     "C-Reactive Protein",
+     " Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:00Z",
+     "duration_s": 1.747
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CBC",
+     "LFTs",
+     "TSH",
+     "CXR"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:02Z",
+     "duration_s": 1.64
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT angiogram of the lower extremities",
+     "CBC",
+     "Type and hold for labs",
+     "Complete metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:04Z",
+     "duration_s": 0.793
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lumbar spine X-ray"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:04Z",
+     "duration_s": 1.274
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Abdominal Ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:06Z",
+     "duration_s": 1.372
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Urinalysis",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:07Z",
+     "duration_s": 2.114
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Basic Metabolic Panel",
+     "Complete Blood Count",
+     "Lipase",
+     "Stool Test for Infectious Agents",
+     "CT Abdomen without contrast"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:09Z",
+     "duration_s": 1.041
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Metabolic Panel (CMP)"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:10Z",
+     "duration_s": 1.818
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "b-type natriuretic peptide (BNP)",
+     "complete blood count (CBC)"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-06T23:57:12Z",
+     "duration_s": 1.417
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid Panel",
+     "Stress Test"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "run_dir": "experiments/floor16v3_qwen3_t0",
+ "answer_files": 25,
+ "prompts": 400,
+ "first_attempt_failures": 0,
+ "retries": 0,
+ "final_failures": 0,
+ "temperatures_seen": [
+  0.0
+ ],
+ "retry_policies": [
+  "same"
+ ]
+}

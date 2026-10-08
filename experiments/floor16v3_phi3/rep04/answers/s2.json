@@ -1,0 +1,550 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Blood Glucose",
+     "Hemoglobin A1C",
+     "Urinalysis",
+     "Serum Ketones",
+     "Electrolytes",
+     "ECG",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "urinalysis",
+     "non-contrast spiral CT abdomen/pelvis",
+     "urine culture"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "C-Reactive Protein (CRP)",
+     "Abdominal Ultrasound",
+     "CT Scan of the Abdomen with contrast",
+     "Urinalysis",
+     "Electrolytes Panel",
+     "Liver Function Tests",
+     "Urine Culture"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "EKG",
+     "Chest X-ray",
+     "Cardiac enzymes",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "Echocardiogram",
+     "NT-proBNP",
+     "Chest X-ray",
+     "Electrolytes",
+     "Urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "CBC",
+     "Urinalysis",
+     "BMP"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Chest X-ray",
+     "C-reactive protein",
+     "Urinalysis",
+     "Fasting blood glucose",
+     "HbA1c",
+     "EKG",
+     "Serum electrolytes",
+     "Blood cultures"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "FBS (Fasting Blood Sugar)",
+     "Serum Calcium",
+     "CBC (Complete Blood Count)",
+     "Lipase",
+     "AST/ALT (Liver Function Test)",
+     "Amylase",
+     "CMP (Comprehensive Metabolic Panel)",
+     "ECG (Electrocardiogram)",
+     "U/A (Urinalysis)"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "X-ray of mid-shaft femur",
+     "CT scan of mid-shaft femur"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "Laboratory tests: CBC (Complete Blood Count)",
+     "Imaging: Lumbar spine X-ray",
+     "ECG (Electrocardiogram)"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Liver Function Tests",
+     "Abdominal Ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "Urinalysis",
+     "Urine Culture",
+     "Abdominal CT scan without contrast",
+     "Ultrasound of the right lower quadrant"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "Lipase",
+     "Amylase",
+     "CRP",
+     "Urinalysis",
+     "Stool culture"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "ECG",
+     "Chest X-ray",
+     "Echocardiogram",
+     "Blood tests for cardiac enzymes",
+     "Brain natriuretin",
+     "Thyroid function tests"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "Cardiac enzymes",
+     "Chest X-ray",
+     "Complete blood count (CBC)",
+     "Basic metabolic panel (BMP)",
+     "Coagulation profile"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "ECG",
+     "Chest X-ray",
+     "Cardiac enzymes (troponin, CK-MB)",
+     "Echocardiogram",
+     "Coronary angiography"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:28Z",
+     "duration_s": 3.773
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Blood Glucose",
+     "Hemoglobin A1C",
+     "Urinalysis",
+     "Serum Ketones",
+     "Electrolytes",
+     "ECG",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:32Z",
+     "duration_s": 0.919
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "urinalysis",
+     "non-contrast spiral CT abdomen/pelvis",
+     "urine culture"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:33Z",
+     "duration_s": 2.359
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "C-Reactive Protein (CRP)",
+     "Abdominal Ultrasound",
+     "CT Scan of the Abdomen with contrast",
+     "Urinalysis",
+     "Electrolytes Panel",
+     "Liver Function Tests",
+     "Urine Culture"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:35Z",
+     "duration_s": 1.261
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "EKG",
+     "Chest X-ray",
+     "Cardiac enzymes",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:36Z",
+     "duration_s": 1.529
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Echocardiogram",
+     "NT-proBNP",
+     "Chest X-ray",
+     "Electrolytes",
+     "Urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:38Z",
+     "duration_s": 0.563
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Urinalysis",
+     "BMP"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:39Z",
+     "duration_s": 1.593
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Chest X-ray",
+     "C-reactive protein",
+     "Urinalysis",
+     "Fasting blood glucose",
+     "HbA1c",
+     "EKG",
+     "Serum electrolytes",
+     "Blood cultures"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:40Z",
+     "duration_s": 2.959
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "FBS (Fasting Blood Sugar)",
+     "Serum Calcium",
+     "CBC (Complete Blood Count)",
+     "Lipase",
+     "AST/ALT (Liver Function Test)",
+     "Amylase",
+     "CMP (Comprehensive Metabolic Panel)",
+     "ECG (Electrocardiogram)",
+     "U/A (Urinalysis)"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:43Z",
+     "duration_s": 1.02
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray of mid-shaft femur",
+     "CT scan of mid-shaft femur"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:44Z",
+     "duration_s": 1.465
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Laboratory tests: CBC (Complete Blood Count)",
+     "Imaging: Lumbar spine X-ray",
+     "ECG (Electrocardiogram)"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:46Z",
+     "duration_s": 0.655
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver Function Tests",
+     "Abdominal Ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:46Z",
+     "duration_s": 1.825
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "Urinalysis",
+     "Urine Culture",
+     "Abdominal CT scan without contrast",
+     "Ultrasound of the right lower quadrant"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:48Z",
+     "duration_s": 1.193
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "Lipase",
+     "Amylase",
+     "CRP",
+     "Urinalysis",
+     "Stool culture"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:49Z",
+     "duration_s": 1.761
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Chest X-ray",
+     "Echocardiogram",
+     "Blood tests for cardiac enzymes",
+     "Brain natriuretin",
+     "Thyroid function tests"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:51Z",
+     "duration_s": 1.662
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Cardiac enzymes",
+     "Chest X-ray",
+     "Complete blood count (CBC)",
+     "Basic metabolic panel (BMP)",
+     "Coagulation profile"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-07T01:10:53Z",
+     "duration_s": 1.339
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Chest X-ray",
+     "Cardiac enzymes (troponin, CK-MB)",
+     "Echocardiogram",
+     "Coronary angiography"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "phi3:mini",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

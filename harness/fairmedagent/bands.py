@@ -9,9 +9,8 @@ dependency was on the band being *defensible*, not on clinicians as such, and it
 whole project because no clinicians were recruited. Bands are instead **derived from published
 decision rules and then adjudicated by a clinician**. The derivation is recorded per band --
 source, clause, and reasoning -- so a reviewer can check the mapping against a document rather
-than take a panel's word for it. On the specific axis reviewers attacked hardest, band width
-as an unconstrained researcher degree of freedom, an external rule is stronger than private
-judgment.
+than take a panel's word for it. On band width, which would otherwise be an unconstrained
+researcher degree of freedom, an external rule is stronger than private judgment.
 
 Source verification, 2026-08-22: the provisional bands below were first written from recall
 and then checked against the literature. The first three checked were all wrong. The analgesia band had

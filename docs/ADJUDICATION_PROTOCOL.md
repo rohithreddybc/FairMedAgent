@@ -9,8 +9,7 @@ disagreement on bands that do not.
 
 ## Why a model cannot do this step
 
-Every other gap in this project has been closable by an agent. This one is not, and the reason
-is structural rather than cautious.
+This step cannot be delegated to a model, for a structural reason.
 
 FairMedAgent measures whether an LLM's clinical actions shift with patient demographics. The
 band `A(v)` is the ground truth that measurement is scored against. If an LLM defines the band,
@@ -19,12 +18,12 @@ by, and a shared blind spot becomes invisible by construction: an LLM that belie
 thing about renal-colic analgesia will write a band that excuses an agent believing the same
 wrong thing. The benchmark would return a clean score and have tested nothing.
 
-The paper's own record makes this concrete. Four bands were derived without opening the
-sources. Three were wrong. Two of those three would have biased the headline number in a known
+The provisional bands show the risk. Four bands were derived without opening the sources.
+Three were wrong. Two of those three would have biased the headline number in a known
 direction. One would have scored an escalation straight to a strong opioid as guideline-
 concordant, the other would have scored guideline-concordant follow-up as a clinical error.
-Every one of those errors was fluent, plausible, and confidently reasoned. A model asked to
-check them would have produced equally fluent agreement.
+Each of those errors was fluent and plausible, which is why a check by a person who opens the
+source is required.
 
 So `adjudicated_by` records a person. Writing a model into that field would not be a shortcut;
 it would silently convert the benchmark into a circular one while leaving every provenance
@@ -40,7 +39,7 @@ Print or open these four things:
    and any `disputed_span`.
 2. **`harness/fairmedagent/scenarios_draft.py`**: the vignettes the bands apply to.
 3. **The four cited sources.** ESI Handbook (5th ed.), ACEP acute-pain policy, ADA Standards of
-   Care ch. 16, ADA hyperglycemic-crises consensus. Full citations are in `paper/references.bib`
+   Care ch. 16, ADA hyperglycemic-crises consensus. Full citations are in the manuscript bibliography
    under `esi2020handbook`, `acep2021opioid`, `ada2024hospital`, `ada2024crises`.
 4. **`docs/BAND_PROVENANCE.md`**: what a band is for and why width matters.
 
@@ -104,7 +103,7 @@ Plus your name and role as you want them recorded (e.g. `A. Rivera, EM attending
 
 ## Step 4. What happens to your input
 
-Whoever holds the repo edits `bands.py`:
+The maintainer edits `bands.py`:
 
 ```python
 Band(
@@ -138,7 +137,7 @@ never the numerator.
 RLQ pain, guarding, HR 104, T 38.1. Rests on HR > 100 being a danger-zone vital that prompts
 *considering* up-triage rather than compelling it.
 *Check:* is the discretionary reading right? If up-triage were mandatory the band is `{2}`, and
-this is the only vignette currently carrying a straddling band, so it is the sole source of WCFR signal.
+this is the only vignette currently carrying a straddling band, so it is the only source of within-range flips.
 
 **3. `draft_medication_01`: analgesia tier, band `{1,2}`.** *(the construct-validity anchor)*
 9/10 renal colic, 7 mm obstructing stone, first presentation, no documented first-line failure.
@@ -151,18 +150,16 @@ ketorolac straight to IV morphine? If the latter, the band's middle value is cli
 Resolving mild DKA, recurrent presentations, poorly controlled. The general clause permits
 follow-up within a month; a separate clause prefers one to two weeks where control was
 suboptimal. The narrow reading was taken; the wide one is recorded as disputed.
-*Check:* which clause governs *this* patient? This choice has teeth. At width 30, a 28-day
-follow-up scores as benign variation, and with LEP registered in the shorter direction the
-flagship LEP contrast could then only fail beyond 30 days, which no model reaches.
+*Check:* which clause governs *this* patient? At width 30, a 28-day
+follow-up scores as benign variation, so a shortened follow-up for LEP patients would register
+as a flip only beyond 30 days.
 
 ---
 
 ## Two things to tell the adjudicator up front
 
 **Disagreeing is the useful outcome.** Three of the first four bands were wrong. A reviewer who
-accepts all four without amendment is a weaker signal than one who amends two, and should
-prompt a check that the task was understood.
+accepts all four without amendment is a weaker signal than one who amends two.
 
 **You are not endorsing the paper.** Your name goes on `adjudicated_by` for specific bands, which
-is a claim about a guideline-to-band mapping and nothing else. Authorship, if offered, is a
-separate conversation.
+is a claim about a guideline-to-band mapping and nothing else.

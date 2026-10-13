@@ -1,10 +1,7 @@
 """Coverage simulation for the restricted wild cluster bootstrap.
 
-The manuscript reports that the interval covers the true value in 92.5% of replications at
-G=8. A reviewer checking the repository found every other quantitative claim in that paragraph
-backed by committed code and this one backed by nothing, which is a fair complaint: a number
-that cannot be regenerated is a number a reader has to take on trust. This script is the
-missing half.
+Estimates by simulation how often the restricted wild cluster bootstrap interval contains the
+true value (92.5% of replications at G=8 in the default configuration).
 
     python wcb_coverage.py [--trials 200] [--clusters 8] [--seed 0]
 

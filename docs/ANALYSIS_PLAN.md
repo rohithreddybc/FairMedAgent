@@ -1,13 +1,14 @@
 # FairMedAgent statistical analysis plan (pre-registration style)
 
-**Version:** 1.0 (pre-registration draft) · **Date:** 2026-06-27 · **Status:** frozen before sealed-test-split unblinding.
-This plan is registered before any analysis of the sealed held-out test split. All estimators, families, thresholds, and decision rules below are pre-specified.
+**Version:** 1.0 · **Status:** specified before any analysis of the held-out test split, which is not released.
+All estimators, families, thresholds, and decision rules below are pre-specified for that split.
+The instability-floor analyses reported in the manuscript are described in the manuscript and its supplement.
 
 ---
 
 ## 1. Unit of analysis and notation
 
-The atomic experimental unit is a **cell**: a tuple `(vignette v, model m, scaffold s, condition c)`, where the *condition* `c` encodes the protected-attribute descriptor injected into otherwise-identical clinical content. Each cell is run with `R` replicate API calls (temp 0; replicates count as within-cluster, not independent N). **Replicates are aggregated into one summary measure per cell before any inference** (Omar/Nadkarni convention), for booleans by majority vote (or modal action) and for scores by the per-cell mean, so that N is the number of cells, never the number of API calls. Vignettes are the **clustering unit** (block): all conditions sharing a base vignette are correlated.
+The atomic experimental unit is a **cell**: a tuple `(vignette v, model m, scaffold s, condition c)`, where the *condition* `c` encodes the protected-attribute descriptor injected into otherwise-identical clinical content. Each cell is run with `R` replicate API calls (decoding as specified for the run; replicates count as within-cluster, not independent N). **Replicates are aggregated into one summary measure per cell before any inference** (Omar/Nadkarni convention), for booleans by majority vote (or modal action) and for scores by the per-cell mean, so that N is the number of cells, never the number of API calls. Vignettes are the **clustering unit** (block): all conditions sharing a base vignette are correlated.
 
 Let `A` index protected attributes (race/ethnicity, sex/gender, age band, Medicaid-vs-private, LEP, and named intersections) and `T` index the four action domains. The control condition `c0` carries no demographic descriptor; each non-control condition forms a **counterfactual pair** with `c0` on the same `(v, m, s)`.
 
@@ -107,7 +108,7 @@ Ordinal tiers (ESI 1–5, analgesia none/NSAID/weak/strong) use a **mixed cumula
 
 ## 9. Sample size and power
 
-McNemar power depends **only on the discordant cells**, not on marginal rates: effective sample size `≈ n · p_discordant`, where `p_discordant = p₁₀ + p₀₁`. Two designs with identical group rates can need very different N depending on how often flipping the descriptor changes the action. Procedure: run a **real pilot** through `audit_harness.js` to estimate `p_discordant` per primary cell; seed a **McNemar paired-proportions power calculation** (Stata `power pairedproportions` / R `pwrss::power.mcnemar` / PASS). **Pre-registered minimum detectable effect:** a **10-percentage-point** group gap at **80% power, α = 0.05**. Size the vignette set and replicate count to yield **≥ 25 discordant pairs per primary cell** so the mid-P McNemar is valid (exact binomial below that). The paired counterfactual design is efficient (typically 30–60% fewer observations than an unpaired two-proportion test), which is a stated selling point. Replicates raise power but are counted as within-cluster, not independent N.
+McNemar power depends **only on the discordant cells**, not on marginal rates: effective sample size `≈ n · p_discordant`, where `p_discordant = p₁₀ + p₀₁`. Two designs with identical group rates can need very different N depending on how often flipping the descriptor changes the action. Procedure: run a real pilot through the harness to estimate `p_discordant` per primary cell; seed a **McNemar paired-proportions power calculation** (Stata `power pairedproportions` / R `pwrss::power.mcnemar` / PASS). **Pre-registered minimum detectable effect:** a **10-percentage-point** group gap at **80% power, α = 0.05**. Size the vignette set and replicate count to yield **≥ 25 discordant pairs per primary cell** so the mid-P McNemar is valid (exact binomial below that). The paired counterfactual design is efficient (typically 30–60% fewer observations than an unpaired two-proportion test). Replicates raise power but are counted as within-cluster, not independent N.
 
 ---
 

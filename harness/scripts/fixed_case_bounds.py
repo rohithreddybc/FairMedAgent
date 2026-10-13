@@ -16,7 +16,7 @@ Three outputs, written to experiments/fixed_case_bounds_v3.json:
      - common_p_cp: the simple Clopper-Pearson form q_u = 1 - 0.05^(1/N), N = cells x R,
        floor <= 2 q_u (1-q_u). Agrees with fixed_case_exact to 4 decimals.
      - per_vignette_own_bound: every cell at its own R-draw bound 1 - 0.05^(1/R). Not a 95%
-       joint bound (far more conservative); reported because it was asked for.
+       joint bound (far more conservative); reported for comparison.
      - population_bound: case-population estimand (floor of a NEW vignette from the generating
        distribution H). P(all G vignettes unanimous) = (E_H[g])^G with g the per-vignette
        unanimity probability over its K actions. Maximise E_H[h] s.t. E_H[g] >= 0.05^(1/G) by

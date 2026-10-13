@@ -1,13 +1,18 @@
 """Whole-panel summary: floors, intervals, and the pairwise rank-correlation matrix.
 
-Written for the expanded panel. Three things it does that the pairwise scripts do not: it reads
-every `floor16*` directory it finds rather than a named pair, it uses midranks with the Pearson
-form throughout (the 1-6*sum(d^2) shortcut is wrong whenever two actions tie, and it has already
-produced two incorrect values in this project), and it reports the attribute table the paper's
-claim depends on, so that "no observable attribute predicts the floor" is something a reader can
-check rather than take on trust.
+Computes, for each model in the panel, the pooled instability floor over the five defined
+actions (headline) and over six outputs (adding the exploratory controlled-substance caution
+flag), with 95 percent intervals, and the pairwise rank-correlation matrix of the per-action
+rates. It reads every `floor16*` directory it finds, uses midranks with the Pearson form (the
+1-6*sum(d^2) shortcut is wrong whenever two actions tie), and records the model attributes an
+auditor could read off a model card, so the claim that no observable attribute predicts the
+floor can be checked.
 
     python panel_summary.py [bootstrap_resamples]
+
+With FMA_BOOT=crossed the intervals are the crossed (vignette by replicate) bootstrap intervals
+stored in experiments/robustness_v3_crossed.json; otherwise they are vignette-bootstrap
+intervals computed here. The output is also written to experiments/panel_summary_v3.txt.
 """
 from __future__ import annotations
 
@@ -24,11 +29,11 @@ REFERENCE = "ref_white_man_private"
 # Attributes an auditor could read off a model card, recorded here so the claim that none of
 # them predicts the floor is checkable. Unknown entries stay unknown rather than guessed.
 sys.path.insert(0, HERE)
-import panel_config as pc  # noqa: E402  (FMA_PANEL switch: old vs v3 local arms)
+import panel_config as pc  # noqa: E402  (local-arm directories)
 
 ATTRS = {
     "floor16":         ("A", "haiku-4.5",      "vendor-1", "hosted", "undisclosed"),
-    "floor16_sonnet":  ("B", "sonnet",         "vendor-1", "hosted", "undisclosed"),
+    "floor16_sonnet":  ("B", "sonnet-5",       "vendor-1", "hosted", "undisclosed"),
     pc.local_dir("C"): ("C", "llama3.1:8b",    "vendor-2", "local",  "8B q4"),
     pc.local_dir("D"): ("D", "mistral:7b",     "vendor-3", "local",  "7B q4"),
     pc.local_dir("E"): ("E", "qwen3:4b",       "vendor-4", "local",  "4B q8"),
@@ -142,8 +147,11 @@ def build_panel(B=5000, seed=42):
             if n:
                 draws.append(sum(c[k][0] for k in KEYS) / n)
         draws.sort()
-        lo = draws[int(0.025 * len(draws))]
-        hi = draws[min(len(draws) - 1, int(0.975 * len(draws)))]
+        if draws:
+            lo = draws[int(0.025 * len(draws))]
+            hi = draws[min(len(draws) - 1, int(0.975 * len(draws)))]
+        else:  # B=0: floors and rates only (crossed intervals are read from JSON)
+            lo = hi = float("nan")
 
         rates = [per[k][0] / per[k][1] for k in KEYS]
         worst = KEYS[max(range(len(KEYS)), key=lambda i: rates[i])]
@@ -153,22 +161,76 @@ def build_panel(B=5000, seed=42):
     return panel
 
 
+FIVE = [k for k in KEYS if k != "cs_caution"]
+
+
+def five_action_panel(B=5000, seed=42):
+    """Per model: (lab, five-action pooled floor, vignette-bootstrap interval).
+
+    The five defined actions exclude the exploratory controlled-substance caution flag. The
+    interval resamples vignettes only; the crossed (vignette by replicate) intervals are read
+    from experiments/robustness_v3_crossed.json when FMA_BOOT=crossed.
+    """
+    rng = random.Random(seed)
+    out = []
+    for d, (lab, *_rest) in ATTRS.items():
+        rs = reps(d)
+        if not rs:
+            continue
+        vs = sorted(set.intersection(*[set(r) for r in rs]))
+        per = counts(rs, vs)
+        pooled = sum(per[k][0] for k in FIVE) / sum(per[k][1] for k in FIVE)
+        draws = []
+        for _ in range(B):
+            c = counts(rs, [rng.choice(vs) for _ in vs])
+            n = sum(c[k][1] for k in FIVE)
+            if n:
+                draws.append(sum(c[k][0] for k in FIVE) / n)
+        draws.sort()
+        out.append((lab, pooled, draws[int(0.025 * len(draws))],
+                    draws[min(len(draws) - 1, int(0.975 * len(draws)))]))
+    return {r[0]: r for r in out}
+
+
 def main(argv):
     B = int(argv[1]) if len(argv) > 1 else 5000
-    panel = build_panel(B)
+    crossed = os.environ.get("FMA_BOOT", "vignette").strip().lower() == "crossed"
+    panel = build_panel(0 if crossed else B)
+    five = {} if crossed else five_action_panel(B)
+    xc = None
+    if crossed:
+        xc = json.load(open(os.path.join(ROOT, "experiments", "robustness%s_crossed.json" % pc.SUFFIX),
+                            encoding="utf-8"))["crossed"]["models"]
+    kind = "crossed (vignette x replicate) bootstrap" if crossed else "vignette bootstrap"
 
     print("PANEL  (%d models, 16 vignettes each)" % len(panel))
-    print("%-3s %-15s %-9s %-7s %-12s %-3s %7s  %-14s %s"
-          % ("id", "model", "vendor", "host", "size", "R", "floor", "95% interval", "noisiest"))
-    for lab, name, vendor, host, size, R, p, lo, hi, _, worst in panel:
-        print("%-3s %-15s %-9s %-7s %-12s %-3d %7.3f  [%.3f, %.3f]  %s"
-              % (lab, name, vendor, host, size, R, p, lo, hi, worst))
+    print("Headline: five-action pooled floor (admission, ICU escalation, high acuity, referral, any opioid).")
+    print("Intervals: 95%%, %s%s." % (kind, ", read from experiments/robustness_v3_crossed.json" if crossed else ""))
+    print("The six-action columns add the exploratory controlled-substance caution flag (cs_caution).\n")
+    print("%-3s %-15s %-9s %-7s %-12s %-3s %7s  %-14s %-11s %7s  %-14s %s"
+          % ("id", "model", "vendor", "host", "size", "R", "5-act", "95% interval",
+             "noisiest-5", "6-act", "95% interval", "noisiest-6"))
+    f5 = {}
+    for lab, name, vendor, host, size, R, p6, lo6, hi6, rates, worst6 in panel:
+        if crossed:
+            p5 = xc[lab]["floor_5action"]
+            lo5, hi5 = xc[lab]["ci_5action"]
+            lo6, hi6 = xc[lab]["ci_6action"]
+        else:
+            _, p5, lo5, hi5 = five[lab]
+        f5[lab] = p5
+        worst5 = FIVE[max(range(len(FIVE)), key=lambda i: rates[KEYS.index(FIVE[i])])]
+        print("%-3s %-15s %-9s %-7s %-12s %-3d %7.3f  [%.3f, %.3f]  %-11s %7.3f  [%.3f, %.3f]  %s"
+              % (lab, name, vendor, host, size, R, p5, lo5, hi5, worst5, p6, lo6, hi6, worst6))
 
-    floors = [r[6] for r in panel]
-    print("\nfloor range %.3f to %.3f, a factor of %.1f"
+    floors = list(f5.values())
+    print("\nfive-action floor range %.3f to %.3f, a factor of %.1f"
           % (min(floors), max(floors), max(floors) / min(floors) if min(floors) else 0))
+    floors6 = [r[6] for r in panel]
+    print("six-action floor range %.3f to %.3f, a factor of %.1f"
+          % (min(floors6), max(floors6), max(floors6) / min(floors6) if min(floors6) else 0))
 
-    print("\nPAIRWISE SPEARMAN (midranks, Pearson form); exact p over 720 orderings")
+    print("\nPAIRWISE SPEARMAN over the six per-action rates (midranks, Pearson form); exact p over 720 orderings")
     print("%-7s %6s %7s" % ("pair", "rho", "p"))
     for i, j in itertools.combinations(range(len(panel)), 2):
         ri, rj = midranks(panel[i][9]), midranks(panel[j][9])
@@ -178,14 +240,8 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    if os.environ.get("FMA_BOOT", "vignette").strip().lower() == "crossed":
-        # Crossed vignette x replicate intervals for the panel live in crossed_boot.py; dispatch
-        # there so the vignette-only panel_summary*.txt is never overwritten.
-        import crossed_boot
-        crossed_boot.main()
-        raise SystemExit(0)
-    if pc.V3:
-        # Under FMA_PANEL=v3 the printed summary is also captured to experiments/panel_summary_v3.txt.
+    if True:
+        # The printed summary is also captured to experiments/panel_summary_v3.txt.
         import io
         buf = io.StringIO()
         real = sys.stdout

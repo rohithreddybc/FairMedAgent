@@ -44,7 +44,7 @@ percent of the primary endpoint's floor.
 
 The estimand this harness targets is the within-range counterfactual flip rate, which counts
 only flips between actions that a published decision rule admits and a clinician has
-adjudicated as defensible. That adjudication is under way. **No disparity result is claimed
+adjudicated as defensible. That adjudication is planned and has not been completed. **No disparity result is claimed
 here, and none should be quoted from this repository.**
 
 ## Install
@@ -60,8 +60,10 @@ adds numpy, scipy, datasets and pandas for scale; `harness[dev]` adds pytest.
 
 Every quantity in the manuscript is recomputed from the raw trajectory files in
 `experiments/` and checked against the text. The reported numbers use the logged reruns of the
-four local models (`experiments/floor16v3_*`), selected with `FMA_PANEL=v3`; without it the
-scripts read the earlier `floor16_*` local arms and write the original, unsuffixed outputs:
+four local models (`experiments/floor16v3_*`). `FMA_PANEL=v3` is the only panel setting and
+the default when the variable is unset. Output files carry the suffix `_v3`.
+The superseded Ollama 0.34.3 local runs are not in this repository; they remain in release
+[v0.1.8](https://github.com/rohithreddybc/FairMedAgent/releases/tag/v0.1.8).
 
 ```bash
 FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/verify_paper_numbers.py
@@ -100,14 +102,12 @@ python -m pytest harness/tests/ -q
 | `experiments/floor16v3_llama/`, `floor16v3_mistral/`, `floor16v3_qwen3/`, `floor16v3_phi3/` | Logged reruns of the four local models (Ollama 0.35.1; ten replicates each, default sampling). Each `rep*/answers/s*.json` carries per-attempt logs (timestamps, durations, parse status); `attempt_summary.json` totals them. A retry uses the same decoding configuration as the first attempt (`FMA_RETRY_POLICY=same`) |
 | `experiments/floor16v3_*_t0/` | The same four models at temperature 0 (five replicates each; `FMA_TEMPERATURE=0`) |
 | `experiments/floor16v3_provenance.txt`, `run_v3_all.sh` | Ollama version, model tags and digests, environment, and the driver that produced the v3 runs |
-| `experiments/floor16_ollama/`, `floor16_mistral/`, `floor16_qwen3/`, `floor16_phi3/`, `floor16_*_t0/` | The earlier local-model runs, kept for comparison; the reported numbers use the v3 reruns |
 | `experiments/floor16_groq_t0/`, `floor16_groq_t1/` | Hosted check: openai/gpt-oss-20b on Groq at temperature 0 and 1.0 (five replicates each; `groq_answerer.py`) |
 | `experiments/robustness_v3.json`, `temperature_compare_v3.json`, `five_action_extras_v3.json`, `first_attempt_v3.json`, `panel_summary_v3.txt`, `rank_tests_v3.txt` | Reported analysis outputs (`FMA_PANEL=v3`): paired-bootstrap, leave-one-out, signed-test simulation, five-action analyses, first-attempt sensitivity and temperature-0 results |
-| `experiments/robustness_v3_crossed.json`, `CROSSED_BOOT.md` | Crossed (vignette by replicate) bootstrap intervals used in the manuscript, with a comparison against the earlier intervals |
+| `experiments/robustness_v3_crossed.json`, `CROSSED_BOOT.md` | Crossed (vignette by replicate) bootstrap intervals used in the manuscript, with a comparison against the vignette-only intervals |
 | `experiments/COVERAGE_SIM.json`, `COVERAGE_SIM.md` | Simulated coverage of the crossed-bootstrap interval, and the zero-observed bound comparison |
 | `experiments/floor16_haiku_iso/`, `run_haiku_iso.sh`, `haiku_iso_floor.json` | Isolated-call sensitivity arm for endpoint A (claude-haiku-4-5, one `claude -p` call per prompt via `claude_cli_answerer.py`, R=10) and its floor comparison (`haiku_iso_floor.py`) |
 | `experiments/fixed_case_bounds_v3.json` | One-sided upper bounds for zero-observed floors, replicate-only intervals, and achieved shifts |
-| `experiments/robustness.json`, `temperature_compare.json` | The same analyses on the earlier local-model runs |
 | `docs/ADJUDICATION_PROTOCOL.md` | How a band is adjudicated and what makes one load-bearing |
 | `docs/BAND_ADJUDICATION_RECORD.md` | The adjudicator's reasoning, in full, per band |
 | `docs/DATASHEET.md` | Datasheet for the synthetic cohort |
@@ -136,8 +136,8 @@ All patient vignettes are synthetic. No real patient data, no protected health i
 no human subjects. Cohort provenance, including the generator version, seed and command, is
 recorded in `cohort/PROVENANCE.md`, so the cohort is regenerable rather than stored.
 
-The held-out test split is sealed and is not in this repository. It is scored under the
-submission protocol.
+The held-out test split is sealed and is not in this repository. A leaderboard that scores
+submissions on the sealed split is planned; none exists yet.
 
 ## Citing
 
@@ -171,25 +171,28 @@ Apache 2.0. See `LICENSE`.
 
 ## Reproduction map
 
-Set `FMA_PANEL=v3` to compute the reported numbers from the logged reruns (`floor16v3_*`).
+The reported numbers are computed from the logged reruns (`floor16v3_*`); `FMA_PANEL=v3` is
+optional. Scripts that write figures take `--outdir` (default `figures/` under the repository root).
 
 | Result | Script | Command |
 |---|---|---|
 | Every number in the manuscript | `verify_paper_numbers.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/verify_paper_numbers.py [main.tex]` |
 | Crossed (vignette by replicate) bootstrap intervals | `crossed_boot.py` (used by `robustness.py`) | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/robustness.py` |
 | Isolated-call versus batched floor for endpoint A | `haiku_iso_floor.py` | `FMA_PANEL=v3 python harness/scripts/haiku_iso_floor.py` |
-| Coverage of the crossed-bootstrap interval (simulation) | `coverage_sim.py` | `python harness/scripts/coverage_sim.py` |
+| Coverage of the crossed-bootstrap interval (simulation) | `coverage_sim.py` | `python harness/scripts/coverage_sim.py --nsim 2000` |
 | Zero-observed floor bounds, replicate-only intervals, achieved shifts | `fixed_case_bounds.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/fixed_case_bounds.py` |
-| Floors and panel intervals (B=5000) | `panel_summary.py` | `FMA_PANEL=v3 python harness/scripts/panel_summary.py` |
+| Five-action and six-action floors and panel intervals (B=5000, or crossed intervals from `robustness_v3_crossed.json` with `FMA_BOOT=crossed`) | `panel_summary.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/panel_summary.py` |
 | Paired differences, leave-one-out, excluding caution, voting reduction, null sensitivity, signed-test simulation, five-action analysis | `robustness.py` | `FMA_PANEL=v3 python harness/scripts/robustness.py` |
 | Five-action extras (paired leave-one-out, voting, per-cell structure, temperature) | `five_action_extras.py` | `FMA_PANEL=v3 python harness/scripts/five_action_extras.py` |
 | Default versus temperature-0 floors | `temperature_compare.py` | `FMA_PANEL=v3 python harness/scripts/temperature_compare.py` |
 | Attempt totals (first-attempt failures, retries) per run directory | `attempt_summary.py` | `python harness/scripts/attempt_summary.py experiments/floor16v3_llama` |
 | Floors from first attempts only | `first_attempt_sensitivity.py` | `FMA_PANEL=v3 python harness/scripts/first_attempt_sensitivity.py` |
-| Per-action and per-model figures | `gen_fig_per_action.py`, `gen_fig_floor_by_model.py` | `FMA_PANEL=v3 python harness/scripts/gen_fig_per_action.py` |
+| Per-action and per-model figures (TikZ/pgfplots sources) | `gen_fig_per_action.py`, `gen_fig_floor_by_model.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/gen_fig_per_action.py [--outdir DIR]` |
 | Rank correlations | `rank_tests.py` | `FMA_PANEL=v3 python harness/scripts/rank_tests.py` |
-| Majority-vote curve and null simulation | `aggregation_curve.py`, `plateau_null.py` | `FMA_PANEL=v3 python harness/scripts/aggregation_curve.py` |
+| Majority-vote curve and null simulation | `aggregation_curve.py`, `plateau_null.py` | `python harness/scripts/aggregation_curve.py experiments/floor16` and `python harness/scripts/plateau_null.py experiments/floor16 --sims 400` (the argument is a run directory of `rep*/trajectories.json`, here model A) |
 | Local and hosted runs | `run_ollama_floor.py` with `ollama_answerer.py` or `groq_answerer.py` (`FMA_ANSWERER`) | `python harness/scripts/run_ollama_floor.py <dir> <model> 1 10` (set `FMA_TEMPERATURE=0` for greedy; `FMA_RETRY_POLICY=same`) |
 | The full v3 local rerun (requires Ollama and the model tags in `floor16v3_provenance.txt`) | `experiments/run_v3_all.sh` | `bash experiments/run_v3_all.sh` |
 
-The supplementary material is attached to each GitHub release.
+The supplementary material is attached to each GitHub release. This README describes version 0.1.9.
+The concept DOI [10.5281/zenodo.22165979](https://doi.org/10.5281/zenodo.22165979) resolves to the latest
+release.

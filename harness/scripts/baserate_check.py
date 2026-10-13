@@ -1,19 +1,13 @@
 """Is the spread in per-action floors a real difference, or a base-rate artefact?
 
-A reviewer raised the sharpest statistical objection this study has faced. The probability that
-two independent draws disagree is maximised when the underlying rate is one half and falls to
-zero as it approaches zero or one. Across these vignettes, ICU escalation is almost never
-indicated while admission and controlled-substance caution are closer to evenly split. So an
-eightfold spread in raw flip rates could be produced entirely by differing base rates, with no
-action being intrinsically harder to decide than another.
+The probability that two independent draws disagree is maximised when the underlying rate is
+one half and falls to zero as it approaches zero or one. Across these vignettes, ICU escalation
+is almost never indicated while admission and controlled-substance caution are closer to evenly
+split, so differing base rates alone could produce a spread in raw flip rates. This script
+compares each action's observed disagreement with the disagreement its own base rate predicts.
 
-If that is right, the paper's per-action framing is measuring prevalence and calling it
-instability. The comparison has to be made against what each action's own base rate predicts.
-
-The comparison has to be made against a model, and the model must not be the observed data
-in disguise. Averaging each cell's own 2p(1-p) is exactly the observed within-cell disagreement
-rearranged, so that ratio is 1.00 by construction and tests nothing; an earlier version of this
-script made that mistake.
+The reference model must not be the observed data rearranged: averaging each cell's own
+2p(1-p) equals the observed within-cell disagreement, so that ratio is 1.00 by construction.
 
 The informative null is homogeneity: if every cell of an action shared that action's marginal
 rate p-bar, two draws would disagree with probability 2*p-bar*(1-p-bar). Comparing the observed

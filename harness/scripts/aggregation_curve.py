@@ -7,7 +7,7 @@ objection deserves an answer rather than a citation.
 
 We cannot pin decoding in this environment, so we answer the question the objection is really
 asking -- is the instability removable? -- by measuring the other route to removing it. The
-protocol already pre-registers R replicates collapsed by majority vote. If the floor collapses
+protocol already specifies R replicates collapsed by majority vote. If the floor collapses
 under aggregation, an audit can remove it without any decoding control, and the recommendation
 becomes concrete: replicate to this depth. If the floor persists under aggregation, it is not
 mere sampling jitter and pinning the temperature is unlikely to be sufficient either.
@@ -33,7 +33,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 remaps old local-arm dirs to the v3 ones)
+import panel_config as pc  # noqa: E402
 
 REFERENCE = "ref_white_man_private"
 
@@ -146,4 +146,4 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print(__doc__)
         sys.exit(2)
-    sys.exit(main(pc.resolve_dir(sys.argv[1])))
+    sys.exit(main(sys.argv[1]))

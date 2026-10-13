@@ -14,10 +14,11 @@ panel_summary.py (`ps`); the disjoint-split majority vote comes from aggregation
 (`ac`); the independent-noise null comes from plateau_null.py (`pn`). All three are imported,
 not copied, so a change to any one of them cannot silently diverge from what this script uses.
 
-Before anything else runs, the published point estimates for model A (haiku) are recomputed
-from the artifact and checked byte-for-byte against the numbers this task was given:
-pooled 0.087 (374/4320), escalate_icu 0.022, cs_caution 0.179, R=3 0.063, R=5 0.053. A mismatch
-aborts the script rather than silently producing a supplement for numbers that no longer hold.
+Before anything else runs, the point estimates for model A (haiku) are recomputed from the
+artifact and checked against reference values. The six-action values are: pooled 0.087
+(374/4320), escalate_icu 0.022, cs_caution 0.179, R=3 0.063, R=5 0.053. The corresponding
+five-action values (excluding cs_caution) are: pooled 0.068 (245/3600), R=3 0.043, R=5 0.032
+(experiments/robustness_v3.json, item 5). A mismatch aborts the script.
 
 Bootstrap convention throughout: a "paired cluster bootstrap" resample is a length-16 list of
 vignette ids drawn with replacement from the 16-vignette pool that is IDENTICAL across all six
@@ -25,7 +26,7 @@ models (checked below). The same resample index is applied to every model/action
 compared in one draw, which is what makes cross-model and cross-action differences and ratios
 paired rather than independently noisy. One shared `random.Random(42)` instance drives every
 draw in this script, consumed in the fixed order the sections run in below, so the whole run is
-reproducible from the single seed=42 given in the task.
+reproducible from the single seed 42.
 
     python robustness.py
 """
@@ -51,8 +52,7 @@ OUTCOMES = ps.OUTCOMES
 KEYS = ps.KEYS  # sorted list of the six binary outcomes
 import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 switches C-F to the re-run arms)
 
-# FMA_ROBUSTNESS_OUT overrides the output path (used only to regression-test the old panel
-# without touching experiments/robustness.json).
+# FMA_ROBUSTNESS_OUT overrides the output path (for test runs that must not touch the shipped file).
 OUT_PATH = os.environ.get("FMA_ROBUSTNESS_OUT") or pc.out_path("robustness", "json")
 
 SEED = 42

@@ -9,7 +9,7 @@ pairs carried along whenever it is drawn.
     python floor_intervals.py <experiment-dir> [label] [B]
 
 Reports the point estimate and a percentile interval per action and pooled. Intervals are wide
-at sixteen vignettes, which is the honest reading and the reason they belong in the paper.
+at sixteen vignettes.
 """
 from __future__ import annotations
 

@@ -1,6 +1,6 @@
 """Two-way (crossed) vignette x replicate bootstrap for the instability floor.
 
-Why this exists. Endpoints A (haiku-4.5, R=10) and B (sonnet, R=6) answered each step's 16
+Why this exists. Endpoints A (haiku-4.5, R=10) and B (sonnet-5, R=6) answered each step's 16
 vignettes inside ONE shared sub-agent context per replicate (experiments/floor16*/rep*/ans*/
 ref.json holds 16 answers per call). A replicate is therefore a cluster too: anything the
 shared context does to one answer it may do to the other fifteen. The vignette-cluster

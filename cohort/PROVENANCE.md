@@ -26,9 +26,9 @@ not be regenerated from it without updating this file.
 
 MITRE also publishes a fixed sample of roughly a thousand patients. That sample was retrieved
 and then discarded in favour of local generation, for one reason: a published sample can be
-identified by URL and checksum, but its seed belongs to MITRE. `COHORT_PROVENANCE_PLAN.md`
-requires recording the generator version *and seed*, which is a reproducibility claim about our
-own cohort, and a fixed download cannot support it. Local generation can.
+identified by URL and checksum, but its seed belongs to MITRE. Recording the generator
+version *and seed* is a reproducibility claim about this cohort, and a fixed download cannot
+support it. Local generation can.
 
 Determinism was verified rather than assumed. Two runs at seed `20260827` produced byte-identical
 `patients.csv` (SHA-256 `fded25222f51d340bd71245f3122455c5e44c88b79fd96f59b9e9e0cfd3c0b1f`).
@@ -59,8 +59,7 @@ correlation would be indistinguishable from a flip attributable to the model.
 
 Selection therefore runs on clinical criteria only, and the source patient's demographics are
 discarded rather than carried forward. The demographics a vignette is rendered under come from
-the condition set in `fairmedagent/conditions.py` and from nowhere else. The build tooling
-asserts this rather than trusting it; see `tools/build_cohort.py`.
+the condition set in `fairmedagent/conditions.py` and from nowhere else. The selection step is intended to assert this rather than rely on it.
 
 A second, softer limit is worth stating in the same place. Synthea produces longitudinal records
 rather than emergency-department presentations bounded by a guideline-defined acceptable action.

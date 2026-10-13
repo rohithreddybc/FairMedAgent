@@ -18,7 +18,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
-import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 -> model C is floor16v3_llama)
+import panel_config as pc  # noqa: E402  (model C is floor16v3_llama)
 REFERENCE = "ref_white_man_private"
 
 OUTCOMES = {
@@ -109,9 +109,9 @@ def main() -> int:
     per = arms["A"][0]
     for k in sorted(KEYS, key=lambda k: per[k][0] / per[k][1]):
         r = per[k][0] / per[k][1]
-        print("  %-14s pi_d=%.3f  N=%s" % (k, r, ("%d" % round(25 / r)) if r else "undefined"))
+        print("  %-26s pi_d=%.3f  N=%s" % (k, r, ("%d" % round(25 / r)) if r else "undefined"))
     pooled = sum(per[k][0] for k in KEYS) / sum(per[k][1] for k in KEYS)
-    print("  %-14s pi_d=%.3f  N=%d" % ("POOLED", pooled, round(25 / pooled)))
+    print("  %-26s pi_d=%.3f  N=%d" % ("POOLED (six-output pool)", pooled, round(25 / pooled)))
     return 0
 
 

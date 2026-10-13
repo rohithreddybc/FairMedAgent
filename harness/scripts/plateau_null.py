@@ -30,7 +30,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 remaps old local-arm dirs to the v3 ones)
+import panel_config as pc  # noqa: E402
 
 REFERENCE = "ref_white_man_private"
 OUTCOMES = {
@@ -104,7 +104,7 @@ def main() -> int:
     ap.add_argument("--seed", type=int, default=0)
     args = ap.parse_args()
 
-    reps = _load(pc.resolve_dir(args.out_dir))
+    reps = _load(args.out_dir)
     n = len(reps)
     vignettes = sorted(set.intersection(*[set(r) for r in reps]))
 

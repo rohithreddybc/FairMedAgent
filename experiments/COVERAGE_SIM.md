@@ -1,13 +1,16 @@
 # zero-observed bounds, estimands, interval coverage
 
-Scripts: `harness/scripts/fixed_case_bounds.py` (bounds, replicate-only intervals, S12 shifts; writes
-`experiments/fixed_case_bounds_v3.json`, run with `FMA_PANEL=v3`, ~35 s) and `harness/scripts/coverage_sim.py`
-(coverage; writes `experiments/COVERAGE_SIM.json`, 2000 datasets per scenario, B=1000, seed 20261012, ~2 min).
-No manuscript file was edited. No existing JSON was modified.
+Scripts and outputs:
+
+- `harness/scripts/fixed_case_bounds.py` computes the bounds, the replicate-only intervals and the achieved shifts of
+  the signed-test simulation. Command: `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/fixed_case_bounds.py`
+  (about 35 s). Output: `experiments/fixed_case_bounds_v3.json`.
+- `harness/scripts/coverage_sim.py` runs the coverage simulation. Command: `python harness/scripts/coverage_sim.py --nsim 2000`
+  (about 2 min; 2000 datasets per scenario, B=1000, seed 20261012). Output: `experiments/COVERAGE_SIM.json`.
 
 ## 1. One-sided 95% upper bounds for zero-observed floors
 
-Fixed-case bound (recommended). The observed event is "every vignette x action cell unanimous". With per-cell
+Fixed-case bound. The observed event is "every vignette x action cell unanimous". With per-cell
 minority probabilities q_c, P(event) = prod_c [(1-q_c)^R + q_c^R]; {q : P >= 0.05} is an exact 95% confidence
 region (zero is the most extreme value of the count of non-unanimous cells). The bound is the maximum of the
 fixed-case floor, mean_c 2 q_c (1 - q_c), over that region. With s_c = -log(1-q_c) the floor kernel is concave for
@@ -23,7 +26,7 @@ two-point solution: 17.1% of vignettes at q = 0.5 on every action, the rest unan
 for 16 vignettes and cannot be tightened without a model for unseen vignettes.
 
 "Every vignette at its own bound" (q_v = 1 - 0.05^(1/R) in every cell) is not a 95% joint bound (its coverage is
-far above 95%); listed only because it was requested.
+far above 95%); it is listed for comparison.
 
 | Floor (printed as 0.000) | G | K | R | Draws N | Fixed-case 95% UB | Population 95% UB | Own-bound max |
 |---|---|---|---|---|---|---|---|
@@ -39,10 +42,10 @@ far above 95%); listed only because it was requested.
 Every C/D/E temperature-0 per-action floor is also 0 (all six actions, G=16; the paired and unpaired vignette sets
 coincide). Arithmetic check: 0.99^80 = 0.448.
 
-Recommended print: the fixed-case bound, labelled "one-sided 95% upper bound for these 16 vignettes", e.g.
-"0.000 (one-sided 95% upper bound 0.015)" for C, D, E at temperature 0 (five actions), and "0.000 (upper bound
-0.036)" for qwen3:4b ICU escalation and high acuity. State the population bound once in the SI text (about 0.09:
-up to 17% of unseen vignettes could be fully unstable without contradicting 16 unanimous ones).
+Reporting form: the fixed-case bound is reported as a one-sided 95% upper bound for these 16 vignettes, for example
+0.000 (one-sided 95% upper bound 0.015) for models C, D and E at temperature 0 (five actions), and 0.000 (upper bound
+0.036) for qwen3:4b ICU escalation and high acuity. The population bound is about 0.09: up to 17% of unseen vignettes
+could be fully unstable without contradicting 16 unanimous ones.
 
 ## 2. Estimands and replicate-only intervals
 
@@ -73,8 +76,8 @@ Model A per action: admission 0.142 [0.105, 0.176]; any opioid 0.025 [0.000, 0.0
 [0.000, 0.040]; high acuity 0.076 [0.048, 0.102]; referral 0.075 [0.049, 0.098]; caution flag 0.179
 [0.075, 0.236].
 
-Caution: the simulation (section 3) shows the replicate-only interval undercovers the fixed-case estimand
-(76-93%), so these intervals should not be printed as calibrated 95% intervals. See section 4.
+The simulation (section 3) shows that the replicate-only interval undercovers the fixed-case estimand (76-93%), so
+these intervals are not calibrated 95% intervals.
 
 ## 3. Coverage simulation
 
@@ -113,22 +116,20 @@ differences cover at 97-100%. It fails where expected: when a sizeable fraction 
 no discordance (S2: 93% at R=10, 82% at R=5). Replacing a [0, 0] interval with the exact one-sided bound restores
 >= 99% fixed-case coverage in every scenario. The replicate-only interval undercovers the fixed-case estimand it
 targets (76-93%): with 5-10 replicates the resampled U-statistic understates replicate variance and, like any
-bootstrap, cannot create discordance in unanimous cells. The vignette-only (pre-crossed) interval undercovers the
-population estimand (80-92%), which supports the switch to crossed.
+bootstrap, cannot create discordance in unanimous cells. The vignette-only interval undercovers the
+population estimand (80-92%).
 
-## 4. Recommended wording
+## 4. Summary of the coverage results
 
-Methods/SI: "In simulation (2000 datasets per scenario, 16 vignettes, 5-10 replicates, including heterogeneous
-cell rates fitted to model A and shared per-replicate shifts), the crossed percentile intervals covered the
-case-population floor in 96-98% of datasets and the fixed-case floor in at least 97%, and between-model differences
-in 97-100%. When a substantial fraction of cells is unanimous, coverage fell to 93% at ten replicates and 82% at
-five, because a bootstrap cannot produce discordance that was not observed; for floors with no observed
-discordance we therefore report an exact one-sided 95% upper bound instead of an interval."
+In simulation (2000 datasets per scenario, 16 vignettes, 5-10 replicates, including heterogeneous cell rates fitted to
+model A and shared per-replicate shifts), the crossed percentile intervals covered the case-population floor in 96-98%
+of datasets and the fixed-case floor in at least 97%, and between-model differences in 97-100%. When a substantial
+fraction of cells is unanimous, coverage fell to 93% at ten replicates and 82% at five, because a bootstrap cannot
+produce discordance that was not observed. For floors with no observed discordance an exact one-sided 95% upper bound
+is therefore reported instead of an interval.
 
-On the fixed-case interval: do not print the replicate-only interval as a 95% interval. Either state that the
-crossed interval is conservative for the fixed-case estimand (simulated coverage 97.7-100% away from the boundary)
-and use it for both readings, or print replicate-only intervals in the SI labelled as conditional on the 16
-vignettes with their simulated coverage (76-93%) stated.
+The crossed interval is conservative for the fixed-case estimand (simulated coverage 97.7-100% away from the boundary).
+The replicate-only interval, conditional on the 16 vignettes, has simulated coverage of 76-93% for that estimand.
 
 ## 5. S12 signed-test simulation: achieved shifts after clipping
 
@@ -142,7 +143,6 @@ p = 0, 29.2% at p = 1). All V in the table are even, so the opposing scenario is
 | Opposing, - half | -0.10 | -0.051 | 0.051 | 0.0051 |
 | Opposing, overall | +/-0.10 | +0.0099 | 0.061 | 0.0061 |
 
-The table's delta^2 column (0.007, 0.006) matches. The achieved uniform effect is 0.071, not 0.10, and the
-"opposing" scenario carries a net signed shift of +0.010, so it is not a zero-net-effect scenario: its rejection
-rate at V=300 (0.052) partly reflects that residual drift. The SI should say the nominal effects are clipped and
-state the achieved values.
+The delta^2 column of the supplement table (0.007, 0.006) matches. The nominal effects are clipped at the boundary,
+so the achieved uniform effect is 0.071 rather than 0.10, and the "opposing" scenario carries a net signed shift of
++0.010; its rejection rate at V=300 (0.052) partly reflects that residual drift.

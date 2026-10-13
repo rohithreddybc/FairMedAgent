@@ -1,10 +1,8 @@
 """How much does the pooled floor's interval narrow between four and sixteen vignettes?
 
-The paper says the four-vignette estimate was "simply wrong" and reports the sixteen-vignette
-figure as the replacement, but never shows the trajectory between those two points, so a
-reviewer has no way to tell whether sixteen is a converged estimate or just a bigger unstable
-one. This script answers that directly: fix one random order of the sixteen vignettes actually
-run, take the first K of them for K in {4, 8, 12, 16}, and report the pooled point estimate and
+Shows the trajectory of the pooled floor between four and sixteen vignettes, so that it is
+visible whether sixteen is a converged estimate. Fixes one random order of the sixteen
+vignettes actually run, take the first K of them for K in {4, 8, 12, 16}, and report the pooled point estimate and
 a percentile bootstrap interval (resampled over vignettes, same method as floor_intervals.py)
 at each K, using the same ten replicates throughout so only the vignette count changes.
 

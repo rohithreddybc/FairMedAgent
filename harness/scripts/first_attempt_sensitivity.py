@@ -118,8 +118,8 @@ def boot_ci(reps, vs):
 
 def main() -> int:
     out = {"B": B, "seed": SEED, "arms": {}}
-    arms = [(lab, pc.NEW_LOCAL[lab], False) for lab in "CDEF"] + \
-           [(lab, pc.NEW_LOCAL[lab], True) for lab in "CDEF"]
+    arms = [(lab, pc.LOCAL[lab], False) for lab in "CDEF"] + \
+           [(lab, pc.LOCAL[lab], True) for lab in "CDEF"]
     print("%-3s %-4s %-18s %7s %9s %9s  %-16s %s"
           % ("id", "arm", "dir", "prompts", "1st-fail", "masked", "full floor [CI]", "first-attempt floor [CI]"))
     for lab, base, t0 in arms:

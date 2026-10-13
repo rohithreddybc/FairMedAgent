@@ -1,6 +1,6 @@
 # FairMedAgent. Citation Ledger
 
-*Auto-generated from the citation-verification workflow. Rule: only DOI/arXiv-resolved, full-text/abstract-confidence entries enter `paper/references.bib`. Number-claims must be full-text. Final pass: `ars-citation-check`.*
+*Verification record for the references used in the design documents. Each entry was resolved by DOI or arXiv identifier and checked against the full text or abstract (column `conf`).*
 
 **36 verified** · **1 unverified/excluded**
 
@@ -43,6 +43,6 @@
 | `benjamini1995controlling` | full-text | 10.1111/j.2517-6161.1995.tb02031.x | Introduces the false discovery rate (FDR) as the expected proportion of falsely rejected hypotheses and gives a simple sequential (linear step-up) procedure proved to control the FDR at level q for independent test statistics; shown by s... |
 | `fagerland2013mcnemar` | full-text | 10.1186/1471-2288-13-91 | Comparing type I error and power across 9595 scenarios, the mid-p McNemar test and the asymptotic McNemar test outperform the exact conditional test and the asymptotic test with continuity correction; the mid-p test never violated the no... |
 
-## UNVERIFIED. excluded from references.bib (do NOT cite until resolved)
+## Not verified (not relied on)
 
 - [E:fairness-metrics] `barocas2023fairness` (Fairness and Machine Learning: Limitations and Opportunities) fairmlbook.org confirms the book 'Fairness and Machine Learning: Limitations and Opportunities' by Barocas, Hardt, and Narayanan, published by MIT Press in 2023. The site provides an official BibTeX e

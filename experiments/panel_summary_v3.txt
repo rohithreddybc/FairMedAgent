@@ -1,15 +1,20 @@
 PANEL  (6 models, 16 vignettes each)
-id  model           vendor    host    size         R     floor  95% interval   noisiest
-A   haiku-4.5       vendor-1  hosted  undisclosed  10    0.087  [0.056, 0.117]  cs_caution
-B   sonnet          vendor-1  hosted  undisclosed  6     0.067  [0.037, 0.096]  cs_caution
-C   llama3.1:8b     vendor-2  local   8B q4        10    0.225  [0.197, 0.256]  high_acuity
-D   mistral:7b      vendor-3  local   7B q4        10    0.105  [0.079, 0.131]  high_acuity
-E   qwen3:4b        vendor-4  local   4B q8        10    0.035  [0.012, 0.065]  cs_caution
-F   phi3:mini       vendor-5  local   3.8B q4      10    0.236  [0.197, 0.278]  referral
+Headline: five-action pooled floor (admission, ICU escalation, high acuity, referral, any opioid).
+Intervals: 95%, crossed (vignette x replicate) bootstrap, read from experiments/robustness_v3_crossed.json.
+The six-action columns add the exploratory controlled-substance caution flag (cs_caution).
 
-floor range 0.035 to 0.236, a factor of 6.7
+id  model           vendor    host    size         R     5-act  95% interval   noisiest-5    6-act  95% interval   noisiest-6
+A   haiku-4.5       vendor-1  hosted  undisclosed  10    0.068  [0.032, 0.110]  admit         0.087  [0.048, 0.125]  cs_caution
+B   sonnet-5        vendor-1  hosted  undisclosed  6     0.040  [0.008, 0.081]  high_acuity   0.067  [0.024, 0.113]  cs_caution
+C   llama3.1:8b     vendor-2  local   8B q4        10    0.230  [0.184, 0.276]  high_acuity   0.225  [0.186, 0.266]  high_acuity
+D   mistral:7b      vendor-3  local   7B q4        10    0.098  [0.063, 0.133]  high_acuity   0.105  [0.073, 0.139]  high_acuity
+E   qwen3:4b        vendor-4  local   4B q8        10    0.017  [0.000, 0.041]  admit         0.035  [0.009, 0.069]  cs_caution
+F   phi3:mini       vendor-5  local   3.8B q4      10    0.245  [0.182, 0.309]  referral      0.236  [0.178, 0.298]  referral
 
-PAIRWISE SPEARMAN (midranks, Pearson form); exact p over 720 orderings
+five-action floor range 0.017 to 0.245, a factor of 14.7
+six-action floor range 0.035 to 0.236, a factor of 6.7
+
+PAIRWISE SPEARMAN over the six per-action rates (midranks, Pearson form); exact p over 720 orderings
 pair       rho       p
 A-B       0.94   0.017
 A-C       0.52   0.300

@@ -39,7 +39,7 @@ def _call(model: str, system: str, user: str, schema: dict, temperature: float, 
     if model.startswith("openai/gpt-oss"):
         body["reasoning_effort"] = REASONING_EFFORT
     headers = {"Authorization": "Bearer " + os.environ["GROQ_API_KEY"],
-               "Content-Type": "application/json", "User-Agent": "FairMedAgent-harness/0.1.4"}
+               "Content-Type": "application/json", "User-Agent": "FairMedAgent-harness/0.1.9"}
     # Rate limits are waited out rather than turned into missing cells: a 429 honors the
     # provider's retry-after (the free tier's daily cap can mean hours), up to MAX_WAIT_S in
     # total per call, so an unattended run pauses instead of recording failures.

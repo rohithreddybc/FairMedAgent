@@ -1,11 +1,13 @@
 # Model Card (template). per evaluated model × scaffold
 
-*Following Mitchell et al., "Model Cards for Model Reporting" (FAccT 2019). One card per (model, scaffold) config in the FairMedAgent panel; results auto-filled from the eval artifacts at release. `\final{}` = filled after full-panel evaluation.*
+*Template: to be completed when the development split is released.*
+
+*Following Mitchell et al., "Model Cards for Model Reporting" (FAccT 2019). One card per (model, scaffold) config in the FairMedAgent panel; results filled from the evaluation artifacts at release. `\final{}` = filled after full-panel evaluation.*
 
 ## Model details
 - **Model + version + date:** \final{e.g., claude-haiku-4-5, run YYYY-MM-DD}
 - **Scaffold:** \final{C0 direct | C1 chain-of-thought | C2 two-clinician deliberation}
-- **Decoding:** temperature 0; replicates R = \final{R}; per-cell agreement = \final{}
+- **Decoding:** \final{default or temperature 0, as run}; replicates R = \final{R}; per-cell agreement = \final{}
 - **Evaluated by:** FairMedAgent harness v\final{x.y.z}
 
 ## Intended use

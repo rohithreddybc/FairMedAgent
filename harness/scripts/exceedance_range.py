@@ -1,10 +1,9 @@
-"""Exceedance probability for the pilot's 3-of-4 cell, as a range over the floor's own CI.
+"""Probability of at least 3 flips in 4 vignettes under the floor, as a range over its interval.
 
-Sec. subsec:primary plugs a point estimate of the floor into P(>=3 of 4 flips | floor) and
-reports a single number. That overstates precision: the floor itself carries a 95% interval
-(Table floor), and the exceedance probability should be reported across it, not at its point
-estimate alone. This recomputes P(>=3 of 4) at the low and high end of the pooled and the
-cs_caution intervals reported in Table~tab:floor.
+For a cell with four vignettes, P(>=3 of 4 flips | floor) is evaluated at the low end, the point
+estimate and the high end of the floor's 95% interval, for the five-action pooled floor, the
+six-action pooled floor and the controlled-substance caution flag alone (model A). A point
+estimate alone would overstate precision.
 
     python exceedance_range.py
 """
@@ -14,10 +13,11 @@ from math import comb
 
 import os
 
-POOLED_LO, POOLED_PT, POOLED_HI = 0.056, 0.087, 0.116   # six-action pooled floor, model A
-if os.environ.get("FMA_PANEL", "").strip().lower() == "v3":
-    # Five defined actions (robustness_v3.json item 9, model A): 0.068 [0.036, 0.101].
-    POOLED_LO, POOLED_PT, POOLED_HI = 0.036, 0.068, 0.101
+# Five defined actions, model A (experiments/robustness_v3.json item 9, vignette bootstrap): 0.068 [0.036, 0.101].
+POOLED_LO, POOLED_PT, POOLED_HI = 0.036, 0.068, 0.101
+# Six-action pooled floor for model A, shown for comparison: 0.087 [0.056, 0.116].
+SIX_LO, SIX_PT, SIX_HI = 0.056, 0.087, 0.116
+# Controlled-substance caution flag alone (exploratory output), model A.
 CS_LO, CS_PT, CS_HI = 0.06, 0.179, 0.29
 
 
@@ -26,13 +26,19 @@ def p3(p: float) -> float:
 
 
 def main() -> int:
-    print("P(>=3 of 4) across the pooled floor's 95%% interval [%.3f, %.3f], point %.3f:"
+    print("P(>=3 of 4), five-action pooled floor, 95%% interval [%.3f, %.3f], point %.3f:"
           % (POOLED_LO, POOLED_HI, POOLED_PT))
     print("  lo  %.4f" % p3(POOLED_LO))
     print("  pt  %.4f" % p3(POOLED_PT))
     print("  hi  %.4f" % p3(POOLED_HI))
     print()
-    print("P(>=3 of 4) across the cs_caution floor's 95%% interval [%.2f, %.2f], point %.3f:"
+    print("P(>=3 of 4), six-action pooled floor, 95%% interval [%.3f, %.3f], point %.3f:"
+          % (SIX_LO, SIX_HI, SIX_PT))
+    print("  lo  %.4f" % p3(SIX_LO))
+    print("  pt  %.4f" % p3(SIX_PT))
+    print("  hi  %.4f" % p3(SIX_HI))
+    print()
+    print("P(>=3 of 4), cs_caution flag alone, 95%% interval [%.2f, %.2f], point %.3f:"
           % (CS_LO, CS_HI, CS_PT))
     print("  lo  %.4f" % p3(CS_LO))
     print("  pt  %.4f" % p3(CS_PT))

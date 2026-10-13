@@ -1,14 +1,12 @@
 # What Synthea can and cannot supply for this benchmark
 
-Surveyed 2026-08-27 against Synthea v4.0.0, seed `20260827`, 458 generated patients
+Surveyed against Synthea v4.0.0, seed `20260827`, 458 generated patients
 (29,340 encounters, 16,406 condition records, 359,339 observations), and cross-checked against
 the 536 disease modules shipped inside the JAR so that the conclusions do not rest on one
 sample.
 
-The short version: Synthea solves the provenance problem completely and the authoring problem
-barely at all. `COHORT_PROVENANCE_PLAN.md` anticipated some of this, in the sentence
-"Synthea gives a starting distribution, not finished cases." That sentence was right and
-understated.
+In summary, Synthea solves the provenance problem and the authoring problem only slightly: it
+gives a starting distribution, not finished cases.
 
 ## Presentations, against the four draft vignettes
 
@@ -24,7 +22,7 @@ Three findings behind that table.
 **No urolithiasis module exists.** Searching all 536 module names for colic, calculus, stone,
 urolith and related terms returns `gallstones` and nothing renal; the condition export contains
 `Gallbladder calculus` and no ureteric or kidney stone at any frequency. This is the costly one,
-because `draft_medication_01` is the paper's construct-validity anchor for pain-treatment
+because `draft_medication_01` is the construct-validity anchor for pain-treatment
 disparity. The anchor cannot be built from Synthea as the vignette is currently written.
 
 **No ketoacidosis module exists.** Synthea models type 2 diabetes richly, and the survey
@@ -53,26 +51,23 @@ pre-diagnosis presentation has to be authored.
 
 Absent: lipase, urinalysis. Lactate is present but thin (n=43).
 
-## Consequences, stated rather than resolved here
+## Options
 
-The cohort plan's implied division of labour does not survive this survey. Two options exist and
-the choice is a scientific one, not a tooling one.
+The survey bears on how the work is divided between Synthea and authored vignettes. Two options exist.
 
 1. **Keep the four presentations, use Synthea for substrate only.** Vignettes stay
    author-written and clinician-adjudicated; Synthea supplies value distributions, code systems
-   and background history. Nothing about the paper's scientific commitments changes. The
-   clinical authoring burden is unchanged from today.
+   and background history. The clinical authoring burden is unchanged.
 
 2. **Re-choose presentations toward what Synthea models.** Appendicitis stays. Biliary colic
    from `gallstones` could replace renal colic as the analgesia anchor: it is a genuine acute
    severe pain presentation where the NSAID-versus-opioid tiering decision is live, and the
    pain-treatment disparity literature the paper cites is about analgesia broadly rather than
    about stones specifically. This would change the construct-validity anchor, which is a
-   substantive change to the instrument and needs the clinical co-author's agreement, not a
-   maintainer's.
+   substantive change to the instrument and needs clinical review.
 
-Option 1 is the default because it changes no commitment. Option 2 is cheaper in authoring and
-more expensive in review, and it should not be taken silently.
+Option 1 changes no design commitment. Option 2 is cheaper in authoring and more expensive in
+review.
 
 ## Caveat on the distribution check
 

@@ -1,18 +1,27 @@
-"""Write access_submission/fig_per_action.tex from experiments/robustness.json.
+"""Write the per-action floor figure (fig_per_action_v3.tex) from experiments/robustness_v3.json.
 
 Grouped dot-and-interval plot: one group per action, one point per model with its 95%
-vignette-cluster bootstrap interval (B=5000). Replaces the slopegraph, whose lines implied an
-order among unordered action categories and carried no uncertainty.
+interval. Intervals are the vignette-cluster bootstrap (B=5000) from robustness_v3.json, or the
+crossed (vignette by replicate) bootstrap from robustness_v3_crossed.json when FMA_BOOT=crossed.
+
+    FMA_BOOT=crossed python gen_fig_per_action.py [--outdir DIR]
+
+DIR defaults to figures/ under the repository root and is created if missing.
 """
+import argparse
 import json
 import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import panel_config as pc  # FMA_PANEL=v3 -> read robustness_v3.json, write srep_submission/fig_per_action_v3.tex
+import panel_config as pc  
 
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
+_ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+_ap.add_argument("--outdir", default=os.path.join(ROOT, "figures"),
+                 help="output directory (default: figures/ under the repository root)")
+ARGS = _ap.parse_args()
 data = json.load(open(pc.out_path("robustness", "json"), encoding="utf-8"))
 models = data["item1_per_model_action_floors"]["models"]
 # FMA_BOOT=crossed: intervals from the crossed (vignette x replicate) bootstrap; point estimates
@@ -110,9 +119,7 @@ if CROSSED:
         lines.append("%% %-15s " % akey + "  ".join(
             "[%.3f, %.3f]" % tuple(cmodels[m]["actions"][akey]["ci"]) for m, *_ in MODELS))
 tex = tex + "\n".join(lines) + "\n"
-# The old panel keeps writing access_submission/fig_per_action.tex; v3 never touches it.
-out = (os.path.join(ROOT, "merge_t3", "fig_per_action_v3.tex") if (pc.V3 and CROSSED)
-       else os.path.join(ROOT, "srep_submission", "fig_per_action_v3.tex") if pc.V3
-       else os.path.join(ROOT, "access_submission", "fig_per_action.tex"))
+os.makedirs(ARGS.outdir, exist_ok=True)
+out = os.path.join(ARGS.outdir, "fig_per_action_v3.tex")
 open(out, "w", encoding="utf-8", newline="\n").write(tex)
 print("wrote", out)

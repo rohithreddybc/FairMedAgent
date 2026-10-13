@@ -1,5 +1,7 @@
 # Counterfactual Profile Design. FairMedAgent
 
+*Design specification. Vignette counts, scaffold grids and leaderboard mechanics below are design targets, not the contents of this release; the released instability runs use sixteen vignettes (see the repository README).*
+
 ## 1. Protected attributes and exact levels
 
 FairMedAgent varies a small, equity-grounded set of protected attributes, each mapped onto a **PROGRESS-Plus** dimension (Cochrane Equity Methods Group) so the attribute set is principled rather than ad hoc:
@@ -16,7 +18,7 @@ A sixth **control condition carries no demographic descriptor** (following Omar/
 
 ## 2. Intersectional cells
 
-Single-attribute variation is the baseline; **intersections are first-class reported axes, not appendix material** (the gap Omar left open). The pre-registered intersectional cells are the equity-salient crossings: Black×Medicaid, Black×Female, Hispanic×LEP, Black×Medicaid×LEP×Female (the maximal stress cell), and Native American×Medicaid. Because per-cell N collapses as attributes are crossed, every intersectional point estimate is reported **only descriptively with its N and CI**; cells below the pre-registered minimum size receive Bayesian beta-binomial credible intervals and **no significance claim**, and all intersectional findings are labeled **hypothesis-generating** pending confirmation on the sealed split.
+Single-attribute variation is the baseline; **intersections are first-class reported axes, not appendix material** (the cells below are reported with their N and interval). The pre-registered intersectional cells are the equity-salient crossings: Black×Medicaid, Black×Female, Hispanic×LEP, Black×Medicaid×LEP×Female (the maximal stress cell), and Native American×Medicaid. Because per-cell N collapses as attributes are crossed, every intersectional point estimate is reported **only descriptively with its N and CI**; cells below the pre-registered minimum size receive Bayesian beta-binomial credible intervals and **no significance claim**, and all intersectional findings are labeled **hypothesis-generating** pending confirmation on the sealed split.
 
 ## 3. Encoding method
 
@@ -24,7 +26,7 @@ Demographics are signaled by **name + an explicit one-clause descriptor**, never
 
 ## 4. Synthetic generation protocol
 
-Vignettes are **templated and parameterized** for reproducibility. Each of the ~30–40 base vignettes is a frozen clinical core (chief complaint, history, vitals, exam, labs) authored/reviewed by the clinician co-author. A deterministic renderer expands `base_vignette × condition` by substituting only the demographic slot, producing the full grid `CONFIGS × PROFILES × CONDITIONS` consumed by `audit_harness.js`. Generation is fully reproducible: fixed seeds, **temperature 0**, pinned model IDs + release dates (Haiku 4.5, Sonnet 4.6, Opus 4.8, Fable 5), scaffolds C0/C1/C2, and a content hash per rendered profile. The renderer, base vignettes, and a **Gebru-style Datasheet** ship together in the versioned Hugging Face dataset card.
+Vignettes are **templated and parameterized** for reproducibility. Each of the ~30–40 base vignettes is a frozen clinical core (chief complaint, history, vitals, exam, labs) authored/reviewed by the clinician co-author. A deterministic renderer expands `base_vignette × condition` by substituting only the demographic slot, producing the full grid `CONFIGS × PROFILES × CONDITIONS` consumed by the harness. Generation is fully reproducible: fixed seeds, recorded decoding configuration, pinned model IDs + release dates, scaffolds C0/C1/C2, and a content hash per rendered profile. The renderer, base vignettes, and a **Gebru-style Datasheet** ship together in the versioned Hugging Face dataset card.
 
 ## 5. Verifying clinical content is held constant
 
@@ -32,8 +34,8 @@ Constancy is enforced mechanically, not by inspection. For each base vignette, t
 
 ## 6. Contamination and anti-memorization
 
-To resist train-set memorization and leaderboard overfitting: (a) **canary strings**: a unique GUID is embedded in every dataset shard and the protocol, so future models trained on leaked data can be detected; neither Omar, DRAGON, nor MedS-Bench published explicit canaries, making this a cheap differentiator. (b) **Template parameterization**: surface realizations (synonyms, unit formats, name rosters) are drawn from parameter pools so the public dev split never exposes the exact string form used in the sealed test split. (c) Sealed-split items are held off-platform entirely.
+To resist train-set memorization and leaderboard overfitting: (a) **canary strings**: a unique GUID is embedded in every dataset shard and the protocol, so future models trained on leaked data can be detected;  (b) **Template parameterization**: surface realizations (synonyms, unit formats, name rosters) are drawn from parameter pools so the public dev split never exposes the exact string form used in the sealed test split. (c) Sealed-split items are held off-platform entirely.
 
 ## 7. Dev-split vs sealed-test-split and anti-gaming
 
-The dataset is partitioned into a **public dev split** (vignettes + renderer + `audit_harness.js` semver pip package on GitHub, versioned dataset on Hugging Face, following the MedS-Bench release pattern) and a **SEALED held-out test split** that drives the leaderboard. The sealed split's labels and exact strings are never published. Leaderboard mechanics follow the **DRAGON** template: hidden test labels, server-side or attestation-based evaluation, a single composite score that is an explicit **unweighted mean across action domains × metrics** with the formula and per-cell sub-scores published, a stated minimum support window, and **mandatory open-source disclosure** within a fixed window of submission. Every submission is logged with **name, affiliation, and country**. Any disparity discovered on the dev split is treated as exploratory until it **survives confirmation on the sealed split under BH-FDR**, which is the operational guard against tuning to the public set. This dev/sealed separation plus canaries plus submission logging is FairMedAgent's anti-gaming spine, the public-leaderboard rigor Omar's design lacked.
+The dataset is partitioned into a **public dev split** (vignettes, renderer and the harness package on GitHub; versioned dataset on Hugging Face) and a **SEALED held-out test split** that is intended to drive a leaderboard. The sealed split's labels and exact strings are never published. Planned leaderboard mechanics follow the **DRAGON** template: hidden test labels, server-side or attestation-based evaluation, a single composite score that is an explicit **unweighted mean across action domains × metrics** with the formula and per-cell sub-scores published, a stated minimum support window, and **mandatory open-source disclosure** within a fixed window of submission. Every submission is logged with **name, affiliation, and country**. Any disparity discovered on the dev split is treated as exploratory until it **survives confirmation on the sealed split under BH-FDR**, which is the operational guard against tuning to the public set. The dev/sealed separation, canaries and submission logging are the anti-gaming measures of the planned leaderboard.

@@ -7,6 +7,12 @@ first five replicates. Intervals are vignette-paired percentile bootstraps (B=50
 each resample draws one vignette multiset and applies it to both runs.
 
     python temperature_compare.py
+
+Call counts, retry counts and system fingerprints of the hosted (Groq) runs come from the
+per-call attempt logs (experiments/_scratch_groq_t0, _scratch_groq_t1), which are not part of
+this release. When those logs are absent the script keeps the corresponding fields of the
+existing experiments/temperature_compare_v3.json and prints a note, so that running it does not
+overwrite them.
 """
 import glob
 import itertools
@@ -17,7 +23,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import panel_config as pc  # FMA_PANEL=v3 -> re-run local arms, outputs get a _v3 suffix
+import panel_config as pc  
 
 EXP = os.path.join(os.path.dirname(os.path.dirname(HERE)), "experiments")
 REF = "ref_white_man_private"
@@ -33,11 +39,37 @@ MODELS = [("C", "llama3.1:8b", pc.local_dir("C")), ("D", "mistral:7b", pc.local_
           ("E", "qwen3:4b", pc.local_dir("E")), ("F", "phi3:mini", pc.local_dir("F"))]
 
 
+OUT_PATH = os.environ.get("FMA_TEMPERATURE_OUT") or pc.out_path("temperature_compare", "json")
+try:
+    PREV = json.load(open(OUT_PATH, encoding="utf-8"))
+except (OSError, ValueError):
+    PREV = {}
+
+
+def scratch_stats(tag):
+    """Call, retry and failure counts and system fingerprints from experiments/_scratch_groq_<tag>.
+
+    Returns None when the attempt logs are not present.
+    """
+    files = glob.glob(os.path.join(EXP, "_scratch_groq_%s" % tag, "*_ans.json"))
+    if not files:
+        return None
+    out = {"retried": 0, "failed": 0, "calls": 0, "fingerprints": set()}
+    for p in files:
+        j = json.load(open(p, encoding="utf-8"))
+        pr = j.get("provenance", {})
+        out["retried"] += len(pr.get("retried_ids", []))
+        out["failed"] += len(pr.get("failed_ids", []))
+        out["calls"] += len(j.get("answers", [])) + len(pr.get("failed_ids", []))
+        out["fingerprints"].update(pr.get("system_fingerprints", []))
+    return out
+
+
 def arm_attempts(d):
     """(prompts, first_attempt_failures, retries, final_failures) for one arm.
 
-    v3 arms carry attempt_summary.json; the old arms are read from the per-step provenance in
-    their _scratch directories (only the temperature-0 arms were logged that way).
+    The reruns carry attempt_summary.json; any other arm is read from the per-step provenance
+    in its _scratch directory when present.
     """
     p = os.path.join(EXP, d, "attempt_summary.json")
     if os.path.exists(p):
@@ -65,14 +97,18 @@ def load(d, first=None):
     return reps
 
 
-def per_vignette(reps):
-    """vignette -> (disagreeing pairs, pairs), pooled over the six actions."""
+FIVE = [k for k in O if k != "cs_caution"]
+
+
+def per_vignette(reps, keys=None):
+    """vignette -> (disagreeing pairs, pairs), pooled over the six outputs (or over `keys`)."""
+    gs = [O[k] for k in keys] if keys else list(O.values())
     out = {}
     vs = set.intersection(*[set(r) for r in reps])
     for v in vs:
         f = n = 0
         for a, b in itertools.combinations(range(len(reps)), 2):
-            for g in O.values():
+            for g in gs:
                 x, y = g(reps[a][v]), g(reps[b][v])
                 if x is None or y is None:
                     continue
@@ -132,22 +168,28 @@ if len(glob.glob(os.path.join(EXP, "floor16_groq_t0", "rep*", "trajectories.json
         s = [rng.choice(vs) for _ in vs]
         bs.append(rate(t0, s))
     bs.sort()
-    fps, calls, retried, failed = set(), 0, 0, 0
-    for p in glob.glob(os.path.join(EXP, "_scratch_groq_t0", "*_ans.json")):
-        j = json.load(open(p, encoding="utf-8"))
-        pr = j.get("provenance", {})
-        fps.update(pr.get("system_fingerprints", []))
-        retried += len(pr.get("retried_ids", []))
-        failed += len(pr.get("failed_ids", []))
-        calls += len(j.get("answers", [])) + len(pr.get("failed_ids", []))
+    st0 = scratch_stats("t0")
+    if st0 is not None:
+        fps, calls, retried, failed = st0["fingerprints"], st0["calls"], st0["retried"], st0["failed"]
+        nfp = len(fps)
+    else:
+        ph = PREV.get("hosted", {})
+        calls, retried, failed = ph.get("calls"), ph.get("retried"), ph.get("failed")
+        nfp = ph.get("distinct_system_fingerprints")
+        print("NOTE: experiments/_scratch_groq_t0 not found; call counts and system fingerprints "
+              "carried over from the existing %s" % os.path.basename(OUT_PATH))
     hosted = {"provider": "groq", "model": "openai/gpt-oss-20b", "reasoning_effort": "low",
               "temperature": 0.0, "replicates": 5, "n_vignettes": len(vs),
               "disagreeing": f_, "comparisons": n_, "floor": f_ / n_,
               "ci_B5000": [bs[int(0.025 * B)], bs[int(0.975 * B) - 1]],
               "calls": calls, "retried": retried, "failed": failed,
-              "distinct_system_fingerprints": len(fps)}
-    print("HOSTED groq gpt-oss-20b temp0: %d/%d = %.3f [%.3f, %.3f]; calls %d retried %d failed %d; fingerprints %d"
-          % (f_, n_, f_ / n_, hosted["ci_B5000"][0], hosted["ci_B5000"][1], calls, retried, failed, len(fps)))
+              "distinct_system_fingerprints": nfp}
+    d5 = per_vignette(load("floor16_groq_t0"), FIVE)
+    f5 = sum(d5[v][0] for v in vs)
+    n5 = sum(d5[v][1] for v in vs)
+    print("HOSTED groq gpt-oss-20b temp0, five actions: %d/%d = %.3f" % (f5, n5, f5 / n5))
+    print("  (six-output pool: %d/%d = %.3f [%.3f, %.3f]; calls %s retried %s failed %s; fingerprints %s)"
+          % (f_, n_, f_ / n_, hosted["ci_B5000"][0], hosted["ci_B5000"][1], calls, retried, failed, nfp))
 if hosted and all(len(glob.glob(os.path.join(EXP, "floor16_groq_%s" % t, "rep*", "trajectories.json"))) == 5 for t in ("t1", "t0")):
     t1, t0 = per_vignette(load("floor16_groq_t1")), per_vignette(load("floor16_groq_t0"))
     vs = sorted(set(t1) & set(t0))
@@ -161,23 +203,26 @@ if hosted and all(len(glob.glob(os.path.join(EXP, "floor16_groq_%s" % t, "rep*",
     for k, xs in (("temp1_R5", b1), ("temp0_R5", b0), ("reduction", br)):
         xs = sorted(x for x in xs if x == x)
         ci[k] = [xs[int(0.025 * len(xs))], xs[int(0.975 * len(xs)) - 1]] if xs else [None, None]
-    prov = {"temp1": {"retried": 0, "failed": 0, "calls": 0, "fingerprints": set()},
-            "temp0": {"retried": 0, "failed": 0, "calls": 0, "fingerprints": set()}}
+    prov = {}
     for tag, key in (("t1", "temp1"), ("t0", "temp0")):
-        for p in glob.glob(os.path.join(EXP, "_scratch_groq_%s" % tag, "*_ans.json")):
-            j = json.load(open(p, encoding="utf-8"))
-            pr = j.get("provenance", {})
-            prov[key]["retried"] += len(pr.get("retried_ids", []))
-            prov[key]["failed"] += len(pr.get("failed_ids", []))
-            prov[key]["calls"] += len(j.get("answers", [])) + len(pr.get("failed_ids", []))
-            prov[key]["fingerprints"].update(pr.get("system_fingerprints", []))
-    for key in prov:
-        prov[key]["fingerprints"] = sorted(prov[key]["fingerprints"])
+        st = scratch_stats(tag)
+        if st is not None:
+            st["fingerprints"] = sorted(st["fingerprints"])
+            prov[key] = st
+        else:
+            prov[key] = (PREV.get("hosted", {}).get("paired", {}).get("provenance", {}).get(key, {}))
+            print("NOTE: experiments/_scratch_groq_%s not found; its call counts and system "
+                  "fingerprints carried over from the existing %s" % (tag, os.path.basename(OUT_PATH)))
     hosted["paired"] = {"observed": obs, "ci_B5000": ci,
               "reduction_observed": (1 - obs["temp0_R5"] / obs["temp1_R5"]) if obs["temp1_R5"] else None,
               "provenance": prov, "n_vignettes": len(vs)}
-    print("HOSTED groq gpt-oss-20b  temp1 %.3f [%.3f,%.3f]  temp0 %.3f [%.3f,%.3f]  reduction %s  n_vign %d  fps %s/%s"
+    p1, p0 = per_vignette(load("floor16_groq_t1"), FIVE), per_vignette(load("floor16_groq_t0"), FIVE)
+    r1, r0 = rate(p1, vs), rate(p0, vs)
+    print("HOSTED groq gpt-oss-20b paired, five actions (%d vignettes): temp1 %.3f, temp0 %.3f, reduction %.0f percent"
+          % (len(vs), r1, r0, 100 * (1 - r0 / r1)))
+    print("  (six-output pool: temp1 %.3f [%.3f,%.3f]  temp0 %.3f [%.3f,%.3f]  reduction %.0f percent; fingerprints %s/%s)"
           % (obs["temp1_R5"], *ci["temp1_R5"], obs["temp0_R5"], *ci["temp0_R5"],
-             hosted["paired"]["reduction_observed"], len(vs), len(prov["temp1"]["fingerprints"]), len(prov["temp0"]["fingerprints"])))
+             100 * hosted["paired"]["reduction_observed"],
+             len(prov["temp1"].get("fingerprints", [])), len(prov["temp0"].get("fingerprints", []))))
 json.dump({"B": B, "seed": 42, "models": res, "hosted": hosted},
-          open(os.environ.get("FMA_TEMPERATURE_OUT") or pc.out_path("temperature_compare", "json"), "w"), indent=1)
+          open(OUT_PATH, "w"), indent=1)

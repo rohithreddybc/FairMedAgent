@@ -1,10 +1,12 @@
 # Datasheet. FairMedAgent synthetic vignette dataset
 
+*Template: to be completed when the development split is released.*
+
 *Following Gebru et al., "Datasheets for Datasets" (CACM 2021). Ships with the HuggingFace dataset card. `\final{}` marks values set at release / after clinician validation.*
 
 ## Motivation
 - **Purpose.** To benchmark demographic fairness in the *actions* of multi-step clinical LLM agents via counterfactual synthetic patient profiles. Created because no existing dataset supports action-level, within-range, counterfactual fairness evaluation of clinical agents.
-- **Created by / funded by.** Rohith Reddy and collaborators (incl. clinician co-authors); [funding: none / …].
+- **Created by / funded by.** Rohith Reddy Bellibatlu (rohithreddybc@gmail.com) and collaborators; funding: \final{funding}.
 
 ## Composition
 - **Instances.** Synthetic clinical vignettes, each a frozen clinical narrative (`clinical_core`), a condition-independent tool-result fixture (`ρ(v)`), a clinician-labeled set of acceptable actions per task (`A(v)`), and a canary string; rendered under a set of fixed-form counterfactual demographic conditions.
@@ -16,7 +18,7 @@
 
 ## Collection / Generation process
 - **How.** Vignettes authored + parameterized from templates (synthetic), then validated for clinical realism by ≥2 clinicians; demographic descriptors rendered in fixed grammatical form (only slot fillers vary).
-- **Human subjects.** No patient subjects. **Synthetic, zero-PHI data does NOT by itself remove human-research-protection obligations.** A **written** HRPP/IRB determination (even a "not human subjects research" determination must be *determined in writing, not assumed*) is obtained **before** any clinician annotation begins. ⚠️ Prerequisite gate: annotation may not start without it.
+- **Human subjects.** No patient subjects. **Synthetic, zero-PHI data does not by itself remove human-research-protection obligations.** A **written** HRPP/IRB determination (even a "not human subjects research" determination must be *determined in writing, not assumed*) is obtained **before** any clinician annotation begins. Annotation does not start without it.
 
 ## Uses
 - **Intended.** Fairness/robustness auditing of clinical LLM agents; leaderboard evaluation; methods research.
@@ -28,4 +30,4 @@
 - **License.** \final{license, e.g., CC BY 4.0 for dev split}. Canary strings must not be removed.
 
 ## Maintenance
-- **Maintainer.** Rohith Reddy. Versioned (semver) alongside the pip harness; leaderboard logs submissions (name/affiliation/country) for adoption transparency; stated sunset plan if unmaintained.
+- **Maintainer.** Rohith Reddy Bellibatlu (rohithreddybc@gmail.com). Versioned (semver) alongside the pip harness; leaderboard logs submissions (name/affiliation/country) for adoption transparency; stated sunset plan if unmaintained.

@@ -23,6 +23,13 @@ REF = "ref_white_man_private"
 # condition; only the condition's descriptor rendering differs. The rep state must have been
 # initialised with controls ("init <state> 1") when a control condition is dispatched.
 COND = os.environ.get("FMA_CONDITION", REF)
+# FMA_ORDER_LOG, when set, is a JSON-lines file that receives one record per dispatched step
+# (condition, replicate, step, UTC start and end), so order and elapsed time can be audited.
+ORDER_LOG = os.environ.get("FMA_ORDER_LOG")
+
+
+def _utc() -> str:
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
 
 def _run(args: list[str]) -> int:
@@ -64,7 +71,13 @@ def main(argv: list[str]) -> int:
             # FMA_ANSWERER selects the backend (default: the local Ollama answerer); the
             # hosted-endpoint check uses groq_answerer.py with the same loop.
             answerer = os.environ.get("FMA_ANSWERER", "ollama_answerer.py")
+            t_start = _utc()
             _run([os.path.join(HERE, answerer), split, ans, model])
+            if ORDER_LOG:
+                with open(ORDER_LOG, "a", encoding="utf-8") as f:
+                    f.write(json.dumps({"model": model, "condition": COND, "rep": rep, "step": step,
+                                        "temperature": os.environ.get("FMA_TEMPERATURE"),
+                                        "t_start": t_start, "t_end": _utc()}) + "\n")
             if os.path.exists(ans):
                 os.makedirs(os.path.join(rep_dir, "answers"), exist_ok=True)
                 shutil.copyfile(ans, os.path.join(rep_dir, "answers", "s%d.json" % step))

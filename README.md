@@ -38,17 +38,33 @@ The floor depends on decoding. In logged reruns of the four local models (Ollama
 attempt-level logs, a retry uses the same decoding configuration as the first attempt),
 temperature-0 decoding left no observed disagreement across five replicates for three of the
 four models (llama3.1:8b, mistral:7b, qwen3:4b; one-sided 95 percent bound at most 0.071 for
-each, treating each vignette as one unit), but not for phi3:mini. A hosted check (openai/gpt-oss-20b on Groq) did not reach zero at
+each, treating each vignette as one unit), but not for phi3:mini. A later interleaved check on the same four models (six replicates per arm,
+default and temperature-0 replicates run back to back, alternating which goes first) confirmed the
+block-ordered comparison, in which all temperature-0 arms ran after all default arms. Five-action
+floors, default against temperature 0, were 0.227 against 0.000 (llama3.1:8b), 0.102 against 0.000
+(mistral:7b), 0.025 against 0.000 (qwen3:4b; zero bound 0.060, one-sided 95 percent, R=6) and 0.268
+against 0.009 (phi3:mini; 97 percent reduction, 95 percent CI 87 to 100 percent). A hosted check (openai/gpt-oss-20b on Groq) did not reach zero at
 temperature 0: its five-action floor was 0.028, and the temperature-1 to temperature-0
-difference was a descriptive 69 percent reduction that cannot be attributed to temperature
-alone, because the serving configuration varied. Majority voting over five draws removed 53
+difference was a descriptive 69 percent reduction that is not attributed to temperature: the
+temperature-0 arm ran in about 20 minutes and the temperature-1.0 arm afterwards over about 21
+hours, so the difference is confounded with time, and the serving configuration also varied.
+Majority voting over five draws removed 53
 percent of the primary endpoint's floor.
 
-An end-to-end check of the audit statistic ran two local models (llama3.1:8b, qwen3:4b) through
-the full audit pipeline against a reference condition, a null control whose descriptor is
-byte-identical to the reference, and one demographic contrast. The null control's flip rate
-equals the floor, about 23 percent on llama3.1:8b with nothing changed, and injected shifts were
-recovered with small bias but detected by a signed test only when large relative to the floor.
+An end-to-end check of the audit statistic ran two local models (llama3.1:8b, qwen3:4b)
+through the full audit pipeline against a reference condition, a null control whose descriptor is
+byte-identical to the reference, and one demographic contrast (black_woman_medicaid). Twelve
+replicates were run (5760 prompts, no retries, no final failures) with a counterbalanced condition
+order: each of the six orders of the three conditions was used twice, so each condition occupies
+each within-replicate position four times. The pooled five-action null-control excess was 0.001
+(95 percent crossed interval -0.015 to 0.021) on llama3.1:8b and -0.001 (-0.005 to 0.003) on
+qwen3:4b; the null discordance, which matched the floors within sampling error, was 0.212 and 0.020. The demographic
+contrast excess was -0.001 (-0.018 to 0.020) on llama3.1:8b and +0.004 (-0.002 to 0.016) on
+qwen3:4b (sign-flip p = 0.08 and 0.12), and no effect is claimed. A permutation check of
+replicate position and elapsed time against action rates found no order dependence
+(llama3.1:8b p = 0.75 and 0.53; qwen3:4b p = 0.96 and 0.11). An earlier run with a fixed order
+(reference, null, demographic in every replicate; ten replicates) is superseded; its results are
+in `experiments/audit_validation_audit_val.json`.
 
 The estimand this harness targets is the within-range counterfactual flip rate, which counts
 only flips between actions that a published decision rule admits and a clinician has
@@ -115,7 +131,9 @@ python -m pytest harness/tests/ -q
 | `experiments/robustness_v3_crossed.json`, `CROSSED_BOOT.md` | Crossed (vignette by replicate) bootstrap intervals used in the manuscript, with a comparison against the vignette-only intervals |
 | `experiments/COVERAGE_SIM.json`, `COVERAGE_SIM.md` | Simulated coverage of the crossed-bootstrap interval, and the zero-observed bound comparison |
 | `experiments/floor16_haiku_iso/`, `run_haiku_iso.sh`, `haiku_iso_floor.json` | Isolated-call sensitivity arm for endpoint A (claude-haiku-4-5, one `claude -p` call per prompt via `claude_cli_answerer.py`, R=10) and its floor comparison (`haiku_iso_floor.py`) |
-| `experiments/audit_val_{llama,qwen3}_{reference,null,demographic}/`, `run_audit_val.sh`, `audit_validation.json`, `audit_render_diff.json`, `AUDIT_VALIDATION.md` | End-to-end check of the audit statistic: reference, null-control (`rerender_control`, byte-identical descriptor) and one demographic contrast on llama3.1:8b and qwen3:4b (ten replicates each; per-attempt logs in `rep*/answers/`), the driver, the analysis output (`audit_validation.py`) and the descriptor render comparison (`audit_render_diff.py`) |
+| `experiments/audit_cb_{llama,qwen3}_{reference,null,demographic}/`, `run_audit_cb.sh`, `audit_cb_schedule.json`, `audit_cb_order_log.jsonl`, `audit_validation.json`, `audit_order_check.json`, `audit_render_diff.json`, `AUDIT_VALIDATION.md` | End-to-end check of the audit statistic: reference, null-control (`rerender_control`, byte-identical descriptor) and one demographic contrast on llama3.1:8b and qwen3:4b (twelve replicates each, `rep01` to `rep12`; per-attempt logs in `rep*/answers/`), in a counterbalanced condition order. The driver is `run_audit_cb.sh`; the schedule `audit_cb_schedule.json` is written by `audit_cb_schedule.py` (each of six orders used twice); `audit_cb_order_log.jsonl` holds step timestamps. Analysis output is from `audit_validation.py`, the order and elapsed-time permutation check from `audit_order_check.py`, and the descriptor render comparison from `audit_render_diff.py` |
+| `experiments/audit_val_{llama,qwen3}_{reference,null,demographic}/`, `run_audit_val.sh`, `audit_validation_audit_val.json` | Superseded fixed-order run of the same check (reference, null, demographic in every replicate; ten replicates), regenerated with `python harness/scripts/audit_validation.py --prefix audit_val` |
+| `experiments/temp_il_{llama,mistral,qwen3,phi3}_{default,t0}/`, `run_temp_il.sh`, `temp_il_order_log.jsonl`, `temp_il_compare.json` | Interleaved default versus temperature-0 check on the four local models (six replicates per arm, `rep01` to `rep06`; the two arms run back to back, alternating which goes first), the driver, step timestamps, and the comparison from `temp_il_compare.py` |
 | `experiments/floor16_haiku_il_iso/`, `floor16_haiku_il_batch/`, `run_haiku_interleaved.sh`, `haiku_dispatch_compare.json` | Interleaved hosted dispatch comparison (claude-haiku-4-5, ten replicates per arm, arm order alternating): isolated calls (`claude_cli_answerer.py`) against one batched call per step (`claude_cli_batched_answerer.py`), compared by `haiku_dispatch_compare.py` |
 | `experiments/zero_bounds_v4.json`, `ZERO_BOUNDS_V4.md` | Dependence-robust one-sided bounds for zero-observed floors (each vignette a unit), from `zero_bounds_v4.py` |
 | `experiments/COVERAGE_SIM_v4.json` | Coverage simulation with correlated actions within a trajectory and the zero-bound check (`coverage_sim.py --v4`) |
@@ -194,7 +212,8 @@ optional. Scripts that write figures take `--outdir` (default `figures/` under t
 | Crossed (vignette by replicate) bootstrap intervals | `crossed_boot.py` (used by `robustness.py`) | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/robustness.py` |
 | Isolated-call versus batched floor for endpoint A | `haiku_iso_floor.py` | `FMA_PANEL=v3 python harness/scripts/haiku_iso_floor.py` |
 | Coverage of the crossed-bootstrap interval (simulation) | `coverage_sim.py` | `python harness/scripts/coverage_sim.py --nsim 2000` |
-| End-to-end check of the audit statistic (null control, demographic contrast, injected shifts) | `run_audit_val.sh`, `audit_validation.py`, `audit_render_diff.py` | `bash experiments/run_audit_val.sh` (requires Ollama), then `python harness/scripts/audit_validation.py` and `python harness/scripts/audit_render_diff.py` |
+| End-to-end check of the audit statistic (null control, demographic contrast, injected shifts), counterbalanced order | `audit_cb_schedule.py`, `run_audit_cb.sh`, `audit_validation.py`, `audit_order_check.py`, `audit_render_diff.py` | `bash experiments/run_audit_cb.sh` (requires Ollama), then `python harness/scripts/audit_validation.py`, `python harness/scripts/audit_order_check.py` and `python harness/scripts/audit_render_diff.py`; the superseded fixed-order run is recomputed with `python harness/scripts/audit_validation.py --prefix audit_val` |
+| Interleaved default versus temperature-0 check (four local models) | `run_temp_il.sh`, `temp_il_compare.py` | `bash experiments/run_temp_il.sh` (requires Ollama), then `python harness/scripts/temp_il_compare.py` |
 | Interleaved hosted dispatch comparison (isolated versus batched) | `run_haiku_interleaved.sh`, `claude_cli_batched_answerer.py`, `haiku_dispatch_compare.py` | `bash experiments/run_haiku_interleaved.sh` (requires the `claude` CLI), then `python harness/scripts/haiku_dispatch_compare.py` |
 | Dependence-robust zero-observed bounds | `zero_bounds_v4.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/zero_bounds_v4.py` |
 | Coverage with correlated actions within a trajectory | `coverage_sim.py --v4` | `python harness/scripts/coverage_sim.py --v4 --nsim 2000 --B 1000 --seed 20261012` |
@@ -210,9 +229,9 @@ optional. Scripts that write figures take `--outdir` (default `figures/` under t
 | Per-action and per-model figures (TikZ/pgfplots sources) | `gen_fig_per_action.py`, `gen_fig_floor_by_model.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/gen_fig_per_action.py [--outdir DIR]` |
 | Rank correlations | `rank_tests.py` | `FMA_PANEL=v3 python harness/scripts/rank_tests.py` |
 | Majority-vote curve and null simulation | `aggregation_curve.py`, `plateau_null.py` | `python harness/scripts/aggregation_curve.py experiments/floor16` and `python harness/scripts/plateau_null.py experiments/floor16 --sims 400` (the argument is a run directory of `rep*/trajectories.json`, here model A) |
-| Local and hosted runs | `run_ollama_floor.py` with `ollama_answerer.py` or `groq_answerer.py` (`FMA_ANSWERER`) | `python harness/scripts/run_ollama_floor.py <dir> <model> 1 10` (set `FMA_TEMPERATURE=0` for greedy; `FMA_RETRY_POLICY=same`) |
+| Local and hosted runs | `run_ollama_floor.py` with `ollama_answerer.py` or `groq_answerer.py` (`FMA_ANSWERER`) | `python harness/scripts/run_ollama_floor.py <dir> <model> 1 10` (set `FMA_TEMPERATURE=0` for greedy; `FMA_RETRY_POLICY=same`; `FMA_ORDER_LOG=<path>` appends JSON-lines step timestamps) |
 | The full v3 local rerun (requires Ollama and the model tags in `floor16v3_provenance.txt`) | `experiments/run_v3_all.sh` | `bash experiments/run_v3_all.sh` |
 
-The supplementary material is attached to each GitHub release. This README describes version 0.1.10.
+The supplementary material is attached to each GitHub release. This README describes version 0.1.11.
 The concept DOI [10.5281/zenodo.22165979](https://doi.org/10.5281/zenodo.22165979) resolves to the latest
 release.

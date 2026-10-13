@@ -1,0 +1,83 @@
+{
+ "seed": 20261013,
+ "generated_utc": "2026-10-13T15:24:11Z",
+ "orders": {
+  "1": [
+   "reference",
+   "null",
+   "demographic"
+  ],
+  "2": [
+   "demographic",
+   "null",
+   "reference"
+  ],
+  "3": [
+   "null",
+   "reference",
+   "demographic"
+  ],
+  "4": [
+   "reference",
+   "demographic",
+   "null"
+  ],
+  "5": [
+   "null",
+   "demographic",
+   "reference"
+  ],
+  "6": [
+   "demographic",
+   "reference",
+   "null"
+  ],
+  "7": [
+   "reference",
+   "demographic",
+   "null"
+  ],
+  "8": [
+   "demographic",
+   "reference",
+   "null"
+  ],
+  "9": [
+   "null",
+   "reference",
+   "demographic"
+  ],
+  "10": [
+   "demographic",
+   "null",
+   "reference"
+  ],
+  "11": [
+   "reference",
+   "null",
+   "demographic"
+  ],
+  "12": [
+   "null",
+   "demographic",
+   "reference"
+  ]
+ },
+ "position_counts": {
+  "reference": [
+   4,
+   4,
+   4
+  ],
+  "null": [
+   4,
+   4,
+   4
+  ],
+  "demographic": [
+   4,
+   4,
+   4
+  ]
+ }
+}

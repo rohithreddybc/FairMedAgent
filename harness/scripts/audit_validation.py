@@ -44,7 +44,8 @@ before injection) is constant across seeds: it does not average out of "bias_mea
 reported as baseline_mean_shift_uninjected; bias_mean_shift_net_of_baseline removes it. Coverage and
 power are therefore conditional on this one realised dataset, not a frequentist average over datasets.
 
-    python audit_validation.py                      # real data: experiments/audit_val_<model>_<arm>
+    python audit_validation.py                      # counterbalanced run: experiments/audit_cb_<model>_<arm>
+    python audit_validation.py --prefix audit_val   # fixed-order run (writes audit_validation_audit_val.json)
     python audit_validation.py --standin            # stand-in from floor16v3_* (writes *_standin.json)
     python audit_validation.py --no-inject --models llama
 """
@@ -257,8 +258,10 @@ def main():
     ap.add_argument("--inner-B", type=int, default=500)
     ap.add_argument("--out", default=None)
     ap.add_argument("--min-reps", type=int, default=2)
+    ap.add_argument("--prefix", default="audit_cb",
+                    help="arm directories experiments/<prefix>_<model>_<arm>; audit_val is the fixed-order run")
     a = ap.parse_args()
-    out_path = a.out or os.path.join(EXP, "audit_validation%s.json" % ("_standin" if a.standin else ""))
+    out_path = a.out or os.path.join(EXP, "audit_validation%s.json" % ("_standin" if a.standin else "" if a.prefix == "audit_cb" else "_" + a.prefix))
     result = {"meta": {"seed": SEED, "B": B, "inner_B": a.inner_B, "n_seeds": a.n_seeds, "actions_pooled": FIVE,
                        "standin": a.standin, "generated_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                        "bootstrap": "crossed vignette x replicate; shared vignette draws, independent replicate draws per arm",
@@ -273,8 +276,8 @@ def main():
             src = {"reference": base + " odd reps", "null": base + " even reps",
                    "demographic": other + " even reps (different model: stand-in for a large genuine shift)"}
         else:
-            arms = {k: load("audit_val_%s_%s" % (m, k), COND[k]) for k in COND}
-            src = {k: "audit_val_%s_%s" % (m, k) for k in COND}
+            arms = {k: load("%s_%s_%s" % (a.prefix, m, k), COND[k]) for k in COND}
+            src = {k: "%s_%s_%s" % (a.prefix, m, k) for k in COND}
         info = {"sources": src, "R": {k: len(v) for k, v in arms.items()}, "contrasts": {}}
         result["models"][m] = info
         if min(len(arms["reference"]), len(arms["null"])) < a.min_reps:

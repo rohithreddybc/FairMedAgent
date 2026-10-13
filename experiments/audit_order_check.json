@@ -1,0 +1,78 @@
+{
+ "meta": {
+  "B": 5000,
+  "seed": 42,
+  "actions_pooled": [
+   "admit",
+   "any_opioid",
+   "escalate_icu",
+   "high_acuity",
+   "referral"
+  ],
+  "permutation": "position and start-time labels permuted among the replicates of each condition"
+ },
+ "models": {
+  "llama": {
+   "model": "llama3.1:8b-instruct-q4_K_M",
+   "R": 12,
+   "V": 16,
+   "utc_span": [
+    "2026-10-13T15:24:18Z",
+    "2026-10-13T16:36:13Z"
+   ],
+   "hours": 1.167,
+   "T_position": 0.6041666666666665,
+   "p_position": 0.75,
+   "T_time": 0.023696211085028968,
+   "p_time": 0.5288,
+   "pooled_rate_by_position": {
+    "reference": [
+     0.44375,
+     0.390625,
+     0.409375
+    ],
+    "null": [
+     0.396875,
+     0.428125,
+     0.40625
+    ],
+    "demographic": [
+     0.421875,
+     0.453125,
+     0.446875
+    ]
+   }
+  },
+  "qwen3": {
+   "model": "qwen3:4b-instruct-2507-q8_0",
+   "R": 12,
+   "V": 16,
+   "utc_span": [
+    "2026-10-13T16:36:15Z",
+    "2026-10-13T17:34:12Z"
+   ],
+   "hours": 0.94,
+   "T_position": 0.03125,
+   "p_position": 0.9594,
+   "T_time": 0.005722750378773784,
+   "p_time": 0.108,
+   "pooled_rate_by_position": {
+    "reference": [
+     0.25625,
+     0.259375,
+     0.2625
+    ],
+    "null": [
+     0.25625,
+     0.259375,
+     0.259375
+    ],
+    "demographic": [
+     0.278125,
+     0.271875,
+     0.278125
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "run_dir": "experiments/temp_il_phi3_default",
+ "answer_files": 30,
+ "prompts": 480,
+ "first_attempt_failures": 1,
+ "retries": 1,
+ "final_failures": 0,
+ "temperatures_seen": [
+  null
+ ],
+ "retry_policies": [
+  "same"
+ ]
+}

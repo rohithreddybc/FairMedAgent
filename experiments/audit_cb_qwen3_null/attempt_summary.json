@@ -1,0 +1,14 @@
+{
+ "run_dir": "experiments/audit_cb_qwen3_null",
+ "answer_files": 60,
+ "prompts": 960,
+ "first_attempt_failures": 0,
+ "retries": 0,
+ "final_failures": 0,
+ "temperatures_seen": [
+  null
+ ],
+ "retry_policies": [
+  "same"
+ ]
+}

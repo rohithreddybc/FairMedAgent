@@ -1,0 +1,203 @@
+{
+ "meta": {
+  "B": 5000,
+  "seed": 42,
+  "design": "default and temperature-0 replicates interleaved, alternating first arm"
+ },
+ "models": {
+  "llama": {
+   "5action": {
+    "n_vignettes": 16,
+    "default": 0.22666666666666666,
+    "temp0": 0.0,
+    "reduction": 1.0,
+    "ci_default": [
+     0.16354166666666667,
+     0.2971153846153846
+    ],
+    "ci_temp0": [
+     0.0,
+     0.0
+    ],
+    "ci_reduction": [
+     1.0,
+     1.0
+    ],
+    "R_default": 6,
+    "R_t0": 6,
+    "temp0_zero_bound": 0.05955946533828921
+   },
+   "6action": {
+    "n_vignettes": 16,
+    "default": 0.21875,
+    "temp0": 0.0,
+    "reduction": 1.0,
+    "ci_default": [
+     0.16666666666666666,
+     0.27564102564102566
+    ],
+    "ci_temp0": [
+     0.0,
+     0.0
+    ],
+    "ci_reduction": [
+     1.0,
+     1.0
+    ],
+    "R_default": 6,
+    "R_t0": 6,
+    "temp0_zero_bound": 0.05955946533828921
+   },
+   "model": "llama3.1:8b-instruct-q4_K_M",
+   "utc_span": [
+    "2026-10-13T17:34:24Z",
+    "2026-10-13T17:58:37Z"
+   ]
+  },
+  "mistral": {
+   "5action": {
+    "n_vignettes": 16,
+    "default": 0.10166666666666667,
+    "temp0": 0.0,
+    "reduction": 1.0,
+    "ci_default": [
+     0.05625,
+     0.14711538461538462
+    ],
+    "ci_temp0": [
+     0.0,
+     0.0
+    ],
+    "ci_reduction": [
+     1.0,
+     1.0
+    ],
+    "R_default": 6,
+    "R_t0": 6,
+    "temp0_zero_bound": 0.05955946533828921
+   },
+   "6action": {
+    "n_vignettes": 16,
+    "default": 0.10069444444444445,
+    "temp0": 0.0,
+    "reduction": 1.0,
+    "ci_default": [
+     0.05929487179487179,
+     0.14583333333333334
+    ],
+    "ci_temp0": [
+     0.0,
+     0.0
+    ],
+    "ci_reduction": [
+     1.0,
+     1.0
+    ],
+    "R_default": 6,
+    "R_t0": 6,
+    "temp0_zero_bound": 0.05955946533828921
+   },
+   "model": "mistral:7b-instruct",
+   "utc_span": [
+    "2026-10-13T17:58:38Z",
+    "2026-10-13T18:21:51Z"
+   ]
+  },
+  "qwen3": {
+   "5action": {
+    "n_vignettes": 16,
+    "default": 0.025,
+    "temp0": 0.0,
+    "reduction": 1.0,
+    "ci_default": [
+     0.0,
+     0.075
+    ],
+    "ci_temp0": [
+     0.0,
+     0.0
+    ],
+    "ci_reduction": [
+     1.0,
+     1.0
+    ],
+    "R_default": 6,
+    "R_t0": 6,
+    "temp0_zero_bound": 0.05955946533828921
+   },
+   "6action": {
+    "n_vignettes": 16,
+    "default": 0.04027777777777778,
+    "temp0": 0.0,
+    "reduction": 1.0,
+    "ci_default": [
+     0.006696428571428571,
+     0.08806818181818182
+    ],
+    "ci_temp0": [
+     0.0,
+     0.0
+    ],
+    "ci_reduction": [
+     1.0,
+     1.0
+    ],
+    "R_default": 6,
+    "R_t0": 6,
+    "temp0_zero_bound": 0.05955946533828921
+   },
+   "model": "qwen3:4b-instruct-2507-q8_0",
+   "utc_span": [
+    "2026-10-13T18:21:52Z",
+    "2026-10-13T18:41:11Z"
+   ]
+  },
+  "phi3": {
+   "5action": {
+    "n_vignettes": 15,
+    "default": 0.26755555555555555,
+    "temp0": 0.008888888888888889,
+    "reduction": 0.9667774086378738,
+    "ci_default": [
+     0.20222222222222222,
+     0.336969696969697
+    ],
+    "ci_temp0": [
+     0.0,
+     0.03333333333333333
+    ],
+    "ci_reduction": [
+     0.868312757201646,
+     1.0
+    ],
+    "R_default": 6,
+    "R_t0": 6
+   },
+   "6action": {
+    "n_vignettes": 15,
+    "default": 0.24296296296296296,
+    "temp0": 0.007407407407407408,
+    "reduction": 0.9695121951219512,
+    "ci_default": [
+     0.18282828282828284,
+     0.31025641025641026
+    ],
+    "ci_temp0": [
+     0.0,
+     0.027777777777777776
+    ],
+    "ci_reduction": [
+     0.8769230769230769,
+     1.0
+    ],
+    "R_default": 6,
+    "R_t0": 6
+   },
+   "model": "phi3:mini",
+   "utc_span": [
+    "2026-10-13T18:41:12Z",
+    "2026-10-13T20:08:31Z"
+   ]
+  }
+ }
+}

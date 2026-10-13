@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import io
 import itertools
+import glob
 import json
 import os
 import re
@@ -34,6 +35,46 @@ sys.path.insert(0, HERE)
 import panel_config as pc  # noqa: E402  (FMA_PANEL=v3 -> robustness_v3.json etc., v3 local arms)
 
 PAPER = os.environ.get("FAIRMEDAGENT_PAPER") or os.path.join(ROOT, "paper", "main.tex")
+
+# FMA_BOOT=crossed: every interval on a floor, floor difference, per-action floor, range
+# ratio/factor and temperature comparison is read from experiments/robustness<suffix>_crossed.json
+# (harness/scripts/crossed_boot.py) instead of the vignette-only bootstrap files. Point estimates
+# are unchanged. Majority-vote intervals are NOT crossed (replicate resampling is undefined for a
+# five-of-ten vote); they stay the vignette-bootstrap intervals, conditional on the ten replicates.
+# Unset (default), nothing here changes and the earlier manuscripts verify as before.
+CROSSED = os.environ.get("FMA_BOOT", "").strip().lower() == "crossed"
+XJ = None
+if CROSSED:
+    _xp = os.path.join(ROOT, "experiments", "robustness%s_crossed.json" % pc.SUFFIX)
+    XJ = json.load(open(_xp, encoding="utf-8"))
+    XC = XJ["crossed"]
+
+
+def _overlay_robustness(rob):
+    """Replace vignette-only intervals in a robustness JSON dict by the crossed ones (in place)."""
+    for lab, m in rob["item1_per_model_action_floors"]["models"].items():
+        for k, a in m["actions"].items():
+            a["ci"]["B=5000"] = XC["models"][lab]["actions"][k]["ci"]
+    rob["item2_modelA_cs_caution_vs_escalate_icu"]["difference_ci_B5000"] = XC["A_cs_caution_minus_icu"]["ci"]
+    rob["item5_excluding_cs_caution"]["models"]["A"]["ci_B5000"] = XC["models"]["A"]["ci_5action"]
+    by6 = {q["pair"]: q for q in XC["pairs_6action"]}
+    for row in rob["item3_pairwise_model_pooled_floor_diffs"]:
+        row["ci_B5000"] = by6[row["pair"]]["ci"]
+    i9 = rob.get("item9_five_action_analysis")
+    if i9:
+        for lab, e in i9["models"].items():
+            e["ci_5action_B5000"] = XC["models"][lab]["ci_5action"]
+            e["ci_6action_B5000"] = XC["models"][lab]["ci_6action"]
+        by5 = {q["pair"]: q for q in XC["pairs_5action"]}
+        for q in i9["paired_differences_5action"]:
+            q["ci_B5000"] = by5[q["pair"]]["ci"]
+            q["separated"] = by5[q["pair"]]["separated"]
+        i9["n_separated_5action"] = XC["n_separated_5action"]
+        i9["range_factor_5action"]["ci_B5000"] = XC["range_factor_5action"]["ci"]
+        i9["range_factor_5action"]["n_undefined_resamples"] = XC["range_factor_5action"]["n_undefined_resamples"]
+        pa = i9["modelA_per_action_5action"]
+        pa["ratio_ci_B5000_finite_only"] = XC["A_per_action_ratio_5action"]["finite_subset_ci"]
+        pa["n_resamples_ratio_undefined"] = XC["A_per_action_ratio_5action"]["n_undefined"]
 
 # The manuscript source is not part of the public artifact release, so a fresh clone has
 # the trajectories but no main.tex. Recomputation still works there; only the step that
@@ -151,7 +192,7 @@ def main() -> int:
 
     claim("replicate count", n, "ten independent replicates")
     claim("pairwise comparisons", n * (n - 1) // 2, "forty-five pairwise")
-    claim("model calls", n * 80, "$800$ model calls")
+    claim("model calls", n * 80, "$800$ prompt evaluations")
     claim("pooled floor", round(pooled, 3), "$%.3f$" % pooled)
     claim("comparisons per action", per["admit"][1], "$720$ comparisons")
     claim("pooled comparisons", total, ("$%d/%d$" % (flips, total), "%d/%d" % (flips, total)))
@@ -227,6 +268,9 @@ def main() -> int:
     import panel_summary as ps
 
     panel = ps.build_panel(B=5000, seed=42)
+    if CROSSED:
+        panel = [tuple(list(r[:7]) + [XC["models"][r[0]]["ci_6action"][0], XC["models"][r[0]]["ci_6action"][1]] + list(r[9:]))
+                 for r in panel]
     labels = [row[0] for row in panel]
     floors = {row[0]: row[6] for row in panel}
 
@@ -273,6 +317,8 @@ def main() -> int:
     rob_path = pc.out_path("robustness", "json")
     if os.path.exists(rob_path):
         rob = json.load(open(rob_path, encoding="utf-8"))
+        if CROSSED:
+            _overlay_robustness(rob)
 
         # Per-model, per-action floors and their B=5000 percentile cluster bootstrap
         # intervals: Sec. IV-C's in-text values for models A and B, and every row of
@@ -286,6 +332,14 @@ def main() -> int:
                 f = a["floor"]
                 claim("robustness %s %s floor" % (lab, akey), round(f, 3),
                       ("$%.3f$" % f, "%.3f" % f), haystack=fig_tex)
+                if lo == 0.0 and hi == 0.0:
+                    # Zero-observed cell: the paper prints the exact one-sided 95% upper bound
+                    # (experiments/fixed_case_bounds_v3.json), not a degenerate [0, 0] interval.
+                    _fbz = json.load(open(os.path.join(ROOT, "experiments", "fixed_case_bounds_v3.json"), encoding="utf-8"))["zero_bounds"]
+                    _ub = [z["fixed_case_exact_floor_ub"] for z in _fbz if z["quantity"] == "%s %s" % (lab, akey)]
+                    claim("robustness %s %s zero-cell bound" % (lab, akey), round(_ub[0], 3) if _ub else None,
+                          "[$\le%.3f$]" % _ub[0] if _ub else "NO BOUND IN fixed_case_bounds_v3.json")
+                    continue
                 claim("robustness %s %s CI" % (lab, akey), "[%.3f, %.3f]" % (lo, hi),
                       ("[%.3f, %.3f]" % (lo, hi), "[$%.3f$, $%.3f$]" % (lo, hi)))
 
@@ -357,7 +411,10 @@ def main() -> int:
 
     temp_path = pc.out_path("temperature_compare", "json")
     if os.path.exists(temp_path):
-        temp = json.load(open(temp_path, encoding="utf-8"))["models"]
+        temp_full = json.load(open(temp_path, encoding="utf-8"))
+        temp = temp_full["models"]
+        if CROSSED:
+            temp["F"]["ci_B5000"]["temp0_R5"] = XJ["temperature"]["crossed"]["F"]["6action"]["ci_temp0"]
 
         # phi3:mini's temperature-0 comparison: default and temperature-0 floors, the
         # temperature-0 CI, and the reduction (Sec. IV-D; Supplementary Table S-temp).
@@ -390,11 +447,16 @@ def main() -> int:
         if _h:
             claim("hosted temp0 floor", round(_h["floor"], 3), "$%.3f$" % _h["floor"])
             claim("hosted temp0 disagreeing", _h["disagreeing"], "$%d$ of $%d$" % (_h["disagreeing"], _h["comparisons"]))
-            claim("hosted temp0 CI", "%.3f-%.3f" % tuple(_h["ci_B5000"]),
-                  "$%.3f$--$%.3f$" % tuple(_h["ci_B5000"]))
+            if not CROSSED:  # no crossed interval exists for the six-action standalone Groq temperature-0 floor
+                claim("hosted temp0 CI", "%.3f-%.3f" % tuple(_h["ci_B5000"]),
+                      "$%.3f$--$%.3f$" % tuple(_h["ci_B5000"]))
             claim("hosted fingerprints", _h["distinct_system_fingerprints"], "$%d$ distinct system fingerprints" % _h["distinct_system_fingerprints"])
             claim("hosted calls", _h["calls"], "$%d$ calls" % _h["calls"])
             _p = _h.get("paired") or {}
+            if _p and CROSSED:
+                _g6 = XJ["temperature"]["crossed"]["groq_t1_vs_t0"]["6action"]
+                _p["ci_B5000"]["temp1_R5"] = _g6["ci_default"]
+                _p["ci_B5000"]["reduction"] = _g6["ci_reduction"]
             if _p:
                 claim("hosted temp1 floor", round(_p["observed"]["temp1_R5"], 3), "$%.3f$" % _p["observed"]["temp1_R5"])
                 claim("hosted temp1 CI", "%.3f-%.3f" % tuple(_p["ci_B5000"]["temp1_R5"]), "$%.3f$--$%.3f$" % tuple(_p["ci_B5000"]["temp1_R5"]))
@@ -414,6 +476,8 @@ def main() -> int:
 
         fx_path = pc.out_path("five_action_extras", "json")
         rob3 = json.load(open(pc.out_path("robustness", "json"), encoding="utf-8"))
+        if CROSSED:
+            _overlay_robustness(rob3)
         i9 = rob3["item9_five_action_analysis"]
         if not os.path.exists(fx_path):
             failures += 1
@@ -421,6 +485,14 @@ def main() -> int:
             fx = None
         else:
             fx = json.load(open(fx_path, encoding="utf-8"))
+            if CROSSED:
+                _ad = XC["A_admit_minus_icu"]
+                fx["paired_lovo_5action"]["admit_minus_icu_A"]["ci_B5000"] = _ad["ci"]
+                _tc = XJ["temperature"]["crossed"]
+                fx["temperature_5action"]["models"]["F"]["ci_B5000"]["temp0"] = _tc["F"]["5action"]["ci_temp0"]
+                fx["temperature_5action"]["hosted_t0"]["ci_B5000"] = _tc["groq_t0_alone_5action"]["ci"]
+                fx["temperature_5action"]["hosted_paired"]["ci_B5000"]["default"] = _tc["groq_t1_vs_t0"]["5action"]["ci_default"]
+                fx["temperature_5action"]["hosted_paired"]["ci_B5000"]["reduction"] = _tc["groq_t1_vs_t0"]["5action"]["ci_reduction"]
 
         # Headline numbers, in the surface forms the abstract and contribution list use.
         a5 = i9["models"]["A"]
@@ -428,13 +500,13 @@ def main() -> int:
         facts = {"A": a5["floor_5action"], "min": pa5["min"], "max": pa5["max"],
                  "lo": min(m["floor_5action"] for m in i9["models"].values()),
                  "hi": max(m["floor_5action"] for m in i9["models"].values())}
-        claim("headline A five-action pooled", pctstr(facts["A"], 1), "%s percent" % pctstr(facts["A"], 1))
+        claim("headline A five-action pooled", pctstr(facts["A"], 1), ("%s percent" % pctstr(facts["A"], 1), "floor of %s\\%%" % pctstr(facts["A"], 1)))
         claim("headline A min action (abstract)", pctstr(facts["min"], 1),
-              "%s percent for intensive-care escalation" % pctstr(facts["min"], 1))
+              ("%s percent for intensive-care escalation" % pctstr(facts["min"], 1), "%s\\%% for intensive-care escalation" % pctstr(facts["min"], 1)))
         claim("headline A max action (abstract)", pctstr(facts["max"], 1),
-              "to %s percent for admission" % pctstr(facts["max"], 1))
+              ("to %s percent for admission" % pctstr(facts["max"], 1), "%s\\%% for admission" % pctstr(facts["max"], 1)))
         claim("headline panel range (abstract)", "%s-%s" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)),
-              "from %s to %s percent" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)))
+              ("from %s to %s percent" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)), "from %s\\%% to %s\\%%" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1))))
         claim("headline A in contributions", pctstr(facts["A"], 1), "$%s\\%%$" % pctstr(facts["A"], 1))
         claim("A five-action num/den", "%d/%d" % (a5["num"], a5["den"]), "$%d/%d$" % (a5["num"], a5["den"]))
         claim("A per-action ratio", round(pa5["ratio_max_over_min"], 1), "$%.1f$" % pa5["ratio_max_over_min"])
@@ -499,7 +571,7 @@ def main() -> int:
                 claim("five-action vote CI %s" % lab, "[%.3f, %.3f]" % tuple(e["reduction_ci"]),
                       "[$%.3f$, $%.3f$]" % tuple(e["reduction_ci"]))
             A5 = mv["A"]
-            claim("abstract vote reduction", pctstr(A5["reduction"]), "removed %s percent of it" % pctstr(A5["reduction"]))
+            claim("abstract vote reduction", pctstr(A5["reduction"]), ("removed %s percent of it" % pctstr(A5["reduction"]), "floor by %s\\%%" % pctstr(A5["reduction"])))
             claim("main vote reduction pct", pctstr(A5["reduction"]), "$%s\\%%$" % pctstr(A5["reduction"]))
             claim("main vote reduction CI", "%s-%s" % (pctstr(A5["reduction_ci"][0]), pctstr(A5["reduction_ci"][1])),
                   "$%s$--$%s\\%%$" % (pctstr(A5["reduction_ci"][0]), pctstr(A5["reduction_ci"][1])))
@@ -554,8 +626,31 @@ def main() -> int:
             claim("phi3 five-action reduction", pctstr(F5["reduction"]), "$%s\\%%$ reduction" % pctstr(F5["reduction"]))
             for lab in ("C", "D", "E"):
                 claim("%s five-action temp0 floor is zero" % lab, t5["models"][lab]["observed"]["temp0"],
-                      "fell to zero for llama3.1:8b, mistral:7b, and qwen3:4b") if t5["models"][lab]["observed"]["temp0"] == 0.0 else claim(
+                      ("fell to zero for llama3.1:8b, mistral:7b, and qwen3:4b", "The estimated floor was $0.000$ for llama3.1:8b, mistral:7b, and qwen3:4b")) if t5["models"][lab]["observed"]["temp0"] == 0.0 else claim(
                       "%s five-action temp0 floor is zero" % lab, t5["models"][lab]["observed"]["temp0"], "NONZERO: REWRITE")
+            # R3: exact one-sided 95% upper bounds for zero-observed floors, and the simulated
+            # coverage quoted in Methods (experiments/fixed_case_bounds_v3.json, COVERAGE_SIM.json).
+            _fb = json.load(open(os.path.join(ROOT, "experiments", "fixed_case_bounds_v3.json"), encoding="utf-8"))
+            _zb = {(z["quantity"].split()[0], z["quantity"].split()[-1]): z["fixed_case_exact_floor_ub"] for z in _fb["zero_bounds"]}
+            for _lab in ("C", "D", "E"):
+                for _q, _n in (("pooled_5action", "five-action"), ("pooled_6action", "six-action"), ("admit", "single-action")):
+                    assert abs(_zb[(_lab + "_t0", _q)] - _zb[("C_t0", _q)]) < 1e-12
+            claim("zero bound five-action t0", round(_zb[("C_t0", "pooled_5action")], 3), "$\le 0.%03d$ for each" % round(1000 * _zb[("C_t0", "pooled_5action")]))
+            claim("zero bound six-action t0", round(_zb[("C_t0", "pooled_6action")], 3), "$%.3f$ (six actions" % _zb[("C_t0", "pooled_6action")])
+            claim("zero bound E default ICU", round(_zb[("E", "escalate_icu")], 3), "$\le 0.%03d$" % round(1000 * _zb[("E", "escalate_icu")]))
+            claim("zero bound E default high acuity", round(_zb[("E", "high_acuity")], 3), "$\le 0.%03d$" % round(1000 * _zb[("E", "high_acuity")]))
+            claim("zero bound single action t0", round(_zb[("C_t0", "admit")], 3), "$%.3f$ (one action at temperature" % _zb[("C_t0", "admit")])
+            _cs = json.load(open(os.path.join(ROOT, "experiments", "COVERAGE_SIM.json"), encoding="utf-8"))["scenarios"]
+            _away = [s for s in _cs if not s["scenario"].startswith("S2")]
+            _pop = [s["coverage_floor"]["population"]["crossed"] for s in _away]
+            _dif = [s["coverage_difference_vs_S3_model"][k]["crossed"] for s in _cs for k in ("fixed", "population")]
+            claim("coverage crossed population range", "%d-%d" % (round(100 * min(_pop)), round(100 * max(_pop))),
+                  "$%d$--$%d\%%$ coverage of the case-population" % (round(100 * min(_pop)), round(100 * max(_pop))))
+            claim("coverage difference range", "%d-%d" % (round(100 * min(_dif)), round(100 * max(_dif))),
+                  "$%d$--$%d\%%$ for between-model" % (round(100 * min(_dif)), round(100 * max(_dif))))
+            _s2 = {s["R"]: s["coverage_floor"]["fixed"]["crossed"] for s in _cs if s["scenario"].startswith("S2")}
+            claim("coverage near zero R=10,5", "%d,%d" % (round(100 * _s2[10]), round(100 * _s2[5])),
+                  "$%d\%%$ at ten replicates and $%d\%%$ at five" % (round(100 * _s2[10]), round(100 * _s2[5])))
             h5 = t5["hosted_t0"]
             claim("hosted five-action temp0", "%d/%d" % (h5["disagreeing"], h5["comparisons"]),
                   "$%d$ of $%d$" % (h5["disagreeing"], h5["comparisons"]))
@@ -569,6 +664,43 @@ def main() -> int:
             claim("hosted five-action reduction", pctstr(hp5["reduction"]), "$%s\\%%$ reduction" % pctstr(hp5["reduction"]))
             claim("hosted five-action reduction CI", "%s-%s" % (pctstr(hp5["ci_B5000"]["reduction"][0]), pctstr(hp5["ci_B5000"]["reduction"][1])),
                   "$%s$--$%s\\%%$" % (pctstr(hp5["ci_B5000"]["reduction"][0]), pctstr(hp5["ci_B5000"]["reduction"][1])))
+
+        if CROSSED:
+            dg = XJ["dependence_diagnostics"]
+            claim("crossed width ratio A", round(dg["A"]["width_ratio_5action"], 2), "$%.2f$ for A" % dg["A"]["width_ratio_5action"])
+            claim("crossed width ratio B", round(dg["B"]["width_ratio_5action"], 2), "$%.2f$ for B" % dg["B"]["width_ratio_5action"])
+            wl = [dg[l]["width_ratio_5action"] for l in "CDEF"]
+            claim("crossed width ratio C-F", "%.2f-%.2f" % (min(wl), max(wl)),
+                  "$%.2f$ to $%.2f$ for C" % (min(wl), max(wl)))
+            for lab in "AB":
+                claim("permutation p rep-mean %s" % lab, round(dg[lab]["rep_mean_rate_p"], 2), "$p=%.2f$" % dg[lab]["rep_mean_rate_p"])
+                claim("permutation p pair-floor %s" % lab, round(dg[lab]["pair_floor_p"], 2), "$p=%.2f$" % dg[lab]["pair_floor_p"])
+            claim("range factor undefined resamples", XC["range_factor_5action"]["n_undefined_resamples"],
+                  "$%d$ of $5000$ resamples" % XC["range_factor_5action"]["n_undefined_resamples"])
+
+        # Isolated-call sensitivity arm for endpoint A (experiments/haiku_iso_floor.json).
+        _hp = os.path.join(ROOT, "experiments", "haiku_iso_floor.json")
+        if os.path.exists(_hp):
+            hi = json.load(open(_hp, encoding="utf-8"))
+            h5, h6 = hi["crossed"]["5action"], hi["crossed"]["6action"]
+            claim("iso floor 5a", round(h5["temp0"], 3), "$%.3f$ ($95\%%$ crossed" % h5["temp0"])
+            claim("iso floor 5a CI", "%.3f-%.3f" % tuple(h5["ci_temp0"]), ("$[%.3f, %.3f]$" % tuple(h5["ci_temp0"]), "$%.3f$--$%.3f$" % tuple(h5["ci_temp0"])))
+            rr = [1 - x for x in h5["ci_reduction"]]
+            claim("iso/batched ratio", round(1 - h5["reduction"], 2), "ratio of $%.2f$" % (1 - h5["reduction"]))
+            claim("iso/batched ratio CI", "%.2f-%.2f" % (min(rr), max(rr)), "$%.2f$--$%.2f$" % (min(rr), max(rr)))
+            claim("iso floor 6a", round(h6["temp0"], 3), "six-action floors were $%.3f$ and $%.3f$" % (h6["temp0"], h6["default"]))
+            pa = hi["per_action"]
+            for k, nm in (("admit", "admission"), ("escalate_icu", "intensive-care escalation"), ("high_acuity", "high acuity"),
+                          ("referral", "referral"), ("any_opioid", "any opioid"), ("cs_caution", "caution flag")):
+                claim("iso per-action %s" % k, round(pa["isolated"][k], 3),
+                      "%s $%.3f$ / $%.3f$" % (nm, pa["isolated"][k], pa["batched"][k]))
+            dgi = hi["dependence_isolated"]
+            claim("iso dependence rep-mean", round(dgi["rep_mean_rate_p"], 2), "$%.2f$, $p=%.2f$" % (dgi["rep_mean_rate_var_ratio"], dgi["rep_mean_rate_p"]))
+            claim("iso dependence pair", round(dgi["pair_floor_p"], 2), "$%.2f$, $p=%.2f$" % (dgi["pair_floor_var_ratio"], dgi["pair_floor_p"]))
+            nc = 0
+            for f in glob.glob(os.path.join(ROOT, "experiments", "floor16_haiku_iso", "rep*", "answers", "*.json")):
+                nc += sum(len(v["attempts"]) for v in json.load(open(f, encoding="utf-8"))["attempts"].values())
+            claim("iso calls", nc, "$%d$ calls, no retries" % nc)
 
         # Attempt-level counts for every rerun arm (Supplementary Table S-attempts), the
         # retry statements in Methods, and the first-attempt-only sensitivity.
@@ -649,6 +781,12 @@ def main() -> int:
     # bound (a leave-one-out maximum, a confidence limit) can coincide with a retired figure.
     cut = tex.find("\\label{sec:supp-mcnemar}")
     tex_stale = tex if cut < 0 else tex[:cut]
+    # Figures drawn inline carry coordinates and plot data (e.g. "-9.4mm", "0.0875") that are
+    # not reported numbers; the stale scan reads prose and tables only.
+    tex_stale = re.sub(r"\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}", " ", tex_stale, flags=re.S)
+    # The isolated-call haiku arm legitimately reports a floor of 0.091 (checked above as
+    # "iso floor 5a/6a"); drop those two phrases so the superseded mistral R=6 value stays detectable.
+    tex_stale = tex_stale.replace("floor was $0.091$ ($95\%$ crossed", " ").replace("six-action floors were $0.091$", " ")
     for needle, why in (RETIRED if have_paper else []):
         # Allow a figure to appear where the text is explicitly narrating its retraction.
         for m in re.finditer(re.escape(needle), tex_stale):
@@ -657,6 +795,8 @@ def main() -> int:
                             ("artifact", "artefact", "superseded", "retract", "withdraw",
                              "moved from", "at four vignettes", "single-draw", "earlier",
                              "wrong in the direction", "has now moved",
+                             # a current confidence limit of the hosted temperature-1.0 arm
+                             "temperature-$1.0$ run",
                              # the four-vignette estimate named as such in the sizing
                              # comparison, and leave-one-vignette-out bounds that coincide
                              # with a retired value, are current statements, not stale ones

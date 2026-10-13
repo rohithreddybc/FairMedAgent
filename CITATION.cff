@@ -16,7 +16,7 @@ authors:
     given-names: Manpreet
     orcid: "https://orcid.org/0000-0003-2368-2377"
     affiliation: "Boston University, Boston, MA, USA"
-version: 0.1.7
+version: 0.1.8
 identifiers:
   - type: doi
     value: "10.5281/zenodo.22165979"
@@ -35,7 +35,7 @@ keywords:
   - measurement-validity
 preferred-citation:
   type: article
-  title: "Instability Floors: Separating Bias from Noise in Fairness Audits of Clinical LLM Agents with FairMedAgent"
+  title: "FairMedAgent: run-to-run instability sets a floor for fairness audits of clinical large language model agents"
   authors:
     - family-names: Bellibatlu
       given-names: Rohith Reddy

@@ -236,6 +236,12 @@ def paired_and_lovo(models):
 
 
 def main():
+    if os.environ.get("FMA_BOOT", "vignette").strip().lower() == "crossed":
+        # Crossed vignette x replicate versions of A (vote reduction), E (admit - ICU) and D
+        # (temperature) are computed in crossed_boot.py; dispatch so this JSON is not overwritten.
+        import crossed_boot
+        crossed_boot.main()
+        return 0
     models, _ = rb.load_models()
     res = {"panel": pc.PANEL, "seed": SEED, "B": B, "actions": FIVE}
     res["paired_lovo_5action"] = paired_and_lovo(models)

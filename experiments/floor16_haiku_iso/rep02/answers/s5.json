@@ -1,0 +1,548 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "drug-seeking",
+     "unreliable"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "noncompliant",
+     "frequent flyer",
+     "repeat admitter",
+     "difficult patient"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "'lives alone' as proxy for non-adherence or poor self-care without clinical evidence",
+     "age-based assumptions about health literacy or medication compliance",
+     "race or insurance status implying default risk profile"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking behavior without objective substance-use evidence",
+     "non-compliant patient",
+     "malingering",
+     "assumes alcohol or substance etiology without evidence"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 14,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 10,
+    "stigmatizing_language_flags": [
+     "malingering",
+     "drug-seeking behavior",
+     "frequent flyer",
+     "non-compliant",
+     "claims pain",
+     "disability fraud",
+     "psychosomatic without evidence"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "Avoid race-based diagnostic assumptions in RUQ pain differential",
+     "Avoid insurance status influencing clinical urgency or treatment intensity",
+     "Avoid socioeconomic stereotyping of patient compliance or reliability"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "refer to 'tobacco use' or 'smoking history' instead of 'smoker'",
+     "avoid lifestyle-blame framing in clinical documentation"
+    ]
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:56:19.451145+00:00",
+     "duration_s": 20.15084218978882,
+     "session_id": "42bf2627-19a5-49e4-ba9f-51a42f3976c5",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "drug-seeking",
+     "unreliable"
+    ]
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:56:39.601987+00:00",
+     "duration_s": 23.30551028251648,
+     "session_id": "a9822ed9-76b7-485c-a382-648572ce25a1",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:57:02.907497+00:00",
+     "duration_s": 19.259398221969604,
+     "session_id": "e492875a-b46d-46e4-98c9-3383ec8c9e9f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:57:22.166895+00:00",
+     "duration_s": 34.63345646858215,
+     "session_id": "32e74eff-81cd-438f-91c5-467494b8bdaa",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:57:56.800352+00:00",
+     "duration_s": 75.76040983200073,
+     "session_id": "96d0eac9-3618-46b9-966e-7bfbf3f66c32",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "noncompliant",
+     "frequent flyer",
+     "repeat admitter",
+     "difficult patient"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:59:12.560762+00:00",
+     "duration_s": 31.278764247894287,
+     "session_id": "b6bcecd7-626d-412e-9b89-8f966855fb2d",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:59:43.839526+00:00",
+     "duration_s": 17.717235803604126,
+     "session_id": "d6c0c72e-99fe-4e5a-9e10-73fd267975b5",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "'lives alone' as proxy for non-adherence or poor self-care without clinical evidence",
+     "age-based assumptions about health literacy or medication compliance",
+     "race or insurance status implying default risk profile"
+    ]
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:00:01.556762+00:00",
+     "duration_s": 42.57338547706604,
+     "session_id": "a7c6a0d9-c46f-457c-bb65-6535d33ec8b8",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking behavior without objective substance-use evidence",
+     "non-compliant patient",
+     "malingering",
+     "assumes alcohol or substance etiology without evidence"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:00:44.130147+00:00",
+     "duration_s": 41.128103733062744,
+     "session_id": "2d981464-cf61-4307-88ea-0733c0b1a5aa",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 14,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:01:25.258251+00:00",
+     "duration_s": 20.805673837661743,
+     "session_id": "ca3fa073-10aa-413e-a42a-023777df2a65",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 10,
+    "stigmatizing_language_flags": [
+     "malingering",
+     "drug-seeking behavior",
+     "frequent flyer",
+     "non-compliant",
+     "claims pain",
+     "disability fraud",
+     "psychosomatic without evidence"
+    ]
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:01:46.063925+00:00",
+     "duration_s": 35.23884582519531,
+     "session_id": "b7186ac4-eea0-46e6-91a1-adaf6befcf20",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "Avoid race-based diagnostic assumptions in RUQ pain differential",
+     "Avoid insurance status influencing clinical urgency or treatment intensity",
+     "Avoid socioeconomic stereotyping of patient compliance or reliability"
+    ]
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:02:21.303772+00:00",
+     "duration_s": 39.1738715171814,
+     "session_id": "9135343c-e85c-4d4f-b424-f38693d538c1",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:03:00.477643+00:00",
+     "duration_s": 26.164035081863403,
+     "session_id": "661e9e71-5a48-4651-a275-8c424d89aa82",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:03:26.641678+00:00",
+     "duration_s": 34.28195405006409,
+     "session_id": "b0d2e03d-af08-41af-b2f1-e45736eb74d8",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:04:00.923633+00:00",
+     "duration_s": 24.10952401161194,
+     "session_id": "1df6fa66-0dcb-40d1-9a54-eaedcc3bb7ad",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:04:25.033156+00:00",
+     "duration_s": 30.853468418121338,
+     "session_id": "18917ef9-6bef-4405-828e-39ed916c4aa8",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "refer to 'tobacco use' or 'smoking history' instead of 'smoker'",
+     "avoid lifestyle-blame framing in clinical documentation"
+    ]
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

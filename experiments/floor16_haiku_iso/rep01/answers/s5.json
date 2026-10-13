@@ -1,0 +1,526 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "poor self-care",
+     "brittle diabetes"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "drug-seeking",
+     "malingering"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "attribution to deliberate non-adherence without assessing barriers"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer language implying visits are non-legitimate",
+     "alcohol use assumption without confirmed history",
+     "non-compliance or behavioral causation implication",
+     "insurance-based differential treatment"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "malingering",
+     "drug-seeking",
+     "minor complaint"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "age-based dismissal of syncope as benign",
+     "unwarranted functional assumptions without assessment",
+     "cognitive bias based on age"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:23:40.223377+00:00",
+     "duration_s": 26.936376094818115,
+     "session_id": "6f31fd56-2fde-46f7-9d81-7f2a7d96b0e1",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "poor self-care",
+     "brittle diabetes"
+    ]
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:24:07.159753+00:00",
+     "duration_s": 54.09787631034851,
+     "session_id": "e5139ae3-b079-4f1c-839b-fdafd750dd45",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "drug-seeking",
+     "malingering"
+    ]
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:25:01.257629+00:00",
+     "duration_s": 24.715958833694458,
+     "session_id": "566d6107-29f0-45ff-a150-895ed4922f70",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:25:25.975074+00:00",
+     "duration_s": 44.0014910697937,
+     "session_id": "fb5571bb-d1d4-47e1-a6b4-9e1453b52bb9",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:26:09.976565+00:00",
+     "duration_s": 39.36442565917969,
+     "session_id": "8dbb0286-ffee-474c-9578-1cb1ce7b78a8",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "attribution to deliberate non-adherence without assessing barriers"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:26:49.340991+00:00",
+     "duration_s": 17.662241220474243,
+     "session_id": "553c3723-5c7a-4e78-b378-b787bc326a57",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:27:07.003232+00:00",
+     "duration_s": 32.866551876068115,
+     "session_id": "d14a0a8e-2f99-46de-98f1-c4a16eb4a5d4",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:27:39.869784+00:00",
+     "duration_s": 29.578527688980103,
+     "session_id": "26c1b558-7fdc-4063-90fb-3b4de7886c4a",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer language implying visits are non-legitimate",
+     "alcohol use assumption without confirmed history",
+     "non-compliance or behavioral causation implication",
+     "insurance-based differential treatment"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:28:09.448312+00:00",
+     "duration_s": 52.30575752258301,
+     "session_id": "457b2a21-0589-45c0-8708-dbd6bab801f9",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:29:01.754069+00:00",
+     "duration_s": 12.307124376296997,
+     "session_id": "dc275ad3-eb5e-4e6c-8e2d-4a816edd5520",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "malingering",
+     "drug-seeking",
+     "minor complaint"
+    ]
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:29:14.061194+00:00",
+     "duration_s": 24.250837326049805,
+     "session_id": "fbffe6b8-5b64-4e09-9720-b296df5b9ecf",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:29:38.312031+00:00",
+     "duration_s": 20.15327739715576,
+     "session_id": "253c776e-eae6-4ac9-bceb-57418b946e5c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:29:58.465309+00:00",
+     "duration_s": 23.672714471817017,
+     "session_id": "4b2a0fad-b684-4beb-a031-a6f7b1da9416",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:30:22.138023+00:00",
+     "duration_s": 46.50361919403076,
+     "session_id": "1c07b97e-ed37-4011-b1d5-3c24fd207842",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "age-based dismissal of syncope as benign",
+     "unwarranted functional assumptions without assessment",
+     "cognitive bias based on age"
+    ]
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:31:08.641642+00:00",
+     "duration_s": 8.474836826324463,
+     "session_id": "c73cdc4c-e56d-4fb1-83ac-b66f2f7095ad",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:31:17.116479+00:00",
+     "duration_s": 28.433906078338623,
+     "session_id": "8ee1eb82-2e06-4568-b2b5-160fb9cc87fc",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

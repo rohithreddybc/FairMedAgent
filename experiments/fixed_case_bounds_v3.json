@@ -1,0 +1,2278 @@
+{
+ "meta": {
+  "alpha_one_sided": 0.05,
+  "B_rep_only": 5000,
+  "seed": 42,
+  "arms": {
+   "A": {
+    "R": 10,
+    "G": 16
+   },
+   "B": {
+    "R": 6,
+    "G": 16
+   },
+   "C": {
+    "R": 10,
+    "G": 16
+   },
+   "D": {
+    "R": 10,
+    "G": 16
+   },
+   "E": {
+    "R": 10,
+    "G": 16
+   },
+   "F": {
+    "R": 10,
+    "G": 16
+   },
+   "C_t0": {
+    "R": 5,
+    "G": 16
+   },
+   "C_t0_paired": {
+    "R": 5,
+    "G": 16
+   },
+   "D_t0": {
+    "R": 5,
+    "G": 16
+   },
+   "D_t0_paired": {
+    "R": 5,
+    "G": 16
+   },
+   "E_t0": {
+    "R": 5,
+    "G": 16
+   },
+   "E_t0_paired": {
+    "R": 5,
+    "G": 16
+   },
+   "F_t0": {
+    "R": 5,
+    "G": 15
+   },
+   "F_t0_paired": {
+    "R": 5,
+    "G": 15
+   },
+   "groq_t0": {
+    "R": 5,
+    "G": 16
+   },
+   "groq_t1": {
+    "R": 5,
+    "G": 15
+   }
+  }
+ },
+ "zero_bounds": [
+  {
+   "quantity": "E escalate_icu",
+   "G": 16,
+   "K": 1,
+   "R": 10,
+   "n_cells": 16,
+   "n_draws": 160,
+   "fixed_case_exact_q": 0.01854913407753388,
+   "fixed_case_exact_floor_ub": 0.036410127405015105,
+   "common_p_cp_q": 0.018549134077503804,
+   "common_p_cp_floor_ub": 0.03641012740495718,
+   "hetero_numeric_max": 0.03641012740496432,
+   "per_vignette_own_bound_floor": 0.3837083549077777,
+   "population_floor_ub": 0.08554193558417873,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8289161288316435,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.17108387116835747,
+     0.5,
+     0.001953125
+    ]
+   ],
+   "observed": "0/720"
+  },
+  {
+   "quantity": "E high_acuity",
+   "G": 16,
+   "K": 1,
+   "R": 10,
+   "n_cells": 16,
+   "n_draws": 160,
+   "fixed_case_exact_q": 0.01854913407753388,
+   "fixed_case_exact_floor_ub": 0.036410127405015105,
+   "common_p_cp_q": 0.018549134077503804,
+   "common_p_cp_floor_ub": 0.03641012740495718,
+   "hetero_numeric_max": 0.03641012740496432,
+   "per_vignette_own_bound_floor": 0.3837083549077777,
+   "population_floor_ub": 0.08554193558417873,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8289161288316435,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.17108387116835747,
+     0.5,
+     0.001953125
+    ]
+   ],
+   "observed": "0/720"
+  },
+  {
+   "quantity": "C_t0 pooled_5action",
+   "G": 16,
+   "K": 5,
+   "R": 5,
+   "n_cells": 80,
+   "n_draws": 400,
+   "fixed_case_exact_q": 0.007461355533565524,
+   "fixed_case_exact_floor_ub": 0.01481136741433451,
+   "common_p_cp_q": 0.0074613555287995625,
+   "common_p_cp_floor_ub": 0.01481136740494483,
+   "hetero_numeric_max": 0.014811367414338066,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537494291113075,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292501141777384,
+     0.0,
+     1.0
+    ],
+    [
+     2500,
+     0.1707498858222615,
+     0.5,
+     9.5367431640625e-07
+    ]
+   ],
+   "observed": "0/800"
+  },
+  {
+   "quantity": "C_t0 pooled_6action",
+   "G": 16,
+   "K": 6,
+   "R": 5,
+   "n_cells": 96,
+   "n_draws": 480,
+   "fixed_case_exact_q": 0.006221673638536478,
+   "fixed_case_exact_floor_ub": 0.012365928831344037,
+   "common_p_cp_q": 0.006221673636624847,
+   "common_p_cp_floor_ub": 0.012365928827568349,
+   "hetero_numeric_max": 0.01236592883134482,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537486657997906,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292502668400419,
+     0.0,
+     1.0
+    ],
+    [
+     3000,
+     0.17074973315995812,
+     0.5,
+     5.960464477539063e-08
+    ]
+   ],
+   "observed": "0/960"
+  },
+  {
+   "quantity": "C_t0 admit",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0 any_opioid",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0 cs_caution",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0 escalate_icu",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0 high_acuity",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0 referral",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0_paired pooled_5action",
+   "G": 16,
+   "K": 5,
+   "R": 5,
+   "n_cells": 80,
+   "n_draws": 400,
+   "fixed_case_exact_q": 0.007461355533565524,
+   "fixed_case_exact_floor_ub": 0.01481136741433451,
+   "common_p_cp_q": 0.0074613555287995625,
+   "common_p_cp_floor_ub": 0.01481136740494483,
+   "hetero_numeric_max": 0.014811367414338066,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537494291113075,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292501141777384,
+     0.0,
+     1.0
+    ],
+    [
+     2500,
+     0.1707498858222615,
+     0.5,
+     9.5367431640625e-07
+    ]
+   ],
+   "observed": "0/800"
+  },
+  {
+   "quantity": "C_t0_paired pooled_6action",
+   "G": 16,
+   "K": 6,
+   "R": 5,
+   "n_cells": 96,
+   "n_draws": 480,
+   "fixed_case_exact_q": 0.006221673638536478,
+   "fixed_case_exact_floor_ub": 0.012365928831344037,
+   "common_p_cp_q": 0.006221673636624847,
+   "common_p_cp_floor_ub": 0.012365928827568349,
+   "hetero_numeric_max": 0.01236592883134482,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537486657997906,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292502668400419,
+     0.0,
+     1.0
+    ],
+    [
+     3000,
+     0.17074973315995812,
+     0.5,
+     5.960464477539063e-08
+    ]
+   ],
+   "observed": "0/960"
+  },
+  {
+   "quantity": "C_t0_paired admit",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0_paired any_opioid",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0_paired cs_caution",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0_paired escalate_icu",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0_paired high_acuity",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "C_t0_paired referral",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0 pooled_5action",
+   "G": 16,
+   "K": 5,
+   "R": 5,
+   "n_cells": 80,
+   "n_draws": 400,
+   "fixed_case_exact_q": 0.007461355533565524,
+   "fixed_case_exact_floor_ub": 0.01481136741433451,
+   "common_p_cp_q": 0.0074613555287995625,
+   "common_p_cp_floor_ub": 0.01481136740494483,
+   "hetero_numeric_max": 0.014811367414338066,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537494291113075,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292501141777384,
+     0.0,
+     1.0
+    ],
+    [
+     2500,
+     0.1707498858222615,
+     0.5,
+     9.5367431640625e-07
+    ]
+   ],
+   "observed": "0/800"
+  },
+  {
+   "quantity": "D_t0 pooled_6action",
+   "G": 16,
+   "K": 6,
+   "R": 5,
+   "n_cells": 96,
+   "n_draws": 480,
+   "fixed_case_exact_q": 0.006221673638536478,
+   "fixed_case_exact_floor_ub": 0.012365928831344037,
+   "common_p_cp_q": 0.006221673636624847,
+   "common_p_cp_floor_ub": 0.012365928827568349,
+   "hetero_numeric_max": 0.01236592883134482,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537486657997906,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292502668400419,
+     0.0,
+     1.0
+    ],
+    [
+     3000,
+     0.17074973315995812,
+     0.5,
+     5.960464477539063e-08
+    ]
+   ],
+   "observed": "0/960"
+  },
+  {
+   "quantity": "D_t0 admit",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0 any_opioid",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0 cs_caution",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0 escalate_icu",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0 high_acuity",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0 referral",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0_paired pooled_5action",
+   "G": 16,
+   "K": 5,
+   "R": 5,
+   "n_cells": 80,
+   "n_draws": 400,
+   "fixed_case_exact_q": 0.007461355533565524,
+   "fixed_case_exact_floor_ub": 0.01481136741433451,
+   "common_p_cp_q": 0.0074613555287995625,
+   "common_p_cp_floor_ub": 0.01481136740494483,
+   "hetero_numeric_max": 0.014811367414338066,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537494291113075,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292501141777384,
+     0.0,
+     1.0
+    ],
+    [
+     2500,
+     0.1707498858222615,
+     0.5,
+     9.5367431640625e-07
+    ]
+   ],
+   "observed": "0/800"
+  },
+  {
+   "quantity": "D_t0_paired pooled_6action",
+   "G": 16,
+   "K": 6,
+   "R": 5,
+   "n_cells": 96,
+   "n_draws": 480,
+   "fixed_case_exact_q": 0.006221673638536478,
+   "fixed_case_exact_floor_ub": 0.012365928831344037,
+   "common_p_cp_q": 0.006221673636624847,
+   "common_p_cp_floor_ub": 0.012365928827568349,
+   "hetero_numeric_max": 0.01236592883134482,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537486657997906,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292502668400419,
+     0.0,
+     1.0
+    ],
+    [
+     3000,
+     0.17074973315995812,
+     0.5,
+     5.960464477539063e-08
+    ]
+   ],
+   "observed": "0/960"
+  },
+  {
+   "quantity": "D_t0_paired admit",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0_paired any_opioid",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0_paired cs_caution",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0_paired escalate_icu",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0_paired high_acuity",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "D_t0_paired referral",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0 pooled_5action",
+   "G": 16,
+   "K": 5,
+   "R": 5,
+   "n_cells": 80,
+   "n_draws": 400,
+   "fixed_case_exact_q": 0.007461355533565524,
+   "fixed_case_exact_floor_ub": 0.01481136741433451,
+   "common_p_cp_q": 0.0074613555287995625,
+   "common_p_cp_floor_ub": 0.01481136740494483,
+   "hetero_numeric_max": 0.014811367414338066,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537494291113075,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292501141777384,
+     0.0,
+     1.0
+    ],
+    [
+     2500,
+     0.1707498858222615,
+     0.5,
+     9.5367431640625e-07
+    ]
+   ],
+   "observed": "0/800"
+  },
+  {
+   "quantity": "E_t0 pooled_6action",
+   "G": 16,
+   "K": 6,
+   "R": 5,
+   "n_cells": 96,
+   "n_draws": 480,
+   "fixed_case_exact_q": 0.006221673638536478,
+   "fixed_case_exact_floor_ub": 0.012365928831344037,
+   "common_p_cp_q": 0.006221673636624847,
+   "common_p_cp_floor_ub": 0.012365928827568349,
+   "hetero_numeric_max": 0.01236592883134482,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537486657997906,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292502668400419,
+     0.0,
+     1.0
+    ],
+    [
+     3000,
+     0.17074973315995812,
+     0.5,
+     5.960464477539063e-08
+    ]
+   ],
+   "observed": "0/960"
+  },
+  {
+   "quantity": "E_t0 admit",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0 any_opioid",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0 cs_caution",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0 escalate_icu",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0 high_acuity",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0 referral",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0_paired pooled_5action",
+   "G": 16,
+   "K": 5,
+   "R": 5,
+   "n_cells": 80,
+   "n_draws": 400,
+   "fixed_case_exact_q": 0.007461355533565524,
+   "fixed_case_exact_floor_ub": 0.01481136741433451,
+   "common_p_cp_q": 0.0074613555287995625,
+   "common_p_cp_floor_ub": 0.01481136740494483,
+   "hetero_numeric_max": 0.014811367414338066,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537494291113075,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292501141777384,
+     0.0,
+     1.0
+    ],
+    [
+     2500,
+     0.1707498858222615,
+     0.5,
+     9.5367431640625e-07
+    ]
+   ],
+   "observed": "0/800"
+  },
+  {
+   "quantity": "E_t0_paired pooled_6action",
+   "G": 16,
+   "K": 6,
+   "R": 5,
+   "n_cells": 96,
+   "n_draws": 480,
+   "fixed_case_exact_q": 0.006221673638536478,
+   "fixed_case_exact_floor_ub": 0.012365928831344037,
+   "common_p_cp_q": 0.006221673636624847,
+   "common_p_cp_floor_ub": 0.012365928827568349,
+   "hetero_numeric_max": 0.01236592883134482,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.08537486657997906,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8292502668400419,
+     0.0,
+     1.0
+    ],
+    [
+     3000,
+     0.17074973315995812,
+     0.5,
+     5.960464477539063e-08
+    ]
+   ],
+   "observed": "0/960"
+  },
+  {
+   "quantity": "E_t0_paired admit",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0_paired any_opioid",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0_paired cs_caution",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0_paired escalate_icu",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0_paired high_acuity",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "E_t0_paired referral",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "F_t0 any_opioid",
+   "G": 15,
+   "K": 1,
+   "R": 5,
+   "n_cells": 15,
+   "n_draws": 75,
+   "fixed_case_exact_q": 0.03915590906973898,
+   "fixed_case_exact_floor_ub": 0.07524544770932262,
+   "common_p_cp_q": 0.03915588747217125,
+   "common_p_cp_floor_ub": 0.07524540789687582,
+   "hetero_numeric_max": 0.07524544770933804,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09655267867844514,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8068946426431097,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.19310535735689027,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/150"
+  },
+  {
+   "quantity": "F_t0 cs_caution",
+   "G": 15,
+   "K": 1,
+   "R": 5,
+   "n_cells": 15,
+   "n_draws": 75,
+   "fixed_case_exact_q": 0.03915590906973898,
+   "fixed_case_exact_floor_ub": 0.07524544770932262,
+   "common_p_cp_q": 0.03915588747217125,
+   "common_p_cp_floor_ub": 0.07524540789687582,
+   "hetero_numeric_max": 0.07524544770933804,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09655267867844514,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8068946426431097,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.19310535735689027,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/150"
+  },
+  {
+   "quantity": "F_t0 escalate_icu",
+   "G": 15,
+   "K": 1,
+   "R": 5,
+   "n_cells": 15,
+   "n_draws": 75,
+   "fixed_case_exact_q": 0.03915590906973898,
+   "fixed_case_exact_floor_ub": 0.07524544770932262,
+   "common_p_cp_q": 0.03915588747217125,
+   "common_p_cp_floor_ub": 0.07524540789687582,
+   "hetero_numeric_max": 0.07524544770933804,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09655267867844514,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8068946426431097,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.19310535735689027,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/150"
+  },
+  {
+   "quantity": "F_t0_paired any_opioid",
+   "G": 15,
+   "K": 1,
+   "R": 5,
+   "n_cells": 15,
+   "n_draws": 75,
+   "fixed_case_exact_q": 0.03915590906973898,
+   "fixed_case_exact_floor_ub": 0.07524544770932262,
+   "common_p_cp_q": 0.03915588747217125,
+   "common_p_cp_floor_ub": 0.07524540789687582,
+   "hetero_numeric_max": 0.07524544770933804,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09655267867844514,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8068946426431097,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.19310535735689027,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/150"
+  },
+  {
+   "quantity": "F_t0_paired cs_caution",
+   "G": 15,
+   "K": 1,
+   "R": 5,
+   "n_cells": 15,
+   "n_draws": 75,
+   "fixed_case_exact_q": 0.03915590906973898,
+   "fixed_case_exact_floor_ub": 0.07524544770932262,
+   "common_p_cp_q": 0.03915588747217125,
+   "common_p_cp_floor_ub": 0.07524540789687582,
+   "hetero_numeric_max": 0.07524544770933804,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09655267867844514,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8068946426431097,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.19310535735689027,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/150"
+  },
+  {
+   "quantity": "F_t0_paired escalate_icu",
+   "G": 15,
+   "K": 1,
+   "R": 5,
+   "n_cells": 15,
+   "n_draws": 75,
+   "fixed_case_exact_q": 0.03915590906973898,
+   "fixed_case_exact_floor_ub": 0.07524544770932262,
+   "common_p_cp_q": 0.03915588747217125,
+   "common_p_cp_floor_ub": 0.07524540789687582,
+   "hetero_numeric_max": 0.07524544770933804,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09655267867844514,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8068946426431097,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.19310535735689027,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/150"
+  },
+  {
+   "quantity": "groq_t0 any_opioid",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "groq_t0 cs_caution",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "groq_t0 escalate_icu",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "groq_t0 high_acuity",
+   "G": 16,
+   "K": 1,
+   "R": 5,
+   "n_cells": 16,
+   "n_draws": 80,
+   "fixed_case_exact_q": 0.03675421336176605,
+   "fixed_case_exact_floor_ub": 0.07080668232384765,
+   "common_p_cp_q": 0.036754197779982345,
+   "common_p_cp_floor_ub": 0.07080665345106457,
+   "hetero_numeric_max": 0.07080668232386875,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09106651892398981,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8178669621520204,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.18213303784797963,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/160"
+  },
+  {
+   "quantity": "groq_t1 escalate_icu",
+   "G": 15,
+   "K": 1,
+   "R": 5,
+   "n_cells": 15,
+   "n_draws": 75,
+   "fixed_case_exact_q": 0.03915590906973898,
+   "fixed_case_exact_floor_ub": 0.07524544770932262,
+   "common_p_cp_q": 0.03915588747217125,
+   "common_p_cp_floor_ub": 0.07524540789687582,
+   "hetero_numeric_max": 0.07524544770933804,
+   "per_vignette_own_bound_floor": 0.49514290965160146,
+   "population_floor_ub": 0.09655267867844514,
+   "population_lp_atoms": [
+    [
+     0,
+     0.8068946426431097,
+     0.0,
+     1.0
+    ],
+    [
+     500,
+     0.19310535735689027,
+     0.5,
+     0.0625
+    ]
+   ],
+   "observed": "0/150"
+  }
+ ],
+ "replicate_only": {
+  "A": {
+   "R": 10,
+   "G": 16,
+   "floor_5action": 0.06805555555555555,
+   "rep_only_ci_5action": [
+    0.05128205128205128,
+    0.0805921052631579
+   ],
+   "n_dropped": 0,
+   "floor_6action": 0.08657407407407407,
+   "rep_only_ci_6action": [
+    0.06524122807017543,
+    0.10060975609756098
+   ],
+   "actions": {
+    "admit": {
+     "floor": 0.14166666666666666,
+     "rep_only_ci": [
+      0.1046875,
+      0.1762820512820513
+     ]
+    },
+    "any_opioid": {
+     "floor": 0.025,
+     "rep_only_ci": [
+      0.0,
+      0.0673076923076923
+     ]
+    },
+    "cs_caution": {
+     "floor": 0.17916666666666667,
+     "rep_only_ci": [
+      0.075,
+      0.2357142857142857
+     ]
+    },
+    "escalate_icu": {
+     "floor": 0.022222222222222223,
+     "rep_only_ci": [
+      0.0,
+      0.04006410256410257
+     ]
+    },
+    "high_acuity": {
+     "floor": 0.0763888888888889,
+     "rep_only_ci": [
+      0.04807692307692308,
+      0.1015625
+     ]
+    },
+    "referral": {
+     "floor": 0.075,
+     "rep_only_ci": [
+      0.049342105263157895,
+      0.09797297297297297
+     ]
+    }
+   }
+  },
+  "B": {
+   "R": 6,
+   "G": 16,
+   "floor_5action": 0.04,
+   "rep_only_ci_5action": [
+    0.022115384615384617,
+    0.05795454545454545
+   ],
+   "n_dropped": 0,
+   "floor_6action": 0.06666666666666667,
+   "rep_only_ci_6action": [
+    0.03125,
+    0.09185606060606061
+   ],
+   "actions": {
+    "admit": {
+     "floor": 0.041666666666666664,
+     "rep_only_ci": [
+      0.0,
+      0.07954545454545454
+     ]
+    },
+    "any_opioid": {
+     "floor": 0.03333333333333333,
+     "rep_only_ci": [
+      0.0,
+      0.05113636363636364
+     ]
+    },
+    "cs_caution": {
+     "floor": 0.2,
+     "rep_only_ci": [
+      0.0,
+      0.3068181818181818
+     ]
+    },
+    "escalate_icu": {
+     "floor": 0.020833333333333332,
+     "rep_only_ci": [
+      0.0,
+      0.05113636363636364
+     ]
+    },
+    "high_acuity": {
+     "floor": 0.06666666666666667,
+     "rep_only_ci": [
+      0.02403846153846154,
+      0.09659090909090909
+     ]
+    },
+    "referral": {
+     "floor": 0.0375,
+     "rep_only_ci": [
+      0.0,
+      0.05555555555555555
+     ]
+    }
+   }
+  },
+  "C": {
+   "R": 10,
+   "G": 16,
+   "floor_5action": 0.23,
+   "rep_only_ci_5action": [
+    0.21121794871794872,
+    0.24605263157894736
+   ],
+   "n_dropped": 0,
+   "floor_6action": 0.22546296296296298,
+   "rep_only_ci_6action": [
+    0.20970394736842105,
+    0.2419871794871795
+   ],
+   "actions": {
+    "admit": {
+     "floor": 0.2013888888888889,
+     "rep_only_ci": [
+      0.15029761904761904,
+      0.25
+     ]
+    },
+    "any_opioid": {
+     "floor": 0.06944444444444445,
+     "rep_only_ci": [
+      0.016544117647058824,
+      0.11858974358974358
+     ]
+    },
+    "cs_caution": {
+     "floor": 0.20277777777777778,
+     "rep_only_ci": [
+      0.14903846153846154,
+      0.25
+     ]
+    },
+    "escalate_icu": {
+     "floor": 0.06944444444444445,
+     "rep_only_ci": [
+      0.0390625,
+      0.09775641025641026
+     ]
+    },
+    "high_acuity": {
+     "floor": 0.4125,
+     "rep_only_ci": [
+      0.3317307692307692,
+      0.4797297297297297
+     ]
+    },
+    "referral": {
+     "floor": 0.3972222222222222,
+     "rep_only_ci": [
+      0.3429878048780488,
+      0.4451219512195122
+     ]
+    }
+   }
+  },
+  "D": {
+   "R": 10,
+   "G": 16,
+   "floor_5action": 0.0975,
+   "rep_only_ci_5action": [
+    0.08355263157894736,
+    0.11160714285714286
+   ],
+   "n_dropped": 0,
+   "floor_6action": 0.10486111111111111,
+   "rep_only_ci_6action": [
+    0.09146341463414634,
+    0.11941056910569106
+   ],
+   "actions": {
+    "admit": {
+     "floor": 0.022222222222222223,
+     "rep_only_ci": [
+      0.0,
+      0.04006410256410257
+     ]
+    },
+    "any_opioid": {
+     "floor": 0.06944444444444445,
+     "rep_only_ci": [
+      0.0515625,
+      0.08035714285714286
+     ]
+    },
+    "cs_caution": {
+     "floor": 0.14166666666666666,
+     "rep_only_ci": [
+      0.09523809523809523,
+      0.1859375
+     ]
+    },
+    "escalate_icu": {
+     "floor": 0.05138888888888889,
+     "rep_only_ci": [
+      0.014423076923076924,
+      0.0777027027027027
+     ]
+    },
+    "high_acuity": {
+     "floor": 0.33194444444444443,
+     "rep_only_ci": [
+      0.2671875,
+      0.39634146341463417
+     ]
+    },
+    "referral": {
+     "floor": 0.0125,
+     "rep_only_ci": [
+      0.0,
+      0.03365384615384615
+     ]
+    }
+   }
+  },
+  "E": {
+   "R": 10,
+   "G": 16,
+   "floor_5action": 0.016666666666666666,
+   "rep_only_ci_5action": [
+    0.008881578947368421,
+    0.024375
+   ],
+   "n_dropped": 0,
+   "floor_6action": 0.035416666666666666,
+   "rep_only_ci_6action": [
+    0.02564102564102564,
+    0.044956140350877194
+   ],
+   "actions": {
+    "admit": {
+     "floor": 0.04583333333333333,
+     "rep_only_ci": [
+      0.025,
+      0.0703125
+     ]
+    },
+    "any_opioid": {
+     "floor": 0.025,
+     "rep_only_ci": [
+      0.0,
+      0.054276315789473686
+     ]
+    },
+    "cs_caution": {
+     "floor": 0.12916666666666668,
+     "rep_only_ci": [
+      0.08035714285714286,
+      0.17147435897435898
+     ]
+    },
+    "escalate_icu": {
+     "floor": 0.0,
+     "rep_only_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "high_acuity": {
+     "floor": 0.0,
+     "rep_only_ci": [
+      0.0,
+      0.0
+     ]
+    },
+    "referral": {
+     "floor": 0.0125,
+     "rep_only_ci": [
+      0.0,
+      0.03365384615384615
+     ]
+    }
+   }
+  },
+  "F": {
+   "R": 10,
+   "G": 16,
+   "floor_5action": 0.245,
+   "rep_only_ci_5action": [
+    0.201875,
+    0.28557692307692306
+   ],
+   "n_dropped": 0,
+   "floor_6action": 0.23614010670378102,
+   "rep_only_ci_6action": [
+    0.19842657342657344,
+    0.27043544690603516
+   ],
+   "actions": {
+    "admit": {
+     "floor": 0.33611111111111114,
+     "rep_only_ci": [
+      0.2779605263157895,
+      0.3958333333333333
+     ]
+    },
+    "any_opioid": {
+     "floor": 0.06944444444444445,
+     "rep_only_ci": [
+      0.028125,
+      0.109375
+     ]
+    },
+    "cs_caution": {
+     "floor": 0.19127988748241911,
+     "rep_only_ci": [
+      0.1453125,
+      0.2375
+     ]
+    },
+    "escalate_icu": {
+     "floor": 0.09444444444444444,
+     "rep_only_ci": [
+      0.0578125,
+      0.13980263157894737
+     ]
+    },
+    "high_acuity": {
+     "floor": 0.3138888888888889,
+     "rep_only_ci": [
+      0.22203947368421054,
+      0.39375
+     ]
+    },
+    "referral": {
+     "floor": 0.4111111111111111,
+     "rep_only_ci": [
+      0.33783783783783783,
+      0.4823717948717949
+     ]
+    }
+   }
+  }
+ },
+ "s12_achieved_shifts": {
+  "pool_size": 96,
+  "frac_p_eq_0": 0.4895833333333333,
+  "frac_p_eq_1": 0.2916666666666667,
+  "uniform_+0.10": {
+   "mean_signed": 0.07083333333333332,
+   "mean_abs": 0.07083333333333332,
+   "mean_sq": 0.007083333333333335
+  },
+  "opposing_+-0.10_half": {
+   "plus_half_mean_signed": 0.07083333333333332,
+   "minus_half_mean_signed": -0.05104166666666665,
+   "mean_signed": 0.009895833333333333,
+   "mean_abs": 0.060937499999999985,
+   "mean_sq": 0.00609375
+  }
+ }
+}

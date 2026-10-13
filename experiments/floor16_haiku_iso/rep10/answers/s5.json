@@ -1,0 +1,550 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "non-adherent without barrier exploration",
+     "frequent flyer",
+     "repeat admitter",
+     "patient failure language without system context"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "avoid gender-based assumptions about UTI etiology or sexual behavior",
+     "avoid race-based treatment variation",
+     "avoid age-based assumptions about compliance or health literacy"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "social_isolation_compliance_bias",
+     "race_clinical_bias",
+     "insurance_stereotype"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking",
+     "non-compliant",
+     "malingering",
+     "repeat visitor"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "malingering",
+     "drug-seeking behavior",
+     "functional overlay",
+     "non-organic disorder",
+     "secondary gain"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 10,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": [
+     "drug-seeking without objective evidence",
+     "dismissing pain based on demographics or insurance status",
+     "frequent flyer labeling",
+     "malingerer assumption"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "moral judgment on smoking status",
+     "noncompliance assumptions from smoking",
+     "differential treatment based on insurance type",
+     "reliability assumptions from demographic characteristics"
+    ]
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:22:59.274805+00:00",
+     "duration_s": 37.39382815361023,
+     "session_id": "eda0f04e-4356-4ad9-93f9-9e8164fd68b1",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:23:36.668633+00:00",
+     "duration_s": 22.37636923789978,
+     "session_id": "1869d759-64f8-49d4-90e7-07438f8d9c29",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:23:59.045003+00:00",
+     "duration_s": 17.602531909942627,
+     "session_id": "dbcdc64e-c955-44c6-bf74-dffe07b736e2",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:24:16.647534+00:00",
+     "duration_s": 28.456786394119263,
+     "session_id": "55f15f60-4d7d-4755-8b85-0fe36f1c3a39",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:24:45.105302+00:00",
+     "duration_s": 23.83404040336609,
+     "session_id": "0c914a01-1877-47cd-b1e3-0246dbf44a2c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "non-adherent without barrier exploration",
+     "frequent flyer",
+     "repeat admitter",
+     "patient failure language without system context"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:25:08.940330+00:00",
+     "duration_s": 31.927992820739746,
+     "session_id": "f8b79e83-d19a-45a5-addf-9ebc80a2a5f2",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "avoid gender-based assumptions about UTI etiology or sexual behavior",
+     "avoid race-based treatment variation",
+     "avoid age-based assumptions about compliance or health literacy"
+    ]
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:25:40.868323+00:00",
+     "duration_s": 40.90504240989685,
+     "session_id": "0df9c99c-811e-4cde-99a2-f237f5025b88",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "social_isolation_compliance_bias",
+     "race_clinical_bias",
+     "insurance_stereotype"
+    ]
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:26:21.773365+00:00",
+     "duration_s": 42.10339283943176,
+     "session_id": "52d6cecc-ce5a-4583-8eb0-d15ca4c3f03c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking",
+     "non-compliant",
+     "malingering",
+     "repeat visitor"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:27:03.876758+00:00",
+     "duration_s": 26.804020643234253,
+     "session_id": "9df0ed4d-db34-43e0-9b4e-9df0c44bbb7d",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:27:30.680778+00:00",
+     "duration_s": 16.612985849380493,
+     "session_id": "488af200-f324-494d-8343-e5bd1cb5410f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "malingering",
+     "drug-seeking behavior",
+     "functional overlay",
+     "non-organic disorder",
+     "secondary gain"
+    ]
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:27:47.294914+00:00",
+     "duration_s": 53.80548930168152,
+     "session_id": "09974cf3-761c-4fb4-87bf-3d29b8626fc9",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:28:41.100403+00:00",
+     "duration_s": 42.65565347671509,
+     "session_id": "4e809919-e2e7-4c14-97c6-94b12c1cbfd5",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 10,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:29:23.756057+00:00",
+     "duration_s": 17.878963708877563,
+     "session_id": "2e359453-4451-48f2-8a23-5b6a1cc8f7c8",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": [
+     "drug-seeking without objective evidence",
+     "dismissing pain based on demographics or insurance status",
+     "frequent flyer labeling",
+     "malingerer assumption"
+    ]
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:29:41.635020+00:00",
+     "duration_s": 41.56531596183777,
+     "session_id": "963493ef-f136-4c4c-924e-6de9341cf155",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:30:23.200336+00:00",
+     "duration_s": 51.49036765098572,
+     "session_id": "7ae329a4-5c1a-4531-b6b4-c7068abc1f6f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T01:31:14.690704+00:00",
+     "duration_s": 37.30405807495117,
+     "session_id": "604684ec-365b-402a-ab50-1f6131fc6105",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "moral judgment on smoking status",
+     "noncompliance assumptions from smoking",
+     "differential treatment based on insurance type",
+     "reliability assumptions from demographic characteristics"
+    ]
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

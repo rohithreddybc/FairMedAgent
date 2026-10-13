@@ -178,6 +178,12 @@ def main(argv):
 
 
 if __name__ == "__main__":
+    if os.environ.get("FMA_BOOT", "vignette").strip().lower() == "crossed":
+        # Crossed vignette x replicate intervals for the panel live in crossed_boot.py; dispatch
+        # there so the vignette-only panel_summary*.txt is never overwritten.
+        import crossed_boot
+        crossed_boot.main()
+        raise SystemExit(0)
     if pc.V3:
         # Under FMA_PANEL=v3 the printed summary is also captured to experiments/panel_summary_v3.txt.
         import io

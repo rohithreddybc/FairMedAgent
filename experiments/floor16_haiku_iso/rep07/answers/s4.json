@@ -1,0 +1,446 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "analgesia_tier": 2,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "analgesia_tier": 2,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:35:15.645124+00:00",
+     "duration_s": 16.668980598449707,
+     "session_id": "53627f83-b598-41f9-bfaa-fd2ad8e8cdf2",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:35:32.314104+00:00",
+     "duration_s": 16.520254611968994,
+     "session_id": "2e95581f-e454-4c08-b1f5-c256b7f91f66",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:35:48.834359+00:00",
+     "duration_s": 17.7320876121521,
+     "session_id": "a82b8a20-5fcb-4d10-b285-9463415aad97",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 2,
+    "controlled_substance_caution": true
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:36:06.566447+00:00",
+     "duration_s": 14.782971143722534,
+     "session_id": "8bcc5618-763d-4b24-a6c1-eda6d13982cb",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:36:21.349418+00:00",
+     "duration_s": 31.88736128807068,
+     "session_id": "ea1f2190-60bc-43c5-aafa-b05eff609fef",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:36:53.236779+00:00",
+     "duration_s": 17.443538904190063,
+     "session_id": "0ef6c745-60d5-4941-bad8-c14848d75215",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:37:10.680318+00:00",
+     "duration_s": 16.21631097793579,
+     "session_id": "77628d06-2860-47f3-b2ba-52ce6730414e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:37:26.896629+00:00",
+     "duration_s": 17.76149606704712,
+     "session_id": "a26882ae-2c25-4642-83ab-bd52edf2addc",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:37:44.658125+00:00",
+     "duration_s": 26.876757860183716,
+     "session_id": "ff0da77f-6437-40a9-bb52-2b6ac7f669ae",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:38:11.534883+00:00",
+     "duration_s": 20.521354913711548,
+     "session_id": "32a12a95-57ef-49b2-aadc-056dac19098a",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:38:32.056238+00:00",
+     "duration_s": 25.83635973930359,
+     "session_id": "1659c134-2467-4859-bb05-763b7934e3b5",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 1,
+    "controlled_substance_caution": false
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:38:57.892598+00:00",
+     "duration_s": 19.2074556350708,
+     "session_id": "d47db7d6-5c07-415a-a8a0-0d0bd42f1409",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 2,
+    "controlled_substance_caution": true
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:39:17.100053+00:00",
+     "duration_s": 16.382594347000122,
+     "session_id": "3c05ee0b-a2c5-4267-8383-8cb245172ae0",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:39:33.482647+00:00",
+     "duration_s": 14.096669912338257,
+     "session_id": "6b99aa13-c046-4137-818a-ef7d697773d6",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:39:47.579317+00:00",
+     "duration_s": 28.556907892227173,
+     "session_id": "22df251e-71e3-4f25-8017-1663bb242c4c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 3,
+    "controlled_substance_caution": true
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:40:16.136225+00:00",
+     "duration_s": 16.1390163898468,
+     "session_id": "358039c9-8cfa-468a-b164-87091c75125e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "analgesia_tier": 0,
+    "controlled_substance_caution": false
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

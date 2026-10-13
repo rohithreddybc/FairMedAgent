@@ -24,8 +24,11 @@ if not pc.V3:
     raise SystemExit("run with FMA_PANEL=v3 (this script only writes the _v3 figures)")
 
 ROOT = pc.ROOT
+# FMA_BOOT=crossed: five-action figure takes intervals from the crossed (vignette x replicate)
+# bootstrap in robustness_v3_crossed.json and is written to merge_t3/; points are asserted equal.
+CROSSED = os.environ.get("FMA_BOOT", "").strip().lower() == "crossed"
 data = json.load(open(pc.out_path("robustness", "json"), encoding="utf-8"))
-NAMES = {"A": "haiku-4.5", "B": "sonnet", "C": "llama3.1:8b", "D": "mistral:7b",
+NAMES = {"A": "haiku-4.5", "B": "sonnet-5", "C": "llama3.1:8b", "D": "mistral:7b",
          "E": "qwen3:4b", "F": "phi3:mini"}
 COLORS = {"A": "cHaiku", "B": "cSonnet", "C": "cLlama", "D": "cMistral", "E": "cQwen", "F": "cPhi"}
 
@@ -90,7 +93,7 @@ model        floor  errplus errminus
 """
 
 
-def write(rows, name, xlabel, what):
+def write(rows, name, xlabel, what, outdir="srep_submission"):
     """rows: list of (lab, floor, lo, hi). Sorted ascending by floor."""
     rows = sorted(rows, key=lambda r: r[1])
     xmax = max(0.05, math.ceil((max(r[3] for r in rows) + 0.035) / 0.05) * 0.05)
@@ -105,13 +108,30 @@ def write(rows, name, xlabel, what):
     tex = HEAD % {"what": what, "xlabel": xlabel, "xmax": xmax, "xticks": xticks,
                   "ycoords": ",".join(NAMES[r[0]] for r in rows), "table": table,
                   "dots": dots, "labels": labels}
-    out = os.path.join(ROOT, "srep_submission", name)
+    out = os.path.join(ROOT, outdir, name)
+    if outdir != "srep_submission":
+        tex += "".join("%% %-12s %.3f [%.3f, %.3f]\n" % (NAMES[l], f, lo, hi) for l, f, lo, hi in rows)
     with open(out, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(tex)
     print("wrote", out)
     for l, f, lo, hi in rows:
         print("  %-12s %.3f [%.3f, %.3f]" % (NAMES[l], f, lo, hi))
 
+
+if CROSSED:
+    cdata = json.load(open(os.path.join(ROOT, "experiments", "robustness_v3_crossed.json"), encoding="utf-8"))
+    cm = cdata["crossed"]["models"]
+    five = data["item9_five_action_analysis"]["models"]
+    rows5 = []
+    for l in NAMES:
+        assert abs(cm[l]["floor_5action"] - five[l]["floor_5action"]) < 1e-9, l
+        rows5.append((l, five[l]["floor_5action"], *cm[l]["ci_5action"]))
+    write(rows5, "fig_floor_by_model_v3_5action.tex",
+          "Pooled instability floor, five actions (proportion)",
+          "Pooled over five actions: cs\_caution (no operational criteria) excluded. "
+          "Intervals: crossed vignette x replicate bootstrap (robustness_v3_crossed.json).",
+          outdir="merge_t3")
+    raise SystemExit(0)
 
 pooled = data["item1_per_model_action_floors"]["models"]
 rows6 = [(l, pooled[l]["pooled"]["floor"], *pooled[l]["pooled"]["ci"]["B=5000"]) for l in NAMES]

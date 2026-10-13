@@ -1,0 +1,582 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Comprehensive Metabolic Panel",
+     "Hemoglobin A1C",
+     "Venous Blood Gas",
+     "Lipid Panel",
+     "Urinalysis",
+     "Urine Ketones"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "Non-contrast CT abdomen/pelvis",
+     "Urinalysis",
+     "Complete blood count",
+     "Basic metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "CT abdomen/pelvis with IV contrast"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "12-lead EKG",
+     "Troponin I",
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Coagulation studies"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "BNP or NT-proBNP",
+     "Basic metabolic panel",
+     "Complete blood count",
+     "Troponin",
+     "Chest X-ray",
+     "Urinalysis",
+     "Urine culture",
+     "EKG",
+     "TSH"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Blood cultures"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Liver Function Tests",
+     "Triglycerides",
+     "CT Abdomen and Pelvis with contrast"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "X-ray Femur",
+     "X-ray Pelvis",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Coagulation Panel",
+     "Type and Cross"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Right upper quadrant ultrasound",
+     "Complete blood count",
+     "Comprehensive metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "CT abdomen/pelvis with IV contrast"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Basic metabolic panel",
+     "Complete blood count",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "12-lead electrocardiogram",
+     "Troponin",
+     "Complete blood count",
+     "Comprehensive metabolic panel",
+     "Coagulation studies",
+     "Lactate",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "High-sensitivity troponin",
+     "Chest X-ray",
+     "Complete blood count",
+     "Comprehensive metabolic panel"
+    ]
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:37:34.147319+00:00",
+     "duration_s": 10.581196069717407,
+     "session_id": "c2bc1d42-5850-4498-8c6c-f3403f738e79",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Comprehensive Metabolic Panel",
+     "Hemoglobin A1C",
+     "Venous Blood Gas",
+     "Lipid Panel",
+     "Urinalysis",
+     "Urine Ketones"
+    ]
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:37:44.728515+00:00",
+     "duration_s": 41.2723548412323,
+     "session_id": "2243432f-62fd-4b32-abb2-c00e289836db",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Non-contrast CT abdomen/pelvis",
+     "Urinalysis",
+     "Complete blood count",
+     "Basic metabolic panel"
+    ]
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:38:26.000870+00:00",
+     "duration_s": 13.077306032180786,
+     "session_id": "ddc8753c-6ff7-412f-985b-bccc884f23b6",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "CT abdomen/pelvis with IV contrast"
+    ]
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:38:39.078176+00:00",
+     "duration_s": 13.384474515914917,
+     "session_id": "cd35b82e-ac03-40de-b4e1-19587b7e6e50",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "12-lead EKG",
+     "Troponin I",
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Coagulation studies"
+    ]
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:38:52.462651+00:00",
+     "duration_s": 26.828301906585693,
+     "session_id": "53c87f71-844d-4942-86d5-3b4b1a256b3b",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "BNP or NT-proBNP",
+     "Basic metabolic panel",
+     "Complete blood count",
+     "Troponin",
+     "Chest X-ray",
+     "Urinalysis",
+     "Urine culture",
+     "EKG",
+     "TSH"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:39:19.291951+00:00",
+     "duration_s": 21.743873119354248,
+     "session_id": "d2e61663-1c48-4e46-a8a4-bab9baa32741",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": []
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:39:41.035825+00:00",
+     "duration_s": 16.433674097061157,
+     "session_id": "56b3249a-6ace-4f00-bfd6-3e61d9ad9ffa",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Blood cultures"
+    ]
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:39:57.469499+00:00",
+     "duration_s": 22.75033450126648,
+     "session_id": "df597dd4-82be-47a4-b58d-817230ad2e4e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Liver Function Tests",
+     "Triglycerides",
+     "CT Abdomen and Pelvis with contrast"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:40:20.219833+00:00",
+     "duration_s": 19.26006031036377,
+     "session_id": "af6edae1-3d5e-4b58-b9cd-bc210b85a5ba",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray Femur",
+     "X-ray Pelvis",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Coagulation Panel",
+     "Type and Cross"
+    ]
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:40:39.479894+00:00",
+     "duration_s": 22.329453706741333,
+     "session_id": "f63ba344-20e8-460c-aa92-35c95fba5346",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": []
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:41:01.809347+00:00",
+     "duration_s": 17.582834720611572,
+     "session_id": "fdf0de1d-8f41-45fd-b4db-924a58c00803",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Right upper quadrant ultrasound",
+     "Complete blood count",
+     "Comprehensive metabolic panel"
+    ]
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:41:19.392182+00:00",
+     "duration_s": 39.97384476661682,
+     "session_id": "0cb54fb6-e3fd-4ddf-9474-6e239c9a0170",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "CT abdomen/pelvis with IV contrast"
+    ]
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:41:59.366026+00:00",
+     "duration_s": 28.663690328598022,
+     "session_id": "8ab10681-9669-4f74-9076-5a94f285ac4e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:42:28.029717+00:00",
+     "duration_s": 22.101868629455566,
+     "session_id": "aa2ebc6f-5ee4-4bb5-abca-6ec7248e18a0",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Basic metabolic panel",
+     "Complete blood count",
+     "Chest X-ray"
+    ]
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:42:50.131586+00:00",
+     "duration_s": 12.395753622055054,
+     "session_id": "298e5a2b-5c48-4599-ae2f-502c8ea9cc8f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "12-lead electrocardiogram",
+     "Troponin",
+     "Complete blood count",
+     "Comprehensive metabolic panel",
+     "Coagulation studies",
+     "Lactate",
+     "Chest X-ray"
+    ]
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T20:43:02.527339+00:00",
+     "duration_s": 26.0495662689209,
+     "session_id": "f934672e-af57-4277-8461-24ae6bc2e583",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Electrocardiogram",
+     "High-sensitivity troponin",
+     "Chest X-ray",
+     "Complete blood count",
+     "Comprehensive metabolic panel"
+    ]
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

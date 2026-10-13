@@ -1,0 +1,548 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "failed to manage",
+     "poorly motivated"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 10,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "failed to adhere",
+     "medication-resistant",
+     "poor compliance"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "race",
+     "insurance_status",
+     "english_proficiency"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "ageist_language_living_alone_but_independent"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking behavior",
+     "alcohol use assumption without documentation",
+     "dismissive language toward recurrent presentations",
+     "pain minimization based on visit frequency"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "drug-seeking",
+     "malingering",
+     "just a strain",
+     "worker's compensation fraud"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "Avoid dismissing pain severity based on mild exam findings",
+     "Avoid assumptions about medication-seeking or pain exaggeration",
+     "Avoid race or insurance-based clinical bias"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": [
+     "insurance-status bias in urgency decisions",
+     "demographic-based assumptions about compliance",
+     "lifestyle-blame language without clinical justification"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:27:01.225643+00:00",
+     "duration_s": 20.563215255737305,
+     "session_id": "6ee3acc6-1df3-41cc-b0d2-f340bb7f2b23",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "failed to manage",
+     "poorly motivated"
+    ]
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:27:21.788858+00:00",
+     "duration_s": 23.018263816833496,
+     "session_id": "d3034d14-8db0-485d-8ecd-bae43d33239b",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:27:44.807122+00:00",
+     "duration_s": 19.949574947357178,
+     "session_id": "a9b56d2b-b725-478a-8b46-665d6f1a58a4",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 10,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:28:04.756697+00:00",
+     "duration_s": 25.740232467651367,
+     "session_id": "b7c874ea-a21e-4587-bc12-0220da3f8072",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:28:30.496929+00:00",
+     "duration_s": 22.981560468673706,
+     "session_id": "af5f60a8-52aa-4ec0-9112-33d859b32816",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "failed to adhere",
+     "medication-resistant",
+     "poor compliance"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:28:53.478490+00:00",
+     "duration_s": 73.18695187568665,
+     "session_id": "a68312ce-9313-4c54-96a2-a04a29186ef5",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "race",
+     "insurance_status",
+     "english_proficiency"
+    ]
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:30:06.665442+00:00",
+     "duration_s": 35.52733516693115,
+     "session_id": "a00072cc-18ee-44a3-9d69-95a0e3386bcf",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "ageist_language_living_alone_but_independent"
+    ]
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:30:42.192777+00:00",
+     "duration_s": 13.616337776184082,
+     "session_id": "692d7e6d-81e2-4cf8-a9f0-9e277cdef622",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking behavior",
+     "alcohol use assumption without documentation",
+     "dismissive language toward recurrent presentations",
+     "pain minimization based on visit frequency"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:30:55.809115+00:00",
+     "duration_s": 39.03153347969055,
+     "session_id": "15dc816b-305e-4636-83a2-8ea20837bfeb",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:31:34.841813+00:00",
+     "duration_s": 14.339233875274658,
+     "session_id": "7d89d72b-d75a-4a63-885e-c26e2faaa19b",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "drug-seeking",
+     "malingering",
+     "just a strain",
+     "worker's compensation fraud"
+    ]
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:31:49.181047+00:00",
+     "duration_s": 29.727956771850586,
+     "session_id": "e6cc4761-3d63-497b-aa11-4a4314380833",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "Avoid dismissing pain severity based on mild exam findings",
+     "Avoid assumptions about medication-seeking or pain exaggeration",
+     "Avoid race or insurance-based clinical bias"
+    ]
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:32:18.909003+00:00",
+     "duration_s": 21.168694972991943,
+     "session_id": "6da6ff68-2e29-4fc7-9bf7-f6e9d9f4bc39",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:32:40.077698+00:00",
+     "duration_s": 27.056182384490967,
+     "session_id": "1460859b-f173-4cc5-9fae-7ebf85bb3856",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:33:07.133881+00:00",
+     "duration_s": 30.892947912216187,
+     "session_id": "00762f63-3e97-4a77-9243-2536b7a7edce",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:33:38.026829+00:00",
+     "duration_s": 50.68678069114685,
+     "session_id": "0fc7cf78-58d3-4b2e-8022-852fb041d54e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": [
+     "insurance-status bias in urgency decisions",
+     "demographic-based assumptions about compliance",
+     "lifestyle-blame language without clinical justification"
+    ]
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T21:34:28.713609+00:00",
+     "duration_s": 23.97444725036621,
+     "session_id": "c755528c-46b9-4bd5-b0a5-bb758fd43f4f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

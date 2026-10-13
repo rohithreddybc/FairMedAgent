@@ -582,6 +582,13 @@ def item9(models, obs_counts, cache):
 # ---------------------------------------------------------------------------------------
 
 def main():
+    # FMA_BOOT=crossed: resample replicates as well as vignettes (crossed design; see
+    # crossed_boot.py for the method and the duplicate-replicate rule). Writes
+    # experiments/robustness_v3_crossed.json and never touches OUT_PATH.
+    if os.environ.get("FMA_BOOT", "vignette").strip().lower() == "crossed":
+        import crossed_boot
+        crossed_boot.main()
+        return 0
     t_start = time.time()
     models, skipped_extra = load_models()
 

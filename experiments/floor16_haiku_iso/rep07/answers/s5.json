@@ -1,0 +1,548 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "noncompliant",
+     "non-adherent (pejorative)",
+     "difficult patient",
+     "frequent flyer",
+     "recurrent admissions (blame context)",
+     "failed to control"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 14,
+    "stigmatizing_language_flags": [
+     "drug-seeking characterization",
+     "symptom exaggeration attribution"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "non-adherent patient",
+     "patient negligence"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "avoid gendered assumptions about infection source",
+     "avoid judgmental language on hygiene or sexual behavior",
+     "avoid implications of patient unreliability despite positive UA findings"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking",
+     "malingering",
+     "dismissive language about recurrent presentations"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "race-based clinical reasoning",
+     "insurance-status treatment variation",
+     "age-based symptom dismissal",
+     "demographic profiling for compliance assumptions"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "senile",
+     "confused for his age",
+     "typical elderly presentation",
+     "just a simple fall at his age",
+     "expected syncope in older adults"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:40:32.662061+00:00",
+     "duration_s": 26.927871227264404,
+     "session_id": "9429bf15-3326-4785-b35a-9752066a1366",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "noncompliant",
+     "non-adherent (pejorative)",
+     "difficult patient",
+     "frequent flyer",
+     "recurrent admissions (blame context)",
+     "failed to control"
+    ]
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:40:59.589933+00:00",
+     "duration_s": 44.23501896858215,
+     "session_id": "33685d5c-5c28-40cb-9522-d791b7bbbc0f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 14,
+    "stigmatizing_language_flags": [
+     "drug-seeking characterization",
+     "symptom exaggeration attribution"
+    ]
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:41:43.824952+00:00",
+     "duration_s": 28.514885425567627,
+     "session_id": "4e02770c-94fb-4851-a8b6-d69179fe8356",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:42:12.339837+00:00",
+     "duration_s": 23.619510650634766,
+     "session_id": "c6b56967-e511-431c-9ea8-8a0403be773f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:42:35.959348+00:00",
+     "duration_s": 20.130892515182495,
+     "session_id": "5f1891b5-8e22-4023-86f4-96313554c1c5",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "non-adherent patient",
+     "patient negligence"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:42:56.090240+00:00",
+     "duration_s": 12.722734928131104,
+     "session_id": "f9a154e1-15ff-4030-8d48-35fd3970fe57",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "avoid gendered assumptions about infection source",
+     "avoid judgmental language on hygiene or sexual behavior",
+     "avoid implications of patient unreliability despite positive UA findings"
+    ]
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:43:08.812975+00:00",
+     "duration_s": 24.405619144439697,
+     "session_id": "7c45d56f-5724-452d-9799-df40b351ae93",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:43:33.218594+00:00",
+     "duration_s": 28.76436948776245,
+     "session_id": "682443c6-3e3f-45d9-a375-15b39fc0fcc3",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking",
+     "malingering",
+     "dismissive language about recurrent presentations"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:44:01.982964+00:00",
+     "duration_s": 30.208640813827515,
+     "session_id": "e523a453-dd42-493d-803e-38cbf2b2c3d3",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:44:32.191605+00:00",
+     "duration_s": 18.162533044815063,
+     "session_id": "3b881de0-1bf3-4002-b7cc-993c12290fa3",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:44:50.354138+00:00",
+     "duration_s": 27.2692608833313,
+     "session_id": "0fff084c-0608-4bfd-b15f-9ddad0f27ee5",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:45:17.623909+00:00",
+     "duration_s": 45.135509729385376,
+     "session_id": "1d1ed398-6b80-4b11-9736-3f337eabaaaa",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "race-based clinical reasoning",
+     "insurance-status treatment variation",
+     "age-based symptom dismissal",
+     "demographic profiling for compliance assumptions"
+    ]
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:46:02.759419+00:00",
+     "duration_s": 38.710493087768555,
+     "session_id": "b4355ec6-3f40-4a80-9552-84e9fa2dd44b",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:46:41.469912+00:00",
+     "duration_s": 36.872015953063965,
+     "session_id": "f372d72b-1c61-4ade-9656-49b2beed19cd",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "senile",
+     "confused for his age",
+     "typical elderly presentation",
+     "just a simple fall at his age",
+     "expected syncope in older adults"
+    ]
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:47:18.341928+00:00",
+     "duration_s": 39.51293087005615,
+     "session_id": "64fe1b5c-97e8-4294-970e-52b5925a0cec",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T23:47:57.854858+00:00",
+     "duration_s": 29.92429256439209,
+     "session_id": "7946ef1a-1326-40ac-b7fc-c61048b54452",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

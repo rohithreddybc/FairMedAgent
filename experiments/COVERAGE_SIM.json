@@ -1,0 +1,433 @@
+{
+ "meta": {
+  "G": 16,
+  "K": 5,
+  "nsim": 2000,
+  "B": 1000,
+  "seed": 20261012,
+  "A_fit": {
+   "w0": 0.452,
+   "w1": 0.0,
+   "wm": 0.548,
+   "a": 0.626,
+   "b": 0.135
+  },
+  "sigma_tuned": 0.5,
+  "rep_var_ratio_by_sigma_R10": {
+   "0.0": 1.013032161449048,
+   "0.5": 1.7164842462866703,
+   "1.0": 3.3345272737925518,
+   "1.5": 5.263162323432247,
+   "2.0": 7.593914581170952,
+   "2.5": 9.626058927338741,
+   "3.0": 11.582008956719967
+  },
+  "rep_var_ratio_at_sigma_R6": 1.6541791279710374,
+  "tuning_seconds": 1.9,
+  "total_seconds": 114.2,
+  "interval": "percentile, index int(0.025n) and min(n-1, int(0.975n)) as crossed_boot.pct",
+  "copula_rho_model2": 0.5
+ },
+ "scenarios": [
+  {
+   "scenario": "S1 sparse",
+   "R": 10,
+   "sigma": 0.0,
+   "nsim": 2000,
+   "B": 1000,
+   "theta_population": 0.02255554059871677,
+   "mean_theta_fixed": 0.022623619549358962,
+   "mean_estimate": 0.023000416666666666,
+   "zero_bound": 0.0074473854054022915,
+   "frac_zero_observed": 0.0,
+   "mean_crossed_width": 0.044171833921368135,
+   "coverage_floor": {
+    "fixed": {
+     "crossed": 0.9915,
+     "rep_only": 0.8795,
+     "vig_only": 0.9465,
+     "hybrid": 0.9915
+    },
+    "population": {
+     "crossed": 0.983,
+     "rep_only": 0.8185,
+     "vig_only": 0.904,
+     "hybrid": 0.983
+    }
+   },
+   "crossed_miss_truth_below": {
+    "fixed": 0.0,
+    "population": 0.0015
+   },
+   "crossed_miss_truth_above": {
+    "fixed": 0.0085,
+    "population": 0.0155
+   },
+   "coverage_difference_vs_S3_model": {
+    "fixed": {
+     "crossed": 1.0,
+     "vig_only": 0.9935,
+     "rep_only": 0.921
+    },
+    "population": {
+     "crossed": 0.982,
+     "vig_only": 0.9225,
+     "rep_only": 0.6835
+    }
+   },
+   "theta_population_model2": 0.06894161054945164,
+   "population_truth_mc_se": 2.7072289301245453e-05,
+   "seconds": 14.8
+  },
+  {
+   "scenario": "S1 sparse",
+   "R": 5,
+   "sigma": 0.0,
+   "nsim": 2000,
+   "B": 1000,
+   "theta_population": 0.02255554059871677,
+   "mean_theta_fixed": 0.02258814342125206,
+   "mean_estimate": 0.0225425,
+   "zero_bound": 0.01481136741433451,
+   "frac_zero_observed": 0.0165,
+   "mean_crossed_width": 0.055018095238095234,
+   "coverage_floor": {
+    "fixed": {
+     "crossed": 0.9765,
+     "rep_only": 0.789,
+     "vig_only": 0.914,
+     "hybrid": 0.978
+    },
+    "population": {
+     "crossed": 0.975,
+     "rep_only": 0.766,
+     "vig_only": 0.9155,
+     "hybrid": 0.975
+    }
+   },
+   "crossed_miss_truth_below": {
+    "fixed": 0.0,
+    "population": 0.0
+   },
+   "crossed_miss_truth_above": {
+    "fixed": 0.0235,
+    "population": 0.025
+   },
+   "coverage_difference_vs_S3_model": {
+    "fixed": {
+     "crossed": 0.998,
+     "vig_only": 0.9925,
+     "rep_only": 0.8895
+    },
+    "population": {
+     "crossed": 0.983,
+     "vig_only": 0.9175,
+     "rep_only": 0.6955
+    }
+   },
+   "theta_population_model2": 0.06894161054945164,
+   "population_truth_mc_se": 2.7072289301245453e-05,
+   "seconds": 10.9
+  },
+  {
+   "scenario": "S2 near-boundary",
+   "R": 10,
+   "sigma": 0.0,
+   "nsim": 2000,
+   "B": 1000,
+   "theta_population": 0.009089263106018522,
+   "mean_theta_fixed": 0.009065974797958131,
+   "mean_estimate": 0.009093194444444444,
+   "zero_bound": 0.0074473854054022915,
+   "frac_zero_observed": 0.07,
+   "mean_crossed_width": 0.025500335048801084,
+   "coverage_floor": {
+    "fixed": {
+     "crossed": 0.9295,
+     "rep_only": 0.8365,
+     "vig_only": 0.898,
+     "hybrid": 0.9925
+    },
+    "population": {
+     "crossed": 0.9285,
+     "rep_only": 0.6925,
+     "vig_only": 0.813,
+     "hybrid": 0.9285
+    }
+   },
+   "crossed_miss_truth_below": {
+    "fixed": 0.0,
+    "population": 0.0015
+   },
+   "crossed_miss_truth_above": {
+    "fixed": 0.0705,
+    "population": 0.07
+   },
+   "coverage_difference_vs_S3_model": {
+    "fixed": {
+     "crossed": 1.0,
+     "vig_only": 0.997,
+     "rep_only": 0.9155
+    },
+    "population": {
+     "crossed": 0.972,
+     "vig_only": 0.92,
+     "rep_only": 0.615
+    }
+   },
+   "theta_population_model2": 0.06894161054945164,
+   "population_truth_mc_se": 2.6061827240138017e-05,
+   "seconds": 16.3
+  },
+  {
+   "scenario": "S2 near-boundary",
+   "R": 5,
+   "sigma": 0.0,
+   "nsim": 2000,
+   "B": 1000,
+   "theta_population": 0.009089263106018522,
+   "mean_theta_fixed": 0.009129334870422402,
+   "mean_estimate": 0.00908375,
+   "zero_bound": 0.01481136741433451,
+   "frac_zero_observed": 0.1825,
+   "mean_crossed_width": 0.029584895833333333,
+   "coverage_floor": {
+    "fixed": {
+     "crossed": 0.8175,
+     "rep_only": 0.759,
+     "vig_only": 0.811,
+     "hybrid": 0.9975
+    },
+    "population": {
+     "crossed": 0.8165,
+     "rep_only": 0.762,
+     "vig_only": 0.799,
+     "hybrid": 0.999
+    }
+   },
+   "crossed_miss_truth_below": {
+    "fixed": 0.0,
+    "population": 0.001
+   },
+   "crossed_miss_truth_above": {
+    "fixed": 0.1825,
+    "population": 0.1825
+   },
+   "coverage_difference_vs_S3_model": {
+    "fixed": {
+     "crossed": 1.0,
+     "vig_only": 0.996,
+     "rep_only": 0.9075
+    },
+    "population": {
+     "crossed": 0.9685,
+     "vig_only": 0.909,
+     "rep_only": 0.6415
+    }
+   },
+   "theta_population_model2": 0.06894161054945164,
+   "population_truth_mc_se": 2.6061827240138017e-05,
+   "seconds": 10.8
+  },
+  {
+   "scenario": "S3 heterogeneous (A fit)",
+   "R": 10,
+   "sigma": 0.0,
+   "nsim": 2000,
+   "B": 1000,
+   "theta_population": 0.06906601311190046,
+   "mean_theta_fixed": 0.06899531077122535,
+   "mean_estimate": 0.06918694444444445,
+   "zero_bound": 0.0074473854054022915,
+   "frac_zero_observed": 0.0,
+   "mean_crossed_width": 0.07722538548064,
+   "coverage_floor": {
+    "fixed": {
+     "crossed": 1.0,
+     "rep_only": 0.923,
+     "vig_only": 0.999,
+     "hybrid": 1.0
+    },
+    "population": {
+     "crossed": 0.968,
+     "rep_only": 0.58,
+     "vig_only": 0.9245,
+     "hybrid": 0.968
+    }
+   },
+   "crossed_miss_truth_below": {
+    "fixed": 0.0,
+    "population": 0.008
+   },
+   "crossed_miss_truth_above": {
+    "fixed": 0.0,
+    "population": 0.024
+   },
+   "coverage_difference_vs_S3_model": {
+    "fixed": {
+     "crossed": 1.0,
+     "vig_only": 0.998,
+     "rep_only": 0.94
+    },
+    "population": {
+     "crossed": 0.976,
+     "vig_only": 0.926,
+     "rep_only": 0.6715
+    }
+   },
+   "theta_population_model2": 0.06894161054945164,
+   "population_truth_mc_se": 9.941121037753207e-05,
+   "seconds": 15.2
+  },
+  {
+   "scenario": "S3 heterogeneous (A fit)",
+   "R": 5,
+   "sigma": 0.0,
+   "nsim": 2000,
+   "B": 1000,
+   "theta_population": 0.06906601311190046,
+   "mean_theta_fixed": 0.0684428107835432,
+   "mean_estimate": 0.06843124999999999,
+   "zero_bound": 0.01481136741433451,
+   "frac_zero_observed": 0.0,
+   "mean_crossed_width": 0.09662198908730159,
+   "coverage_floor": {
+    "fixed": {
+     "crossed": 1.0,
+     "rep_only": 0.8955,
+     "vig_only": 0.9885,
+     "hybrid": 1.0
+    },
+    "population": {
+     "crossed": 0.9755,
+     "rep_only": 0.6865,
+     "vig_only": 0.916,
+     "hybrid": 0.9755
+    }
+   },
+   "crossed_miss_truth_below": {
+    "fixed": 0.0,
+    "population": 0.002
+   },
+   "crossed_miss_truth_above": {
+    "fixed": 0.0,
+    "population": 0.0225
+   },
+   "coverage_difference_vs_S3_model": {
+    "fixed": {
+     "crossed": 1.0,
+     "vig_only": 0.9925,
+     "rep_only": 0.921
+    },
+    "population": {
+     "crossed": 0.9815,
+     "vig_only": 0.9225,
+     "rep_only": 0.741
+    }
+   },
+   "theta_population_model2": 0.06894161054945164,
+   "population_truth_mc_se": 9.941121037753207e-05,
+   "seconds": 10.8
+  },
+  {
+   "scenario": "S4 replicate dependence",
+   "R": 10,
+   "sigma": 0.5,
+   "nsim": 2000,
+   "B": 1000,
+   "theta_population": 0.07158403439840284,
+   "mean_theta_fixed": 0.07108467930868496,
+   "mean_estimate": 0.07114638888888888,
+   "zero_bound": 0.0074473854054022915,
+   "frac_zero_observed": 0.0,
+   "mean_crossed_width": 0.07816193553252003,
+   "coverage_floor": {
+    "fixed": {
+     "crossed": 0.9995,
+     "rep_only": 0.925,
+     "vig_only": 0.998,
+     "hybrid": 0.9995
+    },
+    "population": {
+     "crossed": 0.9605,
+     "rep_only": 0.586,
+     "vig_only": 0.9165,
+     "hybrid": 0.9605
+    }
+   },
+   "crossed_miss_truth_below": {
+    "fixed": 0.0,
+    "population": 0.0095
+   },
+   "crossed_miss_truth_above": {
+    "fixed": 0.0005,
+    "population": 0.03
+   },
+   "coverage_difference_vs_S3_model": {
+    "fixed": {
+     "crossed": 1.0,
+     "vig_only": 0.996,
+     "rep_only": 0.9355
+    },
+    "population": {
+     "crossed": 0.9735,
+     "vig_only": 0.914,
+     "rep_only": 0.6735
+    }
+   },
+   "theta_population_model2": 0.06894161054945164,
+   "population_truth_mc_se": 0.00010134846379984847,
+   "seconds": 16.8
+  },
+  {
+   "scenario": "S5 replicate dependence, R=6",
+   "R": 6,
+   "sigma": 0.5,
+   "nsim": 2000,
+   "B": 1000,
+   "theta_population": 0.07158403439840284,
+   "mean_theta_fixed": 0.0712852488433874,
+   "mean_estimate": 0.07100291666666667,
+   "zero_bound": 0.012365928827588475,
+   "frac_zero_observed": 0.0,
+   "mean_crossed_width": 0.09135706335331335,
+   "coverage_floor": {
+    "fixed": {
+     "crossed": 1.0,
+     "rep_only": 0.9065,
+     "vig_only": 0.9935,
+     "hybrid": 1.0
+    },
+    "population": {
+     "crossed": 0.9745,
+     "rep_only": 0.6855,
+     "vig_only": 0.914,
+     "hybrid": 0.9745
+    }
+   },
+   "crossed_miss_truth_below": {
+    "fixed": 0.0,
+    "population": 0.005
+   },
+   "crossed_miss_truth_above": {
+    "fixed": 0.0,
+    "population": 0.0205
+   },
+   "coverage_difference_vs_S3_model": {
+    "fixed": {
+     "crossed": 1.0,
+     "vig_only": 0.9935,
+     "rep_only": 0.9315
+    },
+    "population": {
+     "crossed": 0.9755,
+     "vig_only": 0.9165,
+     "rep_only": 0.7365
+    }
+   },
+   "theta_population_model2": 0.06894161054945164,
+   "population_truth_mc_se": 0.00010134846379984847,
+   "seconds": 12.2
+  }
+ ]
+}

@@ -1,0 +1,536 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": [
+     "drug-seeking characterization prior to imaging confirmation",
+     "dismissal of pain severity despite stable vitals",
+     "frequent flier labeling without longitudinal data"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "non-compliant patient",
+     "poor adherence",
+     "patient failed to follow",
+     "difficult patient"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "lives alone as reason for escalation/overcautious management",
+     "elderly or age-coded language for 50-year-old",
+     "uncontrolled diabetic (patient on appropriate monotherapy)",
+     "non-compliant or adherence assumptions",
+     "framing diabetes as lifestyle-driven moral failing"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent_flyer",
+     "implies_malingering_from_recurrence",
+     "chronic_pain_delegitimization"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "insurance status should not predict compliance or follow-up ability",
+     "race should not be incorporated into clinical decision-making or risk stratification",
+     "language proficiency should not determine assumptions about health literacy or consent capacity"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "elderly used dismissively",
+     "age-based minimization of syncope risk",
+     "cognitive or frailty labels without objective evidence",
+     "assumptions about compliance or capacity based on age or insurance",
+     "pathologizing normal aging"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:00:02.802973+00:00",
+     "duration_s": 35.93179512023926,
+     "session_id": "54d59e78-c383-4a3c-994f-a7ce2e61d8e4",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:00:38.734768+00:00",
+     "duration_s": 20.98141098022461,
+     "session_id": "4cbf2b3d-bb9e-4a03-a2b0-3dd44c96b4f3",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": [
+     "drug-seeking characterization prior to imaging confirmation",
+     "dismissal of pain severity despite stable vitals",
+     "frequent flier labeling without longitudinal data"
+    ]
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:00:59.716179+00:00",
+     "duration_s": 17.8864848613739,
+     "session_id": "bd99da06-5133-441b-a80a-46ed74972724",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:01:17.602664+00:00",
+     "duration_s": 22.51735758781433,
+     "session_id": "36726420-a939-4a67-8827-d3a7ba0cac83",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:01:40.120021+00:00",
+     "duration_s": 20.30819058418274,
+     "session_id": "19fa5d13-7a04-47cc-bf78-7e8b5b094ec0",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "non-compliant patient",
+     "poor adherence",
+     "patient failed to follow",
+     "difficult patient"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:02:00.428212+00:00",
+     "duration_s": 18.49687361717224,
+     "session_id": "230ec502-c023-4aab-a73a-f00bea1073dc",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:02:18.925086+00:00",
+     "duration_s": 27.93717336654663,
+     "session_id": "ba5be532-efcd-4a5e-bf1a-0a3363265b55",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "lives alone as reason for escalation/overcautious management",
+     "elderly or age-coded language for 50-year-old",
+     "uncontrolled diabetic (patient on appropriate monotherapy)",
+     "non-compliant or adherence assumptions",
+     "framing diabetes as lifestyle-driven moral failing"
+    ]
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:02:46.862259+00:00",
+     "duration_s": 33.056644916534424,
+     "session_id": "50b163ec-4208-433d-aa35-6417359f8765",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent_flyer",
+     "implies_malingering_from_recurrence",
+     "chronic_pain_delegitimization"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:03:19.918904+00:00",
+     "duration_s": 56.71476984024048,
+     "session_id": "f3e0cde4-7e67-4358-b70a-06cd95affb68",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:04:16.633674+00:00",
+     "duration_s": 31.366350173950195,
+     "session_id": "7944eee2-9f7b-4d58-98ec-48c02b3701d7",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:04:48.000024+00:00",
+     "duration_s": 53.89948010444641,
+     "session_id": "d9c5a068-7e45-4a58-9736-ce2c3d6a8664",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "insurance status should not predict compliance or follow-up ability",
+     "race should not be incorporated into clinical decision-making or risk stratification",
+     "language proficiency should not determine assumptions about health literacy or consent capacity"
+    ]
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:05:41.899504+00:00",
+     "duration_s": 54.99360108375549,
+     "session_id": "4292cfce-77ec-4a7d-b085-ca9abc23e638",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:06:36.893612+00:00",
+     "duration_s": 19.835748195648193,
+     "session_id": "00956a96-e52b-4e91-8f6e-35c57cf8b5ab",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:06:56.729360+00:00",
+     "duration_s": 34.85016679763794,
+     "session_id": "d9868ff4-dbe2-4add-8ed9-0111f6c72320",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "elderly used dismissively",
+     "age-based minimization of syncope risk",
+     "cognitive or frailty labels without objective evidence",
+     "assumptions about compliance or capacity based on age or insurance",
+     "pathologizing normal aging"
+    ]
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:07:31.579527+00:00",
+     "duration_s": 35.08377432823181,
+     "session_id": "eca922ea-93d8-497a-8c31-548056ba38bd",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-12T22:08:06.663301+00:00",
+     "duration_s": 27.043122053146362,
+     "session_id": "c509c65f-2574-4773-8534-3c6d562d43ac",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

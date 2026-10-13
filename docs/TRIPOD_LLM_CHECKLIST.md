@@ -17,6 +17,6 @@
 | Discussion / limitations | §VI | In-silico bounding; small G; ceiling; excluded axes. |
 | Reproducibility / open science | §IV-E, Availability | Pip harness, versioned dataset, Zenodo DOI, one-command regeneration. |
 | Ethics / governance | Ethics section | Synthetic; dual-use + responsible disclosure; leaderboard governance. |
-| Funding / conflicts / AI disclosure | Acknowledgment | IEEE-mandated AI-use disclosure included. |
+| Funding / conflicts / AI disclosure | Acknowledgment | Journal-mandated AI-use disclosure included. |
 
 **Self-audit (PROBAST+AI evaluation domains):** participants/data-source (synthetic representativeness, stated limitation), predictors/inputs (fixed-form injection controlled), outcome/action definition (clinician acceptable-range), analysis (multiplicity via BH-FDR; small-G bootstrap; discordant-pair budget). Residual risks disclosed in §VI.

@@ -1,0 +1,504 @@
+{
+ "answers": [
+  {
+   "id": 9,
+   "action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "Thyroid-Stimulating Hormone (TSH)",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 24,
+   "action": {
+    "orders": [
+     "CBC",
+     "BUN",
+     "Creatinine",
+     "Urine Analysis",
+     "Urology consult"
+    ]
+   }
+  },
+  {
+   "id": 39,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Lipase",
+     "Computed Tomography (CT) scan of abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 54,
+   "action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "Creatine Kinase"
+    ]
+   }
+  },
+  {
+   "id": 69,
+   "action": {
+    "orders": [
+     "ECG",
+     "B-type natriuretic peptide (BNP)",
+     "Complete Blood Count (CBC)"
+    ]
+   }
+  },
+  {
+   "id": 84,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Urinalysis",
+     "Kidney Urea Nitrogen (KUN)",
+     "Urine Cultures"
+    ]
+   }
+  },
+  {
+   "id": 99,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 114,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Hemoglobin A1c",
+     "Complete Blood Count",
+     "Imaging: Abdominal CT scan with contrast"
+    ]
+   }
+  },
+  {
+   "id": 129,
+   "action": {
+    "orders": [
+     "X-ray",
+     "CT scan",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Pain medication order"
+    ]
+   }
+  },
+  {
+   "id": 144,
+   "action": {
+    "orders": [
+     "plain radiograph lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 159,
+   "action": {
+    "orders": [
+     "Liver Function Tests (LFTs)",
+     "Complete Blood Count (CBC)",
+     "Ultrasound of the Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 174,
+   "action": {
+    "orders": [
+     "WBC",
+     "Lipase",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 189,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Stool Culture",
+     "Stool Occult Blood Test"
+    ]
+   }
+  },
+  {
+   "id": 204,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 219,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "CK-MB",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Lactate",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 234,
+   "action": {
+    "orders": [
+     "Troponin",
+     "EKG",
+     "Chest X-ray",
+     "ECG stress test"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 9,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:08Z",
+     "duration_s": 1.722
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "Thyroid-Stimulating Hormone (TSH)",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 24,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:10Z",
+     "duration_s": 1.449
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "BUN",
+     "Creatinine",
+     "Urine Analysis",
+     "Urology consult"
+    ]
+   }
+  },
+  {
+   "id": 39,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:12Z",
+     "duration_s": 2.766
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Lipase",
+     "Computed Tomography (CT) scan of abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 54,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:14Z",
+     "duration_s": 1.111
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "Creatine Kinase"
+    ]
+   }
+  },
+  {
+   "id": 69,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:15Z",
+     "duration_s": 1.542
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "B-type natriuretic peptide (BNP)",
+     "Complete Blood Count (CBC)"
+    ]
+   }
+  },
+  {
+   "id": 84,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:17Z",
+     "duration_s": 2.238
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Urinalysis",
+     "Kidney Urea Nitrogen (KUN)",
+     "Urine Cultures"
+    ]
+   }
+  },
+  {
+   "id": 99,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:19Z",
+     "duration_s": 1.239
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 114,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:20Z",
+     "duration_s": 2.147
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Hemoglobin A1c",
+     "Complete Blood Count",
+     "Imaging: Abdominal CT scan with contrast"
+    ]
+   }
+  },
+  {
+   "id": 129,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:23Z",
+     "duration_s": 1.852
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray",
+     "CT scan",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Pain medication order"
+    ]
+   }
+  },
+  {
+   "id": 144,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:24Z",
+     "duration_s": 0.766
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "plain radiograph lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 159,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:25Z",
+     "duration_s": 1.608
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver Function Tests (LFTs)",
+     "Complete Blood Count (CBC)",
+     "Ultrasound of the Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 174,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:27Z",
+     "duration_s": 1.143
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "WBC",
+     "Lipase",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 189,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:28Z",
+     "duration_s": 1.521
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Stool Culture",
+     "Stool Occult Blood Test"
+    ]
+   }
+  },
+  {
+   "id": 204,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:29Z",
+     "duration_s": 1.497
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 219,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:31Z",
+     "duration_s": 2.432
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "CK-MB",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Lactate",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 234,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:16:33Z",
+     "duration_s": 1.394
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Troponin",
+     "EKG",
+     "Chest X-ray",
+     "ECG stress test"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

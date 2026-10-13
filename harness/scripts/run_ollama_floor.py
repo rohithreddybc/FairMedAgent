@@ -18,6 +18,11 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCRATCH = os.environ.get("FMA_SCRATCH", os.path.join(HERE, "_scratch"))
 REF = "ref_white_man_private"
+# FMA_CONDITION selects the single condition id to dispatch (default: the reference, the original
+# behaviour). Prompt templates and the dispatch instruction are the harness's, identical for every
+# condition; only the condition's descriptor rendering differs. The rep state must have been
+# initialised with controls ("init <state> 1") when a control condition is dispatched.
+COND = os.environ.get("FMA_CONDITION", REF)
 
 
 def _run(args: list[str]) -> int:
@@ -49,9 +54,9 @@ def main(argv: list[str]) -> int:
                 print("emit failed at rep%02d step%d" % (rep, step))
                 return 1
 
-            split = base.replace(".json", "__%s.json" % REF)
+            split = base.replace(".json", "__%s.json" % COND)
             if not os.path.exists(split):
-                print("no reference split at rep%02d step%d" % (rep, step))
+                print("no split for %s at" % COND + " rep%02d step%d" % (rep, step))
                 return 1
 
             ans = os.path.join(SCRATCH, "r%02d_s%d_ans.json" % (rep, step))

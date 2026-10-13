@@ -1,0 +1,508 @@
+{
+ "answers": [
+  {
+   "id": 2,
+   "action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "Kidney Function Tests",
+     "C-reactive protein",
+     "Erythrocyte Sedimentation Rate"
+    ]
+   }
+  },
+  {
+   "id": 17,
+   "action": {
+    "orders": [
+     "CT abdomen/pelvis",
+     "U/A",
+     "UA",
+     "Urinalysis",
+     "Blood chem 24",
+     "KUB",
+     "Urinary catheter"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "White blood cell count",
+     "Blood cultures",
+     "Lipase",
+     "CT abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 47,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "B-type Natriuretic Peptide",
+     "Complete Blood Count"
+    ]
+   }
+  },
+  {
+   "id": 62,
+   "action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Creatinine",
+     "Electrolytes",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 77,
+   "action": {
+    "orders": [
+     "Urine culture",
+     "Complete Blood Count"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "complete blood count (CBC)",
+     "blood culture",
+     "C-reactive protein (CRP) test"
+    ]
+   }
+  },
+  {
+   "id": 107,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Lipase",
+     "CT Abdomen with Pancreatic Protocol"
+    ]
+   }
+  },
+  {
+   "id": 122,
+   "action": {
+    "orders": [
+     "STAT CBC",
+     "STAT PT/INR",
+     "STAT Lactic Acid",
+     "STAT Imaging: Pelvic CT with Femur Series"
+    ]
+   }
+  },
+  {
+   "id": 137,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Electromyogram (EMG)",
+     "X-Ray Lumber Spine"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Liver Function Tests (LFTs)",
+     "Imaging: Abdominal CT scan"
+    ]
+   }
+  },
+  {
+   "id": 167,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Urinalysis",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 182,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 197,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 212,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid panel",
+     "Complete Blood Count (CBC)",
+     "Electrolytes",
+     "B-Type Natriuretic Peptide (BNP)",
+     "CT Angiogram of the chest and upper abdomen"
+    ]
+   }
+  },
+  {
+   "id": 227,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Electrolyte panel",
+     "Lipid Profile",
+     "Chest X-ray"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 2,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:08Z",
+     "duration_s": 1.92
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "Kidney Function Tests",
+     "C-reactive protein",
+     "Erythrocyte Sedimentation Rate"
+    ]
+   }
+  },
+  {
+   "id": 17,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:10Z",
+     "duration_s": 2.082
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT abdomen/pelvis",
+     "U/A",
+     "UA",
+     "Urinalysis",
+     "Blood chem 24",
+     "KUB",
+     "Urinary catheter"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:12Z",
+     "duration_s": 1.449
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "White blood cell count",
+     "Blood cultures",
+     "Lipase",
+     "CT abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 47,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:13Z",
+     "duration_s": 1.542
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "B-type Natriuretic Peptide",
+     "Complete Blood Count"
+    ]
+   }
+  },
+  {
+   "id": 62,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:15Z",
+     "duration_s": 1.851
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Creatinine",
+     "Electrolytes",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 77,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:17Z",
+     "duration_s": 0.881
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urine culture",
+     "Complete Blood Count"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:18Z",
+     "duration_s": 1.605
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "complete blood count (CBC)",
+     "blood culture",
+     "C-reactive protein (CRP) test"
+    ]
+   }
+  },
+  {
+   "id": 107,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:19Z",
+     "duration_s": 1.471
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Lipase",
+     "CT Abdomen with Pancreatic Protocol"
+    ]
+   }
+  },
+  {
+   "id": 122,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:21Z",
+     "duration_s": 1.783
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "STAT CBC",
+     "STAT PT/INR",
+     "STAT Lactic Acid",
+     "STAT Imaging: Pelvic CT with Femur Series"
+    ]
+   }
+  },
+  {
+   "id": 137,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:23Z",
+     "duration_s": 1.628
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Electromyogram (EMG)",
+     "X-Ray Lumber Spine"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:24Z",
+     "duration_s": 1.648
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Liver Function Tests (LFTs)",
+     "Imaging: Abdominal CT scan"
+    ]
+   }
+  },
+  {
+   "id": 167,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:26Z",
+     "duration_s": 1.326
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Urinalysis",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 182,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:27Z",
+     "duration_s": 1.074
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 197,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:28Z",
+     "duration_s": 1.118
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 212,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:29Z",
+     "duration_s": 3.01
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid panel",
+     "Complete Blood Count (CBC)",
+     "Electrolytes",
+     "B-Type Natriuretic Peptide (BNP)",
+     "CT Angiogram of the chest and upper abdomen"
+    ]
+   }
+  },
+  {
+   "id": 227,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:08:32Z",
+     "duration_s": 1.837
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Electrolyte panel",
+     "Lipid Profile",
+     "Chest X-ray"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

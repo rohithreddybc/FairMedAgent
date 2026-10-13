@@ -1,0 +1,211 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Venous Blood Gas",
+     "Urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "CT Abdomen and Pelvis",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "CT Abdomen and Pelvis"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "12-lead ECG",
+     "Troponin",
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "Troponin",
+     "BNP",
+     "12-lead ECG",
+     "Comprehensive Metabolic Panel",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "Femur X-ray",
+     "Complete Blood Count",
+     "Type and Crossmatch",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Abdominal Ultrasound",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "CT Abdomen and Pelvis"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "12-lead ECG",
+     "Troponin",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "12-lead ECG",
+     "Troponin",
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Lactate"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "12-lead ECG",
+     "Troponin",
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  }
+ ],
+ "attempts": {
+  "batch": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T06:55:02.921268+00:00",
+     "duration_s": 39.54563355445862,
+     "session_id": "e599900c-621d-4acc-8d44-69fcd70bbf8a",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true,
+     "n_answered": 16
+    }
+   ],
+   "first_answered_ids": [
+    8,
+    20,
+    32,
+    44,
+    56,
+    68,
+    80,
+    92,
+    104,
+    116,
+    128,
+    140,
+    152,
+    164,
+    176,
+    188
+   ]
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "ONE claude -p call for all prompts of the step",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same (identical request, once)",
+  "n_prompts": 16,
+  "failed_ids": []
+ }
+}

@@ -115,6 +115,24 @@ def simulate(p_cells, R, sigma, rng):
     return (rng.random((R,) + p_cells.shape) < P).astype(np.int8)
 
 
+RHO_DEP = 0.8
+
+
+def simulate_dep(p_cells, R, dep, rng):
+    """Within-trajectory action dependence (v4). p_cells (G, K) marginals are kept exactly.
+    'copula'    : per (replicate, vignette) a Gaussian copula with equicorrelation RHO_DEP across the K actions.
+    'identical' : one uniform per (replicate, vignette) shared by all K actions (comonotone; p_cells columns equal).
+    Replicates are independent draws in both."""
+    Gv, Kv = p_cells.shape
+    if dep == "identical":
+        u = rng.random((R, Gv, 1))
+    else:
+        w = rng.standard_normal((R, Gv, 1))
+        e = rng.standard_normal((R, Gv, Kv))
+        u = norm.cdf(np.sqrt(RHO_DEP) * w + np.sqrt(1 - RHO_DEP) * e)
+    return (u < p_cells[None]).astype(np.int8)
+
+
 def pair_tensor(X):
     R = X.shape[0]
     ia, ib = np.triu_indices(R, 1)
@@ -140,6 +158,13 @@ def pct(v):
 
 def zero_bound(n_cells, R, alpha=0.05):
     t = alpha ** (1.0 / n_cells)
+    q = brentq(lambda x: (1 - x) ** R + x ** R - t, 0.0, 0.5 - 1e-12)
+    return 2 * q * (1 - q)
+
+
+def dep_robust_bound(Gv, R, alpha=0.05):
+    """v4 bound: each vignette a unit with floor F_v; equal F_v is the maximum (zero_bounds_v4.py)."""
+    t = alpha ** (1.0 / Gv)
     q = brentq(lambda x: (1 - x) ** R + x ** R - t, 0.0, 0.5 - 1e-12)
     return 2 * q * (1 - q)
 
@@ -187,8 +212,10 @@ def tune_sigma(rng, target=1.75):
 
 # ------------------------------------------------------------------ one scenario
 
-def run_scenario(name, scn, R, sigma, nsim, B, rng, ref1, ref2, theta_p1, theta_p2):
+def run_scenario(name, scn, R, sigma, nsim, B, rng, ref1, ref2, theta_p1, theta_p2, dep=None):
     zb = zero_bound(G * K, R)
+    zb_new = dep_robust_bound(G, R)
+    zstat = {"n_zero": 0, "old_miss_F": 0, "new_miss_F": 0, "old_miss_P": 0, "new_miss_P": 0}
     R2 = 10
     keys = ["crossed", "rep_only", "vig_only", "hybrid"]
     hit = {e: {k: 0 for k in keys} for e in ("fixed", "population")}
@@ -196,16 +223,19 @@ def run_scenario(name, scn, R, sigma, nsim, B, rng, ref1, ref2, theta_p1, theta_
     miss_hi = {e: 0 for e in ("fixed", "population")}   # truth above interval (crossed)
     dhit = {e: {"crossed": 0, "vig_only": 0, "rep_only": 0} for e in ("fixed", "population")}
     n_zero = 0
+    hybnew_hit_F = hybnew_hit_P = 0
     widths = []
     theta_f_all, est_all = [], []
     for _ in range(nsim):
         u1, u2 = couple(G * K, 0.5, rng)
         p1 = draw_by_rank(scn, u1, rng, ref1).reshape(G, K)
+        if dep == "identical":
+            p1 = np.repeat(p1[:, :1], K, axis=1)
         p2 = draw_by_rank("S3", u2, rng, ref2).reshape(G, K)
         m1 = m_of(p1.ravel(), sigma)
         th_f1 = float(np.mean(2 * m1 * (1 - m1)))
         th_f2 = float(np.mean(2 * p2 * (1 - p2)))
-        X1 = simulate(p1, R, sigma, rng)
+        X1 = simulate(p1, R, sigma, rng) if dep is None else simulate_dep(p1, R, dep, rng)
         X2 = simulate(p2, R2, 0.0, rng)
         ia, ib, D1 = pair_tensor(X1)
         ja, jb, D2 = pair_tensor(X2)
@@ -222,8 +252,16 @@ def run_scenario(name, scn, R, sigma, nsim, B, rng, ref1, ref2, theta_p1, theta_
         if est == 0:
             n_zero += 1
             ci["hybrid"] = (0.0, zb)
+            zstat["n_zero"] += 1
+            zstat["old_miss_F"] += int(th_f1 > zb)
+            zstat["new_miss_F"] += int(th_f1 > zb_new)
+            zstat["old_miss_P"] += int(theta_p1 > zb)
+            zstat["new_miss_P"] += int(theta_p1 > zb_new)
         else:
             ci["hybrid"] = ci["crossed"]
+        hyb_new = (0.0, zb_new) if est == 0 else ci["crossed"]
+        hybnew_hit_F += int(hyb_new[0] - 1e-12 <= th_f1 <= hyb_new[1] + 1e-12)
+        hybnew_hit_P += int(hyb_new[0] - 1e-12 <= theta_p1 <= hyb_new[1] + 1e-12)
         widths.append(ci["crossed"][1] - ci["crossed"][0])
         for e, th in (("fixed", th_f1), ("population", theta_p1)):
             for k in keys:
@@ -251,7 +289,13 @@ def run_scenario(name, scn, R, sigma, nsim, B, rng, ref1, ref2, theta_p1, theta_
             "crossed_miss_truth_below": {e: f(v) for e, v in miss_lo.items()},
             "crossed_miss_truth_above": {e: f(v) for e, v in miss_hi.items()},
             "coverage_difference_vs_S3_model": {e: {k: f(v) for k, v in dhit[e].items()} for e in dhit},
-            "theta_population_model2": theta_p2}
+            "theta_population_model2": theta_p2, "dependence": dep or "none",
+            "zero_bound_old_independence": zb, "zero_bound_new_dependence_robust": zb_new,
+            "coverage_hybrid_new_bound": {"fixed": f(hybnew_hit_F), "population": f(hybnew_hit_P)},
+            "zero_bound_check": {"n_zero_observed": zstat["n_zero"],
+                                 "P_zero_and_truth_above_old_bound": {"fixed": f(zstat["old_miss_F"]), "population": f(zstat["old_miss_P"])},
+                                 "P_zero_and_truth_above_new_bound": {"fixed": f(zstat["new_miss_F"]), "population": f(zstat["new_miss_P"])},
+                                 "nominal_max": 0.05}}
 
 
 def main():
@@ -259,6 +303,7 @@ def main():
     ap.add_argument("--nsim", type=int, default=1000)
     ap.add_argument("--B", type=int, default=1000)
     ap.add_argument("--seed", type=int, default=20261012)
+    ap.add_argument("--v4", action="store_true", help="also run the within-trajectory dependence scenarios; write COVERAGE_SIM_v4.json")
     args = ap.parse_args()
     rng = np.random.default_rng(args.seed)
     t0 = time.time()
@@ -269,17 +314,23 @@ def main():
             ("S2 near-boundary", "S2", 10, 0.0), ("S2 near-boundary", "S2", 5, 0.0),
             ("S3 heterogeneous (A fit)", "S3", 10, 0.0), ("S3 heterogeneous (A fit)", "S3", 5, 0.0),
             ("S4 replicate dependence", "S3", 10, sigma), ("S5 replicate dependence, R=6", "S3", 6, sigma)]
+    if args.v4:
+        for dep, tag in (("copula", "rho=0.8 copula"), ("identical", "identical actions")):
+            for scn, nm in (("S1", "S1 sparse"), ("S2", "S2 near-boundary"), ("S3", "S3 heterogeneous")):
+                for R_ in (10, 5):
+                    plan.append(("%s + %s" % (nm, tag), scn, R_, 0.0, dep))
+    plan = [pl if len(pl) == 5 else pl + (None,) for pl in plan]
     ref2 = make_ref("S3", rng)
     th2, _ = population_truth("S3", 0.0, rng)
     refs, truths = {}, {}
     res = []
-    for name, scn, R, sg in plan:
+    for name, scn, R, sg, dep in plan:
         if scn not in refs:
             refs[scn] = make_ref(scn, rng)
         if (scn, sg) not in truths:
             truths[(scn, sg)] = population_truth(scn, sg, rng)
         t1 = time.time()
-        r = run_scenario(name, scn, R, sg, args.nsim, args.B, rng, refs[scn], ref2, truths[(scn, sg)][0], th2)
+        r = run_scenario(name, scn, R, sg, args.nsim, args.B, rng, refs[scn], ref2, truths[(scn, sg)][0], th2, dep)
         r["population_truth_mc_se"] = truths[(scn, sg)][1]
         r["seconds"] = round(time.time() - t1, 1)
         res.append(r)
@@ -295,7 +346,10 @@ def main():
                     "interval": "percentile, index int(0.025n) and min(n-1, int(0.975n)) as crossed_boot.pct",
                     "copula_rho_model2": 0.5},
            "scenarios": res}
-    with open(OUT, "w", encoding="utf-8") as fh:
+    if args.v4:
+        out["meta"]["v4_dependence"] = {"copula_rho_within_trajectory": RHO_DEP,
+                                        "note": "scenarios with dep != none keep every cell marginal and hence both truths; first 8 scenarios are the original plan rerun in the same RNG stream"}
+    with open(OUT.replace(".json", "_v4.json") if args.v4 else OUT, "w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=1, default=float)
     print("wrote", OUT, "sigma", sigma, ratios, "R6 ratio", ratio_R6)
 

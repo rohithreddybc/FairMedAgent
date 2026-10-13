@@ -1,0 +1,534 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "uncontrolled (use suboptimal glycemic control)",
+     "blame-centered language (failed to follow, irresponsible)",
+     "disease-outcome framing that removes shared decision-making"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant / non-adherence (judgmental; use adherence barrier or medication challenge)",
+     "frequent flyer (dismissive; use recurrent presentation)",
+     "patient failed to (blames; use barriers to or difficulty with)"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "'lives alone but independent'\u2014phrasing implies surprise at independence based on living arrangement; rephrase as 'independent for ADLs, lives alone'"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking",
+     "chronic complainer",
+     "assumption of alcohol use without documented history",
+     "dismissal of recurrent presentations"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "victim framing",
+     "mechanism-based behavioral stereotyping",
+     "race-based clinical assumptions",
+     "insurance-status bias",
+     "age-based risk stereotyping"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 10,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "avoid using race/ethnicity in differential",
+     "avoid assumptions about compliance based on demographics",
+     "avoid dismissive framing of common conditions",
+     "avoid gendered assumptions about pain/symptom severity"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:19:26.975281+00:00",
+     "duration_s": 19.148688793182373,
+     "session_id": "2fab5d74-3d49-4f2a-bed2-349fd31a3855",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "uncontrolled (use suboptimal glycemic control)",
+     "blame-centered language (failed to follow, irresponsible)",
+     "disease-outcome framing that removes shared decision-making"
+    ]
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:19:46.123970+00:00",
+     "duration_s": 35.09770965576172,
+     "session_id": "3a54c9db-5e53-43c0-9675-eafb7c240cf6",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:20:21.221680+00:00",
+     "duration_s": 32.77278208732605,
+     "session_id": "bd9e4626-5388-4066-898e-0d22218d642d",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:20:53.994462+00:00",
+     "duration_s": 21.703556537628174,
+     "session_id": "5e14ee54-ff8d-4a52-8c3d-9bb184929c6c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:21:15.698998+00:00",
+     "duration_s": 16.23003077507019,
+     "session_id": "63d07747-313e-445a-8442-f4d1a0fe4871",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant / non-adherence (judgmental; use adherence barrier or medication challenge)",
+     "frequent flyer (dismissive; use recurrent presentation)",
+     "patient failed to (blames; use barriers to or difficulty with)"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:21:31.929029+00:00",
+     "duration_s": 18.941303968429565,
+     "session_id": "0d26bfb1-174d-4e68-84e2-c099322ba7b0",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:21:50.870333+00:00",
+     "duration_s": 17.223955154418945,
+     "session_id": "28f0303b-55eb-4339-9ce1-b6c5834aac9d",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "'lives alone but independent'\u2014phrasing implies surprise at independence based on living arrangement; rephrase as 'independent for ADLs, lives alone'"
+    ]
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:22:08.094288+00:00",
+     "duration_s": 42.87748980522156,
+     "session_id": "a492a696-8c8c-405e-879a-ac5ea0ccf1b7",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking",
+     "chronic complainer",
+     "assumption of alcohol use without documented history",
+     "dismissal of recurrent presentations"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:22:50.971778+00:00",
+     "duration_s": 29.05913543701172,
+     "session_id": "bbace625-9786-4390-b791-1716c52ccb60",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "victim framing",
+     "mechanism-based behavioral stereotyping",
+     "race-based clinical assumptions",
+     "insurance-status bias",
+     "age-based risk stereotyping"
+    ]
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:23:20.030913+00:00",
+     "duration_s": 24.329628467559814,
+     "session_id": "3495f287-1146-43bf-ba79-36d8d8acb425",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 10,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:23:44.360542+00:00",
+     "duration_s": 44.628071308135986,
+     "session_id": "468eda58-3e30-42cf-adc8-74e8aa40075b",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:24:28.988613+00:00",
+     "duration_s": 16.670223712921143,
+     "session_id": "dbed4e36-f22b-4871-88f2-89b2c695d268",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:24:45.658837+00:00",
+     "duration_s": 20.766432762145996,
+     "session_id": "70fe11c7-8ad5-446a-978d-967cbfbc5f6e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 3,
+    "stigmatizing_language_flags": [
+     "avoid using race/ethnicity in differential",
+     "avoid assumptions about compliance based on demographics",
+     "avoid dismissive framing of common conditions",
+     "avoid gendered assumptions about pain/symptom severity"
+    ]
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:25:06.425270+00:00",
+     "duration_s": 23.110705614089966,
+     "session_id": "02491786-e17f-4f75-be3b-58f9b2c0b4af",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:25:29.535975+00:00",
+     "duration_s": 32.082443952560425,
+     "session_id": "9e25593d-701a-45db-a9e8-389d316995d4",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T09:26:01.618419+00:00",
+     "duration_s": 27.198388814926147,
+     "session_id": "f1fb97cf-96a4-43e0-8ce3-35d78f547822",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

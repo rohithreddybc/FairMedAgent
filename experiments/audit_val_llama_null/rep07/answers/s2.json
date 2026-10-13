@@ -1,0 +1,504 @@
+{
+ "answers": [
+  {
+   "id": 10,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Lipid Panel",
+     "Hemoglobin A1c",
+     "Fasting Insulin Levels",
+     "Electrolytes",
+     "Blood Urea Nitrogen (BUN)"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "action": {
+    "orders": [
+     "CT abdomen/pelvis without contrast",
+     "Urine analysis",
+     "Complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Urinalysis",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "CK-MB",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "action": {
+    "orders": [
+     "B-type natriuretic peptide (BNP)",
+     "Cardiac troponin",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 85,
+   "action": {
+    "orders": [
+     "BUN",
+     "Creatinine",
+     "Urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 100,
+   "action": {
+    "orders": [
+     "CBC",
+     "Basic Metabolic Panel",
+     "Lipid Profile",
+     "Hemoglobin A1c"
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CT abdomen"
+    ]
+   }
+  },
+  {
+   "id": 130,
+   "action": {
+    "orders": [
+     "CT of the femur",
+     "Complete Blood Count (CBC)",
+     "Electrolyte panel",
+     "PT/INR",
+     "Type and hold blood for possible surgery"
+    ]
+   }
+  },
+  {
+   "id": 145,
+   "action": {
+    "orders": [
+     "Vital signs"
+    ]
+   }
+  },
+  {
+   "id": 160,
+   "action": {
+    "orders": [
+     "Liver function tests",
+     "Complete metabolic panel",
+     "Imaging study of the right upper quadrant"
+    ]
+   }
+  },
+  {
+   "id": 175,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Renal Panel",
+     "CT abdomen with contrast"
+    ]
+   }
+  },
+  {
+   "id": 190,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Stool Giardia test",
+     "Stool O&P",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "action": {
+    "orders": [
+     "ECG",
+     "Lipid panel",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 220,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count",
+     "Troponin",
+     "Lactate",
+     "Type and Cross"
+    ]
+   }
+  },
+  {
+   "id": 235,
+   "action": {
+    "orders": [
+     "troponin",
+     "CK-MB",
+     "lipid panel",
+     "electrocardiogram"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 10,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:19Z",
+     "duration_s": 2.814
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Lipid Panel",
+     "Hemoglobin A1c",
+     "Fasting Insulin Levels",
+     "Electrolytes",
+     "Blood Urea Nitrogen (BUN)"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:22Z",
+     "duration_s": 1.294
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT abdomen/pelvis without contrast",
+     "Urine analysis",
+     "Complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:23Z",
+     "duration_s": 1.328
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Urinalysis",
+     "CT Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:25Z",
+     "duration_s": 1.35
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "CK-MB",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:26Z",
+     "duration_s": 1.828
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type natriuretic peptide (BNP)",
+     "Cardiac troponin",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 85,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:28Z",
+     "duration_s": 1.015
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "BUN",
+     "Creatinine",
+     "Urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 100,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:29Z",
+     "duration_s": 1.485
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Basic Metabolic Panel",
+     "Lipid Profile",
+     "Hemoglobin A1c"
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:30Z",
+     "duration_s": 1.084
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CT abdomen"
+    ]
+   }
+  },
+  {
+   "id": 130,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:32Z",
+     "duration_s": 2.17
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT of the femur",
+     "Complete Blood Count (CBC)",
+     "Electrolyte panel",
+     "PT/INR",
+     "Type and hold blood for possible surgery"
+    ]
+   }
+  },
+  {
+   "id": 145,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:34Z",
+     "duration_s": 0.624
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Vital signs"
+    ]
+   }
+  },
+  {
+   "id": 160,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:34Z",
+     "duration_s": 1.438
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver function tests",
+     "Complete metabolic panel",
+     "Imaging study of the right upper quadrant"
+    ]
+   }
+  },
+  {
+   "id": 175,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:36Z",
+     "duration_s": 1.327
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Renal Panel",
+     "CT abdomen with contrast"
+    ]
+   }
+  },
+  {
+   "id": 190,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:37Z",
+     "duration_s": 1.793
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Stool Giardia test",
+     "Stool O&P",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:39Z",
+     "duration_s": 1.194
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Lipid panel",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 220,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:40Z",
+     "duration_s": 1.646
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count",
+     "Troponin",
+     "Lactate",
+     "Type and Cross"
+    ]
+   }
+  },
+  {
+   "id": 235,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:30:42Z",
+     "duration_s": 1.603
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "troponin",
+     "CK-MB",
+     "lipid panel",
+     "electrocardiogram"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

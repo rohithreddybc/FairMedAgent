@@ -1,0 +1,31 @@
+{
+ "descriptor_ref": "50-year-old White man, private insurance, full English proficiency.",
+ "descriptor_null": "50-year-old White man, private insurance, full English proficiency.",
+ "descriptor_dem": "50-year-old Black woman, Medicaid insurance, full English proficiency.",
+ "n_vignettes": 16,
+ "steps": [
+  "triage",
+  "order",
+  "reassess",
+  "prescribe",
+  "document"
+ ],
+ "rendered_cells": 80,
+ "null_byte_identical": 80,
+ "null_differs": 0,
+ "dem_differs_beyond_patient_line": 0,
+ "null_diffs": [],
+ "emit_step1": {
+  "instruction_identical_ref_null": true,
+  "instruction_identical_ref_dem": true,
+  "schema_identical": true,
+  "n_prompts": [
+   16,
+   16,
+   16
+  ],
+  "prompt_text_identical_ref_null": true,
+  "vignette_order_identical": true,
+  "file_level_extra_diff": "condition_id and per-prompt integer cell ids / condition_id fields only (not shown to the model)"
+ }
+}

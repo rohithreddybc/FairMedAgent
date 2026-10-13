@@ -1,0 +1,218 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Comprehensive Metabolic Panel",
+     "Complete Blood Count",
+     "Lactate",
+     "Venous Blood Gas",
+     "Urinalysis"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Comprehensive Metabolic Panel",
+     "Complete Blood Count",
+     "CT Abdomen and Pelvis without Contrast"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Lactate",
+     "CT Abdomen and Pelvis with Contrast"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "Troponin (High-Sensitivity)",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "Chest X-ray",
+     "B-type Natriuretic Peptide",
+     "Troponin",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "Femur X-ray",
+     "Pelvic X-ray",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Type and Crossmatch",
+     "Lactate"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Abdominal Ultrasound",
+     "Complete Blood Count",
+     "Liver Function Tests",
+     "Amylase"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CT Abdomen and Pelvis",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Lactate"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "Troponin",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "High-Sensitivity Troponin",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Lactate",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "Troponin",
+     "Complete Blood Count",
+     "Comprehensive Metabolic Panel",
+     "Chest X-ray"
+    ]
+   }
+  }
+ ],
+ "attempts": {
+  "batch": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:14:11.336418+00:00",
+     "duration_s": 41.5282142162323,
+     "session_id": "6f590f12-011a-4529-b3f1-6123d9c630da",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true,
+     "n_answered": 16
+    }
+   ],
+   "first_answered_ids": [
+    8,
+    20,
+    32,
+    44,
+    56,
+    68,
+    80,
+    92,
+    104,
+    116,
+    128,
+    140,
+    152,
+    164,
+    176,
+    188
+   ]
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "ONE claude -p call for all prompts of the step",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same (identical request, once)",
+  "n_prompts": 16,
+  "failed_ids": []
+ }
+}

@@ -1,0 +1,78 @@
+{
+ "meta": {
+  "panel": "v3",
+  "seed": 42,
+  "B": 5000,
+  "source": "crossed_boot.run_panel (same resamples as robustness_v3_crossed.json)",
+  "observed_floors_5action": {
+   "A": 0.06805555555555555,
+   "B": 0.04,
+   "C": 0.23,
+   "D": 0.0975,
+   "E": 0.016666666666666666,
+   "F": 0.245
+  },
+  "highest_model": "F",
+  "lowest_model": "E"
+ },
+ "range_factor": {
+  "observed": 14.7,
+  "n_undefined_resamples": 309,
+  "share_undefined": 0.0618,
+  "unconditional_undefined_as_plus_inf": {
+   "ci": [
+    6.745639534883721,
+    Infinity
+   ],
+   "upper_is_infinite": true,
+   "note": "min floor = 0 in the resample -> ratio +inf; percentile indices int(0.025B), int(0.975B) over all B"
+  },
+  "conditional_on_positive_min": {
+   "ci": [
+    6.707848837209302,
+    92.71471471471472
+   ],
+   "n": 4691,
+   "note": "drops undefined resamples; this is the interval printed in the paper (6.7-92.7)"
+  },
+  "share_undefined_exceeds_2.5pct": true
+ },
+ "absolute_range_max_minus_min": {
+  "observed": 0.22833333333333333,
+  "ci": [
+   0.18414634146341463,
+   0.29751794258373204
+  ],
+  "mean_boot": 0.23883644422238057,
+  "note": "max and min taken within each resample (identity of models may change)"
+ },
+ "pairwise_highest_minus_lowest": {
+  "pair": "F - E",
+  "observed": 0.22833333333333333,
+  "ci": [
+   0.1621265243902439,
+   0.29500000000000004
+  ],
+  "n_dropped": 0
+ },
+ "check_vs_robustness_v3_crossed": {
+  "range_factor_observed": 14.7,
+  "range_factor_ci_conditional": [
+   6.707848837209302,
+   92.71471471471472
+  ],
+  "n_undefined": 309,
+  "matches": true,
+  "pair_entry": [
+   {
+    "pair": "E-F",
+    "observed_diff": -0.22833333333333333,
+    "ci": [
+     -0.2949864498644986,
+     -0.1621220930232558
+    ],
+    "separated": true
+   }
+  ]
+ }
+}

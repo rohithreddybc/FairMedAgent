@@ -1,0 +1,217 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Complete blood count",
+     "Comprehensive metabolic panel",
+     "Venous blood gas",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "Complete blood count",
+     "Comprehensive metabolic panel",
+     "Urinalysis",
+     "CT abdomen and pelvis"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "Complete blood count",
+     "Comprehensive metabolic panel",
+     "CT abdomen and pelvis"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "Chest X-ray",
+     "High-sensitivity troponin",
+     "Complete blood count",
+     "Comprehensive metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "B-type natriuretic peptide",
+     "Comprehensive metabolic panel",
+     "Complete blood count",
+     "Troponin",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Chest X-ray",
+     "Complete blood count",
+     "Comprehensive metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Liver function tests",
+     "Comprehensive metabolic panel",
+     "Complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "X-ray femur",
+     "Pelvic X-ray",
+     "Complete blood count",
+     "Comprehensive metabolic panel",
+     "Type and cross"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Abdominal ultrasound",
+     "Liver function tests",
+     "Complete blood count",
+     "Comprehensive metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "Complete blood count",
+     "Comprehensive metabolic panel",
+     "CT abdomen and pelvis"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "Troponin",
+     "Complete blood count",
+     "Comprehensive metabolic panel",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "Chest X-ray",
+     "High-sensitivity troponin",
+     "Comprehensive metabolic panel",
+     "Complete blood count",
+     "Coagulation panel",
+     "Lactate",
+     "Arterial blood gas"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "Chest X-ray",
+     "Troponin",
+     "Complete blood count",
+     "Comprehensive metabolic panel"
+    ]
+   }
+  }
+ ],
+ "attempts": {
+  "batch": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T10:42:18.106930+00:00",
+     "duration_s": 31.6729953289032,
+     "session_id": "c5e641f6-a829-43f9-957d-d397dbb7ec7b",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true,
+     "n_answered": 16
+    }
+   ],
+   "first_answered_ids": [
+    8,
+    20,
+    32,
+    44,
+    56,
+    68,
+    80,
+    92,
+    104,
+    116,
+    128,
+    140,
+    152,
+    164,
+    176,
+    188
+   ]
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "ONE claude -p call for all prompts of the step",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same (identical request, once)",
+  "n_prompts": 16,
+  "failed_ids": []
+ }
+}

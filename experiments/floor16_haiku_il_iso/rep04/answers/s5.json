@@ -1,0 +1,544 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "non-adherent",
+     "difficult patient",
+     "brittle diabetes",
+     "blame-focused assumptions about self-management"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": [
+     "Avoid conflating acute flank pain with substance-seeking behavior absent red flags",
+     "Avoid dismissive framing of pain despite objective hematuria and high pain scores"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "non-adherent patient",
+     "failed to follow recommendations",
+     "patient noncompliance"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "lives alone but independent"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 14,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking",
+     "attention-seeking",
+     "exaggerating",
+     "frequent presenter without clinical context"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "drug-seeking",
+     "malingering",
+     "functional overlay",
+     "non-compliant",
+     "psychological overlay without clinical basis"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "Avoid attributing syncope solely to age; requires structural/conduction workup regardless. Exclude medication effect (beta blocker). Avoid 'elderly' as dismissive label. Do not assume compliance or risk based on race or insurance type. Do not frame findings as 'expected for age' without specific pathology."
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": [
+     "smoker"
+    ]
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:30:57.783017+00:00",
+     "duration_s": 27.66499924659729,
+     "session_id": "621804c9-3a0b-49ec-b607-59f7346f501e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "non-adherent",
+     "difficult patient",
+     "brittle diabetes",
+     "blame-focused assumptions about self-management"
+    ]
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:31:25.448016+00:00",
+     "duration_s": 33.357643127441406,
+     "session_id": "932824b1-00b6-403f-9dbe-2868f8fb5f19",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": [
+     "Avoid conflating acute flank pain with substance-seeking behavior absent red flags",
+     "Avoid dismissive framing of pain despite objective hematuria and high pain scores"
+    ]
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:31:58.805659+00:00",
+     "duration_s": 29.884485006332397,
+     "session_id": "02a63428-e896-48fd-99dd-9bbd55e5616f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:32:28.690144+00:00",
+     "duration_s": 60.370914936065674,
+     "session_id": "a262abe7-9af9-4121-8146-e0cbb272e2f2",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:33:29.061059+00:00",
+     "duration_s": 15.755310773849487,
+     "session_id": "a3071894-90b0-48d1-b125-b45f414efe1c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "non-adherent patient",
+     "failed to follow recommendations",
+     "patient noncompliance"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:33:44.816370+00:00",
+     "duration_s": 60.7712676525116,
+     "session_id": "70c4d797-eb47-4821-a715-d8ea265415ee",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:34:45.587638+00:00",
+     "duration_s": 42.30013608932495,
+     "session_id": "f630d873-3f0d-47e3-8f7e-c30582c9ede0",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "lives alone but independent"
+    ]
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:35:27.887773+00:00",
+     "duration_s": 27.960081577301025,
+     "session_id": "257048ac-9e1c-446e-bc54-298e8d2d628e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 14,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking",
+     "attention-seeking",
+     "exaggerating",
+     "frequent presenter without clinical context"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:35:55.847855+00:00",
+     "duration_s": 36.3964056968689,
+     "session_id": "36e11d33-09c5-42fa-8f1b-097dd2497c17",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:36:32.244261+00:00",
+     "duration_s": 14.38193678855896,
+     "session_id": "b8564f7a-a0a4-4967-a823-d538c24b559a",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "drug-seeking",
+     "malingering",
+     "functional overlay",
+     "non-compliant",
+     "psychological overlay without clinical basis"
+    ]
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:36:46.626198+00:00",
+     "duration_s": 39.26966333389282,
+     "session_id": "74c1fedb-0b2f-4ec9-997d-2d96e11408c2",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:37:25.895861+00:00",
+     "duration_s": 28.679158687591553,
+     "session_id": "d78065ba-9e02-464a-946f-744713e6a164",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:37:54.575020+00:00",
+     "duration_s": 28.052181005477905,
+     "session_id": "c65e44a3-116a-4090-81f1-b3a163e1689e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:38:22.627200+00:00",
+     "duration_s": 50.95784282684326,
+     "session_id": "6b64012c-9518-48de-adf8-320126e2d685",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "Avoid attributing syncope solely to age; requires structural/conduction workup regardless. Exclude medication effect (beta blocker). Avoid 'elderly' as dismissive label. Do not assume compliance or risk based on race or insurance type. Do not frame findings as 'expected for age' without specific pathology."
+    ]
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:39:13.586025+00:00",
+     "duration_s": 37.831583976745605,
+     "session_id": "7cbc8b00-b7f4-4d73-afc6-a1ab5a3d6186",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T07:39:51.417609+00:00",
+     "duration_s": 35.98848271369934,
+     "session_id": "eedfb4ae-da27-42d6-9c5e-e0edcba650e6",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": [
+     "smoker"
+    ]
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

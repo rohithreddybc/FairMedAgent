@@ -20,27 +20,35 @@ unrecorded decoding, so not independently reproducible) in 6.8 percent of replic
 acuity, referral, any opioid), and the rate differed across actions from 2.2 percent for ICU
 escalation to 14.2 percent for admission. Across six models (haiku-4.5 and sonnet-5, hosted;
 llama3.1:8b, mistral:7b, qwen3:4b and phi3:mini, served locally) the pooled five-action floor
-ranged from 1.7 to 24.5 percent. The controlled-substance caution flag is reported separately
+ranged from 1.7 to 24.5 percent, an absolute range of 0.228 (95 percent crossed interval 0.184 to 0.298). The controlled-substance caution flag is reported separately
 as an exploratory, model-generated flag rather than a clinically defined action. For a binary
 action, the flip rate expected under no demographic effect equals the floor, so a
 counterfactual flip rate should be reported beside a per-action floor measured on the same
 system. All intervals are crossed (vignette by replicate) bootstraps.
 
-The primary endpoint answered sixteen cases per call. Re-running the same model identifier with
-one isolated `claude -p` call per prompt (ten replicates, 800 calls, no retries) gave a
-five-action floor of 0.091 (95 percent crossed interval 0.041 to 0.149) against 0.068 batched,
-with no sign that the shared context inflated the floor; the noisiest action changed from admission to
-high acuity.
+The primary endpoint answered sixteen cases per call. Re-running the same model identifier on
+12 to 13 October with one isolated `claude -p` call per prompt (ten replicates, 800 calls, no
+retries) gave a five-action floor of 0.091 (95 percent crossed interval 0.041 to 0.149) against
+0.068 batched; this is an additional endpoint observation. In a same-window interleaved
+comparison (batched and isolated replicates run back to back, arm order alternating) the batched
+floor was 0.098 and the isolated floor 0.085, a difference of +0.013 (95 percent crossed
+interval -0.030 to 0.058), so the data do not show that the shared context inflates the floor.
 
 The floor depends on decoding. In logged reruns of the four local models (Ollama 0.35.1,
 attempt-level logs, a retry uses the same decoding configuration as the first attempt),
 temperature-0 decoding left no observed disagreement across five replicates for three of the
-four models (llama3.1:8b, mistral:7b, qwen3:4b; one-sided 95 percent bound at most 0.015 for
-each), but not for phi3:mini. A hosted check (openai/gpt-oss-20b on Groq) did not reach zero at
+four models (llama3.1:8b, mistral:7b, qwen3:4b; one-sided 95 percent bound at most 0.071 for
+each, treating each vignette as one unit), but not for phi3:mini. A hosted check (openai/gpt-oss-20b on Groq) did not reach zero at
 temperature 0: its five-action floor was 0.028, and the temperature-1 to temperature-0
 difference was a descriptive 69 percent reduction that cannot be attributed to temperature
 alone, because the serving configuration varied. Majority voting over five draws removed 53
 percent of the primary endpoint's floor.
+
+An end-to-end check of the audit statistic ran two local models (llama3.1:8b, qwen3:4b) through
+the full audit pipeline against a reference condition, a null control whose descriptor is
+byte-identical to the reference, and one demographic contrast. The null control's flip rate
+equals the floor, about 23 percent on llama3.1:8b with nothing changed, and injected shifts were
+recovered with small bias but detected by a signed test only when large relative to the floor.
 
 The estimand this harness targets is the within-range counterfactual flip rate, which counts
 only flips between actions that a published decision rule admits and a clinician has
@@ -107,6 +115,12 @@ python -m pytest harness/tests/ -q
 | `experiments/robustness_v3_crossed.json`, `CROSSED_BOOT.md` | Crossed (vignette by replicate) bootstrap intervals used in the manuscript, with a comparison against the vignette-only intervals |
 | `experiments/COVERAGE_SIM.json`, `COVERAGE_SIM.md` | Simulated coverage of the crossed-bootstrap interval, and the zero-observed bound comparison |
 | `experiments/floor16_haiku_iso/`, `run_haiku_iso.sh`, `haiku_iso_floor.json` | Isolated-call sensitivity arm for endpoint A (claude-haiku-4-5, one `claude -p` call per prompt via `claude_cli_answerer.py`, R=10) and its floor comparison (`haiku_iso_floor.py`) |
+| `experiments/audit_val_{llama,qwen3}_{reference,null,demographic}/`, `run_audit_val.sh`, `audit_validation.json`, `audit_render_diff.json`, `AUDIT_VALIDATION.md` | End-to-end check of the audit statistic: reference, null-control (`rerender_control`, byte-identical descriptor) and one demographic contrast on llama3.1:8b and qwen3:4b (ten replicates each; per-attempt logs in `rep*/answers/`), the driver, the analysis output (`audit_validation.py`) and the descriptor render comparison (`audit_render_diff.py`) |
+| `experiments/floor16_haiku_il_iso/`, `floor16_haiku_il_batch/`, `run_haiku_interleaved.sh`, `haiku_dispatch_compare.json` | Interleaved hosted dispatch comparison (claude-haiku-4-5, ten replicates per arm, arm order alternating): isolated calls (`claude_cli_answerer.py`) against one batched call per step (`claude_cli_batched_answerer.py`), compared by `haiku_dispatch_compare.py` |
+| `experiments/zero_bounds_v4.json`, `ZERO_BOUNDS_V4.md` | Dependence-robust one-sided bounds for zero-observed floors (each vignette a unit), from `zero_bounds_v4.py` |
+| `experiments/COVERAGE_SIM_v4.json` | Coverage simulation with correlated actions within a trajectory and the zero-bound check (`coverage_sim.py --v4`) |
+| `experiments/range_v4.json` | Absolute range of the pooled floors, and the range factor with its undefined resamples (`range_v4.py`) |
+| `experiments/applicability_v4.json`, `APPLICABILITY.md` | Per-vignette, per-action applicability labels and the applicable-only floors (`applicability_v4.py`) |
 | `experiments/fixed_case_bounds_v3.json` | One-sided upper bounds for zero-observed floors, replicate-only intervals, and achieved shifts |
 | `docs/ADJUDICATION_PROTOCOL.md` | How a band is adjudicated and what makes one load-bearing |
 | `docs/BAND_ADJUDICATION_RECORD.md` | The adjudicator's reasoning, in full, per band |
@@ -180,6 +194,12 @@ optional. Scripts that write figures take `--outdir` (default `figures/` under t
 | Crossed (vignette by replicate) bootstrap intervals | `crossed_boot.py` (used by `robustness.py`) | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/robustness.py` |
 | Isolated-call versus batched floor for endpoint A | `haiku_iso_floor.py` | `FMA_PANEL=v3 python harness/scripts/haiku_iso_floor.py` |
 | Coverage of the crossed-bootstrap interval (simulation) | `coverage_sim.py` | `python harness/scripts/coverage_sim.py --nsim 2000` |
+| End-to-end check of the audit statistic (null control, demographic contrast, injected shifts) | `run_audit_val.sh`, `audit_validation.py`, `audit_render_diff.py` | `bash experiments/run_audit_val.sh` (requires Ollama), then `python harness/scripts/audit_validation.py` and `python harness/scripts/audit_render_diff.py` |
+| Interleaved hosted dispatch comparison (isolated versus batched) | `run_haiku_interleaved.sh`, `claude_cli_batched_answerer.py`, `haiku_dispatch_compare.py` | `bash experiments/run_haiku_interleaved.sh` (requires the `claude` CLI), then `python harness/scripts/haiku_dispatch_compare.py` |
+| Dependence-robust zero-observed bounds | `zero_bounds_v4.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/zero_bounds_v4.py` |
+| Coverage with correlated actions within a trajectory | `coverage_sim.py --v4` | `python harness/scripts/coverage_sim.py --v4 --nsim 2000 --B 1000 --seed 20261012` |
+| Absolute range and range factor of the pooled floors | `range_v4.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/range_v4.py` |
+| Applicability of each action to each vignette | `applicability_v4.py` | `FMA_PANEL=v3 FMA_BOOT=crossed FMA_VIGNETTE_SET=v2 python harness/scripts/applicability_v4.py` |
 | Zero-observed floor bounds, replicate-only intervals, achieved shifts | `fixed_case_bounds.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/fixed_case_bounds.py` |
 | Five-action and six-action floors and panel intervals (B=5000, or crossed intervals from `robustness_v3_crossed.json` with `FMA_BOOT=crossed`) | `panel_summary.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/panel_summary.py` |
 | Paired differences, leave-one-out, excluding caution, voting reduction, null sensitivity, signed-test simulation, five-action analysis | `robustness.py` | `FMA_PANEL=v3 python harness/scripts/robustness.py` |
@@ -193,6 +213,6 @@ optional. Scripts that write figures take `--outdir` (default `figures/` under t
 | Local and hosted runs | `run_ollama_floor.py` with `ollama_answerer.py` or `groq_answerer.py` (`FMA_ANSWERER`) | `python harness/scripts/run_ollama_floor.py <dir> <model> 1 10` (set `FMA_TEMPERATURE=0` for greedy; `FMA_RETRY_POLICY=same`) |
 | The full v3 local rerun (requires Ollama and the model tags in `floor16v3_provenance.txt`) | `experiments/run_v3_all.sh` | `bash experiments/run_v3_all.sh` |
 
-The supplementary material is attached to each GitHub release. This README describes version 0.1.9.
+The supplementary material is attached to each GitHub release. This README describes version 0.1.10.
 The concept DOI [10.5281/zenodo.22165979](https://doi.org/10.5281/zenodo.22165979) resolves to the latest
 release.

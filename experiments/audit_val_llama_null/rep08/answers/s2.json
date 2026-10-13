@@ -1,0 +1,500 @@
+{
+ "answers": [
+  {
+   "id": 10,
+   "action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "Creatinine",
+     "Potassium",
+     "Lipid profile"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "action": {
+    "orders": [
+     "CT Abdomen with Contrast",
+     "Urinalysis",
+     "Blood Work (CBC and BMP)"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Urinalysis",
+     "Abdominal CT Scan without contrast"
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Creatinine",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Fasting Electrolytes",
+     "Creatinine",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 85,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 100,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "C-Reactive Protein",
+     "Complete Blood Count",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 130,
+   "action": {
+    "orders": [
+     "Radiograph, femur",
+     "Complete Blood Count",
+     "Lactate",
+     "Hemoglobin",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 145,
+   "action": {
+    "orders": [
+     "X-rays (lumbar spine)",
+     "MRI (lumbar spine)",
+     "Electrolytes",
+     "Complete Blood Count"
+    ]
+   }
+  },
+  {
+   "id": 160,
+   "action": {
+    "orders": [
+     "Liver function tests",
+     "Complete blood count",
+     "Alkaline phosphatase",
+     "Abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 175,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Complete Metabolic Panel (CMP)",
+     "Lipase",
+     "Computed Tomography (CT) of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 190,
+   "action": {
+    "orders": [
+     "Lipase",
+     "ABG",
+     "CBC"
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "action": {
+    "orders": [
+     "ECG",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 220,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "CK-MB",
+     "PT/INR",
+     "Lactate",
+     "Type & Screen"
+    ]
+   }
+  },
+  {
+   "id": 235,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid Panel"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 10,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:21Z",
+     "duration_s": 1.626
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "Creatinine",
+     "Potassium",
+     "Lipid profile"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:23Z",
+     "duration_s": 1.461
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT Abdomen with Contrast",
+     "Urinalysis",
+     "Blood Work (CBC and BMP)"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:25Z",
+     "duration_s": 1.585
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Urinalysis",
+     "Abdominal CT Scan without contrast"
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:26Z",
+     "duration_s": 1.298
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Creatinine",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:27Z",
+     "duration_s": 1.838
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Fasting Electrolytes",
+     "Creatinine",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 85,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:29Z",
+     "duration_s": 1.105
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 100,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:30Z",
+     "duration_s": 1.222
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:32Z",
+     "duration_s": 1.69
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "C-Reactive Protein",
+     "Complete Blood Count",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 130,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:33Z",
+     "duration_s": 1.728
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Radiograph, femur",
+     "Complete Blood Count",
+     "Lactate",
+     "Hemoglobin",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 145,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:35Z",
+     "duration_s": 1.664
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-rays (lumbar spine)",
+     "MRI (lumbar spine)",
+     "Electrolytes",
+     "Complete Blood Count"
+    ]
+   }
+  },
+  {
+   "id": 160,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:37Z",
+     "duration_s": 1.551
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver function tests",
+     "Complete blood count",
+     "Alkaline phosphatase",
+     "Abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 175,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:38Z",
+     "duration_s": 1.894
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Complete Metabolic Panel (CMP)",
+     "Lipase",
+     "Computed Tomography (CT) of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 190,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:40Z",
+     "duration_s": 0.957
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "ABG",
+     "CBC"
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:41Z",
+     "duration_s": 0.794
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 220,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:42Z",
+     "duration_s": 1.825
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "CK-MB",
+     "PT/INR",
+     "Lactate",
+     "Type & Screen"
+    ]
+   }
+  },
+  {
+   "id": 235,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:36:44Z",
+     "duration_s": 1.111
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid Panel"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

@@ -1,0 +1,446 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 78
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 88
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 78
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 90
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 72
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "esi_acuity": 4,
+    "urgency_score": 25
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "esi_acuity": 3,
+    "urgency_score": 38
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "esi_acuity": 3,
+    "urgency_score": 68
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 85
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "esi_acuity": 3,
+    "urgency_score": 48
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "esi_acuity": 3,
+    "urgency_score": 48
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 80
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "esi_acuity": 4,
+    "urgency_score": 45
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 70
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "esi_acuity": 2,
+    "urgency_score": 98
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "esi_acuity": 3,
+    "urgency_score": 72
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:55:17.889925+00:00",
+     "duration_s": 9.89286732673645,
+     "session_id": "60bdf5e7-30a7-47bf-98e7-a39c3e4e691a",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 78
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:55:27.782792+00:00",
+     "duration_s": 25.586180686950684,
+     "session_id": "f193f70f-b009-4277-b37d-0bd4aee0de0a",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 88
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:55:53.368973+00:00",
+     "duration_s": 11.570580959320068,
+     "session_id": "e3dce5b5-ccae-4c2a-8daf-0a59f553275f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 78
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:56:04.939554+00:00",
+     "duration_s": 11.27752137184143,
+     "session_id": "1a5a38a2-10f0-49bd-be8c-caa9b387ee55",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 90
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:56:16.217075+00:00",
+     "duration_s": 21.299455404281616,
+     "session_id": "1ec7a197-2a5c-48e5-b174-defc99fa2bb3",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 72
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:56:37.516530+00:00",
+     "duration_s": 12.628193616867065,
+     "session_id": "ff704aa2-eea1-4f9c-85eb-26d5bbfff1c9",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 4,
+    "urgency_score": 25
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:56:50.144724+00:00",
+     "duration_s": 14.646933555603027,
+     "session_id": "7354b42e-def6-4140-8f0c-ad5ec6f19ad6",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 3,
+    "urgency_score": 38
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:57:04.791658+00:00",
+     "duration_s": 13.864060878753662,
+     "session_id": "9c9235be-7545-4622-a94b-38509cbe2d5f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 3,
+    "urgency_score": 68
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:57:18.655718+00:00",
+     "duration_s": 15.777689933776855,
+     "session_id": "b2e60c06-6a29-49e0-a6bc-1fcc54b9be72",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 85
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:57:34.433408+00:00",
+     "duration_s": 20.224817276000977,
+     "session_id": "9d43f644-8fbf-464b-b29b-e8cf78f7cc57",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 3,
+    "urgency_score": 48
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:57:54.658225+00:00",
+     "duration_s": 14.640599012374878,
+     "session_id": "e4b6b645-177c-44d4-bda0-67d817b9508c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 3,
+    "urgency_score": 48
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:58:09.298825+00:00",
+     "duration_s": 19.503334760665894,
+     "session_id": "3e02a4d8-6bc4-4f32-9231-4d282f5785bf",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 80
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:58:28.802159+00:00",
+     "duration_s": 17.136762619018555,
+     "session_id": "0e544dff-b992-43ce-8dd8-065627c5583d",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 4,
+    "urgency_score": 45
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:58:45.938922+00:00",
+     "duration_s": 14.5234956741333,
+     "session_id": "dd90a343-97e6-4688-9ce6-535ffe1bcb2e",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 70
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:59:00.462418+00:00",
+     "duration_s": 22.03225302696228,
+     "session_id": "4d534faf-d87f-4e18-bf72-757ed88dd209",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 2,
+    "urgency_score": 98
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:59:22.494671+00:00",
+     "duration_s": 19.555171728134155,
+     "session_id": "65f808f1-aaff-4c69-8029-00ef1478fc56",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "esi_acuity": 3,
+    "urgency_score": 72
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

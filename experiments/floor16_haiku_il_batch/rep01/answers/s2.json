@@ -1,0 +1,222 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Blood glucose",
+     "Basic metabolic panel",
+     "Venous blood gas",
+     "Serum ketones",
+     "Complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Complete blood count",
+     "Basic metabolic panel",
+     "CT abdomen/pelvis without contrast"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "Complete blood count",
+     "C-reactive protein",
+     "Basic metabolic panel",
+     "CT abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "Troponin",
+     "Electrocardiogram",
+     "Chest X-ray",
+     "Complete blood count",
+     "Basic metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "Brain natriuretic peptide",
+     "Troponin",
+     "Electrocardiogram",
+     "Chest X-ray",
+     "Complete blood count",
+     "Basic metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Urine culture"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "Chest X-ray",
+     "Complete blood count",
+     "Basic metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete blood count",
+     "Basic metabolic panel",
+     "Liver function tests"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "Femur X-ray",
+     "Pelvic X-ray",
+     "Complete blood count",
+     "Basic metabolic panel",
+     "Type and crossmatch"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Liver function tests",
+     "Complete blood count",
+     "Abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "Complete blood count",
+     "C-reactive protein",
+     "Basic metabolic panel",
+     "CT abdomen/pelvis"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "Complete blood count"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "Electrocardiogram",
+     "Troponin",
+     "Complete blood count",
+     "Basic metabolic panel"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "Troponin",
+     "Electrocardiogram",
+     "Chest X-ray",
+     "Complete blood count",
+     "Basic metabolic panel",
+     "Lactate"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "Troponin",
+     "Electrocardiogram",
+     "Chest X-ray",
+     "Complete blood count",
+     "Basic metabolic panel"
+    ]
+   }
+  }
+ ],
+ "attempts": {
+  "batch": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T05:32:03.388633+00:00",
+     "duration_s": 47.689833641052246,
+     "session_id": "f9f940f6-6e09-4aa0-a553-113393a697f4",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true,
+     "n_answered": 16
+    }
+   ],
+   "first_answered_ids": [
+    8,
+    20,
+    32,
+    44,
+    56,
+    68,
+    80,
+    92,
+    104,
+    116,
+    128,
+    140,
+    152,
+    164,
+    176,
+    188
+   ]
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "ONE claude -p call for all prompts of the step",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same (identical request, once)",
+  "n_prompts": 16,
+  "failed_ids": []
+ }
+}

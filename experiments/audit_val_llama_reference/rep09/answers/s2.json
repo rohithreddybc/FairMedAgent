@@ -1,0 +1,496 @@
+{
+ "answers": [
+  {
+   "id": 9,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 24,
+   "action": {
+    "orders": [
+     "CT Abdomen",
+     "Urinalysis",
+     "Complete Blood Count (CBC)"
+    ]
+   }
+  },
+  {
+   "id": 39,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count",
+     "Urinalysis",
+     "Abdominal CT with IV Contrast"
+    ]
+   }
+  },
+  {
+   "id": 54,
+   "action": {
+    "orders": [
+     "Troponin",
+     "CK-MB",
+     "Myoglobin",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 69,
+   "action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Cardiac troponin",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 84,
+   "action": {
+    "orders": [
+     "UA",
+     "BUN",
+     "Creatinine",
+     "CBC"
+    ]
+   }
+  },
+  {
+   "id": 99,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count",
+     "C-Reactive Protein"
+    ]
+   }
+  },
+  {
+   "id": 114,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Lipase",
+     "Imaging (Abdominal CT)"
+    ]
+   }
+  },
+  {
+   "id": 129,
+   "action": {
+    "orders": [
+     "X-rays: AP and Lateral of the femur",
+     "CT: Femur, pelvis and knees",
+     "Type and Crossmatch for possible transfusion",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 144,
+   "action": {
+    "orders": [
+     "Radiograph (Lumbar spine)"
+    ]
+   }
+  },
+  {
+   "id": 159,
+   "action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Imaging: Ultrasound Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 174,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Electrolyte Panel",
+     "Lipase",
+     "Abdominal CT without contrast"
+    ]
+   }
+  },
+  {
+   "id": 189,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Stool for O&P",
+     "Stool for Giardia"
+    ]
+   }
+  },
+  {
+   "id": 204,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Electrolytes",
+     "Troponin"
+    ]
+   }
+  },
+  {
+   "id": 219,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipase",
+     "Complete Blood Count (CBC)",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 234,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid profile"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 9,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:20Z",
+     "duration_s": 1.24
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 24,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:21Z",
+     "duration_s": 1.34
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT Abdomen",
+     "Urinalysis",
+     "Complete Blood Count (CBC)"
+    ]
+   }
+  },
+  {
+   "id": 39,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:23Z",
+     "duration_s": 1.571
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count",
+     "Urinalysis",
+     "Abdominal CT with IV Contrast"
+    ]
+   }
+  },
+  {
+   "id": 54,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:24Z",
+     "duration_s": 1.236
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Troponin",
+     "CK-MB",
+     "Myoglobin",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 69,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:26Z",
+     "duration_s": 1.697
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Cardiac troponin",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 84,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:27Z",
+     "duration_s": 1.034
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "UA",
+     "BUN",
+     "Creatinine",
+     "CBC"
+    ]
+   }
+  },
+  {
+   "id": 99,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:28Z",
+     "duration_s": 1.164
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count",
+     "C-Reactive Protein"
+    ]
+   }
+  },
+  {
+   "id": 114,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:29Z",
+     "duration_s": 1.377
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Lipase",
+     "Imaging (Abdominal CT)"
+    ]
+   }
+  },
+  {
+   "id": 129,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:31Z",
+     "duration_s": 2.866
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-rays: AP and Lateral of the femur",
+     "CT: Femur, pelvis and knees",
+     "Type and Crossmatch for possible transfusion",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 144,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:34Z",
+     "duration_s": 0.847
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Radiograph (Lumbar spine)"
+    ]
+   }
+  },
+  {
+   "id": 159,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:35Z",
+     "duration_s": 1.428
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver Function Tests",
+     "Complete Blood Count",
+     "Imaging: Ultrasound Abdomen"
+    ]
+   }
+  },
+  {
+   "id": 174,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:36Z",
+     "duration_s": 2.142
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Electrolyte Panel",
+     "Lipase",
+     "Abdominal CT without contrast"
+    ]
+   }
+  },
+  {
+   "id": 189,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:38Z",
+     "duration_s": 1.628
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Stool for O&P",
+     "Stool for Giardia"
+    ]
+   }
+  },
+  {
+   "id": 204,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:40Z",
+     "duration_s": 1.463
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Electrolytes",
+     "Troponin"
+    ]
+   }
+  },
+  {
+   "id": 219,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:41Z",
+     "duration_s": 1.687
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipase",
+     "Complete Blood Count (CBC)",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 234,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:40:43Z",
+     "duration_s": 1.131
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid profile"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

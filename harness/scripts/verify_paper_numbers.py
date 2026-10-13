@@ -48,6 +48,25 @@ if CROSSED:
     XC = XJ["crossed"]
 
 
+def dep_bound(V, R, alpha=0.05):
+    """Dependence-robust one-sided zero-discordance bound (equal F_v, exact; q^R term included):
+    solve [(1-q)^R + q^R]^V = alpha for q in [0, 1/2], return 2q(1-q)."""
+    target = alpha ** (1.0 / V)
+    lo, hi = 0.0, 0.5
+    for _ in range(200):
+        mid = (lo + hi) / 2
+        if (1 - mid) ** R + mid ** R > target:
+            lo = mid
+        else:
+            hi = mid
+    q = (lo + hi) / 2
+    return 2 * q * (1 - q)
+
+
+def _zb_json():
+    return json.load(open(os.path.join(ROOT, "experiments", "zero_bounds_v4.json"), encoding="utf-8"))
+
+
 def _overlay_robustness(rob):
     """Replace vignette-only intervals in a robustness JSON dict by the crossed ones (in place)."""
     for lab, m in rob["item1_per_model_action_floors"]["models"].items():
@@ -106,6 +125,174 @@ def _reps():
         if acts:
             out.append(acts)
     return out
+
+
+# ---- end-to-end audit validation (experiments/audit_validation.json) --------------------------
+# The helpers below build every string the manuscript prints for that experiment from the JSON
+# artifacts, so the same functions can generate the text and assert it (claims in main()).
+AUD_ACTIONS5 = ("admit", "escalate_icu", "high_acuity", "referral", "any_opioid")
+AUD_MODELS = (("llama", "llama3.1:8b"), ("qwen3", "qwen3:4b"))
+AUD_CONTRASTS = (("null", "Null control"), ("demographic", "Demographic"))
+AUD_ACTION_LABEL = {"admit": "Admission", "escalate_icu": "ICU escalation", "high_acuity": "High acuity",
+                    "referral": "Referral", "any_opioid": "Any opioid", "cs_caution": "CS caution$^\\dagger$"}
+
+
+def aud_load():
+    ex = os.path.join(ROOT, "experiments")
+    av = json.load(open(os.path.join(ex, "audit_validation.json"), encoding="utf-8"))
+    rd = json.load(open(os.path.join(ex, "audit_render_diff.json"), encoding="utf-8"))
+    att = {}
+    for mk, _ in AUD_MODELS:
+        for arm in ("reference", "null", "demographic"):
+            att[(mk, arm)] = json.load(open(os.path.join(ex, "audit_val_%s_%s" % (mk, arm), "attempt_summary.json"), encoding="utf-8"))
+    return av, rd, att
+
+
+def aud_r(x):
+    """Signed three-decimal string with a hyphen-minus; negative zero printed as 0.000."""
+    f = "%.3f" % x
+    return "0.000" if float(f) == 0 else f
+
+
+def aud_m(x, plus=False):
+    """Prose number in math mode: $-0.001$, $+0.007$, $0.230$."""
+    f = aud_r(x)
+    if f.startswith("-"):
+        return "$-%s$" % f[1:]
+    return "$+%s$" % f if plus and float(f) != 0 else "$%s$" % f
+
+
+def aud_c(x):
+    """Table-cell number: plain when non-negative, math-mode minus when negative."""
+    f = aud_r(x)
+    return "$-%s$" % f[1:] if f.startswith("-") else f
+
+
+def aud_ci_c(ci):
+    return "[%s, %s]" % (aud_c(ci[0]), aud_c(ci[1]))
+
+
+def aud_ci_m(ci):
+    return "$[%s, %s]$" % (aud_r(ci[0]), aud_r(ci[1]))
+
+
+def aud_main_rows(av):
+    rows = []
+    for mk, mname in AUD_MODELS:
+        for i, (ck, cname) in enumerate(AUD_CONTRASTS):
+            p = av["models"][mk]["contrasts"][ck]["pooled_5action"]
+            rows.append("%s & %s & %s & %s & %s %s & %s %s & %.2f \\\\" % (
+                cname, aud_c(p["f0"]), aud_c(p["f1"]), aud_c(p["d"]),
+                aud_c(p["excess"]), aud_ci_c(p["ci_excess"]), aud_c(p["mean_shift"]), aud_ci_c(p["ci_mean_shift"]),
+                p["sign_flip_p_two_sided"]))
+    return rows
+
+
+def aud_si_action_rows(av):
+    rows = []
+    for mk, mname in AUD_MODELS:
+        for ck, cname in AUD_CONTRASTS:
+            c = av["models"][mk]["contrasts"][ck]
+            first = True
+            for a in AUD_ACTIONS5 + ("cs_caution", "pooled_5action"):
+                p = c["pooled_5action"] if a == "pooled_5action" else c["per_action"][a]
+                lab = "Pooled (five actions)" if a == "pooled_5action" else AUD_ACTION_LABEL[a]
+                rows.append("%s & %s & %s & %s & %s & %s & %s & %s & %.2f \\\\" % (
+                    mname if (first and ck == "null") else "",
+                    cname if first else "", lab, aud_c(p["f0"]), aud_c(p["f1"]), aud_c(p["d"]),
+                    aud_c(p["excess"]), aud_c(p["mean_shift"]), p["sign_flip_p_two_sided"]))
+                first = False
+    return rows
+
+
+def aud_inj_pooled(av, mk):
+    return [s for s in av["models"][mk]["injection"]["settings"] if s["scope"] == "pooled_5action"]
+
+
+def aud_net_excess(s):
+    """Bias of the squared-shift estimate net of the uninjected dataset difference."""
+    return s["est_excess"] - s["baseline_excess_uninjected"] - s["true_mean_delta2"]
+
+
+def aud_si_inj_rows(av):
+    rows = []
+    for mk, mname in AUD_MODELS:
+        for k, s in enumerate(aud_inj_pooled(av, mk)):
+            rows.append("%s & %s & %.2f & %s & %s & %s & %s & %.3f & %.3f & %.3f \\\\" % (
+                mname if k == 0 else "", "same sign" if s["mode"] == "same_sign" else "opposing", s["theta"],
+                aud_c(s["true_mean_shift"]), aud_c4(s["true_mean_delta2"]),
+                aud_c(s["bias_mean_shift_net_of_baseline"]), aud_c4(aud_net_excess(s)),
+                s["power_sign_test_0.05"], s["coverage_mean_shift_ci"], s["coverage_excess_ci"]))
+    return rows
+
+
+def aud_c4(x):
+    f = "%.4f" % x
+    if float(f) == 0:
+        f = "0.0000"
+    return "$-%s$" % f[1:] if f.startswith("-") else f
+
+
+def aud_att_rows(att):
+    names = {"reference": "Reference", "null": "Null control", "demographic": "Demographic"}
+    rows = []
+    for mk, mname in AUD_MODELS:
+        for k, arm in enumerate(("reference", "null", "demographic")):
+            a = att[(mk, arm)]
+            rows.append("%s & %s & %d & %d & %d & %d \\\\" % (mname if k == 0 else "", names[arm], a["prompts"],
+                                                           a["first_attempt_failures"], a["retries"], a["final_failures"]))
+    return rows
+
+
+def aud_phrases(av, rd, att):
+    """Named phrases for the main-text Results, abstract and Methods; text and claims both use them."""
+    ph = {}
+    L, Q = av["models"]["llama"]["contrasts"], av["models"]["qwen3"]["contrasts"]
+    ln, qn, ld, qd = (x["pooled_5action"] for x in (L["null"], Q["null"], L["demographic"], Q["demographic"]))
+    tot = sum(a["prompts"] for a in att.values())
+    ret = sum(a["retries"] for a in att.values())
+    fin = sum(a["final_failures"] for a in att.values())
+    word = {0: "no", 1: "one"}
+    ph["n_prompts"] = tot
+    ph["cells"] = "$%d$ vignette--step cells" % rd["null_byte_identical"]
+    assert rd["null_byte_identical"] == rd["rendered_cells"] and rd["null_differs"] == 0 and rd["dem_differs_beyond_patient_line"] == 0
+    ph["attempts"] = "The $%d$ prompts produced %s %s and %s final %s" % (
+        tot, word.get(ret, "$%d$" % ret), "retry" if ret == 1 else "retries", word.get(fin, "$%d$" % fin), "failure" if fin == 1 else "failures")
+    ph["null_d"] = "Its discordance was %s on llama3.1:8b and %s on qwen3:4b" % (aud_m(ln["d"]), aud_m(qn["d"]))
+    ph["null_p"] = "(sign-flip $p=%.2f$ and $%.2f$)" % (ln["sign_flip_p_two_sided"], qn["sign_flip_p_two_sided"])
+    ph["null_ex"] = "the excess was %s (%s) on llama3.1:8b and %s (%s) on qwen3:4b" % (
+        aud_m(ln["excess"]), aud_ci_m(ln["ci_excess"]), aud_m(qn["excess"]), aud_ci_m(qn["ci_excess"]))
+    pct = int(round(100 * ln["d"]))
+    assert abs(100 * ln["f0"] - pct) < 1 and abs(100 * ln["f1"] - pct) < 1
+    ph["pct23"] = pct
+    ph["flip23"] = "a flip rate of about $%d\\%%$ therefore arises" % pct
+    ph["dem_ex"] = "excess was %s (%s) on llama3.1:8b and %s (%s) on qwen3:4b ($p=%.2f$ and $%.2f$)" % (
+        aud_m(ld["excess"], True), aud_ci_m(ld["ci_excess"]), aud_m(qd["excess"], True), aud_ci_m(qd["ci_excess"]),
+        ld["sign_flip_p_two_sided"], qd["sign_flip_p_two_sided"])
+    cs = Q["demographic"]["per_action"]["cs_caution"]
+    allsh = [abs(c["per_action"][a]["mean_shift"]) for m in (L, Q) for c in (m["demographic"],) for a in c["per_action"]]
+    assert abs(cs["mean_shift"]) == max(allsh)
+    ph["cs"] = "(shift %s, unadjusted $p=%.2f$)" % (aud_m(cs["mean_shift"], True), cs["sign_flip_p_two_sided"])
+    inj = {mk: aud_inj_pooled(av, mk) for mk in ("llama", "qwen3")}
+    allp = inj["llama"] + inj["qwen3"]
+    ph["netbias"] = "stayed within %s" % aud_m(max(abs(s["bias_mean_shift_net_of_baseline"]) for s in allp))
+    g = lambda mk, mode, th: [s for s in inj[mk] if s["mode"] == mode and abs(s["theta"] - th) < 1e-9][0]
+    q05 = g("qwen3", "same_sign", 0.05)
+    ph["qwen_pow"] = "power %s on qwen3:4b already at $\\theta=0.05$ (mean injected shift %s)" % (
+        "$%.3f$" % q05["power_sign_test_0.05"], aud_m(q05["true_mean_shift"]))
+    l10, l20 = g("llama", "same_sign", 0.10), g("llama", "same_sign", 0.20)
+    ph["llama_pow"] = "llama3.1:8b reached power $%.3f$ at $\\theta=0.10$ and $%.3f$ at $\\theta=0.20$" % (
+        l10["power_sign_test_0.05"], l20["power_sign_test_0.05"])
+    opp = [s for s in allp if s["mode"] == "opposing"]
+    ph["opp_pow"] = "never exceeded $%.3f$" % max(s["power_sign_test_0.05"] for s in opp)
+    ph["opp_sq"] = "to within $%.4f$ (net)" % max(abs(aud_net_excess(s)) for s in opp)
+    l30 = g("llama", "same_sign", 0.30)
+    ph["same_sq"] = "net bias as large as $-%.3f$ at $\\theta=0.30$, against a true mean of $%.3f$" % (abs(aud_net_excess(l30)), l30["true_mean_delta2"])
+    assert aud_net_excess(l30) < 0
+    mincov = min(min(s["coverage_mean_shift_ci"], s["coverage_excess_ci"]) for s in allp)
+    ph["cov"] = "at least $%.1f\\%%$" % (int(mincov * 1000) / 10.0)
+    ph["abs_pct"] = "about %d\\%%" % pct
+    return ph
 
 
 def main() -> int:
@@ -245,15 +432,12 @@ def main() -> int:
         per5 = [OUTCOMES_5 for OUTCOMES_5 in per if OUTCOMES_5 != "cs_caution"]
         pooled5 = sum(per[k][0] for k in per5) / sum(per[k][1] for k in per5)
         p3 = comb(4, 3) * pooled5 ** 3 * (1 - pooled5) + pooled5 ** 4
-        claim("P(>=3 of 4 | five-action pooled)", round(p3, 3), "$%.3f$" % p3)
+        # (no claim for the pilot exceedance probabilities)
         claim("N from five-action floor", round(25 / pooled5), "gives $%d$" % round(25 / pooled5))
         claim("N from six-action floor", round(n_needed), ("gives $%d$" % round(n_needed), "$%d$ vignettes" % round(n_needed)))
-    else:
-        claim("P(>=3 of 4 | pooled)", round(p3, 3), "$%.3f$" % p3)
 
     cs = per["cs_caution"][0] / per["cs_caution"][1]
     p3cs = comb(4, 3) * cs ** 3 * (1 - cs) + cs ** 4
-    claim("P(>=3 of 4 | cs_caution)", round(p3cs, 3), "$%.3f$" % p3cs)
 
     # --- full six-model panel -----------------------------------------------------------
     # The manuscript now reports the whole panel (six models; a seventh, glm-4.7-flash, never
@@ -331,12 +515,15 @@ def main() -> int:
                 claim("robustness %s %s floor" % (lab, akey), round(f, 3),
                       ("$%.3f$" % f, "%.3f" % f), haystack=fig_tex)
                 if lo == 0.0 and hi == 0.0:
-                    # Zero-observed cell: the paper prints the exact one-sided 95% upper bound
-                    # (experiments/fixed_case_bounds_v3.json), not a degenerate [0, 0] interval.
-                    _fbz = json.load(open(os.path.join(ROOT, "experiments", "fixed_case_bounds_v3.json"), encoding="utf-8"))["zero_bounds"]
-                    _ub = [z["fixed_case_exact_floor_ub"] for z in _fbz if z["quantity"] == "%s %s" % (lab, akey)]
-                    claim("robustness %s %s zero-cell bound" % (lab, akey), round(_ub[0], 3) if _ub else None,
-                          "[$\le%.3f$]" % _ub[0] if _ub else "NO BOUND IN fixed_case_bounds_v3.json")
+                    # Zero-observed cell: the paper prints the one-sided 95% upper bound that treats
+                    # each vignette as one unit (experiments/zero_bounds_v4.json), not a degenerate
+                    # [0, 0] interval. One action at the lab's replicate count, 16 vignettes.
+                    _Rz = {"B": 6}.get(lab, 10)
+                    _ub = dep_bound(16, _Rz)
+                    _jb = [b for b in _zb_json()["bounds"] if b["V"] == 16 and b["R"] == _Rz and b["case"].startswith("single action")]
+                    assert _jb and abs(_jb[0]["equal_F_bound"] - _ub) < 1e-9, "zero_bounds_v4.json disagrees with the exact solution"
+                    claim("robustness %s %s zero-cell bound" % (lab, akey), round(_ub, 3),
+                          "[$\\le%.3f$]" % _ub)
                     continue
                 claim("robustness %s %s CI" % (lab, akey), "[%.3f, %.3f]" % (lo, hi),
                       ("[%.3f, %.3f]" % (lo, hi), "[$%.3f$, $%.3f$]" % (lo, hi)))
@@ -383,7 +570,7 @@ def main() -> int:
         claim("pairwise differences excluding zero", "%d of %d" % (n_excl_zero, len(it3)),
               "$%d$ of the $%d$" % (n_excl_zero, len(it3)))
 
-        # Majority-vote reduction, primary model and its CI (Sec. IV-D), and the range of
+        # Majority-vote reduction, endpoint A and its CI (Sec. IV-D), and the range of
         # reductions across the four local models (Sec. IV-D).
         it6 = rob["item6_majority_vote_reduction"]["models"]
         redA = it6["A"]["reduction_observed"]
@@ -504,13 +691,11 @@ def main() -> int:
         claim("headline A max action (abstract)", pctstr(facts["max"], 1),
               ("to %s percent for admission" % pctstr(facts["max"], 1), "%s\\%% for admission" % pctstr(facts["max"], 1)))
         claim("headline panel range (abstract)", "%s-%s" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)),
-              ("from %s to %s percent" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)), "from %s\\%% to %s\\%%" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1))))
+              ("from %s to %s percent" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)), "from %s\\%% to %s\\%%" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1)), "floors of %s\%% to %s\%%" % (pctstr(facts["lo"], 1), pctstr(facts["hi"], 1))))
         claim("headline A in contributions", pctstr(facts["A"], 1), "$%s\\%%$" % pctstr(facts["A"], 1))
         claim("A five-action num/den", "%d/%d" % (a5["num"], a5["den"]), "$%d/%d$" % (a5["num"], a5["den"]))
         claim("A per-action ratio", round(pa5["ratio_max_over_min"], 1), "$%.1f$" % pa5["ratio_max_over_min"])
-        claim("A undefined-ratio resamples", pa5["n_resamples_ratio_undefined"], "$%d$ of $5000$" % pa5["n_resamples_ratio_undefined"])
-        fin = pa5["ratio_ci_B5000_finite_only"]
-        claim("A ratio finite CI", "%.3f-%.3f" % tuple(fin), "$[%.3f, %.3f]$" % tuple(fin))
+        # (the admission/ICU statistics below are checked from robustness_v3_crossed.json)
 
         # Five-action pooled floors, intervals, and counts for every model; the six-action
         # sensitivity value of each model sits beside it.
@@ -548,7 +733,7 @@ def main() -> int:
               ", ".join(i9["ordering_5action_ascending"]))
 
         if fx is not None:
-            # Admission minus ICU escalation on the primary model, with its leave-one-out range.
+            # Admission minus ICU escalation on endpoint A, with its leave-one-out range.
             ad = fx["paired_lovo_5action"]["admit_minus_icu_A"]
             claim("A admit-icu difference", round(ad["observed"], 3), "$%.3f$" % ad["observed"])
             claim("A admit-icu CI", "[%.3f, %.3f]" % tuple(ad["ci_B5000"]),
@@ -626,26 +811,51 @@ def main() -> int:
                 claim("%s five-action temp0 floor is zero" % lab, t5["models"][lab]["observed"]["temp0"],
                       ("fell to zero for llama3.1:8b, mistral:7b, and qwen3:4b", "The estimated floor was $0.000$ for llama3.1:8b, mistral:7b, and qwen3:4b")) if t5["models"][lab]["observed"]["temp0"] == 0.0 else claim(
                       "%s five-action temp0 floor is zero" % lab, t5["models"][lab]["observed"]["temp0"], "NONZERO: REWRITE")
-            # R3: exact one-sided 95% upper bounds for zero-observed floors, and the simulated
-            # coverage quoted in Methods (experiments/fixed_case_bounds_v3.json, COVERAGE_SIM.json).
-            _fb = json.load(open(os.path.join(ROOT, "experiments", "fixed_case_bounds_v3.json"), encoding="utf-8"))
-            _zb = {(z["quantity"].split()[0], z["quantity"].split()[-1]): z["fixed_case_exact_floor_ub"] for z in _fb["zero_bounds"]}
+            # Zero bounds (v4): one-sided 95% upper bounds for zero-observed floors that treat each vignette
+            # as one unit (experiments/zero_bounds_v4.json, recomputed here by dep_bound), and the
+            # simulated coverage quoted in Methods (experiments/COVERAGE_SIM_v4.json).
+            _zj = _zb_json()
+            _zbc = {b["case"]: b for b in _zj["bounds"]}
+            for _b in _zj["bounds"]:
+                assert abs(_b["equal_F_bound"] - dep_bound(_b["V"], _b["R"])) < 1e-9, _b["case"]
+                assert _b["max_at_equal"] and abs(_b["multistart_max"] - _b["equal_F_bound"]) < 1e-6, _b["case"]
+            _b5 = _zbc["pooled 5-action, temp 0 (R=5, V=16)"]["equal_F_bound"]
+            _b6 = _zbc["pooled 6-action, temp 0 (R=5, V=16)"]["equal_F_bound"]
+            _b10 = _zbc["single action R=10, V=16 (qwen3 zero cells)"]["equal_F_bound"]
+            _b1 = _zbc["single action R=5, V=16 (temp 0)"]["equal_F_bound"]
+            assert abs(_b5 - _b6) < 1e-12
+            claim("zero bound five-action t0", round(_b5, 3), "$\\le %.3f$ for each" % _b5)
+            claim("zero bound five/six-action t0 (Methods)", round(_b5, 3), "$%.3f$ (five or six actions at temperature" % _b5)
+            claim("zero bound five/six-action t0 (SI)", round(_b5, 3), "$%.3f$ (five or six actions at temperature $0$, $R{=}5$; also one action" % _b5)
+            claim("zero bound E default ICU", round(_b10, 3), "$\\le 0.%03d$" % round(1000 * _b10))
+            claim("zero bound E default high acuity", round(_b10, 3), "$\\le 0.%03d$" % round(1000 * _b10))
+            claim("zero bound one action R=10", round(_b10, 3), "$%.3f$ (one action, $R{=}10$" % _b10)
+            claim("zero bound one action R=5", round(_b1, 3), "$%.3f$ (one action, $R{=}5$" % _b1)
             for _lab in ("C", "D", "E"):
-                for _q, _n in (("pooled_5action", "five-action"), ("pooled_6action", "six-action"), ("admit", "single-action")):
-                    assert abs(_zb[(_lab + "_t0", _q)] - _zb[("C_t0", _q)]) < 1e-12
-            claim("zero bound five-action t0", round(_zb[("C_t0", "pooled_5action")], 3), "$\le 0.%03d$ for each" % round(1000 * _zb[("C_t0", "pooled_5action")]))
-            claim("zero bound six-action t0", round(_zb[("C_t0", "pooled_6action")], 3), "$%.3f$ (six actions" % _zb[("C_t0", "pooled_6action")])
-            claim("zero bound E default ICU", round(_zb[("E", "escalate_icu")], 3), "$\le 0.%03d$" % round(1000 * _zb[("E", "escalate_icu")]))
-            claim("zero bound E default high acuity", round(_zb[("E", "high_acuity")], 3), "$\le 0.%03d$" % round(1000 * _zb[("E", "high_acuity")]))
-            claim("zero bound single action t0", round(_zb[("C_t0", "admit")], 3), "$%.3f$ (one action at temperature" % _zb[("C_t0", "admit")])
-            _cs = json.load(open(os.path.join(ROOT, "experiments", "COVERAGE_SIM.json"), encoding="utf-8"))["scenarios"]
+                assert t5["models"][_lab]["observed"]["temp0"] == 0.0
+            _ce = _zj["counterexample"]
+            claim("counterexample miss probability old bound", round(_ce["exact_P_all_unanimous"], 3),
+                  "was $%.3f$" % _ce["exact_P_all_unanimous"])
+            claim("counterexample miss probability new bound", _ce["mc_P_zero_and_truth_above_new_bound"],
+                  "was $0$ in that example") if _ce["mc_P_zero_and_truth_above_new_bound"] == 0 else claim(
+                  "counterexample miss probability new bound", _ce["mc_P_zero_and_truth_above_new_bound"], "NONZERO: REWRITE")
+            # The inequality min_k U(f_vk) <= U(F_v) is argued analytically in the SI (U decreasing).
+            _cs_all = json.load(open(os.path.join(ROOT, "experiments", "COVERAGE_SIM_v4.json"), encoding="utf-8"))["scenarios"]
+            _cs = [s for s in _cs_all if s.get("dependence", "none") == "none"]
             _away = [s for s in _cs if not s["scenario"].startswith("S2")]
             _pop = [s["coverage_floor"]["population"]["crossed"] for s in _away]
             _dif = [s["coverage_difference_vs_S3_model"][k]["crossed"] for s in _cs for k in ("fixed", "population")]
             claim("coverage crossed population range", "%d-%d" % (round(100 * min(_pop)), round(100 * max(_pop))),
-                  "$%d$--$%d\%%$ coverage of the case-population" % (round(100 * min(_pop)), round(100 * max(_pop))))
+                  "$%d$--$%d\%%$ coverage of the simulated population floor" % (round(100 * min(_pop)), round(100 * max(_pop))))
             claim("coverage difference range", "%d-%d" % (round(100 * min(_dif)), round(100 * max(_dif))),
                   "$%d$--$%d\%%$ for between-model" % (round(100 * min(_dif)), round(100 * max(_dif))))
+            _idc = [s for s in _cs_all if s.get("dependence") == "identical"]
+            _idd = [s["coverage_difference_vs_S3_model"][k]["crossed"] for s in _idc for k in ("fixed", "population")]
+            claim("coverage difference range, identical actions", "%.1f-%.1f" % (100 * min(_idd), 100 * max(_idd)),
+                  "($%.1f$--$%.1f\\%%$ with identical actions)" % (100 * min(_idd), 100 * max(_idd)))
+            _minhp = min(s["coverage_hybrid_new_bound"]["population"] for s in _idc)
+            claim("identical hybrid min population (main text)", "%.1f" % (100 * _minhp),
+                  "population coverage was at least $%.1f\\%%$ in every identical-action scenario" % (100 * _minhp))
             _s2 = {s["R"]: s["coverage_floor"]["fixed"]["crossed"] for s in _cs if s["scenario"].startswith("S2")}
             claim("coverage near zero R=10,5", "%d,%d" % (round(100 * _s2[10]), round(100 * _s2[5])),
                   "$%d\%%$ at ten replicates and $%d\%%$ at five" % (round(100 * _s2[10]), round(100 * _s2[5])))
@@ -684,7 +894,7 @@ def main() -> int:
             claim("iso floor 5a", round(h5["temp0"], 3), "$%.3f$ ($95\%%$ crossed" % h5["temp0"])
             claim("iso floor 5a CI", "%.3f-%.3f" % tuple(h5["ci_temp0"]), ("$[%.3f, %.3f]$" % tuple(h5["ci_temp0"]), "$%.3f$--$%.3f$" % tuple(h5["ci_temp0"])))
             rr = [1 - x for x in h5["ci_reduction"]]
-            claim("iso/batched ratio", round(1 - h5["reduction"], 2), "ratio of $%.2f$" % (1 - h5["reduction"]))
+            claim("iso/batched ratio", round(1 - h5["reduction"], 2), "ratio was $%.2f$" % (1 - h5["reduction"]))
             claim("iso/batched ratio CI", "%.2f-%.2f" % (min(rr), max(rr)), "$%.2f$--$%.2f$" % (min(rr), max(rr)))
             claim("iso floor 6a", round(h6["temp0"], 3), "six-action floors were $%.3f$ and $%.3f$" % (h6["temp0"], h6["default"]))
             pa = hi["per_action"]
@@ -699,6 +909,73 @@ def main() -> int:
             for f in glob.glob(os.path.join(ROOT, "experiments", "floor16_haiku_iso", "rep*", "answers", "*.json")):
                 nc += sum(len(v["attempts"]) for v in json.load(open(f, encoding="utf-8"))["attempts"].values())
             claim("iso calls", nc, "$%d$ calls, no retries" % nc)
+
+        # Interleaved isolated/batched comparison (experiments/haiku_dispatch_compare.json) and
+        # the call counts read from its attempt logs (floor16_haiku_il_iso / _batch).
+        _dp = os.path.join(ROOT, "experiments", "haiku_dispatch_compare.json")
+        if os.path.exists(_dp):
+            dc = json.load(open(_dp, encoding="utf-8"))
+            q5, q6 = dc["pooled"]["5action"], dc["pooled"]["6action"]
+            dpn = dc["dependence"]
+
+            def _ci(c):
+                return "$[%.3f, %.3f]$" % (c[0], c[1])
+
+            def _sg(x):
+                return ("$+%.3f$" % x) if x >= 0 else ("$-%.3f$" % abs(x))
+
+            claim("il iso floor 5a", round(q5["floor_iso"], 3), "$%.3f$ %s isolated" % (q5["floor_iso"], _ci(q5["ci_iso"])))
+            claim("il batch floor 5a", round(q5["floor_batch"], 3), "$%.3f$ %s batched" % (q5["floor_batch"], _ci(q5["ci_batch"])))
+            claim("il diff 5a", round(q5["diff_batch_minus_iso"], 3), "a difference of %s (%s)" % (_sg(q5["diff_batch_minus_iso"]), _ci(q5["ci_diff"])))
+            claim("il ratio 5a", round(q5["ratio_batch_over_iso"], 2),
+                  "ratio of $%.2f$ ($%.2f$--$%.2f$)" % (q5["ratio_batch_over_iso"], q5["ci_ratio"][0], q5["ci_ratio"][1]))
+            claim("il diff in results", round(q5["diff_batch_minus_iso"], 3),
+                  "batched minus isolated %s, $95\\%%$ crossed CI %s" % (_sg(q5["diff_batch_minus_iso"]), _ci(q5["ci_diff"])))
+            claim("il diff excludes zero", q5["diff_ci_excludes_zero"], "the interval includes zero") if not q5["diff_ci_excludes_zero"] else None
+            claim("il floors 6a", round(q6["floor_iso"], 3),
+                  "$%.3f$ %s & $%.3f$ %s" % (q6["floor_iso"], _ci(q6["ci_iso"]), q6["floor_batch"], _ci(q6["ci_batch"])))
+            claim("il diff 6a", round(q6["diff_batch_minus_iso"], 3), "$%+.3f$ %s" % (q6["diff_batch_minus_iso"], _ci(q6["ci_diff"])))
+            for k, nm in (("admit", "Admission"), ("escalate_icu", "Intensive-care escalation"), ("high_acuity", "High acuity"),
+                          ("referral", "Referral"), ("any_opioid", "Any opioid"), ("cs_caution", "Caution flag")):
+                r = dc["per_action"][k]
+                claim("il per-action %s" % k, "%.3f/%.3f/%.3f" % (r["iso"], r["batch"], r["diff"]),
+                      "$%.3f$ & $%.3f$ & $%+.3f$ %s" % (r["iso"], r["batch"], r["diff"], _ci(r["ci_diff"])))
+            claim("il noisiest in both arms", "%.3f/%.3f" % (dc["per_action"]["high_acuity"]["iso"], dc["per_action"]["high_acuity"]["batch"]),
+                  "($%.3f$ isolated, $%.3f$ batched)" % (dc["per_action"]["high_acuity"]["iso"], dc["per_action"]["high_acuity"]["batch"]))
+            claim("il noisiest is high acuity", max(dc["per_action"], key=lambda k: dc["per_action"][k]["iso"]).replace("_", " "), "high acuity was the noisiest action in both arms")
+            claim("il noisiest is high acuity (batch)", max(dc["per_action"], key=lambda k: dc["per_action"][k]["batch"]).replace("_", " "), "high acuity was the noisiest action in both arms")
+            claim("il dep batch rep-mean", round(dpn["batch"]["rep_mean_rate_p"], 3),
+                  "variance ratio of replicate-mean rates $%.2f$, $p=%.3f$" % (dpn["batch"]["rep_mean_rate_var_ratio"], dpn["batch"]["rep_mean_rate_p"]))
+            claim("il dep iso rep-mean", round(dpn["iso"]["rep_mean_rate_p"], 2),
+                  "the isolated arm did not ($%.2f$, $p=%.2f$)" % (dpn["iso"]["rep_mean_rate_var_ratio"], dpn["iso"]["rep_mean_rate_p"]))
+            claim("il dep batch pair", round(dpn["batch"]["pair_floor_p"], 2),
+                  "per-pair floors of $%.2f$ ($p=%.2f$)" % (dpn["batch"]["pair_floor_var_ratio"], dpn["batch"]["pair_floor_p"]))
+            claim("il dep iso pair", round(dpn["iso"]["pair_floor_p"], 2),
+                  "$%.2f$ ($p=%.2f$) and $%.2f$ ($p=%.2f$)" % (dpn["iso"]["rep_mean_rate_var_ratio"], dpn["iso"]["rep_mean_rate_p"],
+                                                              dpn["iso"]["pair_floor_var_ratio"], dpn["iso"]["pair_floor_p"]))
+            claim("il dep in methods", round(dpn["batch"]["rep_mean_rate_p"], 3),
+                  "batched arm ($p=%.3f$ for replicate-mean rates) and did not detect it in the isolated arm ($p=%.2f$)" % (dpn["batch"]["rep_mean_rate_p"], dpn["iso"]["rep_mean_rate_p"]))
+            # attempt logs: calls, retries, failures, models reported, unanswered prompts
+            cnt = {}
+            for arm in ("iso", "batch"):
+                calls = fails = retried = ok_models = 0
+                for f in glob.glob(os.path.join(ROOT, "experiments", "floor16_haiku_il_" + arm, "rep*", "answers", "s*.json")):
+                    for v in json.load(open(f, encoding="utf-8"))["attempts"].values():
+                        retried += len(v["attempts"]) > 1
+                        for a in v["attempts"]:
+                            calls += 1
+                            fails += bool(a.get("error") or a.get("is_error"))
+                            ok_models += a.get("models_reported", []) == ["claude-haiku-4-5"]
+                cnt[arm] = (calls, fails, retried, ok_models)
+            claim("il total calls", cnt["iso"][0] + cnt["batch"][0], "It made $%d$ calls" % (cnt["iso"][0] + cnt["batch"][0]))
+            claim("il iso calls", cnt["iso"][0], "$%d$ isolated, one of which timed out" % cnt["iso"][0])
+            claim("il iso timeouts", cnt["iso"][1], "one of which timed out") if cnt["iso"][1] == 1 else claim("il iso timeouts", cnt["iso"][1], "UNEXPECTED")
+            claim("il batch calls", cnt["batch"][0], "$%d$ batched" % cnt["batch"][0])
+            claim("il batch retries", cnt["batch"][2], "batched with no retries") if cnt["batch"][2] == 0 else claim("il batch retries", cnt["batch"][2], "UNEXPECTED")
+            claim("il models reported", cnt["iso"][3] + cnt["batch"][3],
+                  "for all $%d$ calls that returned a result" % (cnt["iso"][3] + cnt["batch"][3]))
+            claim("il models reported = calls minus failures", cnt["iso"][3] + cnt["batch"][3],
+                  "for all $%d$ calls that returned a result" % (cnt["iso"][0] + cnt["batch"][0] - cnt["iso"][1] - cnt["batch"][1]))
 
         # Attempt-level counts for every rerun arm (Supplementary Table S-attempts), the
         # retry statements in Methods, and the first-attempt-only sensitivity.
@@ -746,6 +1023,176 @@ def main() -> int:
             if not ok_len:
                 failures += 1
 
+    # --- v4: range, vignette-unit bounds, correlated-action coverage, applicability ----
+    def _chk(label, value, ok):
+        nonlocal failures
+        checks.append((label, value, "(table/rule)", ok if have_paper else None))
+        if have_paper and not ok:
+            failures += 1
+
+    if have_paper and pc.V3:
+        import math as _m
+        # Range factor undefined resamples, unbounded upper limit, absolute range
+        _rg = json.load(open(os.path.join(ROOT, "experiments", "range_v4.json"), encoding="utf-8"))
+        _rf = _rg["range_factor"]
+        if CROSSED:
+            _ai = XC["A_admit_minus_icu"]
+            _lo, _hi = _ai["ratio_finite_subset_ci"]
+            claim("A admit/ICU ratio, ICU floor zero resamples", _ai["n_icu_zero"],
+                  "in $%d$ of $5000$ resamples, a fraction of $%.3f$, the intensive-care escalation floor is exactly zero" % (_ai["n_icu_zero"], _ai["n_icu_zero"] / 5000.0))
+            claim("A admit/ICU ratio, finite-subset interval", "%.2f-%.2f" % (_lo, _hi),
+                  "finite-subset interval of $[%.2f, %.2f]$" % (_lo, _hi))
+        claim("range factor undefined share", round(100 * _rf["share_undefined"], 1), "($%.1f\\%%$)" % (100 * _rf["share_undefined"]))
+        claim("range factor unconditional lower limit", round(_rf["unconditional_undefined_as_plus_inf"]["ci"][0], 1),
+              "lower limit of $%.1f$ and no upper limit" % _rf["unconditional_undefined_as_plus_inf"]["ci"][0])
+        assert _rf["unconditional_undefined_as_plus_inf"]["upper_is_infinite"]
+        _cc = _rf["conditional_on_positive_min"]["ci"]
+        claim("range factor conditional CI", "%.1f-%.1f" % tuple(_cc), "$%.1f$--$%.1f$ conditional on a positive minimum" % tuple(_cc))
+        claim("range factor conditional n (SI)", _rf["conditional_on_positive_min"]["n"], "($%d$ resamples) the interval is" % _rf["conditional_on_positive_min"]["n"])
+        _ar = _rg["absolute_range_max_minus_min"]
+        claim("absolute range", round(_ar["observed"], 3), "$%.3f$ ($95\\%%$ crossed bootstrap interval $%.3f$--$%.3f$)" % (_ar["observed"], _ar["ci"][0], _ar["ci"][1]))
+        claim("absolute range (SI)", round(_ar["observed"], 3), "is $%.3f$ ($95\\%%$ crossed interval $%.3f$--$%.3f$" % (_ar["observed"], _ar["ci"][0], _ar["ci"][1]))
+        claim("six-action range undefined (SI)", XC["range_factor_6action"]["n_undefined_resamples"] if CROSSED else None,
+              "undefined in $%d$ resamples" % XC["range_factor_6action"]["n_undefined_resamples"]) if CROSSED else None
+
+        # Applicability
+        _ap = json.load(open(os.path.join(ROOT, "experiments", "applicability_v4.json"), encoding="utf-8"))
+        _cc_ = _ap["cell_counts"]["total"]
+        claim("applicability counts", "%d/%d/%d" % (_cc_["Y"], _cc_["U"], _cc_["N"]),
+              "marks $%d$ of $80$ vignette--action cells as applicable, $%d$ as uncertain and $%d$ as not applicable" % (_cc_["Y"], _cc_["U"], _cc_["N"]))
+        claim("applicability counts (SI)", "%d/%d/%d" % (_cc_["Y"], _cc_["U"], _cc_["N"]),
+              "marks $%d$ cells applicable, $%d$ uncertain and $%d$ not applicable" % (_cc_["Y"], _cc_["U"], _cc_["N"]))
+        _vf, _vn, _vb = _ap["variants"]["full"], _ap["variants"]["narrow_Y"], _ap["variants"]["broad_YU"]
+        _all_raised = all(_vn[m]["floor"] > _vf[m]["floor"] for m in "ABCDEF")
+        _chk("applicable-only raises every floor", _all_raised, _all_raised)
+        _dch = {m: _vn[m]["floor"] - _vf[m]["floor"] for m in "ABCDEF"}
+        _big = max(_dch, key=_dch.get)
+        claim("applicability largest change model", _big, "model %s, $%.3f$ to $%.3f$" % (_big, _vf[_big]["floor"], _vn[_big]["floor"]))
+        _ord_f = sorted("ABCDEF", key=lambda m: _vf[m]["floor"])
+        _ord_n = sorted("ABCDEF", key=lambda m: _vn[m]["floor"])
+        _chk("applicability ordering unchanged", "".join(_ord_n), _ord_f == _ord_n)
+        claim("applicability absolute range", "%.3f-%.3f" % (_vf["_summary"]["abs_range"], _vn["_summary"]["abs_range"]),
+              "$%.3f$--$%.3f$" % (_vf["_summary"]["abs_range"], _vn["_summary"]["abs_range"]))
+        _en = _ap["easy_negatives"]
+        _mxn = max(_en[m]["status_N"]["unanimous_negative"] for m in "ABCDEF")
+        claim("applicability max UN in N cells", _mxn, "at most $%d$ of the $11$" % _mxn)
+        _upN = {m: _en[m]["status_N"]["unanimous_positive"] for m in "ABCDEF"}
+        _abe = sorted(set(_upN[m] for m in "ABDE"))
+        assert len(_abe) == 1 and all(_upN[m] < _abe[0] for m in "CF"), _upN
+        claim("applicability UP in N cells, models A B D E", _abe[0],
+              "(for models A, B, D and E, $%d$ of the $11$ not-applicable cells were unanimously positive)" % _abe[0])
+        for m in "ABCDEF":
+            e = _en[m]
+            row = "%s & %s & %s & %s & %d & %d & %d" % (m, *["%.3f [%.3f, %.3f]" % (v[m]["floor"], v[m]["ci_crossed"][0], v[m]["ci_crossed"][1]) for v in (_vf, _vn, _vb)],
+                                                         e["unanimous_negative"], e["status_Y"]["unanimous_negative"], e["status_N"]["unanimous_negative"])
+            claim("applicability table row %s" % m, row, row)
+
+
+        # End-to-end check with clean controls (experiments/audit_validation.json, attempt summaries).
+        _av, _rd, _att = aud_load()
+        _ph = aud_phrases(_av, _rd, _att)
+        claim("e2e prompts", _ph["n_prompts"], "$%d$ prompts" % _ph["n_prompts"])
+        claim("e2e render diff cells", _rd["null_byte_identical"], _ph["cells"])
+        claim("e2e attempts", _ph["attempts"], _ph["attempts"])
+        claim("e2e retries (expected 1/0)", "%d/%d" % (sum(a["retries"] for a in _att.values()), sum(a["final_failures"] for a in _att.values())), "one retry and no final failures")
+        for _k in ("null_d", "null_p", "null_ex", "flip23", "dem_ex", "cs", "netbias", "qwen_pow", "llama_pow", "opp_pow", "opp_sq", "same_sq"):
+            claim("e2e " + _k, _ph[_k], _ph[_k])
+        claim("e2e coverage not interpreted (main)", "-", "interval coverage here is not a frequentist check and is not interpreted")
+        claim("e2e coverage not interpreted (SI)", "-", "the coverage columns are not a frequentist check and are not interpreted")
+        claim("e2e abstract pct", _ph["pct23"], "(about %d\\%% on one model)" % _ph["pct23"])
+        for _r in aud_main_rows(_av):
+            claim("e2e main table row", _r[:40], _r)
+        for _r in aud_si_action_rows(_av):
+            claim("e2e SI per-action row", _r[:40], _r)
+        for _r in aud_si_inj_rows(_av):
+            claim("e2e SI injection row", _r[:40], _r)
+        for _r in aud_att_rows(_att):
+            claim("e2e SI attempt row", _r[:40], _r)
+        _meta = _av["meta"]
+        claim("e2e bootstrap B", _meta["B"], "$B=%d$" % _meta["B"])
+        claim("e2e injection seeds", _meta["n_seeds"], "$%d$ seeds" % _meta["n_seeds"])
+        claim("e2e injection inner B", _meta["inner_B"], "inner bootstrap of $B=%d$" % _meta["inner_B"])
+        claim("e2e identity gap (max abs)", "%.0e" % max(abs(c["pooled_5action"]["identity_gap_excess_minus_corrected"]) for m in _av["models"].values() for c in m["contrasts"].values()),
+              "below $10^{-16}$") if max(abs(c["pooled_5action"]["identity_gap_excess_minus_corrected"]) for m in _av["models"].values() for c in m["contrasts"].values()) < 1e-16 else _chk("e2e identity gap", "too large", False)
+        _bsl = aud_inj_pooled(_av, "llama")[0]["baseline_mean_shift_uninjected"]
+        assert all(abs(x["baseline_mean_shift_uninjected"] - _bsl) < 1e-12 for x in aud_inj_pooled(_av, "llama"))
+        claim("e2e baseline offset llama", round(_bsl, 3), "(%s for llama3.1:8b, pooled over the five actions)" % aud_m(_bsl))
+
+        # Applicability: range of the increases (applicable-only minus full, five-action), A-F.
+        _dmin, _dmax = min(_dch.values()), max(_dch.values())
+        claim("applicability increase range", "%.3f-%.3f" % (_dmin, _dmax), "by $%.3f$ to $%.3f$" % (_dmin, _dmax))
+
+        # Coverage with correlated actions (experiments/COVERAGE_SIM_v4.json)
+        _sc = json.load(open(os.path.join(ROOT, "experiments", "COVERAGE_SIM_v4.json"), encoding="utf-8"))["scenarios"]
+        _p1 = lambda x: "%.1f" % (100 * x)
+        _t0 = tex.index("\\label{tab:supp-coverage}")
+        _t1 = tex.index("\\end{tabular}", _t0)
+        _rows = [ln for ln in tex[_t0:_t1].split("\n") if "&" in ln and ln.rstrip().endswith("\\\\") and not ln.startswith("Scenario")]
+        _chk("coverage table rows", len(_rows), len(_rows) == len(_sc))
+        for ln, s in zip(_rows, _sc):
+            c = [x.strip().rstrip("\\").strip() for x in ln.split("&")]
+            cf, d, h = s["coverage_floor"], s["coverage_difference_vs_S3_model"], s["coverage_hybrid_new_bound"]
+            exp = [100 * s["frac_zero_observed"], 100 * cf["population"]["crossed"], 100 * cf["fixed"]["crossed"]]
+            got = [float(c[3]), float(c[4]), float(c[5])]
+            okr = int(c[2]) == s["R"] and all(abs(a - b) <= 0.051 for a, b in zip(exp, got))
+            dd = [float(x) for x in c[6].split("/")]
+            okr = okr and abs(dd[0] - 100 * d["population"]["crossed"]) <= 0.051 and abs(dd[1] - 100 * d["fixed"]["crossed"]) <= 0.051
+            hh = [float(x) for x in c[7].split("/")]
+            okr = okr and abs(hh[0] - 100 * h["population"]) <= 0.051 and abs(hh[1] - 100 * h["fixed"]) <= 0.051
+            _chk("coverage row %s R=%d" % (s["scenario"][:24], s["R"]), ln.strip()[:30], okr)
+        _gs = lambda pre, suf, R: [s for s in _sc if s["scenario"].startswith(pre) and s["scenario"].endswith(suf) and s["R"] == R][0]
+        _cop_d = 0.0
+        for s in _sc:
+            if s["scenario"].endswith("copula"):
+                b = [x for x in _sc if x["scenario"] == s["scenario"].split(" +")[0] and x["R"] == s["R"]] or \
+                    [x for x in _sc if x["scenario"].startswith(s["scenario"].split(" +")[0].split(" (")[0]) and "+" not in x["scenario"] and x["R"] == s["R"]]
+                assert len(b) == 1
+                for k in ("population", "fixed"):
+                    _cop_d = max(_cop_d, abs(s["coverage_floor"][k]["crossed"] - b[0]["coverage_floor"][k]["crossed"]))
+        claim("copula coverage close", "%.1f" % (_m.ceil(1000 * _cop_d) / 10), "within %.1f percentage points" % (_m.ceil(1000 * _cop_d) / 10))
+        for pre in ("S1", "S2", "S3"):
+            a10, a5 = _gs(pre, "identical actions", 10), _gs(pre, "identical actions", 5)
+            claim("identical pop coverage %s" % pre, "%s/%s" % (_p1(a10["coverage_floor"]["population"]["crossed"]), _p1(a5["coverage_floor"]["population"]["crossed"])),
+                  "$%s\\%%$ and $%s\\%%$ in %s" % (_p1(a10["coverage_floor"]["population"]["crossed"]), _p1(a5["coverage_floor"]["population"]["crossed"]), pre), tex)
+            claim("identical zero-observed %s" % pre, "%s/%s" % (_p1(a10["frac_zero_observed"]), _p1(a5["frac_zero_observed"])),
+                  "$%s\\%%$ and $%s\\%%$" % (_p1(a10["frac_zero_observed"]), _p1(a5["frac_zero_observed"])))
+        _idn = [s for s in _sc if s["scenario"].endswith("identical actions")]
+        _minfix = min(s["coverage_hybrid_new_bound"]["fixed"] for s in _idn)
+        claim("identical hybrid min fixed", _p1(_minfix), "at least $%s\\%%$ in every identical-action" % _p1(_minfix))
+        _rest = [s for s in _idn if not (s["scenario"].startswith("S3") and s["R"] == 10)]
+        _minpop = min(s["coverage_hybrid_new_bound"]["population"] for s in _rest)
+        claim("identical hybrid min population (excl. S3 R=10)", _p1(_minpop), "at least $%s\\%%$ in all of them except S3" % _p1(_minpop))
+        _s3i = _gs("S3", "identical actions", 10)
+        claim("identical S3 R=10 hybrid population", _p1(_s3i["coverage_hybrid_new_bound"]["population"]),
+              "where it was $%s\\%%$" % _p1(_s3i["coverage_hybrid_new_bound"]["population"]))
+        claim("S3 population floor vs bound", "%.3f/%.3f" % (_s3i["theta_population"], _s3i["zero_bound_new_dependence_robust"]),
+              "($%.3f$) exceeds it ($%.3f$ at $R{=}10$)" % (_s3i["theta_population"], _s3i["zero_bound_new_dependence_robust"]))
+        assert _s3i["zero_bound_check"]["P_zero_and_truth_above_new_bound"]["population"] > 0
+
+        # retired text must be absent from the whole manuscript + supplement (tikz stripped)
+        _full = re.sub(r"\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}", " ", tex, flags=re.S)
+        for needle, why in [
+            ("\\le0.015", "pooled cell-level bound, replaced by the vignette-unit 0.071"),
+            ("\\le 0.015", "pooled cell-level bound, replaced by the vignette-unit 0.071"),
+            ("\\le0.012", "six-action cell-level bound, replaced by 0.071"),
+            ("\\le 0.012", "six-action cell-level bound, replaced by 0.071"),
+            ("$0.015$ (five actions", "retired cell-level bound"),
+            ("$0.012$ (six actions", "retired cell-level bound"),
+            ("$400$ draws", "bound no longer described by draws"),
+            ("$480$ draws", "bound no longer described by draws"),
+            ("$160$ draws", "bound no longer described by draws"),
+            ("$80$ draws", "bound no longer described by draws"),
+            ("unseen vignette", "unseen-vignette bound deleted"),
+            ("up to $17\\%$", "unseen-vignette 17% claim deleted"),
+            ("about $0.09$", "unseen-vignette bound value deleted"),
+            ("hypothetical population", "population estimand reworded (fixed-case inference)"),
+            ("a case-population estimand", "population estimand reworded"),
+            ("requires no common-probability assumption", "replaced by the dependence-robust derivation"),
+        ]:
+            if needle in _full:
+                failures += 1
+                checks.append(("STALE %s" % needle, "-", "should be absent", False))
+
     # --- superseded figures must be ABSENT ----------------------------------------------
     # The checks above confirm that current values appear. They cannot catch a stale value
     # left behind in a section nobody re-read, which is exactly how the four-vignette floor
@@ -784,7 +1231,7 @@ def main() -> int:
     tex_stale = re.sub(r"\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}", " ", tex_stale, flags=re.S)
     # The isolated-call haiku arm legitimately reports a floor of 0.091 (checked above as
     # "iso floor 5a/6a"); drop those two phrases so the superseded mistral R=6 value stays detectable.
-    tex_stale = tex_stale.replace("floor was $0.091$ ($95\%$ crossed", " ").replace("six-action floors were $0.091$", " ")
+    tex_stale = tex_stale.replace("floor was $0.091$ ($95\%$ crossed", " ").replace("floor of $0.091$ ($95\%$ crossed", " ").replace("six-action floors were $0.091$", " ")
     for needle, why in (RETIRED if have_paper else []):
         # Allow a figure to appear where the text is explicitly narrating its retraction.
         for m in re.finditer(re.escape(needle), tex_stale):

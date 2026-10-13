@@ -1,0 +1,508 @@
+{
+ "answers": [
+  {
+   "id": 10,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Lipid Profile",
+     "HbA1c",
+     "Electrolytes",
+     "Infectious Disease Screen"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "action": {
+    "orders": [
+     "CT Abdomen with Contrast",
+     "Urinalysis",
+     "Complete Blood Count",
+     "Electrolyte Panel"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Lipase",
+     "Urinalysis",
+     "Abdominal CT with contrast"
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "CK-MB",
+     "Lipid profile"
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Creatinine",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 85,
+   "action": {
+    "orders": [
+     "complete blood count",
+     "urinalysis",
+     "urine culture",
+     "renal function panel"
+    ]
+   }
+  },
+  {
+   "id": 100,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Complete Metabolic Panel",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CBC",
+     "LFTs",
+     "Blood glucose"
+    ]
+   }
+  },
+  {
+   "id": 130,
+   "action": {
+    "orders": [
+     "CT angiogram of the lower extremities",
+     "Type and hold bloodwork (basic metabolic panel, complete blood count, coagulation studies)"
+    ]
+   }
+  },
+  {
+   "id": 145,
+   "action": {
+    "orders": [
+     "plain X-ray lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 160,
+   "action": {
+    "orders": [
+     "ALT",
+     "AST",
+     "INR",
+     "Liver Ultrasound",
+     "Hepatitis panel"
+    ]
+   }
+  },
+  {
+   "id": 175,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Blood Chemistries",
+     "Lipase",
+     "Ultrasound of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 190,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Ammonia",
+     "Complete Blood Count (CBC)",
+     "Electrolytes",
+     "Abdominal X-ray"
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "action": {
+    "orders": [
+     "Troponin",
+     "Creatinine",
+     "Complete Metabolic Panel",
+     "Hemoglobin A1c",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 220,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lactate",
+     "Type and cross-match"
+    ]
+   }
+  },
+  {
+   "id": 235,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid panel"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 10,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:08Z",
+     "duration_s": 2.383
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Basic Metabolic Panel",
+     "Lipid Profile",
+     "HbA1c",
+     "Electrolytes",
+     "Infectious Disease Screen"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:11Z",
+     "duration_s": 1.609
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT Abdomen with Contrast",
+     "Urinalysis",
+     "Complete Blood Count",
+     "Electrolyte Panel"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:12Z",
+     "duration_s": 2.073
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Lipase",
+     "Urinalysis",
+     "Abdominal CT with contrast"
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:14Z",
+     "duration_s": 1.388
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "CK-MB",
+     "Lipid profile"
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:16Z",
+     "duration_s": 1.535
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Creatinine",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 85,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:17Z",
+     "duration_s": 1.337
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "complete blood count",
+     "urinalysis",
+     "urine culture",
+     "renal function panel"
+    ]
+   }
+  },
+  {
+   "id": 100,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:19Z",
+     "duration_s": 1.09
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Complete Metabolic Panel",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:20Z",
+     "duration_s": 1.445
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "CBC",
+     "LFTs",
+     "Blood glucose"
+    ]
+   }
+  },
+  {
+   "id": 130,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:21Z",
+     "duration_s": 1.928
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT angiogram of the lower extremities",
+     "Type and hold bloodwork (basic metabolic panel, complete blood count, coagulation studies)"
+    ]
+   }
+  },
+  {
+   "id": 145,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:23Z",
+     "duration_s": 0.856
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "plain X-ray lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 160,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:24Z",
+     "duration_s": 1.412
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ALT",
+     "AST",
+     "INR",
+     "Liver Ultrasound",
+     "Hepatitis panel"
+    ]
+   }
+  },
+  {
+   "id": 175,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:25Z",
+     "duration_s": 1.594
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Blood Chemistries",
+     "Lipase",
+     "Ultrasound of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 190,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:27Z",
+     "duration_s": 1.87
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Ammonia",
+     "Complete Blood Count (CBC)",
+     "Electrolytes",
+     "Abdominal X-ray"
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:29Z",
+     "duration_s": 1.767
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Troponin",
+     "Creatinine",
+     "Complete Metabolic Panel",
+     "Hemoglobin A1c",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 220,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:31Z",
+     "duration_s": 1.395
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lactate",
+     "Type and cross-match"
+    ]
+   }
+  },
+  {
+   "id": 235,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:06:32Z",
+     "duration_s": 1.139
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid panel"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

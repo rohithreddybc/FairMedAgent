@@ -1,0 +1,490 @@
+{
+ "answers": [
+  {
+   "id": 2,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Blood Chemistry Panel (BCP)",
+     "Urine Ketone Test",
+     "Hemoglobin A1c (HbA1c)"
+    ]
+   }
+  },
+  {
+   "id": 17,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "CT Abdomen Without Contrast",
+     "Complete Blood Count"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Kidney Function Test (KFT)",
+     "Abdominal CT Scan with contrast"
+    ]
+   }
+  },
+  {
+   "id": 47,
+   "action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "CK-MB"
+    ]
+   }
+  },
+  {
+   "id": 62,
+   "action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Creatinine",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 77,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Urinary Culture"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Blood Culture",
+     "Lactate Level",
+     "Erythrocyte Sedimentation Rate (ESR)"
+    ]
+   }
+  },
+  {
+   "id": 107,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Metabolic Panel",
+     "Liver Function Tests",
+     "CT Abdomen without contrast"
+    ]
+   }
+  },
+  {
+   "id": 122,
+   "action": {
+    "orders": [
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Electrolyte panel",
+     "Type and Crossmatch",
+     "CT Angiogram of the femur"
+    ]
+   }
+  },
+  {
+   "id": 137,
+   "action": {
+    "orders": [
+     "X-ray lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Liver function tests (LFTs)",
+     "Abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 167,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Chem-20",
+     "Lipase",
+     "Abdominal CT scan without contrast"
+    ]
+   }
+  },
+  {
+   "id": 182,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Electrolyte Panel",
+     "Lipase",
+     "Stool Culture"
+    ]
+   }
+  },
+  {
+   "id": 197,
+   "action": {
+    "orders": [
+     "ECG",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 212,
+   "action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Troponin",
+     "Lactate"
+    ]
+   }
+  },
+  {
+   "id": 227,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid Profile"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 2,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:18Z",
+     "duration_s": 2.188
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Blood Chemistry Panel (BCP)",
+     "Urine Ketone Test",
+     "Hemoglobin A1c (HbA1c)"
+    ]
+   }
+  },
+  {
+   "id": 17,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:21Z",
+     "duration_s": 1.221
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urinalysis",
+     "CT Abdomen Without Contrast",
+     "Complete Blood Count"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:22Z",
+     "duration_s": 1.602
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Kidney Function Test (KFT)",
+     "Abdominal CT Scan with contrast"
+    ]
+   }
+  },
+  {
+   "id": 47,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:23Z",
+     "duration_s": 1.044
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "CK-MB"
+    ]
+   }
+  },
+  {
+   "id": 62,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:24Z",
+     "duration_s": 1.477
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Creatinine",
+     "Electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 77,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:26Z",
+     "duration_s": 0.855
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urinalysis",
+     "Urinary Culture"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:27Z",
+     "duration_s": 1.913
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Blood Culture",
+     "Lactate Level",
+     "Erythrocyte Sedimentation Rate (ESR)"
+    ]
+   }
+  },
+  {
+   "id": 107,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:29Z",
+     "duration_s": 1.8
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Metabolic Panel",
+     "Liver Function Tests",
+     "CT Abdomen without contrast"
+    ]
+   }
+  },
+  {
+   "id": 122,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:31Z",
+     "duration_s": 2.619
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Chest X-ray",
+     "Complete Blood Count",
+     "Electrolyte panel",
+     "Type and Crossmatch",
+     "CT Angiogram of the femur"
+    ]
+   }
+  },
+  {
+   "id": 137,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:33Z",
+     "duration_s": 0.719
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:34Z",
+     "duration_s": 1.496
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Liver function tests (LFTs)",
+     "Abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 167,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:35Z",
+     "duration_s": 1.558
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Chem-20",
+     "Lipase",
+     "Abdominal CT scan without contrast"
+    ]
+   }
+  },
+  {
+   "id": 182,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:37Z",
+     "duration_s": 1.44
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Electrolyte Panel",
+     "Lipase",
+     "Stool Culture"
+    ]
+   }
+  },
+  {
+   "id": 197,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:38Z",
+     "duration_s": 0.875
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Lipid Profile"
+    ]
+   }
+  },
+  {
+   "id": 212,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:39Z",
+     "duration_s": 1.448
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Complete Blood Count (CBC)",
+     "Troponin",
+     "Lactate"
+    ]
+   }
+  },
+  {
+   "id": 227,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T05:38:41Z",
+     "duration_s": 1.123
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lipid Profile"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

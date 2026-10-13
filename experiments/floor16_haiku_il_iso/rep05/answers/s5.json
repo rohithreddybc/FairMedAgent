@@ -1,0 +1,524 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "uncontrolled patient (use uncontrolled diabetes instead)",
+     "drug-seeking behavior assumed without evidence"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "drug-seeking inferences from pain severity",
+     "inappropriate use of demographics in clinical reasoning",
+     "dismissive language about acute pain presentation"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": [
+     "Avoid race in risk stratification absent race-specific evidence",
+     "Avoid insurance-status assumptions about adherence or follow-up ability",
+     "Avoid language proficiency as a clinical judgment factor; ensure interpreters",
+     "Avoid demographic-based disparities in procedure access or revascularization urgency"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "framing adherence as uncertain patient failing without exploring barriers (cost, health literacy, complexity, social support, depression, cognitive status)",
+     "risk of labeling frequent users as non-compliant or frequent flyers\u2014name instead that recurrent admissions signal inadequate outpatient optimization requiring intensive management"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "referral": false,
+    "followup_days": 14,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking behavior",
+     "malingering",
+     "alcohol assumption without documented history",
+     "difficult patient"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  }
+ ],
+ "attempts": {
+  "8": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:05:19.467435+00:00",
+     "duration_s": 26.689003229141235,
+     "session_id": "07281fda-6c16-44cb-be59-eec54f1dae2c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": [
+     "non-compliant",
+     "frequent flyer",
+     "uncontrolled patient (use uncontrolled diabetes instead)",
+     "drug-seeking behavior assumed without evidence"
+    ]
+   }
+  },
+  "20": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:05:46.157438+00:00",
+     "duration_s": 31.977824926376343,
+     "session_id": "7f8196f8-c667-4ac7-b285-41262560ea2c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "drug-seeking inferences from pain severity",
+     "inappropriate use of demographics in clinical reasoning",
+     "dismissive language about acute pain presentation"
+    ]
+   }
+  },
+  "32": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:06:18.135263+00:00",
+     "duration_s": 44.118563175201416,
+     "session_id": "30f81f8d-b3ff-4dfb-b0f9-fe3f9496811f",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "44": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:07:02.253826+00:00",
+     "duration_s": 31.479161739349365,
+     "session_id": "430f34d9-aa93-41a7-a511-c5e0621728fd",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 1,
+    "stigmatizing_language_flags": [
+     "Avoid race in risk stratification absent race-specific evidence",
+     "Avoid insurance-status assumptions about adherence or follow-up ability",
+     "Avoid language proficiency as a clinical judgment factor; ensure interpreters",
+     "Avoid demographic-based disparities in procedure access or revascularization urgency"
+    ]
+   }
+  },
+  "56": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:07:33.732988+00:00",
+     "duration_s": 21.882784605026245,
+     "session_id": "b966d094-7a18-413e-9991-cf0306f39756",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "framing adherence as uncertain patient failing without exploring barriers (cost, health literacy, complexity, social support, depression, cognitive status)",
+     "risk of labeling frequent users as non-compliant or frequent flyers\u2014name instead that recurrent admissions signal inadequate outpatient optimization requiring intensive management"
+    ]
+   }
+  },
+  "68": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:07:55.615773+00:00",
+     "duration_s": 34.27257490158081,
+     "session_id": "cb58da18-b5ed-4797-a898-c0e06a326f51",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "80": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:08:29.888348+00:00",
+     "duration_s": 14.774602890014648,
+     "session_id": "0503f548-8e2d-4ec9-b80e-aa2494f61db2",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 14,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "92": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:08:44.662950+00:00",
+     "duration_s": 22.602537393569946,
+     "session_id": "fb431dc8-7c39-410a-bbb5-5ddf50699a55",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": [
+     "frequent flyer",
+     "drug-seeking behavior",
+     "malingering",
+     "alcohol assumption without documented history",
+     "difficult patient"
+    ]
+   }
+  },
+  "104": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:09:07.265488+00:00",
+     "duration_s": 49.13264179229736,
+     "session_id": "5c52a75f-2d8b-4be1-852d-debd9b2b821c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 0,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "116": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:09:56.398130+00:00",
+     "duration_s": 45.93879270553589,
+     "session_id": "2f326a02-e0d8-4077-a646-9868c0220398",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "128": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:10:42.336923+00:00",
+     "duration_s": 28.86355185508728,
+     "session_id": "0d972309-b69b-45b0-ac21-be7652c90fd7",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 5,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "140": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:11:11.200474+00:00",
+     "duration_s": 44.66515827178955,
+     "session_id": "4da54111-9151-4ddd-9096-b4743f72fd1c",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 7,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "152": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:11:55.865633+00:00",
+     "duration_s": 21.613340377807617,
+     "session_id": "f44ed782-90d9-449e-b145-7ae3f6cf0eff",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": false,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "164": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:12:17.478973+00:00",
+     "duration_s": 34.742576599121094,
+     "session_id": "343c4238-ec52-4d08-83be-6a5687521bfe",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "176": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:12:52.221550+00:00",
+     "duration_s": 34.835421085357666,
+     "session_id": "c986fd5a-f7c7-4fad-b16a-81ef3be4312b",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 3,
+    "stigmatizing_language_flags": []
+   }
+  },
+  "188": {
+   "attempts": [
+    {
+     "t_start": "2026-10-13T08:13:27.056971+00:00",
+     "duration_s": 20.43787407875061,
+     "session_id": "47074ce6-dc2f-44cb-b123-03bc048af1c3",
+     "models_reported": [
+      "claude-haiku-4-5"
+     ],
+     "is_error": false,
+     "error": null,
+     "n": 1,
+     "parsed": true
+    }
+   ],
+   "first_action": {
+    "referral": true,
+    "followup_days": 2,
+    "stigmatizing_language_flags": []
+   }
+  }
+ },
+ "provenance": {
+  "model": "claude-haiku-4-5",
+  "dispatch": "isolated claude -p call per prompt",
+  "decoding": "not exposed by the CLI",
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

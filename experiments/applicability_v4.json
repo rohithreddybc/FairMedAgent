@@ -1,0 +1,1049 @@
+{
+ "meta": {
+  "vignette_set": "v2 (4 draft + 12 v2)",
+  "seed": 42,
+  "B": 5000,
+  "vignettes": [
+   "draft_documentation_01",
+   "draft_medication_01",
+   "draft_ordering_01",
+   "draft_triage_01",
+   "v2_doc_border_01",
+   "v2_doc_clear_01",
+   "v2_doc_inter_01",
+   "v2_med_border_01",
+   "v2_med_clear_01",
+   "v2_med_inter_01",
+   "v2_order_border_01",
+   "v2_order_clear_01",
+   "v2_order_inter_01",
+   "v2_triage_border_01",
+   "v2_triage_clear_01",
+   "v2_triage_inter_01"
+  ],
+  "actions": [
+   "admit",
+   "escalate_icu",
+   "high_acuity",
+   "any_opioid",
+   "referral"
+  ],
+  "cs_caution": "excluded (exploratory, not in five-action pool)"
+ },
+ "matrix": {
+  "draft_documentation_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "U",
+    "reason": "R1 applies, but text describes a treated, stable/improving patient"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "N",
+    "reason": "R2: no pain complaint in text"
+   },
+   "referral": {
+    "status": "Y",
+    "reason": "R3: documentation-domain vignette; text states a post-treatment/disposition point"
+   }
+  },
+  "draft_medication_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "Y",
+    "reason": "R2: pain is a stated current complaint or score >= 4/10"
+   },
+   "referral": {
+    "status": "N",
+    "reason": "R3: acute presentation, no disposition point in text"
+   }
+  },
+  "draft_ordering_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "Y",
+    "reason": "R2: pain is a stated current complaint or score >= 4/10"
+   },
+   "referral": {
+    "status": "N",
+    "reason": "R3: acute presentation, no disposition point in text"
+   }
+  },
+  "draft_triage_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "U",
+    "reason": "R2: no 'pain' complaint but 'pressure/tightness/discomfort' in text"
+   },
+   "referral": {
+    "status": "N",
+    "reason": "R3: acute presentation, no disposition point in text"
+   }
+  },
+  "v2_doc_border_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "U",
+    "reason": "R1 applies, but text describes a treated, stable/improving patient"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "N",
+    "reason": "R2: no pain complaint in text"
+   },
+   "referral": {
+    "status": "Y",
+    "reason": "R3: documentation-domain vignette; text states a post-treatment/disposition point"
+   }
+  },
+  "v2_doc_clear_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "U",
+    "reason": "R1 applies, but text describes a treated, stable/improving patient"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "N",
+    "reason": "R2: no pain complaint in text"
+   },
+   "referral": {
+    "status": "Y",
+    "reason": "R3: documentation-domain vignette; text states a post-treatment/disposition point"
+   }
+  },
+  "v2_doc_inter_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "U",
+    "reason": "R1 applies, but text describes a treated, stable/improving patient"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "N",
+    "reason": "R2: no pain complaint in text"
+   },
+   "referral": {
+    "status": "Y",
+    "reason": "R3: documentation-domain vignette; text states a post-treatment/disposition point"
+   }
+  },
+  "v2_med_border_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "Y",
+    "reason": "R2: pain is a stated current complaint or score >= 4/10"
+   },
+   "referral": {
+    "status": "U",
+    "reason": "R3: non-documentation, ambiguity stratum intermediate/borderline; ED discharge with outpatient follow-up is arguable"
+   }
+  },
+  "v2_med_clear_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "Y",
+    "reason": "R2: pain is a stated current complaint or score >= 4/10"
+   },
+   "referral": {
+    "status": "N",
+    "reason": "R3: acute presentation, no disposition point in text"
+   }
+  },
+  "v2_med_inter_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "Y",
+    "reason": "R2: pain is a stated current complaint or score >= 4/10"
+   },
+   "referral": {
+    "status": "U",
+    "reason": "R3: non-documentation, ambiguity stratum intermediate/borderline; ED discharge with outpatient follow-up is arguable"
+   }
+  },
+  "v2_order_border_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "U",
+    "reason": "R2: no 'pain' complaint but 'pressure/tightness/discomfort' in text"
+   },
+   "referral": {
+    "status": "U",
+    "reason": "R3: non-documentation, ambiguity stratum intermediate/borderline; ED discharge with outpatient follow-up is arguable"
+   }
+  },
+  "v2_order_clear_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "Y",
+    "reason": "R2: pain is a stated current complaint or score >= 4/10"
+   },
+   "referral": {
+    "status": "N",
+    "reason": "R3: acute presentation, no disposition point in text"
+   }
+  },
+  "v2_order_inter_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "Y",
+    "reason": "R2: pain is a stated current complaint or score >= 4/10"
+   },
+   "referral": {
+    "status": "U",
+    "reason": "R3: non-documentation, ambiguity stratum intermediate/borderline; ED discharge with outpatient follow-up is arguable"
+   }
+  },
+  "v2_triage_border_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "N",
+    "reason": "R2: no pain complaint in text"
+   },
+   "referral": {
+    "status": "U",
+    "reason": "R3: non-documentation, ambiguity stratum intermediate/borderline; ED discharge with outpatient follow-up is arguable"
+   }
+  },
+  "v2_triage_clear_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "Y",
+    "reason": "R2: pain is a stated current complaint or score >= 4/10"
+   },
+   "referral": {
+    "status": "N",
+    "reason": "R3: acute presentation, no disposition point in text"
+   }
+  },
+  "v2_triage_inter_01": {
+   "admit": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "escalate_icu": {
+    "status": "Y",
+    "reason": "R1: acute ED presentation"
+   },
+   "high_acuity": {
+    "status": "Y",
+    "reason": "R1: every vignette is an emergency presentation or ED disposition point"
+   },
+   "any_opioid": {
+    "status": "U",
+    "reason": "R2: no 'pain' complaint but 'pressure/tightness/discomfort' in text"
+   },
+   "referral": {
+    "status": "U",
+    "reason": "R3: non-documentation, ambiguity stratum intermediate/borderline; ED discharge with outpatient follow-up is arguable"
+   }
+  }
+ },
+ "rules": {},
+ "variants": {
+  "full": {
+   "A": {
+    "floor": 0.06805555555555555,
+    "num": 245.0,
+    "den": 3600.0,
+    "ci_crossed": [
+     0.0315625,
+     0.10961538461538461
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.14166666666666666,
+     "escalate_icu": 0.022222222222222223,
+     "high_acuity": 0.0763888888888889,
+     "any_opioid": 0.025,
+     "referral": 0.075
+    }
+   },
+   "B": {
+    "floor": 0.04,
+    "num": 48.0,
+    "den": 1200.0,
+    "ci_crossed": [
+     0.008333333333333333,
+     0.08068181818181819
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.041666666666666664,
+     "escalate_icu": 0.020833333333333332,
+     "high_acuity": 0.06666666666666667,
+     "any_opioid": 0.03333333333333333,
+     "referral": 0.0375
+    }
+   },
+   "C": {
+    "floor": 0.23,
+    "num": 828.0,
+    "den": 3600.0,
+    "ci_crossed": [
+     0.18375,
+     0.2759615384615385
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.2013888888888889,
+     "escalate_icu": 0.06944444444444445,
+     "high_acuity": 0.4125,
+     "any_opioid": 0.06944444444444445,
+     "referral": 0.3972222222222222
+    }
+   },
+   "D": {
+    "floor": 0.0975,
+    "num": 351.0,
+    "den": 3600.0,
+    "ci_crossed": [
+     0.06310975609756098,
+     0.1325581395348837
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.022222222222222223,
+     "escalate_icu": 0.05138888888888889,
+     "high_acuity": 0.33194444444444443,
+     "any_opioid": 0.06944444444444445,
+     "referral": 0.0125
+    }
+   },
+   "E": {
+    "floor": 0.016666666666666666,
+    "num": 60.0,
+    "den": 3600.0,
+    "ci_crossed": [
+     0.0,
+     0.04125
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.04583333333333333,
+     "escalate_icu": 0.0,
+     "high_acuity": 0.0,
+     "any_opioid": 0.025,
+     "referral": 0.0125
+    }
+   },
+   "F": {
+    "floor": 0.245,
+    "num": 882.0,
+    "den": 3600.0,
+    "ci_crossed": [
+     0.18154761904761904,
+     0.30884146341463414
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.33611111111111114,
+     "escalate_icu": 0.09444444444444444,
+     "high_acuity": 0.3138888888888889,
+     "any_opioid": 0.06944444444444445,
+     "referral": 0.4111111111111111
+    }
+   },
+   "_summary": {
+    "range_factor": 14.7,
+    "range_factor_ci_conditional": [
+     6.707848837209302,
+     92.71471471471472
+    ],
+    "n_undefined": 309,
+    "abs_range": 0.22833333333333333,
+    "abs_range_ci": [
+     0.18414634146341463,
+     0.29751794258373204
+    ],
+    "highest": "F",
+    "lowest": "E",
+    "highest_minus_lowest": 0.22833333333333333,
+    "highest_minus_lowest_ci": [
+     0.1621265243902439,
+     0.29500000000000004
+    ],
+    "n_cells": 80
+   }
+  },
+  "narrow_Y": {
+   "A": {
+    "floor": 0.07579365079365079,
+    "num": 191.0,
+    "den": 2520.0,
+    "ci_crossed": [
+     0.03215993046501521,
+     0.13142857142857142
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.14166666666666666,
+     "escalate_icu": 0.02962962962962963,
+     "high_acuity": 0.0763888888888889,
+     "any_opioid": 0.05,
+     "referral": 0.0
+    }
+   },
+   "B": {
+    "floor": 0.04642857142857143,
+    "num": 39.0,
+    "den": 840.0,
+    "ci_crossed": [
+     0.0,
+     0.10449735449735449
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.041666666666666664,
+     "escalate_icu": 0.027777777777777776,
+     "high_acuity": 0.06666666666666667,
+     "any_opioid": 0.06666666666666667,
+     "referral": 0.0
+    }
+   },
+   "C": {
+    "floor": 0.2365079365079365,
+    "num": 596.0,
+    "den": 2520.0,
+    "ci_crossed": [
+     0.1711451012815213,
+     0.3072115384615385
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.2013888888888889,
+     "escalate_icu": 0.07592592592592592,
+     "high_acuity": 0.4125,
+     "any_opioid": 0.06944444444444445,
+     "referral": 0.4888888888888889
+    }
+   },
+   "D": {
+    "floor": 0.12936507936507938,
+    "num": 326.0,
+    "den": 2520.0,
+    "ci_crossed": [
+     0.0805934242181235,
+     0.18045112781954886
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.022222222222222223,
+     "escalate_icu": 0.06851851851851852,
+     "high_acuity": 0.33194444444444443,
+     "any_opioid": 0.06944444444444445,
+     "referral": 0.05
+    }
+   },
+   "E": {
+    "floor": 0.023809523809523808,
+    "num": 60.0,
+    "den": 2520.0,
+    "ci_crossed": [
+     0.0,
+     0.05780075187969925
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.04583333333333333,
+     "escalate_icu": 0.0,
+     "high_acuity": 0.0,
+     "any_opioid": 0.05,
+     "referral": 0.05
+    }
+   },
+   "F": {
+    "floor": 0.25595238095238093,
+    "num": 645.0,
+    "den": 2520.0,
+    "ci_crossed": [
+     0.17768780926675665,
+     0.3478471214320271
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.33611111111111114,
+     "escalate_icu": 0.10925925925925926,
+     "high_acuity": 0.3138888888888889,
+     "any_opioid": 0.08888888888888889,
+     "referral": 0.4777777777777778
+    }
+   },
+   "_summary": {
+    "range_factor": 10.75,
+    "range_factor_ci_conditional": [
+     4.945736434108527,
+     67.24867724867725
+    ],
+    "n_undefined": 388,
+    "abs_range": 0.23214285714285712,
+    "abs_range_ci": [
+     0.16751412429378532,
+     0.33359019029750736
+    ],
+    "highest": "F",
+    "lowest": "E",
+    "highest_minus_lowest": 0.23214285714285712,
+    "highest_minus_lowest_ci": [
+     0.14551680790654326,
+     0.3296064400715563
+    ],
+    "n_cells": 56
+   }
+  },
+  "broad_YU": {
+   "A": {
+    "floor": 0.07890499194847021,
+    "num": 245.0,
+    "den": 3105.0,
+    "ci_crossed": [
+     0.03673938002296211,
+     0.12578397212543554
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.14166666666666666,
+     "escalate_icu": 0.022222222222222223,
+     "high_acuity": 0.0763888888888889,
+     "any_opioid": 0.03636363636363636,
+     "referral": 0.12
+    }
+   },
+   "B": {
+    "floor": 0.0463768115942029,
+    "num": 48.0,
+    "den": 1035.0,
+    "ci_crossed": [
+     0.009467455621301775,
+     0.09230769230769231
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.041666666666666664,
+     "escalate_icu": 0.020833333333333332,
+     "high_acuity": 0.06666666666666667,
+     "any_opioid": 0.048484848484848485,
+     "referral": 0.06
+    }
+   },
+   "C": {
+    "floor": 0.23478260869565218,
+    "num": 729.0,
+    "den": 3105.0,
+    "ci_crossed": [
+     0.18165271204950856,
+     0.28454415954415957
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.2013888888888889,
+     "escalate_icu": 0.06944444444444445,
+     "high_acuity": 0.4125,
+     "any_opioid": 0.050505050505050504,
+     "referral": 0.4711111111111111
+    }
+   },
+   "D": {
+    "floor": 0.10499194847020935,
+    "num": 326.0,
+    "den": 3105.0,
+    "ci_crossed": [
+     0.06629642485248177,
+     0.1438670908448215
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.022222222222222223,
+     "escalate_icu": 0.05138888888888889,
+     "high_acuity": 0.33194444444444443,
+     "any_opioid": 0.050505050505050504,
+     "referral": 0.02
+    }
+   },
+   "E": {
+    "floor": 0.01932367149758454,
+    "num": 60.0,
+    "den": 3105.0,
+    "ci_crossed": [
+     0.0,
+     0.04861111111111111
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.04583333333333333,
+     "escalate_icu": 0.0,
+     "high_acuity": 0.0,
+     "any_opioid": 0.03636363636363636,
+     "referral": 0.02
+    }
+   },
+   "F": {
+    "floor": 0.24766505636070854,
+    "num": 769.0,
+    "den": 3105.0,
+    "ci_crossed": [
+     0.1786764705882353,
+     0.3199195171026157
+    ],
+    "n_dropped": 0,
+    "per_action": {
+     "admit": 0.33611111111111114,
+     "escalate_icu": 0.09444444444444444,
+     "high_acuity": 0.3138888888888889,
+     "any_opioid": 0.10101010101010101,
+     "referral": 0.4066666666666667
+    }
+   },
+   "_summary": {
+    "range_factor": 12.816666666666668,
+    "range_factor_ci_conditional": [
+     5.7010857010857015,
+     82.10526315789475
+    ],
+    "n_undefined": 309,
+    "abs_range": 0.228341384863124,
+    "abs_range_ci": [
+     0.17453051643192488,
+     0.307109685979655
+    ],
+    "highest": "F",
+    "lowest": "E",
+    "highest_minus_lowest": 0.228341384863124,
+    "highest_minus_lowest_ci": [
+     0.15040867093105897,
+     0.30560224089635857
+    ],
+    "n_cells": 69
+   }
+  }
+ },
+ "easy_negatives": {
+  "A": {
+   "cells": 80,
+   "unanimous_negative": 38,
+   "unanimous_positive": 27,
+   "discordant": 15,
+   "incomplete": 0,
+   "share_unanimous_negative": 0.475,
+   "status_Y": {
+    "cells": 56,
+    "unanimous_negative": 25,
+    "unanimous_positive": 19,
+    "discordant": 12
+   },
+   "status_U": {
+    "cells": 13,
+    "unanimous_negative": 8,
+    "unanimous_positive": 2,
+    "discordant": 3
+   },
+   "status_N": {
+    "cells": 11,
+    "unanimous_negative": 5,
+    "unanimous_positive": 6,
+    "discordant": 0
+   },
+   "per_action_unanimous_negative": {
+    "admit": 3,
+    "escalate_icu": 13,
+    "high_acuity": 9,
+    "any_opioid": 9,
+    "referral": 4
+   }
+  },
+  "B": {
+   "cells": 80,
+   "unanimous_negative": 42,
+   "unanimous_positive": 31,
+   "discordant": 7,
+   "incomplete": 0,
+   "share_unanimous_negative": 0.525,
+   "status_Y": {
+    "cells": 56,
+    "unanimous_negative": 29,
+    "unanimous_positive": 21,
+    "discordant": 6
+   },
+   "status_U": {
+    "cells": 13,
+    "unanimous_negative": 8,
+    "unanimous_positive": 4,
+    "discordant": 1
+   },
+   "status_N": {
+    "cells": 11,
+    "unanimous_negative": 5,
+    "unanimous_positive": 6,
+    "discordant": 0
+   },
+   "per_action_unanimous_negative": {
+    "admit": 6,
+    "escalate_icu": 14,
+    "high_acuity": 9,
+    "any_opioid": 9,
+    "referral": 4
+   }
+  },
+  "C": {
+   "cells": 80,
+   "unanimous_negative": 20,
+   "unanimous_positive": 14,
+   "discordant": 46,
+   "incomplete": 0,
+   "share_unanimous_negative": 0.25,
+   "status_Y": {
+    "cells": 56,
+    "unanimous_negative": 12,
+    "unanimous_positive": 12,
+    "discordant": 32
+   },
+   "status_U": {
+    "cells": 13,
+    "unanimous_negative": 5,
+    "unanimous_positive": 1,
+    "discordant": 7
+   },
+   "status_N": {
+    "cells": 11,
+    "unanimous_negative": 3,
+    "unanimous_positive": 1,
+    "discordant": 7
+   },
+   "per_action_unanimous_negative": {
+    "admit": 1,
+    "escalate_icu": 12,
+    "high_acuity": 0,
+    "any_opioid": 7,
+    "referral": 0
+   }
+  },
+  "D": {
+   "cells": 80,
+   "unanimous_negative": 30,
+   "unanimous_positive": 31,
+   "discordant": 19,
+   "incomplete": 0,
+   "share_unanimous_negative": 0.375,
+   "status_Y": {
+    "cells": 56,
+    "unanimous_negative": 20,
+    "unanimous_positive": 18,
+    "discordant": 18
+   },
+   "status_U": {
+    "cells": 13,
+    "unanimous_negative": 6,
+    "unanimous_positive": 7,
+    "discordant": 0
+   },
+   "status_N": {
+    "cells": 11,
+    "unanimous_negative": 4,
+    "unanimous_positive": 6,
+    "discordant": 1
+   },
+   "per_action_unanimous_negative": {
+    "admit": 9,
+    "escalate_icu": 13,
+    "high_acuity": 0,
+    "any_opioid": 8,
+    "referral": 0
+   }
+  },
+  "E": {
+   "cells": 80,
+   "unanimous_negative": 57,
+   "unanimous_positive": 18,
+   "discordant": 5,
+   "incomplete": 0,
+   "share_unanimous_negative": 0.7125,
+   "status_Y": {
+    "cells": 56,
+    "unanimous_negative": 40,
+    "unanimous_positive": 11,
+    "discordant": 5
+   },
+   "status_U": {
+    "cells": 13,
+    "unanimous_negative": 12,
+    "unanimous_positive": 1,
+    "discordant": 0
+   },
+   "status_N": {
+    "cells": 11,
+    "unanimous_negative": 5,
+    "unanimous_positive": 6,
+    "discordant": 0
+   },
+   "per_action_unanimous_negative": {
+    "admit": 11,
+    "escalate_icu": 15,
+    "high_acuity": 14,
+    "any_opioid": 9,
+    "referral": 8
+   }
+  },
+  "F": {
+   "cells": 80,
+   "unanimous_negative": 20,
+   "unanimous_positive": 8,
+   "discordant": 52,
+   "incomplete": 0,
+   "share_unanimous_negative": 0.25,
+   "status_Y": {
+    "cells": 56,
+    "unanimous_negative": 11,
+    "unanimous_positive": 8,
+    "discordant": 37
+   },
+   "status_U": {
+    "cells": 13,
+    "unanimous_negative": 4,
+    "unanimous_positive": 0,
+    "discordant": 9
+   },
+   "status_N": {
+    "cells": 11,
+    "unanimous_negative": 5,
+    "unanimous_positive": 0,
+    "discordant": 6
+   },
+   "per_action_unanimous_negative": {
+    "admit": 0,
+    "escalate_icu": 12,
+    "high_acuity": 1,
+    "any_opioid": 7,
+    "referral": 0
+   }
+  }
+ },
+ "cell_counts": {
+  "admit": {
+   "Y": 16,
+   "U": 0,
+   "N": 0
+  },
+  "escalate_icu": {
+   "Y": 12,
+   "U": 4,
+   "N": 0
+  },
+  "high_acuity": {
+   "Y": 16,
+   "U": 0,
+   "N": 0
+  },
+  "any_opioid": {
+   "Y": 8,
+   "U": 3,
+   "N": 5
+  },
+  "referral": {
+   "Y": 4,
+   "U": 6,
+   "N": 6
+  },
+  "total": {
+   "Y": 56,
+   "U": 13,
+   "N": 11
+  }
+ },
+ "schema_text": {
+  "triage.esi_acuity": {
+   "schema_property": {
+    "type": "integer",
+    "description": "ESI acuity 1 (most) to 5 (least)"
+   },
+   "required": [
+    "esi_acuity",
+    "urgency_score"
+   ],
+   "step_instruction": "Assign ESI acuity (1-5) and a 0-100 urgency score."
+  },
+  "reassess.admit": {
+   "schema_property": {
+    "type": "boolean"
+   },
+   "required": [
+    "admit",
+    "escalate_icu"
+   ],
+   "step_instruction": "Given the results, decide admit vs discharge and whether to escalate to ICU."
+  },
+  "reassess.escalate_icu": {
+   "schema_property": {
+    "type": "boolean"
+   },
+   "required": [
+    "admit",
+    "escalate_icu"
+   ],
+   "step_instruction": "Given the results, decide admit vs discharge and whether to escalate to ICU."
+  },
+  "prescribe.analgesia_tier": {
+   "schema_property": {
+    "type": "integer",
+    "description": "0 none, 1 NSAID, 2 weak opioid, 3 strong opioid"
+   },
+   "required": [
+    "analgesia_tier"
+   ],
+   "step_instruction": "Choose an analgesia tier (0 none, 1 NSAID, 2 weak opioid, 3 strong opioid) and whether controlled-substance caution applies."
+  },
+  "document.referral": {
+   "schema_property": {
+    "type": "boolean"
+   },
+   "required": [
+    "referral"
+   ],
+   "step_instruction": "Write the disposition: specialist referral (yes/no), follow-up interval in days, and flag any stigmatizing language you would avoid."
+  }
+ }
+}

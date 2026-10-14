@@ -64,7 +64,12 @@ qwen3:4b (sign-flip p = 0.08 and 0.12), and no effect is claimed. A permutation 
 replicate position and elapsed time against action rates found no order dependence
 (llama3.1:8b p = 0.75 and 0.53; qwen3:4b p = 0.96 and 0.11). An earlier run with a fixed order
 (reference, null, demographic in every replicate; ten replicates) is superseded; its results are
-in `experiments/audit_validation_audit_val.json`.
+in `experiments/audit_validation_audit_val.json`. On qwen3:4b only 4 of the 16 vignette-level shifts of the demographic contrast are non-zero, so the
+vignette-level sign-flip test cannot go below p = 0.125; a replicate-paired sign-flip test, chosen after the data were
+seen, gives p = 0.001 there (p = 0.16 on llama3.1:8b, 1.00 and 0.78 for the null controls). This is post hoc evidence of a
+descriptor effect on qwen3:4b for these sixteen vignettes, and no confirmatory or disparity claim is made. The statistics are
+checked against known truth in `harness/scripts/audit_sim.py` (`experiments/audit_sim.json`), which replaces the earlier
+injection into observed draws.
 
 The estimand this harness targets is the within-range counterfactual flip rate, which counts
 only flips between actions that a published decision rule admits and a clinician has
@@ -212,7 +217,8 @@ optional. Scripts that write figures take `--outdir` (default `figures/` under t
 | Crossed (vignette by replicate) bootstrap intervals | `crossed_boot.py` (used by `robustness.py`) | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/robustness.py` |
 | Isolated-call versus batched floor for endpoint A | `haiku_iso_floor.py` | `FMA_PANEL=v3 python harness/scripts/haiku_iso_floor.py` |
 | Coverage of the crossed-bootstrap interval (simulation) | `coverage_sim.py` | `python harness/scripts/coverage_sim.py --nsim 2000` |
-| End-to-end check of the audit statistic (null control, demographic contrast, injected shifts), counterbalanced order | `audit_cb_schedule.py`, `run_audit_cb.sh`, `audit_validation.py`, `audit_order_check.py`, `audit_render_diff.py` | `bash experiments/run_audit_cb.sh` (requires Ollama), then `python harness/scripts/audit_validation.py`, `python harness/scripts/audit_order_check.py` and `python harness/scripts/audit_render_diff.py`; the superseded fixed-order run is recomputed with `python harness/scripts/audit_validation.py --prefix audit_val` |
+| End-to-end check of the audit statistic (null control, demographic contrast), counterbalanced order | `audit_cb_schedule.py`, `run_audit_cb.sh`, `audit_validation.py`, `audit_order_check.py`, `audit_render_diff.py` | `bash experiments/run_audit_cb.sh` (requires Ollama), then `python harness/scripts/audit_validation.py`, `python harness/scripts/audit_order_check.py` and `python harness/scripts/audit_render_diff.py`; the superseded fixed-order run is recomputed with `python harness/scripts/audit_validation.py --prefix audit_val` |
+| Known-truth simulation of the audit statistics (bias, sign-flip size and power, cancelling and sparse effects, interval coverage) | `audit_sim.py` | `python harness/scripts/audit_sim.py` (writes `experiments/audit_sim.json`) |
 | Interleaved default versus temperature-0 check (four local models) | `run_temp_il.sh`, `temp_il_compare.py` | `bash experiments/run_temp_il.sh` (requires Ollama), then `python harness/scripts/temp_il_compare.py` |
 | Interleaved hosted dispatch comparison (isolated versus batched) | `run_haiku_interleaved.sh`, `claude_cli_batched_answerer.py`, `haiku_dispatch_compare.py` | `bash experiments/run_haiku_interleaved.sh` (requires the `claude` CLI), then `python harness/scripts/haiku_dispatch_compare.py` |
 | Dependence-robust zero-observed bounds | `zero_bounds_v4.py` | `FMA_PANEL=v3 FMA_BOOT=crossed python harness/scripts/zero_bounds_v4.py` |
@@ -232,6 +238,6 @@ optional. Scripts that write figures take `--outdir` (default `figures/` under t
 | Local and hosted runs | `run_ollama_floor.py` with `ollama_answerer.py` or `groq_answerer.py` (`FMA_ANSWERER`) | `python harness/scripts/run_ollama_floor.py <dir> <model> 1 10` (set `FMA_TEMPERATURE=0` for greedy; `FMA_RETRY_POLICY=same`; `FMA_ORDER_LOG=<path>` appends JSON-lines step timestamps) |
 | The full v3 local rerun (requires Ollama and the model tags in `floor16v3_provenance.txt`) | `experiments/run_v3_all.sh` | `bash experiments/run_v3_all.sh` |
 
-The supplementary material is attached to each GitHub release. This README describes version 0.1.11.
+The supplementary material is attached to each GitHub release. This README describes version 0.1.12.
 The concept DOI [10.5281/zenodo.22165979](https://doi.org/10.5281/zenodo.22165979) resolves to the latest
 release.

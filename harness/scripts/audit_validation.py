@@ -144,6 +144,22 @@ def _signs(V):
     return _SIGNS[V]
 
 
+def rep_signflip_p(X0, X1, kidx) -> float:
+    """Exact two-sided sign-flip p over replicate-paired differences (replicate r of each arm ran in the
+    same window). Fixed-case: the vignettes are held fixed and replicates are the units. Requires R0 == R1."""
+    if X0.shape[0] != X1.shape[0]:
+        return float("nan")
+    D = np.nanmean((X1 - X0)[:, :, kidx].reshape(X0.shape[0], -1), axis=1)
+    return signflip_p(D)
+
+
+def vig_signflip_meta(delta) -> dict:
+    """Number of non-zero vignette-level shifts and the smallest two-sided p the sign-flip test can attain."""
+    d = np.asarray(delta, float)
+    nz = int(np.sum(np.abs(d[~np.isnan(d)]) > 1e-12))
+    return {"n_nonzero_vignettes": nz, "min_attainable_p": (2.0 / 2 ** nz) if nz else 1.0}
+
+
 def signflip_p(delta) -> float:
     """Exact two-sided sign-flip permutation p over vignettes (zeros contribute nothing)."""
     delta = np.asarray(delta, np.float32)
@@ -177,7 +193,8 @@ def analyse(X0, X1, vs, label, rng_py):
                 "ci_f0": ci(bt["f0"]), "ci_f1": ci(bt["f1"]), "ci_d": ci(bt["d"]),
                 "ci_excess": ci(bt["excess"]), "ci_mean_shift": ci(bt["mean_shift"]),
                 "n_boot_dropped": int(np.isnan(bt["excess"]).sum()),
-                "sign_flip_p_two_sided": signflip_p(per_vig_shift)}
+                "sign_flip_p_two_sided": signflip_p(per_vig_shift), **vig_signflip_meta(per_vig_shift),
+                "rep_sign_flip_p_two_sided_post_hoc": rep_signflip_p(X0, X1, kidx)}
 
     out = {"label": label, "n_vignettes": V, "R_ref": R0, "R_cmp": R1, "per_action": {}}
     for k, name in enumerate(KEYS):

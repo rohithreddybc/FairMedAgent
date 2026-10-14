@@ -1,0 +1,550 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "Fasting Blood Glucose",
+     "Hemoglobin A1c",
+     "Basic Metabolic Panel",
+     "Urinalysis",
+     "Ketone Testing",
+     "ECG",
+     "Chest X-Ray"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "urinalysis",
+     "noncontrast helical CT scan of abdomen and pelvis",
+     "complete blood count (CBC)",
+     "serum creatinine",
+     "urinary electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "LFT",
+     "UA",
+     "Urinalysis",
+     "Abdominal ultrasound",
+     "CT abdomen/pelvis with contrast"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "chest X-ray",
+     "ECG",
+     "cardiac enzymes",
+     "echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "Electrocardiogram (ECG)",
+     "Chest X-ray",
+     "Echocardiogram",
+     "Brain natriuretic peptide (BNP)",
+     "Basic metabolic panel (BMP)",
+     "Urinalysis",
+     "Echocardiography"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Urine Culture",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "CBC",
+     "Blood glucose",
+     "HbA1c",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Serum Lipase",
+     "Serum Amylase",
+     "Abdominal Ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "X-ray of the right femur",
+     "CT scan of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "X-ray of the lumbar spine",
+     "Complete blood count (CBC)",
+     "Erythrocyte sedimentation rate (ESR)",
+     "C-reactive protein (CRP)"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "Liver function tests",
+     "FibroScan"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "Erythrocyte Sedimentation Rate",
+     "Serum Amylase",
+     "Serum Lipase",
+     "Urinalysis",
+     "Abdominal CT Scan without contrast"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "CRP",
+     "E.coli and Salmonella stool culture",
+     "Stool o&p",
+     "Abdominal CT scan",
+     "Urinalysis",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "ECG",
+     "CBC",
+     "Troponin",
+     "Echocardiogram",
+     "Blood glucose"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "Chest X-ray",
+     "Cardiac enzymes",
+     "Complete blood count (CBC)",
+     "Blood cultures",
+     "Echocardiogram",
+     "Nitroglycerin",
+     "Aspirin",
+     "IV access establishment",
+     "Oxygen therapy"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "Troponin T",
+     "Chest X-ray",
+     "Coronary angiogram",
+     "ECG"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:40:53Z",
+     "duration_s": 2.375
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Fasting Blood Glucose",
+     "Hemoglobin A1c",
+     "Basic Metabolic Panel",
+     "Urinalysis",
+     "Ketone Testing",
+     "ECG",
+     "Chest X-Ray"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:40:55Z",
+     "duration_s": 1.588
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "urinalysis",
+     "noncontrast helical CT scan of abdomen and pelvis",
+     "complete blood count (CBC)",
+     "serum creatinine",
+     "urinary electrolytes"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:40:57Z",
+     "duration_s": 1.889
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "LFT",
+     "UA",
+     "Urinalysis",
+     "Abdominal ultrasound",
+     "CT abdomen/pelvis with contrast"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:40:59Z",
+     "duration_s": 1.121
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "chest X-ray",
+     "ECG",
+     "cardiac enzymes",
+     "echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:00Z",
+     "duration_s": 2.343
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Electrocardiogram (ECG)",
+     "Chest X-ray",
+     "Echocardiogram",
+     "Brain natriuretic peptide (BNP)",
+     "Basic metabolic panel (BMP)",
+     "Urinalysis",
+     "Echocardiography"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:02Z",
+     "duration_s": 1.1
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urinalysis",
+     "Urine Culture",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:03Z",
+     "duration_s": 0.936
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Blood glucose",
+     "HbA1c",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:04Z",
+     "duration_s": 1.054
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Serum Lipase",
+     "Serum Amylase",
+     "Abdominal Ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:05Z",
+     "duration_s": 1.074
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray of the right femur",
+     "CT scan of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:06Z",
+     "duration_s": 1.811
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray of the lumbar spine",
+     "Complete blood count (CBC)",
+     "Erythrocyte sedimentation rate (ESR)",
+     "C-reactive protein (CRP)"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:08Z",
+     "duration_s": 0.792
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver function tests",
+     "FibroScan"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:09Z",
+     "duration_s": 2.136
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CRP",
+     "Erythrocyte Sedimentation Rate",
+     "Serum Amylase",
+     "Serum Lipase",
+     "Urinalysis",
+     "Abdominal CT Scan without contrast"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:11Z",
+     "duration_s": 2.068
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "CRP",
+     "E.coli and Salmonella stool culture",
+     "Stool o&p",
+     "Abdominal CT scan",
+     "Urinalysis",
+     "EKG"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:13Z",
+     "duration_s": 1.391
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "CBC",
+     "Troponin",
+     "Echocardiogram",
+     "Blood glucose"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:14Z",
+     "duration_s": 2.338
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Chest X-ray",
+     "Cardiac enzymes",
+     "Complete blood count (CBC)",
+     "Blood cultures",
+     "Echocardiogram",
+     "Nitroglycerin",
+     "Aspirin",
+     "IV access establishment",
+     "Oxygen therapy"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T19:41:17Z",
+     "duration_s": 1.159
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Troponin T",
+     "Chest X-ray",
+     "Coronary angiogram",
+     "ECG"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "phi3:mini",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

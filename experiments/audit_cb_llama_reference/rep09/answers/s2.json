@@ -1,0 +1,506 @@
+{
+ "answers": [
+  {
+   "id": 9,
+   "action": {
+    "orders": [
+     "Glucose",
+     "Creatinine",
+     "Hemoglobin A1c",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 24,
+   "action": {
+    "orders": [
+     "CBC",
+     "BUN",
+     "Creatinine",
+     "Urine dipstick",
+     "Abdominal CT without contrast"
+    ]
+   }
+  },
+  {
+   "id": 39,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Lipase",
+     "Urinalysis",
+     "Abdominal CT with contrast"
+    ]
+   }
+  },
+  {
+   "id": 54,
+   "action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "BUN",
+     "Creatinine",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 69,
+   "action": {
+    "orders": [
+     "BUN",
+     "Creatinine",
+     "Cardiac Troponin"
+    ]
+   }
+  },
+  {
+   "id": 84,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 99,
+   "action": {
+    "orders": [
+     "complete blood count",
+     "basic metabolic panel",
+     "lipid profile",
+     "thyroid function tests"
+    ]
+   }
+  },
+  {
+   "id": 114,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Lactic Acid",
+     "CT Pancreas"
+    ]
+   }
+  },
+  {
+   "id": 129,
+   "action": {
+    "orders": [
+     "CT Scan of the femur",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Type and Cross"
+    ]
+   }
+  },
+  {
+   "id": 144,
+   "action": {
+    "orders": [
+     "X-rays"
+    ]
+   }
+  },
+  {
+   "id": 159,
+   "action": {
+    "orders": [
+     "Liver function tests",
+     "Bilirubin",
+     "Complete metabolic panel",
+     "Abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 174,
+   "action": {
+    "orders": [
+     "complete blood count (CBC)",
+     "basic metabolic panel (BMP)",
+     "lipase",
+     "electrolytes",
+     "abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 189,
+   "action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Abdominal CT scan"
+    ]
+   }
+  },
+  {
+   "id": 204,
+   "action": {
+    "orders": [
+     "ECG",
+     "Lipid Profile",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 219,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lactate",
+     "Complete Blood Count",
+     "Electrolytes",
+     "BUN/Creatinine"
+    ]
+   }
+  },
+  {
+   "id": 234,
+   "action": {
+    "orders": [
+     "EKG",
+     "Troponin",
+     "Lipid Profile"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 9,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:35Z",
+     "duration_s": 1.466
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Glucose",
+     "Creatinine",
+     "Hemoglobin A1c",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 24,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:37Z",
+     "duration_s": 1.595
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "BUN",
+     "Creatinine",
+     "Urine dipstick",
+     "Abdominal CT without contrast"
+    ]
+   }
+  },
+  {
+   "id": 39,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:38Z",
+     "duration_s": 1.526
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Lipase",
+     "Urinalysis",
+     "Abdominal CT with contrast"
+    ]
+   }
+  },
+  {
+   "id": 54,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:40Z",
+     "duration_s": 1.501
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "troponin",
+     "BUN",
+     "Creatinine",
+     "Lipid panel"
+    ]
+   }
+  },
+  {
+   "id": 69,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:41Z",
+     "duration_s": 1.124
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "BUN",
+     "Creatinine",
+     "Cardiac Troponin"
+    ]
+   }
+  },
+  {
+   "id": 84,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:42Z",
+     "duration_s": 1.232
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)"
+    ]
+   }
+  },
+  {
+   "id": 99,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:43Z",
+     "duration_s": 1.41
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "complete blood count",
+     "basic metabolic panel",
+     "lipid profile",
+     "thyroid function tests"
+    ]
+   }
+  },
+  {
+   "id": 114,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:45Z",
+     "duration_s": 1.991
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Lactic Acid",
+     "CT Pancreas"
+    ]
+   }
+  },
+  {
+   "id": 129,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:47Z",
+     "duration_s": 1.89
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CT Scan of the femur",
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Type and Cross"
+    ]
+   }
+  },
+  {
+   "id": 144,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:49Z",
+     "duration_s": 0.562
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-rays"
+    ]
+   }
+  },
+  {
+   "id": 159,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:49Z",
+     "duration_s": 1.459
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Liver function tests",
+     "Bilirubin",
+     "Complete metabolic panel",
+     "Abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 174,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:51Z",
+     "duration_s": 1.922
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "complete blood count (CBC)",
+     "basic metabolic panel (BMP)",
+     "lipase",
+     "electrolytes",
+     "abdominal ultrasound"
+    ]
+   }
+  },
+  {
+   "id": 189,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:53Z",
+     "duration_s": 1.119
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Lipase",
+     "Abdominal CT scan"
+    ]
+   }
+  },
+  {
+   "id": 204,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:54Z",
+     "duration_s": 1.197
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Lipid Profile",
+     "Basic Metabolic Panel"
+    ]
+   }
+  },
+  {
+   "id": 219,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:55Z",
+     "duration_s": 1.967
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lactate",
+     "Complete Blood Count",
+     "Electrolytes",
+     "BUN/Creatinine"
+    ]
+   }
+  },
+  {
+   "id": 234,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:14:57Z",
+     "duration_s": 1.135
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "EKG",
+     "Troponin",
+     "Lipid Profile"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

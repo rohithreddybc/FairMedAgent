@@ -1,0 +1,510 @@
+{
+ "answers": [
+  {
+   "id": 10,
+   "action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "Lipid profile",
+     "C-Reactive Protein (CRP)"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Non-contrast CT abdomen/pelvis",
+     "Complete Blood Count (CBC)",
+     "Blood Chemistry Panel"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Blood Culture",
+     "Abdominal Ultrasound",
+     "Inflammatory Marker Panel (e.g., CRP, ESR)",
+     "Liver Function Tests (LFTs)"
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "action": {
+    "orders": [
+     "Troponin",
+     "Creatinine",
+     "CKMB",
+     "Electrocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 85,
+   "action": {
+    "orders": [
+     "Urine Culture",
+     "Complete Blood Count (CBC)"
+    ]
+   }
+  },
+  {
+   "id": 100,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Hemoglobin A1c",
+     "C-peptide",
+     "Complete Blood Count",
+     "Kidney Function Test"
+    ]
+   }
+  },
+  {
+   "id": 130,
+   "action": {
+    "orders": [
+     "Pelvic CT",
+     "Hemoglobin",
+     "Type and cross-match",
+     "PT/INR",
+     "Femur X-ray"
+    ]
+   }
+  },
+  {
+   "id": 145,
+   "action": {
+    "orders": [
+     "X-ray, lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 160,
+   "action": {
+    "orders": [
+     "LFTs",
+     "PT/INR",
+     "AST/ALT",
+     "HBV DNA",
+     "HCV antibody",
+     "Ultrasound abdominal"
+    ]
+   }
+  },
+  {
+   "id": 175,
+   "action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Kidney Function Panel (KFP)",
+     "Lipase",
+     "Computed Tomography (CT) scan of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 190,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count (CBC)",
+     "Stool Test for Infection",
+     "Abdominal X-ray"
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "action": {
+    "orders": [
+     "Basic Metabolic Panel",
+     "Lipid Profile",
+     "Electrolytes",
+     "Creatinine",
+     "Cardiac Enzymes",
+     "Electrocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 220,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lactate",
+     "CBC",
+     "Type and Hold",
+     "2-Vessel CXR"
+    ]
+   }
+  },
+  {
+   "id": 235,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 10,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:27Z",
+     "duration_s": 1.569
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Hemoglobin A1c",
+     "Lipid profile",
+     "C-Reactive Protein (CRP)"
+    ]
+   }
+  },
+  {
+   "id": 25,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:29Z",
+     "duration_s": 1.879
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urinalysis",
+     "Non-contrast CT abdomen/pelvis",
+     "Complete Blood Count (CBC)",
+     "Blood Chemistry Panel"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:30Z",
+     "duration_s": 2.474
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Blood Culture",
+     "Abdominal Ultrasound",
+     "Inflammatory Marker Panel (e.g., CRP, ESR)",
+     "Liver Function Tests (LFTs)"
+    ]
+   }
+  },
+  {
+   "id": 55,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:33Z",
+     "duration_s": 1.345
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Troponin",
+     "Creatinine",
+     "CKMB",
+     "Electrocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 70,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:34Z",
+     "duration_s": 1.366
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "B-type Natriuretic Peptide (BNP)",
+     "Echocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 85,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:36Z",
+     "duration_s": 1.031
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urine Culture",
+     "Complete Blood Count (CBC)"
+    ]
+   }
+  },
+  {
+   "id": 100,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:37Z",
+     "duration_s": 1.459
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 115,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:38Z",
+     "duration_s": 2.035
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Hemoglobin A1c",
+     "C-peptide",
+     "Complete Blood Count",
+     "Kidney Function Test"
+    ]
+   }
+  },
+  {
+   "id": 130,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:40Z",
+     "duration_s": 1.793
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Pelvic CT",
+     "Hemoglobin",
+     "Type and cross-match",
+     "PT/INR",
+     "Femur X-ray"
+    ]
+   }
+  },
+  {
+   "id": 145,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:42Z",
+     "duration_s": 0.796
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "X-ray, lumbar spine"
+    ]
+   }
+  },
+  {
+   "id": 160,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:43Z",
+     "duration_s": 1.917
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "LFTs",
+     "PT/INR",
+     "AST/ALT",
+     "HBV DNA",
+     "HCV antibody",
+     "Ultrasound abdominal"
+    ]
+   }
+  },
+  {
+   "id": 175,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:45Z",
+     "duration_s": 2.458
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count (CBC)",
+     "Basic Metabolic Panel (BMP)",
+     "Kidney Function Panel (KFP)",
+     "Lipase",
+     "Computed Tomography (CT) scan of the abdomen"
+    ]
+   }
+  },
+  {
+   "id": 190,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:47Z",
+     "duration_s": 1.735
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Complete Blood Count (CBC)",
+     "Stool Test for Infection",
+     "Abdominal X-ray"
+    ]
+   }
+  },
+  {
+   "id": 205,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:49Z",
+     "duration_s": 2.152
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Basic Metabolic Panel",
+     "Lipid Profile",
+     "Electrolytes",
+     "Creatinine",
+     "Cardiac Enzymes",
+     "Electrocardiogram"
+    ]
+   }
+  },
+  {
+   "id": 220,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:51Z",
+     "duration_s": 1.838
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin",
+     "Lactate",
+     "CBC",
+     "Type and Hold",
+     "2-Vessel CXR"
+    ]
+   }
+  },
+  {
+   "id": 235,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T16:20:53Z",
+     "duration_s": 0.833
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "llama3.1:8b-instruct-q4_K_M",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}

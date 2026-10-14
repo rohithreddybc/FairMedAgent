@@ -23,6 +23,8 @@ import io
 import itertools
 import glob
 import json
+
+import numpy as np
 import os
 import re
 import sys
@@ -228,6 +230,80 @@ def aud_si_inj_rows(av):
     return rows
 
 
+SIM_CAL = {"llama": "llama3.1:8b", "qwen3": "qwen3:4b", "homog_0.02": "floor $0.02$",
+           "homog_0.10": "floor $0.10$", "homog_0.22": "floor $0.22$"}
+
+
+def sim_load():
+    return json.load(open(os.path.join(ROOT, "experiments", "audit_sim.json"), encoding="utf-8"))
+
+
+def sim_scen(r):
+    k = r["scenario"]
+    if k.startswith("sparse"):
+        _, n, _a = k.split("_")
+        return "sparse, %s vig." % n
+    return {"null": "no effect", "same": "same sign", "opposing": "opposing", "pop_null": "no effect, pop.", "pop_het": "half shifted, pop."}[k]
+
+
+def sim_rows(sj, homog):
+    """Rows of one SI simulation table: model calibrations (homog=False) or homogeneous designs (True)."""
+    rows, last = [], None
+    for r in sj["rows"]:
+        if r["calibration"].startswith("homog") != homog:
+            continue
+        cal = SIM_CAL[r["calibration"]] if r["calibration"] != last else ""
+        last = r["calibration"]
+        rows.append("%s & %s & %.3f & %.3f & %s & %s & %s & %s & %s & %.3f & %.3f & %.3f & %.3f & %.3f \\\\" % (
+            cal, sim_scen(r), r["d"], r["expected_floor"], aud_c4(r["true_mean_shift"]), aud_c4(r["true_mean_delta2"]),
+            aud_c4(r["bias_shift"]), aud_c4(r["bias_excess"]), aud_c4(r["sd_excess"]),
+            r["reject_signflip_0.05"], r["reject_rep_signflip_0.05"], r["excess_ci_excludes_zero"],
+            r["coverage_shift"], r["coverage_delta2"]))
+    return rows
+
+
+def sim_phrases(sj):
+    R = sj["rows"]
+    g = lambda cal, sc, d: [r for r in R if r["calibration"] == cal and r["scenario"] == sc and abs(r["d"] - d) < 1e-9][0]
+    pc = lambda x: "$%.1f\%%$" % (100 * x)
+    pcu = lambda x: "$%.1f\%%$" % (np.ceil(1000 * x - 1e-9) / 10)   # upper bounds rounded up
+    ph = {}
+    ph["n_scen"] = "all $%d$ scenarios" % len(R)
+    ph["bias"] = "the absolute bias of the mean signed shift was at most $%.4f$ and that of the excess at most $%.4f$" % (
+        max(abs(r["bias_shift"]) for r in R), max(abs(r["bias_excess"]) for r in R))
+    ph["mcse"] = "the largest deviation, $%.1f$ Monte Carlo standard errors among $%d$ comparisons, is consistent with chance" % (max(max(abs(r["bias_shift"]) / r["mcse_bias_shift"], abs(r["bias_excess"]) / r["mcse_bias_excess"]) for r in R), 2 * len(R))
+    l, q = g("llama", "same", 0.025), g("qwen3", "same", 0.025)
+    ph["sd_small"] = "at $d=0.025$ (true mean $\delta^2$ $%.6f$) its standard deviation across datasets was $%.4f$ on the llama3.1:8b calibration and $%.4f$ on qwen3:4b" % (
+        l["true_mean_delta2"], l["sd_excess"], q["sd_excess"])
+    nulls = [r for r in R if r["scenario"] in ("null", "pop_null")]
+    ph["null_rej"] = "rejected in %s to %s of datasets, and the replicate-paired test in %s to %s" % (
+        pc(min(r["reject_signflip_0.05"] for r in nulls)), pcu(max(r["reject_signflip_0.05"] for r in nulls)),
+        pc(min(r["reject_rep_signflip_0.05"] for r in nulls)), pcu(max(r["reject_rep_signflip_0.05"] for r in nulls)))
+    ph["degen"] = "in %s of no-effect datasets on the qwen3:4b calibration" % pc(g("qwen3", "null", 0.0)["signflip_cannot_reject"])
+    ph["pow"] = "at $d=0.05$ the vignette-level test rejected in $%.2f$, $%.2f$ and $%.2f$ of datasets for homogeneous floors of $0.02$, $0.10$ and $0.22$, and in $%.2f$ and $%.2f$ on the qwen3:4b and llama3.1:8b calibrations" % (
+        g("homog_0.02", "same", 0.05)["reject_signflip_0.05"], g("homog_0.10", "same", 0.05)["reject_signflip_0.05"],
+        g("homog_0.22", "same", 0.05)["reject_signflip_0.05"], g("qwen3", "same", 0.05)["reject_signflip_0.05"], g("llama", "same", 0.05)["reject_signflip_0.05"])
+    sp = [r for r in R if r["scenario"].startswith("sparse")]
+    q12 = [r for r in sp if r["calibration"] == "qwen3" and r["scenario"].split("_")[1] in ("1", "2")]
+    ph["sparse_degen"] = "could not reach $p<0.05$ in %s of datasets with one or two shifted vignettes on the qwen3:4b calibration" % pc(min(r["signflip_cannot_reject"] for r in q12))
+    ph["sparse_vig"] = "rejected in at most %s of datasets in any calibration" % pcu(max(r["reject_signflip_0.05"] for r in sp))
+    ph["sparse_rep"] = "the replicate-paired test rejected in $%.2f$ of datasets on the qwen3:4b calibration with four vignettes shifted by $0.5$ and in $%.2f$ on llama3.1:8b" % (
+        g("qwen3", "sparse_4_0.5", 0.5)["reject_rep_signflip_0.05"], g("llama", "sparse_4_0.5", 0.5)["reject_rep_signflip_0.05"])
+    op = [r for r in R if r["scenario"] == "opposing"]
+    ph["opp"] = "rejected in at most %s (vignette-level) and %s (replicate-paired) of datasets" % (
+        pcu(max(r["reject_signflip_0.05"] for r in op)), pcu(max(r["reject_rep_signflip_0.05"] for r in op)))
+    ph["opp_ex"] = "the crossed interval of the excess lay above zero in at most %s of datasets for $d\le 0.10$ and in %s to %s at $d=0.20$" % (
+        pcu(max(r["excess_ci_excludes_zero"] for r in op if r["d"] <= 0.1 + 1e-9)),
+        pc(min(r["excess_ci_excludes_zero"] for r in op if r["d"] > 0.15)), pc(max(r["excess_ci_excludes_zero"] for r in op if r["d"] > 0.15)))
+    fixed = [r for r in R if not r["scenario"].startswith("pop")]
+    pop = [r for r in R if r["scenario"].startswith("pop")]
+    ph["cov_fixed"] = "in at least %s and %s of datasets in every fixed-case scenario" % (
+        pc(int(1000 * min(r["coverage_shift"] for r in fixed)) / 1000.0), pc(int(1000 * min(r["coverage_delta2"] for r in fixed)) / 1000.0))
+    ph["cov_pop"] = "fell to %s for the mean shift and %s for the mean $\delta^2$ at the largest heterogeneous effect" % (
+        pc(min(r["coverage_shift"] for r in pop)), pc(min(r["coverage_delta2"] for r in pop)))
+    return ph
+
+
 def aud_c4(x):
     f = "%.4f" % x
     if float(f) == 0:
@@ -244,6 +320,36 @@ def aud_att_rows(att):
             rows.append("%s & %s & %d & %d & %d & %d \\\\" % (mname if k == 0 else "", names[arm], a["prompts"],
                                                            a["first_attempt_failures"], a["retries"], a["final_failures"]))
     return rows
+
+
+def aud_rep_counts(model, arm):
+    """Replicate-paired differences (pooled five actions) of an end-to-end contrast: (# positive, # tied)."""
+    import numpy as np
+    import audit_validation as _a
+    import crossed_boot as _cb
+    ref = _a.load("audit_cb_%s_reference" % model, _a.REF)
+    x = _a.load("audit_cb_%s_%s" % (model, arm), _a.COND[arm])
+    vs = sorted(_cb.complete_vs(ref) & _cb.complete_vs(x))
+    D = np.nanmean((_a.tensor(x, vs) - _a.tensor(ref, vs))[:, :, _a.I5].reshape(len(ref), -1), axis=1)
+    return int((D > 1e-12).sum()), int((np.abs(D) <= 1e-12).sum())
+
+
+def aud_rep_order(model, arm):
+    """Replicate-paired differences split by which of the two arms ran first in the window:
+    (# positive, # tied, # replicates) for reference-first and for compared-first."""
+    import numpy as np
+    import audit_validation as _a
+    import crossed_boot as _cb
+    sch = json.load(open(os.path.join(ROOT, "experiments", "audit_cb_schedule.json"), encoding="utf-8"))["orders"]
+    ref = _a.load("audit_cb_%s_reference" % model, _a.REF)
+    x = _a.load("audit_cb_%s_%s" % (model, arm), _a.COND[arm])
+    vs = sorted(_cb.complete_vs(ref) & _cb.complete_vs(x))
+    D = np.nanmean((_a.tensor(x, vs) - _a.tensor(ref, vs))[:, :, _a.I5].reshape(len(ref), -1), axis=1)
+    out = []
+    for first_ref in (True, False):
+        rr = [r for r in range(len(ref)) if (sch[str(r + 1)].index("reference") < sch[str(r + 1)].index(arm)) == first_ref]
+        out.append((int(sum(D[r] > 1e-12 for r in rr)), int(sum(abs(D[r]) <= 1e-12 for r in rr)), len(rr)))
+    return out
 
 
 def aud_phrases(av, rd, att):
@@ -268,9 +374,18 @@ def aud_phrases(av, rd, att):
     assert abs(100 * ln["f0"] - pct) < 1.5 and abs(100 * ln["f1"] - pct) < 1.5
     ph["pct23"] = pct
     ph["flip23"] = "a flip rate of about $%d\\%%$ therefore arises" % pct
-    ph["dem_ex"] = "excess was %s (%s) on llama3.1:8b and %s (%s) on qwen3:4b ($p=%.2f$ and $%.2f$)" % (
-        aud_m(ld["excess"], True), aud_ci_m(ld["ci_excess"]), aud_m(qd["excess"], True), aud_ci_m(qd["ci_excess"]),
-        ld["sign_flip_p_two_sided"], qd["sign_flip_p_two_sided"])
+    ph["dem_ex2"] = "The demographic contrast's excess was %s (%s) on llama3.1:8b and %s (%s) on qwen3:4b" % (
+        aud_m(ld["excess"], True), aud_ci_m(ld["ci_excess"]), aud_m(qd["excess"], True), aud_ci_m(qd["ci_excess"]))
+    ph["dem_vp"] = "(vignette-level sign-flip $p=%.2f$ and $%.2f$)" % (ld["sign_flip_p_two_sided"], qd["sign_flip_p_two_sided"])
+    pos, tie = aud_rep_counts("qwen3", "demographic")
+    ph["rep"] = "It gave $p=%.3f$ on qwen3:4b, where the demographic arm's pooled action rate exceeded the reference's in $%d$ of $12$ replicates ($%d$ tied), and $p=%.2f$ on llama3.1:8b, against $p=%.2f$ and $%.2f$ for the null controls" % (
+        qd["rep_sign_flip_p_two_sided_post_hoc"], pos, tie, ld["rep_sign_flip_p_two_sided_post_hoc"],
+        qn["rep_sign_flip_p_two_sided_post_hoc"], ln["rep_sign_flip_p_two_sided_post_hoc"])
+    (a_p, a_t, a_n), (b_p, b_t, b_n) = aud_rep_order("qwen3", "demographic")
+    ph["order"] = "the difference was positive in $%d$ of the $%d$ replicates in which the reference ran first and in $%d$ of the $%d$ in which the demographic arm ran first ($%d$ tied)" % (a_p, a_n, b_p, b_n, a_t + b_t)
+    ph["bonf"] = qd["rep_sign_flip_p_two_sided_post_hoc"] * 4 < 0.05
+    ph["degen"] = "On qwen3:4b only $%d$ of the sixteen vignette-level shifts were non-zero, so the vignette-level test could not reach a $p$-value below $%.3f$" % (
+        qd["n_nonzero_vignettes"], qd["min_attainable_p"])
     cs = Q["demographic"]["per_action"]["cs_caution"]
     allsh = [abs(c["per_action"][a]["mean_shift"]) for m in (L, Q) for c in (m["demographic"],) for a in c["per_action"]]
     assert abs(cs["mean_shift"]) == max(allsh)
@@ -279,25 +394,6 @@ def aud_phrases(av, rd, att):
         aud_m(cs["mean_shift"], True), cs["sign_flip_p_two_sided"], aud_m(csl["mean_shift"], True), csl["sign_flip_p_two_sided"])
     ph["dem_sh"] = "Its signed shift was %s (%s) on llama3.1:8b and %s (%s) on qwen3:4b" % (
         aud_m(ld["mean_shift"], True), aud_ci_m(ld["ci_mean_shift"]), aud_m(qd["mean_shift"], True), aud_ci_m(qd["ci_mean_shift"]))
-    inj = {mk: aud_inj_pooled(av, mk) for mk in ("llama", "qwen3")}
-    allp = inj["llama"] + inj["qwen3"]
-    ph["netbias"] = "stayed within %s" % aud_m(max(abs(s["bias_mean_shift_net_of_baseline"]) for s in allp))
-    g = lambda mk, mode, th: [s for s in inj[mk] if s["mode"] == mode and abs(s["theta"] - th) < 1e-9][0]
-    q05 = g("qwen3", "same_sign", 0.05)
-    ph["qwen_pow"] = "power %s on qwen3:4b already at $\\theta=0.05$ (mean injected shift %s)" % (
-        "$%.3f$" % q05["power_sign_test_0.05"], aud_m(q05["true_mean_shift"]))
-    l05, l10 = g("llama", "same_sign", 0.05), g("llama", "same_sign", 0.10)
-    ph["llama_pow"] = "llama3.1:8b reached power $%.3f$ at $\\theta=0.05$ and $%.3f$ at $\\theta=0.10$" % (
-        l05["power_sign_test_0.05"], l10["power_sign_test_0.05"])
-    opp = [s for s in allp if s["mode"] == "opposing"]
-    ph["opp_pow"] = "never exceeded $%.3f$" % max(s["power_sign_test_0.05"] for s in opp)
-    nl_, nq_ = [aud_net_excess(s) for s in inj["llama"]], [aud_net_excess(s) for s in inj["qwen3"]]
-    assert max(nl_) < 0 < min(nq_)
-    ph["sq"] = "net bias between %s and %s on llama3.1:8b and between %s and %s on qwen3:4b, against true means of %s to %s" % (
-        *["$%.4f$" % x for x in (min(nl_), max(nl_), min(nq_), max(nq_))],
-        "$%.4f$" % min(s["true_mean_delta2"] for s in allp), "$%.4f$" % max(s["true_mean_delta2"] for s in allp))
-    mincov = min(min(s["coverage_mean_shift_ci"], s["coverage_excess_ci"]) for s in allp)
-    ph["cov"] = "at least $%.1f\\%%$" % (int(mincov * 1000) / 10.0)
     ph["abs_pct"] = "about %d\\%%" % pct
     return ph
 
@@ -1107,28 +1203,44 @@ def main() -> int:
         claim("e2e render diff cells", _rd["null_byte_identical"], _ph["cells"])
         claim("e2e attempts", _ph["attempts"], _ph["attempts"])
         claim("e2e retries (expected 0/0)", "%d/%d" % (sum(a["retries"] for a in _att.values()), sum(a["final_failures"] for a in _att.values())), "produced no retries and no final failures")
-        for _k in ("null_d", "null_p", "null_ex", "flip23", "dem_ex", "dem_sh", "cs", "netbias", "qwen_pow", "llama_pow", "opp_pow", "sq"):
+        for _k in ("null_d", "null_p", "null_ex", "flip23", "dem_ex2", "dem_vp", "rep", "degen", "order", "dem_sh", "cs"):
             claim("e2e " + _k, _ph[_k], _ph[_k])
-        claim("e2e coverage not interpreted (main)", "-", "interval coverage here is not a frequentist check and is not interpreted")
-        claim("e2e coverage not interpreted (SI)", "-", "the coverage columns are not a frequentist check and are not interpreted")
         claim("e2e abstract pct", _ph["pct23"], "(about %d\\%% on one model)" % _ph["pct23"])
         for _r in aud_main_rows(_av):
             claim("e2e main table row", _r[:40], _r)
         for _r in aud_si_action_rows(_av):
             claim("e2e SI per-action row", _r[:40], _r)
-        for _r in aud_si_inj_rows(_av):
-            claim("e2e SI injection row", _r[:40], _r)
         for _r in aud_att_rows(_att):
             claim("e2e SI attempt row", _r[:40], _r)
         _meta = _av["meta"]
         claim("e2e bootstrap B", _meta["B"], "$B=%d$" % _meta["B"])
-        claim("e2e injection seeds", _meta["n_seeds"], "$%d$ seeds" % _meta["n_seeds"])
-        claim("e2e injection inner B", _meta["inner_B"], "inner bootstrap of $B=%d$" % _meta["inner_B"])
         claim("e2e identity gap (max abs)", "%.0e" % max(abs(c["pooled_5action"]["identity_gap_excess_minus_corrected"]) for m in _av["models"].values() for c in m["contrasts"].values()),
               "below $10^{-16}$") if max(abs(c["pooled_5action"]["identity_gap_excess_minus_corrected"]) for m in _av["models"].values() for c in m["contrasts"].values()) < 1e-16 else _chk("e2e identity gap", "too large", False)
-        _bsl = aud_inj_pooled(_av, "llama")[0]["baseline_mean_shift_uninjected"]
-        assert all(abs(x["baseline_mean_shift_uninjected"] - _bsl) < 1e-12 for x in aud_inj_pooled(_av, "llama"))
-        claim("e2e baseline offset llama", round(_bsl, 3), "(%s for llama3.1:8b, pooled over the five actions)" % aud_m(_bsl))
+        # Concentration of the qwen3:4b demographic shift (admission draws per vignette).
+        import audit_validation as _a2
+        import crossed_boot as _cb2
+        _r0 = _a2.load("audit_cb_qwen3_reference", _a2.REF)
+        _r1 = _a2.load("audit_cb_qwen3_demographic", _a2.COND["demographic"])
+        _vs = sorted(_cb2.complete_vs(_r0) & _cb2.complete_vs(_r1))
+        _X0, _X1 = _a2.tensor(_r0, _vs), _a2.tensor(_r1, _vs)
+        _ka = _a2.KEYS.index("admit")
+        _adm = sorted((int(_X0[:, j, _ka].sum()), int(_X1[:, j, _ka].sum())) for j in range(len(_vs)) if _X0[:, j, _ka].sum() != _X1[:, j, _ka].sum())
+        _chk("qwen3 admission moved in two vignettes 0->5 and 3->8", _adm, _adm == [(0, 5), (3, 8)])
+        claim("qwen3 admission draws text", _adm, "from $0$ to $5$ and from $3$ to $8$ of $12$ draws")
+        _oth = [(j, k) for j in range(len(_vs)) for k in _a2.I5 if k != _ka and _X0[:, j, k].sum() != _X1[:, j, k].sum()]
+        _chk("qwen3 other moved cells: one or two draws in three vignettes", _oth,
+             len({j for j, _ in _oth}) == 3 and all(abs(_X0[:, j, k].sum() - _X1[:, j, k].sum()) in (1, 2) for j, k in _oth))
+
+        # Known-truth simulation (experiments/audit_sim.json); replaces the injection into observed draws.
+        _sj = sim_load()
+        for _k, _x in sim_phrases(_sj).items():
+            claim("sim " + _k, _x, _x)
+        for _r in sim_rows(_sj, False) + sim_rows(_sj, True):
+            claim("sim SI row", _r[:40], _r)
+        _chk("sim MCSE bounds as stated", "", max(r["mcse_bias_shift"] for r in _sj["rows"]) < 0.00125 and max(r["mcse_bias_excess"] for r in _sj["rows"]) < 0.00055)
+        claim("sim MCSE text", "-", "at most $0.0012$ for the shift and $0.0005$ for the excess")
+        claim("sim design", (_sj["meta"]["nsim"], _sj["meta"]["inner_B"]), "Each scenario used $%d$ datasets and a crossed bootstrap of $%d$ resamples per dataset" % (_sj["meta"]["nsim"], _sj["meta"]["inner_B"]))
+        _chk("audit_validation.json has no injection block", "", all("injection" not in m for m in _av["models"].values()))
         # Condition order and elapsed time (experiments/audit_order_check.json).
         _oc = json.load(open(os.path.join(ROOT, "experiments", "audit_order_check.json"), encoding="utf-8"))["models"]
         _ocs = tuple("%.2f" % _oc[m]["p_" + k] for m in ("llama", "qwen3") for k in ("position", "time"))
@@ -1361,6 +1473,9 @@ def main() -> int:
         ]
         for needle, why, allow in V3_RETIRED:
             for m in re.finditer(re.escape(needle), tex_stale):
+                # a needle starting with a digit must not be the tail of a longer number (8.7% inside 28.7%)
+                if needle[:1].isdigit() and m.start() > 0 and (tex_stale[m.start() - 1].isdigit() or tex_stale[m.start() - 1] == "."):
+                    continue
                 window = tex_stale[max(0, m.start() - 260):m.end() + 260]
                 if not any(w in window for w in allow):
                     stale.append((needle, why))

@@ -1,0 +1,554 @@
+{
+ "answers": [
+  {
+   "id": 8,
+   "action": {
+    "orders": [
+     "HbA1c",
+     "C-Peptide",
+     "Fasting Lipid Panel",
+     "Urinalysis",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Blood ketones",
+     "Coagulation profile"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "action": {
+    "orders": [
+     "Urine analysis",
+     "CBC",
+     "Creatinine",
+     "Urine microscopy",
+     "ECG",
+     "CT Abdomen and Pelvis"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "action": {
+    "orders": [
+     "CBC",
+     "Metabolic Panel",
+     "LFT",
+     "Ammonia Level",
+     "Urinalysis",
+     "Chest X-ray",
+     "Abdominal CT Scan"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "D-Dimer",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "action": {
+    "orders": [
+     "BNP",
+     "CBC",
+     "Chem-7",
+     "Urinalysis",
+     "ECG",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "action": {
+    "orders": [
+     "Urinalysis",
+     "Complete Blood Count",
+     "Blood Urea Nitrogen (BUN)",
+     "Creatinine",
+     "Urine Culture and Sensitivity"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "action": {
+    "orders": [
+     "CBC",
+     "Chemistry panel",
+     "Blood glucose",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Glucose"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "action": {
+    "orders": [
+     "Complete Blood Count",
+     "Coagulation Panel",
+     "X-ray - Full Body",
+     "X-ray - Focused on the femur",
+     "CT Scan - Pelvis"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "action": {
+    "orders": [
+     "CBC",
+     "Metabisulfite",
+     "ESR"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "action": {
+    "orders": [
+     "ASPARTATE AMINOTRANSFERASE",
+     "ALANINE AMINOTRANSFERASE",
+     "ALKALINE PHOSPHATASE",
+     "GAMMA-GLOBULIN",
+     "BILIRUBIN TOTAL",
+     "ALFA-FETOPROTEIN"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "action": {
+    "orders": [
+     "CBC",
+     "Chest X-ray",
+     "Urinalysis",
+     "LFT",
+     "Amylase",
+     " Lipase"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "action": {
+    "orders": [
+     "CBC",
+     "LFT",
+     "stool culture",
+     "stool occult blood test",
+     "amylase",
+     "lipase"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "EKG",
+     "TSH",
+     "PT/INR"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "CBC",
+     "D-dimer",
+     "Arterial blood gas"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "action": {
+    "orders": [
+     "Troponin I",
+     "D-Dimer",
+     "CBC",
+     "CMP",
+     "ECG"
+    ]
+   }
+  }
+ ],
+ "attempts": [
+  {
+   "id": 8,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:19Z",
+     "duration_s": 2.661
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "HbA1c",
+     "C-Peptide",
+     "Fasting Lipid Panel",
+     "Urinalysis",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Blood ketones",
+     "Coagulation profile"
+    ]
+   }
+  },
+  {
+   "id": 20,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:22Z",
+     "duration_s": 1.94
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urine analysis",
+     "CBC",
+     "Creatinine",
+     "Urine microscopy",
+     "ECG",
+     "CT Abdomen and Pelvis"
+    ]
+   }
+  },
+  {
+   "id": 32,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:24Z",
+     "duration_s": 2.148
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Metabolic Panel",
+     "LFT",
+     "Ammonia Level",
+     "Urinalysis",
+     "Chest X-ray",
+     "Abdominal CT Scan"
+    ]
+   }
+  },
+  {
+   "id": 44,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:26Z",
+     "duration_s": 1.416
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "D-Dimer",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 56,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:27Z",
+     "duration_s": 1.739
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "BNP",
+     "CBC",
+     "Chem-7",
+     "Urinalysis",
+     "ECG",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 68,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:29Z",
+     "duration_s": 2.03
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Urinalysis",
+     "Complete Blood Count",
+     "Blood Urea Nitrogen (BUN)",
+     "Creatinine",
+     "Urine Culture and Sensitivity"
+    ]
+   }
+  },
+  {
+   "id": 80,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:31Z",
+     "duration_s": 1.407
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Chemistry panel",
+     "Blood glucose",
+     "Chest X-ray"
+    ]
+   }
+  },
+  {
+   "id": 92,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:32Z",
+     "duration_s": 1.601
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Lipase",
+     "Amylase",
+     "Complete Blood Count",
+     "Electrolytes",
+     "Glucose"
+    ]
+   }
+  },
+  {
+   "id": 104,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:34Z",
+     "duration_s": 2.073
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Complete Blood Count",
+     "Coagulation Panel",
+     "X-ray - Full Body",
+     "X-ray - Focused on the femur",
+     "CT Scan - Pelvis"
+    ]
+   }
+  },
+  {
+   "id": 116,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:36Z",
+     "duration_s": 1.021
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Metabisulfite",
+     "ESR"
+    ]
+   }
+  },
+  {
+   "id": 128,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:37Z",
+     "duration_s": 3.257
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ASPARTATE AMINOTRANSFERASE",
+     "ALANINE AMINOTRANSFERASE",
+     "ALKALINE PHOSPHATASE",
+     "GAMMA-GLOBULIN",
+     "BILIRUBIN TOTAL",
+     "ALFA-FETOPROTEIN"
+    ]
+   }
+  },
+  {
+   "id": 140,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:40Z",
+     "duration_s": 1.727
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "Chest X-ray",
+     "Urinalysis",
+     "LFT",
+     "Amylase",
+     " Lipase"
+    ]
+   }
+  },
+  {
+   "id": 152,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:42Z",
+     "duration_s": 1.753
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "LFT",
+     "stool culture",
+     "stool occult blood test",
+     "amylase",
+     "lipase"
+    ]
+   }
+  },
+  {
+   "id": 164,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:44Z",
+     "duration_s": 1.376
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "CBC",
+     "CMP",
+     "EKG",
+     "TSH",
+     "PT/INR"
+    ]
+   }
+  },
+  {
+   "id": 176,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:45Z",
+     "duration_s": 1.599
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "ECG",
+     "Troponin I",
+     "CBC",
+     "D-dimer",
+     "Arterial blood gas"
+    ]
+   }
+  },
+  {
+   "id": 188,
+   "attempts": [
+    {
+     "n": 1,
+     "temperature": null,
+     "parsed": true,
+     "t_start": "2026-10-13T18:14:47Z",
+     "duration_s": 1.484
+    }
+   ],
+   "first_action": {
+    "orders": [
+     "Troponin I",
+     "D-Dimer",
+     "CBC",
+     "CMP",
+     "ECG"
+    ]
+   }
+  }
+ ],
+ "provenance": {
+  "model": "mistral:7b-instruct",
+  "temperature_first": null,
+  "temperature_retry": null,
+  "retry_policy": "same",
+  "retried_ids": [],
+  "failed_ids": []
+ }
+}
